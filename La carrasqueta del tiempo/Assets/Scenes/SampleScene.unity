@@ -298,6 +298,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteSorter
   sortingOffset: 100
+--- !u!1 &268787151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2794235050187460128, guid: f8efe8b5b43a03752b1ea260ddeaaccb, type: 3}
+  m_PrefabInstance: {fileID: 8023304270827458875}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &282483809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d95cb3d1cec72530875ef8d1ec7e43f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapToggleClassic
-  mapPanel: {fileID: 0}
+  mapPanel: {fileID: 268787151}
   movementComponentName: ArrowMovement
   playerMovementScript: {fileID: 1182651488}
 --- !u!1 &1144957925
@@ -2106,6 +2111,10 @@ PrefabInstance:
       propertyPath: mapToggle
       value: 
       objectReference: {fileID: 1121950294}
+    - target: {fileID: 516811198864968792, guid: f8efe8b5b43a03752b1ea260ddeaaccb, type: 3}
+      propertyPath: mapPanel
+      value: 
+      objectReference: {fileID: 268787151}
     - target: {fileID: 2908160412171224221, guid: f8efe8b5b43a03752b1ea260ddeaaccb, type: 3}
       propertyPath: m_Name
       value: MapRoot
