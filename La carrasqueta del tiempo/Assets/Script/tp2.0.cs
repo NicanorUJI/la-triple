@@ -10,10 +10,17 @@ public class CambioDeEscenaPorIndice : MonoBehaviour
 
     public float retardo = 0f; // segundos antes de cambiar, opcional
 
+    // 🔹 NUEVA VARIABLE para guardar el nombre del punto de entrada
+    public string nombrePuntoEntrada;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(tagJugador))
         {
+            // 🔹 NUEVA LÍNEA: guarda el nombre antes de cambiar de escena
+            if (GameManager.Instance != null)
+                GameManager.Instance.lastExitName = nombrePuntoEntrada;
+
             StartCoroutine(CambiarEscena());
         }
     }

@@ -1,0 +1,26 @@
+using UnityEngine;
+
+public class TestNPC : MonoBehaviour, IInteractable
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public bool CanInteract()
+    {
+        return true;
+    }
+
+    public void Interact()
+    {
+
+    }
+}
