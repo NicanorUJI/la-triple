@@ -17,7 +17,7 @@ public class InteractionDetector : MonoBehaviour
     public void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Keyboard.current?.eKey.wasPressedThisFrame == true)
         {
             Debug.Log("Interactuando");
             interactableInRange.Interact();
