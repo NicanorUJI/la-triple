@@ -680,6 +680,9 @@ GameObject:
   - component: {fileID: 312037077}
   m_Layer: 8
   m_Name: NPC
+  - component: {fileID: 306412597}
+  m_Layer: 0
+  m_Name: Plaza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1416,6 +1419,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &741542684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 741542686}
+  - component: {fileID: 741542685}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &741542685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741542684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d634e9c47cf892048ad70a7d4d28a182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  lastExitName: 
+--- !u!4 &741542686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741542684}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.83196, y: -0.00861, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &907637097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,6 +2180,7 @@ GameObject:
   - component: {fileID: 1182651488}
   - component: {fileID: 1182651489}
   - component: {fileID: 1182651490}
+  - component: {fileID: 1182651491}
   m_Layer: 8
   m_Name: 'Joaquin '
   m_TagString: Player
@@ -2315,6 +2364,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteSorter
   sortingOffset: 100
+--- !u!114 &1182651491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182651483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572b8f79889222940838e4fdb405433d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpawnPoint
 --- !u!1 &1335134054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3085,6 +3146,7 @@ MonoBehaviour:
   indiceEscena: 1
   tagJugador: Player
   retardo: 0
+  nombrePuntoEntrada: CallejonPlaza
 --- !u!212 &1846082295
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3463,3 +3525,5 @@ SceneRoots:
   - {fileID: 312037081}
   - {fileID: 1123338724}
   - {fileID: 1087007038}
+  - {fileID: 741542686}
+  - {fileID: 306412597}
