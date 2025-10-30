@@ -6,6 +6,6 @@ public class PlayButtonUI : MonoBehaviour
     public void PlayGame()
     {
         // Cambia "GameScene" por el nombre real de tu escena
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Plaza");
     }
 }
