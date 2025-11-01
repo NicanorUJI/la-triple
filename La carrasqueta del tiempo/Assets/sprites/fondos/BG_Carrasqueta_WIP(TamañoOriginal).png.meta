@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0682d7798f0cafe46b0027b0bcf792bd
+guid: 4112c495376764b49903482077ea0f70
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4130640169021434097
-    second: 5_0
+      213: -833772956623590838
+    second: "BG_Carrasqueta_WIP(Tama\xF1oOriginal)_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 5_0
+      name: "BG_Carrasqueta_WIP(Tama\xF1oOriginal)_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 385
+        width: 320
         height: 112
-      alignment: 9
-      pivot: {x: 0.5684851, y: 0.07509011}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f86b71495bf25930800000000000000
-      internalID: 4130640169021434097
+      spriteID: a4aaf19d9e7dd64f0800000000000000
+      internalID: -833772956623590838
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c1265a07f3946954db042597745f272b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      5_0: 4130640169021434097
+      "BG_Carrasqueta_WIP(Tama\xF1oOriginal)_0": -833772956623590838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
