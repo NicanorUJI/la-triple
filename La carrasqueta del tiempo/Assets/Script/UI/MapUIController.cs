@@ -16,7 +16,7 @@ public class MapUIController : MonoBehaviour
         {
             case "carrasqueta": SceneManager.LoadScene("Carrasqueta"); break;
             case "plaza":       SceneManager.LoadScene("Plaza");       break;
-            case "ermita":      SceneManager.LoadScene("SampleScene");      break;
+            case "placita":      SceneManager.LoadScene("Placita");      break;
             default:
                 Debug.LogWarning($"[MAP] No hay escena configurada para: {zoneName}");
                 break;
