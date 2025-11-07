@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Portal
+  - Puerta1
+  - Llave1
+  - Llave2
+  - Puerta2
   layers:
   - Default
   - TransparentFX
