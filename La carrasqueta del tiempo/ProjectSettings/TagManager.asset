@@ -9,6 +9,8 @@ TagManager:
   - Llave1
   - Llave2
   - Puerta2
+  - Activator
+  - Beat
   layers:
   - Default
   - TransparentFX
