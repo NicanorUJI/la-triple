@@ -130,16 +130,7 @@ public class DominoUI : MonoBehaviour
     void ShowSideChooser(DominoTile tile)
     {
         txtMensaje.text = "Elegí lado: IZQ o DER";
-        // Solución simple: si apretás PASAR = IZQ, si apretás ROBAR = DER (solo por placeholder) 🙃
-        // Mejor: creá dos botones hijos de PanelControles llamados BtnIzq/BtnDer y úsalos aquí.
-        // Código ejemplo si tuvieras esos botones:
-        // btnIzq.onClick.RemoveAllListeners();
-        // btnDer.onClick.RemoveAllListeners();
-        // btnIzq.onClick.AddListener(()=> { turn.TryPlayLeft(PlayerIndex, tile); RedrawHand(); txtMensaje.text=""; });
-        // btnDer.onClick.AddListener(()=> { turn.TryPlayRight(PlayerIndex, tile); RedrawHand(); txtMensaje.text=""; });
-        // btnIzq.gameObject.SetActive(true); btnDer.gameObject.SetActive(true);
-
-        // Si no querés crear más botones aún, por defecto uso derecha:
+        // por defecto uso derecha:
         turn.TryPlayRight(PlayerIndex, tile);
         txtMensaje.text = "";
     }
@@ -151,7 +142,7 @@ public class DominoUI : MonoBehaviour
         if (winnerIndex == PlayerIndex)
         {
             txtResultado.text = "¡Ganaste!";
-            txtRecompensa.text = "Has obtenido el tarro de miel 🏺🍯";
+            txtRecompensa.text = "Has obtenido el tarro de miel";
             RewardSystemHook.Grant("TarroDeMiel");
         }
         else if (winnerIndex == -1)
