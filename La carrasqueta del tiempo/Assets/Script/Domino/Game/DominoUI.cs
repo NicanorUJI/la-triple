@@ -12,12 +12,13 @@ public class DominoUI : MonoBehaviour
 {
     [Header("Refs")]
     public TurnManager turn;
-    public Transform panelMesa;
+    public RectTransform panelMesa;
     public Transform panelMano;
     public Button btnRobar;
     public Button btnPasar;
     public TMP_Text txtTurno;
     public TMP_Text txtMensaje;
+    public Canvas mainCanvas;
 
     [Header("Fin de partida")]
     public GameObject panelFinPartida;
@@ -74,13 +75,15 @@ public class DominoUI : MonoBehaviour
         foreach (var v in _mesaViews) Destroy(v.gameObject);
         _mesaViews.Clear();
 
-        // Instanciar las fichas de la mesa dentro de MesaContent (el contenedor del ScrollRect)
         foreach (var t in turn.Board.Chain)
         {
             var v = Instantiate(tileViewPrefab, contenidoMesa);
-            v.Setup(t, null, false);
+            v.Setup(t, mainCanvas, false);
             _mesaViews.Add(v);
         }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(contenidoMesa);
+        if (scrollMesa) scrollMesa.normalizedPosition = new Vector2(1f, 0f);
     }
 
     void RedrawHand()
@@ -89,7 +92,6 @@ public class DominoUI : MonoBehaviour
         _manoViews.Clear();
 
         var hand = turn.Players[PlayerIndex].Hand;
-        var moves = RulesEngine.GetValidMoves(hand, turn.Board);
         bool isMyTurn = turn.CurrentPlayerIndex == PlayerIndex;
 
         foreach (var t in hand)
@@ -101,7 +103,7 @@ public class DominoUI : MonoBehaviour
             );
 
             var v = Instantiate(tileViewPrefab, panelMano);
-            v.Setup(t, OnTileClicked, canPlay);
+            v.Setup(t, mainCanvas, OnTileDropped, canPlay);
             _manoViews.Add(v);
         }
     }
@@ -171,5 +173,65 @@ public class DominoUI : MonoBehaviour
             panelFinPartida.SetActive(false);
             SceneManager.LoadScene("Plaza");
         });
+    }
+
+    void OnTileDropped(DominoTile tile, Vector2 screenPos)
+    {
+        // Si no es tu turno, ignorar
+        if (turn.CurrentPlayerIndex != PlayerIndex)
+        {
+            RedrawHand(); // vuelve todo a su sitio
+            return;
+        }
+
+        // ¿Se soltó encima de la mesa?
+        if (!RectTransformUtility.RectangleContainsScreenPoint(panelMesa, screenPos, mainCanvas.worldCamera))
+        {
+            // Fuera de la mesa → no se juega
+            RedrawHand();
+            return;
+        }
+
+        bool canLeft  = turn.Board.CanPlaceLeft(tile);
+        bool canRight = turn.Board.CanPlaceRight(tile);
+
+        // Calcular si soltó más hacia la izquierda o derecha de la mesa
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            panelMesa,
+            screenPos,
+            mainCanvas.worldCamera,
+            out var localPos);
+
+        bool dropLeftSide = localPos.x < 0f; // x < 0 = mitad izquierda
+
+        bool toLeft;
+
+        if (canLeft && canRight)
+        {
+            // Puede ir a ambos lados: usamos la mitad de la mesa
+            toLeft = dropLeftSide;
+        }
+        else if (canLeft)
+        {
+            toLeft = true;
+        }
+        else if (canRight)
+        {
+            toLeft = false;
+        }
+        else
+        {
+            // Ningún lado válido → jugada inválida
+            txtMensaje.text = "Jugada inválida";
+            RedrawHand();
+            return;
+        }
+
+        if (toLeft) turn.TryPlayLeft(PlayerIndex, tile);
+        else        turn.TryPlayRight(PlayerIndex, tile);
+
+        // Refrescar mesa y mano después de la jugada
+        RedrawBoard();
+        RedrawHand();
     }
 }

@@ -1831,6 +1831,7 @@ MonoBehaviour:
   btnPasar: {fileID: 1142880781}
   txtTurno: {fileID: 1005497733}
   txtMensaje: {fileID: 1475111294}
+  mainCanvas: {fileID: 1353578813}
   panelFinPartida: {fileID: 116079960}
   txtResultado: {fileID: 1199803013}
   txtRecompensa: {fileID: 635279641}

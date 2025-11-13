@@ -1,35 +1,114 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using Domino.Core;
-using TMPro;
 using System;
+using TMPro;
 
 namespace Domino.UI
 {
-    public class DominoTileView : MonoBehaviour
+    public class DominoTileView : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] TMP_Text label;
-        [SerializeField] Button button;
+        [SerializeField] CanvasGroup canvasGroup;
+
+        RectTransform rectTransform;
+        Canvas parentCanvas;
 
         DominoTile _tile;
-        Action<DominoTile> _onClick;
+        Action<DominoTile, Vector2> _onEndDrag;
+        bool _interactable;
+        Vector2 _startAnchoredPos;
 
-        public void Setup(DominoTile tile, Action<DominoTile> onClick, bool interactable = true)
+        RectTransform parentRect;
+        Vector2 dragOffset;
+
+        void Awake()
+        {
+            rectTransform = GetComponent<RectTransform>();
+            if (!canvasGroup) canvasGroup = GetComponent<CanvasGroup>();
+            parentRect = transform.parent as RectTransform;
+        }
+
+        /// <summary>Setup completo con drag callback.</summary>
+        public void Setup(
+            DominoTile tile,
+            Canvas canvas,
+            Action<DominoTile, Vector2> onEndDrag,
+            bool interactable = true)
         {
             _tile = tile;
-            _onClick = onClick;
+            parentCanvas = canvas;
+            _onEndDrag = onEndDrag;
+            _interactable = interactable;
+
             if (label) label.text = $"{tile.A}|{tile.B}";
-            if (button)
+
+            if (canvasGroup)
             {
-                button.onClick.RemoveAllListeners();
-                button.onClick.AddListener(() => _onClick?.Invoke(_tile));
-                button.interactable = interactable;
+                canvasGroup.blocksRaycasts = true;
+                canvasGroup.alpha = interactable ? 1f : 0.4f;
             }
         }
 
-        public void SetInteractable(bool v)
+        /// <summary>Overload cómodo para fichas de la mesa (sin drag).</summary>
+        public void Setup(DominoTile tile, Canvas canvas, bool interactable = true)
         {
-            if (button) button.interactable = v;
+            Setup(tile, canvas, null, interactable);
+        }
+
+        public void SetInteractable(bool value)
+        {
+            _interactable = value;
+            if (canvasGroup)
+                canvasGroup.alpha = value ? 1f : 0.4f;
+        }
+
+        // --- Drag interfaces ---
+
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            if (!_interactable) return;
+
+            if (canvasGroup)
+                canvasGroup.blocksRaycasts = false;
+
+            if (parentRect == null)
+                parentRect = transform.parent as RectTransform;
+
+            // Posición del puntero en el espacio local del padre
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                parentRect,
+                eventData.position,
+                null, // RenderMode Overlay: cámara null
+                out var pointerLocalPos);
+
+            // Guardamos la diferencia entre donde está la ficha y donde está el puntero
+            dragOffset = rectTransform.anchoredPosition - pointerLocalPos;
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            if (!_interactable || parentRect == null) return;
+
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                parentRect,
+                eventData.position,
+                null, // si usas Screen Space - Overlay; si no, usa parentCanvas.worldCamera
+                out var pointerLocalPos);
+
+            // Mantener el offset inicial para que la ficha siga al cursor
+            rectTransform.anchoredPosition = pointerLocalPos + dragOffset;
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            if (!_interactable) return;
+
+            if (canvasGroup)
+                canvasGroup.blocksRaycasts = true;
+
+            _onEndDrag?.Invoke(_tile, eventData.position);
         }
     }
 }

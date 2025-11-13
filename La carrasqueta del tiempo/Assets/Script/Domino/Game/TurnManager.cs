@@ -129,12 +129,28 @@ namespace Domino.Game
 
             // Roba hasta que pueda jugar o hasta que no queden fichas
             bool drew = false;
-            while (Deck.TryDraw(out var t))
+            if (Deck.TryDraw(out var t))
             {
-                drew = true;
                 Players[player].Add(t);
                 OnLog?.Invoke($"P{player} roba {t}");
-                if (PlayerHasAnyMove(player)) break;
+            }
+            else
+            {
+                OnLog?.Invoke($"P{player} no puede robar (mazo vacío)");
+            }
+
+            // Luego de robar, si todavía no puede jugar → pasa
+            if (!PlayerHasAnyMove(player))
+            {
+                _consecutivePasses++;
+                OnLog?.Invoke($"P{player} pasa");
+                AdvanceTurnAndCheckBlock();
+            }
+            else
+            {
+                // Tiene una jugada ahora, pero termina su turno igual
+                _consecutivePasses = 0;
+                AdvanceTurn();
             }
 
             if (!PlayerHasAnyMove(player))
