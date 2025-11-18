@@ -151,10 +151,10 @@ public class Button_Controller_Morra : MonoBehaviour
         valueText.SetText("1");
     }
 
-    public void endGame()
+    /*public void endGame()
     {
         if (puntos_jugador >= 3) SceneManager.LoadScene(Plaza);
 
         else SceneManager.LoadScene(Escena Menú);
-    }
+    }*/
 }
