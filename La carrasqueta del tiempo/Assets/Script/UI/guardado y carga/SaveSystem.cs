@@ -25,5 +25,18 @@ public static class SaveSystem
             return null;
         }
     }
+
+    public static void DeleteSave()
+    {
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            Debug.Log("Archivo de guardado eliminado: " + path);
+        }
+        else
+        {
+            Debug.LogWarning("No se encontró archivo de guardado para eliminar.");
+        }
+    }
 }
 
