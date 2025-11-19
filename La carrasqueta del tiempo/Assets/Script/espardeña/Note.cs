@@ -27,10 +27,6 @@ public class Note : MonoBehaviour
         }
     }
 
-    
-
-
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Activator"))

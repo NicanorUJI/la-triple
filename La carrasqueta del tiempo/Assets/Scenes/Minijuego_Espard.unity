@@ -1960,10 +1960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e116180f0b7e44c942f877b3371b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoBeatDetectorTop50
+  beatInterval: 0.5
   initialFallSpeed: 3
-  maxFallSpeed: 8
-  speedIncreaseDuration: 60
-  energySpeedMultiplier: 10
   musicSource: {fileID: 1309484430}
   beatPrefab: {fileID: 3072582124033085596, guid: 26bfde979a0d4a247886a78498e28c0b, type: 3}
   spawnY: 5
@@ -2615,7 +2613,7 @@ GameObject:
   - component: {fileID: 2060937989}
   - component: {fileID: 2060937988}
   m_Layer: 5
-  m_Name: Salir
+  m_Name: "BotonMen\xFA"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -7,10 +7,9 @@ TagManager:
   - Portal
   - Puerta1
   - Llave1
-  - Llave2
-  - Puerta2
   - Activator
   - Beat
+  - PuertaAbierta
   layers:
   - Default
   - TransparentFX

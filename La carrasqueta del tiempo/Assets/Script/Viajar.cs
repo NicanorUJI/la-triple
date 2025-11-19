@@ -1,25 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class Viaje : MonoBehaviour, IInteractable
+public class PuertaAbiertaTP : MonoBehaviour
 {
-    [SerializeField] private string sceneToLoad; // Nombre de la escena a cargar
+    [SerializeField] private string sceneToLoad = "Plaza";
 
-    public bool CanInteract()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        return true; // Siempre se puede interactuar
-    }
-
-    public void Interact()
-    {
-        if (!string.IsNullOrEmpty(sceneToLoad))
+        if (collision.CompareTag("Player"))
         {
-            Debug.Log("Cambiando de escena a: " + sceneToLoad);
+            Debug.Log("Entrando por la puerta abierta");
             SceneManager.LoadScene(sceneToLoad);
-        }
-        else
-        {
-            Debug.LogWarning("No se ha asignado una escena en el NPC.");
         }
     }
 }
