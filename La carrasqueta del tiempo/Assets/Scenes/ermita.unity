@@ -489,11 +489,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1928441445
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -5813102238523170163, guid: c109d23712669c04a82d6e50e2a20d57, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -513,12 +513,12 @@ GameObject:
   m_Component:
   - component: {fileID: 628745670}
   - component: {fileID: 628745669}
-  - component: {fileID: 628745668}
   - component: {fileID: 628745667}
+  - component: {fileID: 628745671}
   - component: {fileID: 628745666}
   - component: {fileID: 628745665}
   m_Layer: 0
-  m_Name: Static Sprite
+  m_Name: PuertaCerrada
   m_TagString: Puerta1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -610,19 +610,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.746807, y: 0.6837967}
   m_EdgeRadius: 0
---- !u!114 &628745668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628745664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d358be2118871446a65c74e9f11d75c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Viaje
-  sceneToLoad: Plaza
 --- !u!212 &628745669
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -690,12 +677,24 @@ Transform:
   m_GameObject: {fileID: 628745664}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.18, y: -0.074, z: 0}
-  m_LocalScale: {x: 0.22919819, y: 0.54856247, z: 1}
+  m_LocalPosition: {x: -0.1728, y: -0.0655, z: 0}
+  m_LocalScale: {x: 0.23770143, y: 0.5655679, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &628745671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628745664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd074bed1c6f924e9888bfbb8197e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Puerta1Interactable
 --- !u!1 &654055759
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,10 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionIndoor
   interactionIcon: {fileID: 385963839}
-  puerta1AbiertaPrefab: {fileID: 959338554}
-  puerta1AbiertaPos: {x: -0.23, y: -0.14, z: 0}
-  puerta2AbiertaPrefab: {fileID: 0}
-  puerta2AbiertaPos: {x: 0, y: 0, z: 0}
+  PuertaAbierta: {fileID: 959338554}
 --- !u!1 &959338554
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,9 +834,11 @@ GameObject:
   m_Component:
   - component: {fileID: 959338556}
   - component: {fileID: 959338555}
+  - component: {fileID: 959338557}
+  - component: {fileID: 959338558}
   m_Layer: 0
-  m_Name: 6(puerta abierta)_0
-  m_TagString: Untagged
+  m_Name: puertAbierta
+  m_TagString: PuertaAbierta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -918,6 +916,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &959338557
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959338554}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.44, y: 0.42}
+    newSize: {x: 0.44, y: 0.42}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.44, y: 0.42}
+  m_EdgeRadius: 0
+--- !u!114 &959338558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959338554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d358be2118871446a65c74e9f11d75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PuertaAbiertaTP
+  sceneToLoad: Plaza
 --- !u!1 &1004888739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,7 +1375,7 @@ SceneRoots:
   - {fileID: 71913282}
   - {fileID: 654055761}
   - {fileID: 1282817311}
-  - {fileID: 628745670}
   - {fileID: 189165862}
   - {fileID: 1004888742}
   - {fileID: 959338556}
+  - {fileID: 628745670}

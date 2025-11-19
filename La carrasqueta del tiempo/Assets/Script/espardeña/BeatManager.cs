@@ -1,221 +1,195 @@
-using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
+using System.Collections.Generic;
 
 public class AutoBeatDetectorTop50 : MonoBehaviour
 {
+    private List<BeatInfo> topBeats = new List<BeatInfo>();
     private bool gameStarted = false;
+    private WaitForSeconds wait1s, waitHalf, waitEndDelay;
+    private float nextBeatTime = 0f;
+    private float spawnY = 8f, minX = -5f, maxX = 5f, spawnZ = 0f;
 
-    [Header("Velocidad de caída dinámica")]
-    public float initialFallSpeed = 3f;    // velocidad mínima
-    public float maxFallSpeed = 20f;        // velocidad máxima
-    public float speedIncreaseDuration = 60f; // tiempo hasta alcanzar la velocidad máxima
-    public float energySpeedMultiplier = 10f;  // cuánto afecta la energía del beat
+    [Header("")]
+    public float beatInterval = 0.5f;
 
-    [Header("Audio")]
+    [Header("")]
+    public float velocidadCaida = 3f;
+
+    [Header("")]
     public AudioSource musicSource;
 
-    [Header("Visualización de beats")]
-    public GameObject beatPrefab;
-    public float spawnY = 8f;
-    public float minX = -5f;
-    public float maxX = 5f;
-    public float spawnZ = 0f;
+    [Header("")]
+    public GameObject notaPrefab;
 
-    [Header("Cambio de escena")]
-    public string escenaSalir; // nombre de la escena al salir desde el inspector
+    [Header("")]
+    public string escenaSalir;
 
-    [Header("Contador visual de inicio")]
+    [Header(" ")]
     public Image countdownImage;
+
+    [Header("")]
     public Sprite[] countdownSprites;
+
+    [Header("")]
     public float countdownDuration = 3f;
+
+    [Header("")]
     public AudioSource countdownAudioSource;
+
+    [Header("")]
     public AudioClip countdownBeep;
 
-    [Header("Pantalla de inicio")]
-    public GameObject startScreen;  // Panel que contiene botón y fondo
+    [Header("")]
+    public GameObject startScreen;
 
-    [Header("Botón de regreso")]
+    [Header("")]
     public GameObject returnButton;
 
-    [Header("Pantalla final")]
+    [Header("")]
     public GameObject endScreen;
+
+    [Header("")]
     public TMP_Text finalScoreText;
+
+    [Header("")]
     public TMP_Text extraFinalText;
 
     [System.Serializable]
-    public class BeatInfo
-    {
-        public float time;
-        public float energy;
-    }
+    public class BeatInfo { public float time, energy; }
 
-    public List<BeatInfo> topBeats = new List<BeatInfo>();
 
-    private float[] spectrum;
-    private float averageEnergy = 0f;
-    private float lastBeatTime = 0f;
-
+    // ---------------------------------------------------------
+    //                       INICIO
+    // ---------------------------------------------------------
     void Start()
-    {
-        spectrum = new float[1024];
-        countdownImage.gameObject.SetActive(false);
+{
+    wait1s = new WaitForSeconds(1f);
+    waitHalf = new WaitForSeconds(0.5f);
+    waitEndDelay = new WaitForSeconds(3f); // si quieres 3s siempre
 
-        // Mostrar pantalla de inicio
-        if (startScreen != null)
-            startScreen.SetActive(true);
+    if (countdownImage != null) countdownImage.gameObject.SetActive(false);
+    if (startScreen != null) startScreen.SetActive(true);
+    if (returnButton != null) returnButton.SetActive(false);
+    if (endScreen != null) endScreen.SetActive(false);
+}
 
-        // Ocultar botón de volver al inicio
-        if (returnButton != null)
-            returnButton.SetActive(false);
 
-        if (endScreen != null)
-            endScreen.SetActive(false);
-    }
-    // Este método se conecta al botón Start
+
     public void OnStartButtonPressed()
     {
-    if (startScreen != null)
-        startScreen.SetActive(false); // ocultar pantalla de inicio
+        if (startScreen != null) startScreen.SetActive(false);
+        if (returnButton != null) returnButton.SetActive(true);
 
-    if (returnButton != null)
-        returnButton.SetActive(true); // mostrar botón de volver
-
-    gameStarted = true; // el minijuego comienza ahora
-
-    StartCoroutine(StartMusicWithCountdown());
+        StartCoroutine(StartMusicWithCountdown());
     }
+
 
     public void OnReturnButtonPressed()
     {
-    Debug.Log("✅ BOTÓN VOLVER PRESIONADO — Volviendo a pantalla de inicio...");
-    StopAllCoroutines();
+        StopAllCoroutines();
 
-    if (endScreen != null)
-        endScreen.SetActive(false); // ocultamos la pantalla final
+        if (musicSource != null)
+            musicSource.Stop();
 
-    if (musicSource != null && musicSource.isPlaying)
-        musicSource.Stop();
+        ClearBeats();
 
-    foreach (var beat in GameObject.FindGameObjectsWithTag("Beat"))
-        Destroy(beat);
+        if (startScreen != null) startScreen.SetActive(true);
+        if (returnButton != null) returnButton.SetActive(false);
+        if (endScreen != null) endScreen.SetActive(false);
 
-    if (returnButton != null)
-        returnButton.SetActive(false);
+        if (RhythmGameManager.instance != null)
+            RhythmGameManager.instance.ResetScore();
 
-    if (startScreen != null)
-        startScreen.SetActive(true);
-
-    topBeats.Clear();
-    lastBeatTime = 0f;
-
-    // 🔽 Reiniciar puntuación del gestor de ritmo
-    if (RhythmGameManager.instance != null)
-        RhythmGameManager.instance.ResetScore();
-
-    gameStarted = false; // el juego se detiene hasta pulsar Start otra vez
-    lastBeatTime = 0f;
-    topBeats.Clear();
+        gameStarted = false;
+        topBeats.Clear();
     }
 
-    private System.Collections.IEnumerator StartMusicWithCountdown()
+
+    // ---------------------------------------------------------
+    //               CUENTA ATRÁS Y COMIENZO MÚSICA
+    // ---------------------------------------------------------
+    private IEnumerator StartMusicWithCountdown()
     {
-        if (countdownImage != null && countdownSprites.Length > 0)
+        if (countdownSprites != null && countdownSprites.Length > 0 && countdownImage != null)
         {
             countdownImage.gameObject.SetActive(true);
 
             for (int i = 0; i < countdownDuration; i++)
             {
-                int index = Mathf.Clamp(i, 0, countdownSprites.Length - 1);
-                countdownImage.sprite = countdownSprites[index];
+                countdownImage.sprite = countdownSprites[Mathf.Clamp(i, 0, countdownSprites.Length - 1)];
 
                 if (countdownAudioSource != null && countdownBeep != null)
                     countdownAudioSource.PlayOneShot(countdownBeep);
 
-                yield return new WaitForSeconds(1f);
+                yield return wait1s;   // AHORA CACHEADO
             }
 
-            // GO! opcional
             if (countdownSprites.Length > countdownDuration)
             {
                 countdownImage.sprite = countdownSprites[(int)countdownDuration];
+
                 if (countdownAudioSource != null && countdownBeep != null)
                     countdownAudioSource.PlayOneShot(countdownBeep);
-                yield return new WaitForSeconds(0.5f);
+
+                yield return waitHalf; // CACHEADO
             }
 
             countdownImage.gameObject.SetActive(false);
         }
 
+        nextBeatTime = 0f;
+        gameStarted = true;
+
         if (musicSource != null && musicSource.clip != null)
         {
             musicSource.PlayScheduled(AudioSettings.dspTime + 0.1);
-
-            // Detener detección de beats justo cuando termina el clip
             Invoke(nameof(StopGame), musicSource.clip.length - 0.1f);
 
-            // Mostrar pantalla final con 3 segundos de retraso
-            StartCoroutine(ShowEndScreenWithDelay(3f));
+            StartCoroutine(ShowEndScreenWithDelay());
+        }
+    }
+    // ---------------------------------------------------------
+    //                    UPDATE (SPAWN FIJO)
+    // ---------------------------------------------------------
+    void Update()
+    {
+        if (!gameStarted) return;
+        if (musicSource == null || !musicSource.isPlaying) return;
+
+        if (musicSource.time >= nextBeatTime)
+        {
+            RegisterBeat(musicSource.time, 1f);
+            nextBeatTime += beatInterval;
         }
     }
 
-    // Corrutina para mostrar la pantalla final con retraso
-    private System.Collections.IEnumerator ShowEndScreenWithDelay(float delay)
-    {
-        // Espera hasta que termine la canción
-        yield return new WaitForSeconds(musicSource.clip.length - 0.1f);
 
-        // Espera adicional de 3 segundos
-        yield return new WaitForSeconds(delay);
+    // ---------------------------------------------------------
+    //               FIN DE CANCIÓN Y PANTALLA FINAL
+    // ---------------------------------------------------------
+    void StopGame()
+    {
+        gameStarted = false;
+    }
+
+    private IEnumerator ShowEndScreenWithDelay()
+    {
+        if (musicSource != null && musicSource.clip != null)
+            yield return new WaitForSeconds(musicSource.clip.length - 0.1f);
+
+        yield return waitEndDelay;  // CACHEADO
 
         ShowEndScreen();
     }
 
-
-    void Update()
-    {
-        if (!gameStarted) return; // si el juego no empezó, no hacer nada
-        if (musicSource == null || !musicSource.isPlaying) return;
-
-        // tu código de detección de beats
-        musicSource.GetSpectrumData(spectrum, 0, FFTWindow.Blackman);
-
-        float sum = 0f;
-        int lowFreqLimit = spectrum.Length / 8;
-        for (int i = 0; i < lowFreqLimit; i++)
-            sum += spectrum[i] * spectrum[i];
-        float currentEnergy = sum / lowFreqLimit;
-
-        if (currentEnergy > averageEnergy * 2f && musicSource.time - lastBeatTime > 0.3f)
-        {
-            RegisterBeat(musicSource.time, currentEnergy);
-            lastBeatTime = musicSource.time;
-        }
-        float currentFallSpeed = Mathf.Lerp(initialFallSpeed, maxFallSpeed, musicSource.time / speedIncreaseDuration);
-
-        averageEnergy = Mathf.Lerp(averageEnergy, sum / lowFreqLimit, 0.05f);
-    }
-    public void OnSalirButtonPressed()
-    {
-        Debug.Log("⏹ Botón Salir presionado — cambiando de escena a: " + escenaSalir);
-
-        if (!string.IsNullOrEmpty(escenaSalir))
-            SceneManager.LoadScene(escenaSalir);
-        else
-            Debug.LogWarning("⚠️ No se ha asignado ninguna escena en el Inspector.");
-    }
-    void StopGame()
-    {
-        gameStarted = false; // 👈 evita que Update siga detectando beats
-        Debug.Log("⏹ Detección de beats detenida (final de canción)");
-    }
-
     void ShowEndScreen()
     {
-        if (endScreen != null)
-            endScreen.SetActive(true);
+        if (endScreen != null) endScreen.SetActive(true);
+        if (returnButton != null) returnButton.SetActive(false);
 
         if (finalScoreText != null && RhythmGameManager.instance != null)
         {
@@ -224,63 +198,63 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
             finalScoreText.text = $"Has acertat {hits} de {total} notes";
 
+            float hitRate = (float)hits / Mathf.Max(1, total);
+
             if (extraFinalText != null)
             {
-                float hitRate = (float)hits/total;
-
-                if (hitRate >= 0.95f)
-                    extraFinalText.text = "¡Increíble! Eres un maestre del ritme.";
-                else if (hitRate >= 0.80f)
-                    extraFinalText.text = "¡Molt bé!";
-                else if (hitRate >= 0.60f)
-                    extraFinalText.text = "Nada mal, pero pots millorar.";
-                else
-                    extraFinalText.text = "Continua practicant... ";
+                extraFinalText.text =
+                    hitRate >= 0.95f ? "¡Increíble! Eres un maestre del ritme." :
+                    hitRate >= 0.80f ? "¡Molt bé!" :
+                    hitRate >= 0.60f ? "Nada mal, pero pots millorar." :
+                    "Continua practicant...";
             }
         }
-
-        if (returnButton != null)
-            returnButton.SetActive(false);
-
-        Debug.Log("🎯 Canción terminada. Nota mostrada en pantalla final.");
     }
-
-  void SpawnBeatVisual(float beatEnergy)
-{
-    if (beatPrefab == null) return;
-
-    float randomX = Random.Range(minX, maxX);
-    Vector3 spawnPos = new Vector3(randomX, spawnY, spawnZ);
-
-    GameObject noteObj = Instantiate(beatPrefab, spawnPos, Quaternion.identity);
-
-    // Calcular velocidad base según tiempo de la canción
-    float baseSpeed = Mathf.Lerp(initialFallSpeed, maxFallSpeed, musicSource.time / speedIncreaseDuration);
-
-    // Ajustar velocidad según la energía del beat
-    float finalSpeed = Mathf.Lerp(initialFallSpeed, maxFallSpeed, musicSource.time / speedIncreaseDuration);
-
-    Note noteScript = noteObj.GetComponent<Note>();
-    if (noteScript != null)
+    // ---------------------------------------------------------
+    //                   SPAWN DE NOTAS
+    // ---------------------------------------------------------
+    void SpawnBeatVisual(float beatEnergy)
     {
-        noteScript.fallSpeed = finalSpeed;
+        if (notaPrefab == null) return;
+
+        Vector3 pos = new(Random.Range(minX, maxX), spawnY, spawnZ);
+        GameObject note = Instantiate(notaPrefab, pos, Quaternion.identity);
+
+        float fallSpeed = velocidadCaida;
+
+        Note noteScript = note.GetComponent<Note>();
+        if (noteScript != null)
+            noteScript.fallSpeed = fallSpeed;
     }
-}
-void RegisterBeat(float time, float energy)
-{
-    BeatInfo newBeat = new BeatInfo { time = time, energy = energy };
-    topBeats.Add(newBeat);
-    topBeats.Sort((a, b) => b.energy.CompareTo(a.energy));
-    if (topBeats.Count > 50)
-        topBeats.RemoveAt(topBeats.Count - 1);
 
-    // Pasar la energía del beat al spawn
-    SpawnBeatVisual(energy);
+    void RegisterBeat(float time, float energy)
+    {
+        topBeats.Add(new BeatInfo { time = time, energy = energy });
+        topBeats.Sort((a, b) => b.energy.CompareTo(a.energy));
 
-    // Registrar nota en el gestor de ritmo
-    if (RhythmGameManager.instance != null)
-        RhythmGameManager.instance.RegisterNote();
-}
+        if (topBeats.Count > 50)
+            topBeats.RemoveAt(50);
+
+        SpawnBeatVisual(energy);
+
+        if (RhythmGameManager.instance != null)
+            RhythmGameManager.instance.RegisterNote();
+    }
 
 
+    // ---------------------------------------------------------
+    //                     UTILIDADES
+    // ---------------------------------------------------------
+    void ClearBeats()
+    {
+        GameObject[] beats = GameObject.FindGameObjectsWithTag("Beat");
+        for (int i = 0; i < beats.Length; i++)
+            Destroy(beats[i]);
+    }
+
+    public void OnSalirButtonPressed()
+    {
+        if (!string.IsNullOrEmpty(escenaSalir))
+            SceneManager.LoadScene(escenaSalir);
+    }
 }

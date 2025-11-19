@@ -1,22 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
 
 public class InteractionIndoor : MonoBehaviour
 {
     private IInteractable interactableInRange = null;
     public GameObject interactionIcon;
     private bool llave1 = false;
-    private bool llave2 = false;
-
-    [Header("Prefabs de puertas abiertas")]
-    public GameObject puerta1AbiertaPrefab; // Prefab de la puerta abierta
-    public Vector3 puerta1AbiertaPos; // Posición específica donde aparecerá
-
-    public GameObject puerta2AbiertaPrefab; // Opcional para puerta2
-    public Vector3 puerta2AbiertaPos; // Posición específica para puerta2
+    public GameObject PuertaAbierta;
+    private Vector3 puertaPos = new(-0.23f, -0.14f, -3.94f);
 
     void Start()
     {
@@ -43,19 +35,6 @@ public class InteractionIndoor : MonoBehaviour
                     Debug.Log("No puedes abrir la puerta 1 sin la llave 1.");
                 }
             }
-            // --- Puerta 2 ---
-            else if (objeto.CompareTag("Puerta2"))
-            {
-                if (llave2)
-                {
-                    Debug.Log("Tienes la llave 2 — cruzando la puerta.");
-                    SceneManager.LoadScene("Plaza"); // Cambia por tu escena
-                }
-                else
-                {
-                    Debug.Log("No puedes abrir la puerta 2 sin la llave 2.");
-                }
-            }
             // --- Otros objetos interactuables ---
             else
             {
@@ -74,32 +53,22 @@ public class InteractionIndoor : MonoBehaviour
             Destroy(collision.gameObject);
             interactionIcon.SetActive(false);
 
-            // Instanciar la puerta abierta en posición específica
-            if (puerta1AbiertaPrefab != null)
+            // 👉 Buscar el objeto vacío "Puerta1" y eliminarlo
+            GameObject puertaTrigger = GameObject.FindGameObjectWithTag("Puerta1");
+            if (puertaTrigger != null)
+                Destroy(puertaTrigger);
+
+            // 👉 Instanciar la puerta abierta
+            if (PuertaAbierta != null)
             {
-                Instantiate(puerta1AbiertaPrefab, puerta1AbiertaPos, Quaternion.identity);
+                Instantiate(PuertaAbierta, puertaPos, Quaternion.identity);
             }
 
             return;
         }
 
-        if (collision.CompareTag("Llave2"))
-        {
-            Debug.Log("Has recogido la llave 2");
-            llave2 = true;
-            Destroy(collision.gameObject);
-            interactionIcon.SetActive(false);
 
-            // Instanciar la puerta abierta en posición específica (opcional)
-            if (puerta2AbiertaPrefab != null)
-            {
-                Instantiate(puerta2AbiertaPrefab, puerta2AbiertaPos, Quaternion.identity);
-            }
-
-            return;
-        }
-
-        // --- Detectar puertas ---
+        // --- Detectar puerta cerrada ---
         if (collision.CompareTag("Puerta1"))
         {
             if (!llave1 && collision.TryGetComponent(out IInteractable interactable1) && interactable1.CanInteract())
@@ -115,22 +84,7 @@ public class InteractionIndoor : MonoBehaviour
             return;
         }
 
-        if (collision.CompareTag("Puerta2"))
-        {
-            if (!llave2 && collision.TryGetComponent(out IInteractable interactable2) && interactable2.CanInteract())
-            {
-                interactableInRange = interactable2;
-                interactionIcon.SetActive(true);
-            }
-            else if (llave2)
-            {
-                interactableInRange = collision.GetComponent<IInteractable>();
-                interactionIcon.SetActive(false);
-            }
-            return;
-        }
-
-        // --- Otros objetos interactuables ---
+        // --- Cualquier otro objeto interactuable ---
         if (collision.TryGetComponent(out IInteractable interactable) && interactable.CanInteract())
         {
             interactableInRange = interactable;
@@ -138,9 +92,10 @@ public class InteractionIndoor : MonoBehaviour
         }
     }
 
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Puerta1") || collision.CompareTag("Puerta2") || collision.GetComponent<IInteractable>() != null)
+        if (collision.CompareTag("Puerta1") || collision.GetComponent<IInteractable>() != null)
         {
             interactableInRange = null;
             interactionIcon.SetActive(false);
