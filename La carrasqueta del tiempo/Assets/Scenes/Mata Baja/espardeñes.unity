@@ -777,7 +777,7 @@ MonoBehaviour:
   indiceEscena: 5
   tagJugador: Player
   retardo: 0
-  nombrePuntoEntrada: CallejonPlaza
+  nombrePuntoEntrada: Cole
 --- !u!212 &1244799766
 SpriteRenderer:
   m_ObjectHideFlags: 0
