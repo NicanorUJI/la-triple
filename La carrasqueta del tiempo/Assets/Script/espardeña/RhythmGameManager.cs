@@ -11,23 +11,25 @@ public class RhythmGameManager : MonoBehaviour
     public int HitNotes => hitNotes;
     public int TotalNotes => totalNotes;
 
-    public void RegisterHit()
-    {
-        hitNotes++;
-    }
     void Awake()
     {
         instance = this;
     }
 
+    public void RegisterHit()
+    {
+        hitNotes++;
+    }
+
     public void NoteHit()
     {
-    hitNotes++;
-    currentScore++;
+        hitNotes++;
+        currentScore++;
 
-    if (scoreText != null)
-        scoreText.text = "Punts: " + currentScore;
+        if (scoreText != null)
+            scoreText.text = "Punts: " + currentScore;
     }
+
     public void RegisterNote()
     {
         totalNotes++;
@@ -46,6 +48,16 @@ public class RhythmGameManager : MonoBehaviour
 
         if (scoreText != null)
             scoreText.text = "Punts: 0";
+    }
+
+    public void MissNote()
+    {
+        // Resta un punto si no se presiona ninguna nota válida
+        currentScore--;
+        if (currentScore < 0) currentScore = 0;  // No dejar que el puntaje sea negativo
+
+        if (scoreText != null)
+            scoreText.text = "Punts: " + currentScore;
     }
 
     public float GetAccuracy()

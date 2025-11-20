@@ -1961,13 +1961,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoBeatDetectorTop50
   beatInterval: 0.5
-  initialFallSpeed: 3
+  velocidadCaida: 3
   musicSource: {fileID: 1309484430}
-  beatPrefab: {fileID: 3072582124033085596, guid: 26bfde979a0d4a247886a78498e28c0b, type: 3}
-  spawnY: 5
-  minX: -8
-  maxX: 8
-  spawnZ: 0
+  notaPrefab: {fileID: 3072582124033085596, guid: 26bfde979a0d4a247886a78498e28c0b, type: 3}
   escenaSalir: Plaza
   countdownImage: {fileID: 179400977}
   countdownSprites:
@@ -1982,7 +1978,6 @@ MonoBehaviour:
   endScreen: {fileID: 26905402}
   finalScoreText: {fileID: 1378212894}
   extraFinalText: {fileID: 403458664}
-  topBeats: []
 --- !u!1 &1354140489
 GameObject:
   m_ObjectHideFlags: 0

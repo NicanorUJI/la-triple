@@ -160,13 +160,38 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         if (!gameStarted) return;
         if (musicSource == null || !musicSource.isPlaying) return;
 
+        // Verificar si es momento de generar un nuevo beat
         if (musicSource.time >= nextBeatTime)
         {
             RegisterBeat(musicSource.time, 1f);
             nextBeatTime += beatInterval;
         }
-    }
 
+        // Detectar si el jugador presiona la barra espaciadora y verificar si hay alguna nota presionable
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Verificar si alguna nota está dentro de la zona de acierto
+            bool hitAnyNote = false;
+
+            // Buscar si hay alguna nota dentro de la zona de acierto
+            GameObject[] notes = GameObject.FindGameObjectsWithTag("Beat");
+            foreach (GameObject note in notes)
+            {
+                Note noteScript = note.GetComponent<Note>();
+                if (noteScript != null && noteScript.CanBePressed())
+                {
+                    hitAnyNote = true;
+                    break;  // Si encontramos al menos una nota presionable, salimos del bucle
+                }
+            }
+
+            // Si no hay ninguna nota presionable, restamos un punto
+            if (!hitAnyNote)
+            {
+                RhythmGameManager.instance.MissNote();  // Resta un punto
+            }
+        }
+    }
 
     // ---------------------------------------------------------
     //               FIN DE CANCIÓN Y PANTALLA FINAL
