@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Note : MonoBehaviour
@@ -6,40 +5,45 @@ public class Note : MonoBehaviour
     public float fallSpeed = 3f;
     public float destroyY = -5f;
 
-    private bool canBePressed = false; // solo se puede presionar dentro de la HitZone
+    private bool canBePressed = false; // Solo se puede presionar dentro de la HitZone
 
     void Update()
     {
-        // movimiento constante hacia abajo
+        // Movimiento constante hacia abajo
         transform.position += Vector3.down * fallSpeed * Time.deltaTime;
 
-        // si sale de pantalla, se destruye
+        // Si sale de la pantalla, se destruye
         if (transform.position.y < destroyY)
         {
             Destroy(gameObject);
         }
 
-        // detectar pulsación solo cuando está en la zona de acierto
+        // Detectar pulsación solo cuando está en la zona de acierto
         if (canBePressed && Input.GetKeyDown(KeyCode.Space))
         {
-            RhythmGameManager.instance.NoteHit();
+            RhythmGameManager.instance.NoteHit();  // Incrementa el puntaje
             Destroy(gameObject);
         }
+    }
+    public bool CanBePressed()
+    {
+        return canBePressed;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Activator"))
-            canBePressed = true;
+            canBePressed = true;  // La nota está en la zona de acierto
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Activator"))
         {
-            if (canBePressed)
-            canBePressed = false;
+            canBePressed = false;  // La nota salió de la zona de acierto
         }
     }
-
 }
+
+
+
