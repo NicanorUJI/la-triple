@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
         float moveX = 0f;
         float moveY = 0f;
-
+        
         if (keyboard.rightArrowKey.isPressed) moveX = 1f;
         if (keyboard.leftArrowKey.isPressed) moveX = -1f;
         if (keyboard.upArrowKey.isPressed) moveY = 1f;
