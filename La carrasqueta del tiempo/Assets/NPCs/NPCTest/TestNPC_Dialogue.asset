@@ -12,8 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a38c57282c50ce4092215232d1abb30, type: 3}
   m_Name: TestNPC_Dialogue
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
-  npcName: Test
-  npcPortrait: {fileID: -1102015014942172634, guid: 2e685b492e11e5941bce872909b05550, type: 3}
-  dialogueLines:
-  - "Hola ni\xF1o"
-  - "Adios ni\xF1o"
+  originalDialogue: {fileID: 11400000}
+  defaultSprite: {fileID: 0}
+  lines:
+  - speakerName: Test
+    lineText: Lore impsum o su puta madre
+    expression: {fileID: -1102015014942172634, guid: 2e685b492e11e5941bce872909b05550, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+  - speakerName: Joaquin
+    lineText: Toca elegir cosas
+    expression: {fileID: 5149332164904416723, guid: 2e685b492e11e5941bce872909b05550, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+  - speakerName: Joaquin
+    lineText: Toca elegir cosas
+    expression: {fileID: 5149332164904416723, guid: 2e685b492e11e5941bce872909b05550, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 1
+    choiceA: {fileID: 11400000, guid: 34470d79de19de648949a3fdde62abc7, type: 2}
+    choiceB: {fileID: 11400000, guid: 489b142e1abef254284d67c26eef9b57, type: 2}
