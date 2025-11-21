@@ -6,84 +6,148 @@ using System.Collections;
 
 public class Tiempo : MonoBehaviour, IInteractable
 {
+    [Header("Datos de diálogo")]
     public NPCDialogue dialogueData;
+
+    [Header("UI")]
     public GameObject dialoguePanel;
-    public TMP_Text dialogueText, nameText;
+    public TMP_Text dialogueText;
+    public TMP_Text nameText;
     public Image portraitImage;
-    public string nextSceneName; // ← nombre de la escena a cargar
+
+    [Header("Escena siguiente")]
+    public string nextSceneName; // nombre de la escena a cargar al terminar
 
     private int dialogueIndex;
-    private bool isTyping, isDialogueActive;
-
-    public bool CanInteract()
-    {
-        return !isDialogueActive;
-    }
+    private bool isTyping;
+    private bool isDialogueActive;
+    private Coroutine typingCoroutine;
 
     public void Interact()
     {
-        Debug.Log("Interactuando");
-        
-        if (dialogueData == null)
-            return;
-
-        if (isDialogueActive)
-            NextLine();
-        else
+        // Llamado por el sistema de interacción cuando el jugador interactúa con este objeto
+        if (!isDialogueActive)
+        {
             StartDialogue();
+        }
+        else if (!isTyping)
+        {
+            NextLine();
+        }
     }
 
-    void StartDialogue()
+    public bool CanInteract()
     {
-        isDialogueActive = true;
+        return true;
+    }
+
+    private void StartDialogue()
+    {
+        if (dialogueData == null || dialogueData.lines == null || dialogueData.lines.Length == 0)
+        {
+            Debug.LogWarning("Tiempo: dialogueData no tiene líneas, se cambia directamente de escena.");
+            EndDialogue();
+            return;
+        }
+
         dialogueIndex = 0;
+        isDialogueActive = true;
 
-        nameText.SetText(dialogueData.npcName);
-        portraitImage.sprite = dialogueData.npcPortrait;
+        if (dialoguePanel != null)
+            dialoguePanel.SetActive(true);
 
-        dialoguePanel.SetActive(true);
-
-        StartCoroutine(TypeLine());
+        ShowCurrentLine();
     }
 
-    void NextLine()
+    private void ShowCurrentLine()
     {
-        if (isTyping)
-        {
-            StopAllCoroutines();
-            dialogueText.SetText(dialogueData.dialogueLines[dialogueIndex]);
-            isTyping = false;
-        }
-        else if (++dialogueIndex < dialogueData.dialogueLines.Length)
-        {
-            StartCoroutine(TypeLine());
-        }
-        else
+        if (dialogueData == null || dialogueData.lines == null)
         {
             EndDialogue();
+            return;
         }
+
+        if (dialogueIndex < 0 || dialogueIndex >= dialogueData.lines.Length)
+        {
+            EndDialogue();
+            return;
+        }
+
+        DialogueLine line = dialogueData.lines[dialogueIndex];
+
+        // Nombre del hablante
+        if (nameText != null)
+            nameText.text = line.speakerName;
+
+        // Retrato: usa la expresión de la línea, o el sprite por defecto del NPC
+        if (portraitImage != null)
+        {
+            Sprite spriteToUse = line.expression != null ? line.expression : dialogueData.defaultSprite;
+
+            if (spriteToUse != null)
+            {
+                portraitImage.enabled = true;
+                portraitImage.sprite = spriteToUse;
+            }
+            else
+            {
+                portraitImage.enabled = false;
+            }
+        }
+
+        // Texto con efecto “typewriter”
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
+
+        typingCoroutine = StartCoroutine(TypeLine(line.lineText));
     }
 
-    IEnumerator TypeLine()
+    private IEnumerator TypeLine(string text)
     {
         isTyping = true;
-        dialogueText.SetText("");
 
-        foreach (char letter in dialogueData.dialogueLines[dialogueIndex]) 
+        if (dialogueText != null)
+            dialogueText.text = "";
+
+        foreach (char c in text)
         {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(.05f);
+            if (dialogueText != null)
+                dialogueText.text += c;
+
+            // Ajusta la velocidad si quieres
+            yield return new WaitForSeconds(0.02f);
         }
 
         isTyping = false;
     }
 
+    private void NextLine()
+    {
+        dialogueIndex++;
+
+        if (dialogueData == null || dialogueData.lines == null || dialogueIndex >= dialogueData.lines.Length)
+        {
+            EndDialogue();
+        }
+        else
+        {
+            ShowCurrentLine();
+        }
+    }
+
     public void EndDialogue()
     {
-        StopAllCoroutines();
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
+
+        isTyping = false;
         isDialogueActive = false;
-        dialogueText.SetText("");
-        dialoguePanel.SetActive(false);
+
+        if (dialogueText != null)
+            dialogueText.text = "";
+
+        if (dialoguePanel != null)
+            dialoguePanel.SetActive(false);
 
         // Cambiar de escena si se ha asignado un nombre válido
         if (!string.IsNullOrEmpty(nextSceneName))
