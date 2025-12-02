@@ -13,7 +13,9 @@ public class HidingSpot : MonoBehaviour
     private Color originalColor;
     public Color hoverColor = Color.yellow;
 
+
     private PiRecuentoManager gameManager;
+
 
     void Start()
     {
@@ -46,9 +48,9 @@ public class HidingSpot : MonoBehaviour
         found = true;
         if (childSprite != null)
         {
-            var sr = childSprite.GetComponent<SpriteRenderer>();
-            if (sr != null)
-                sr.sortingOrder = 1; // mostrar delante del spot
+            Niño n = childSprite.GetComponent<Niño>();
+            if (n != null)
+                n.Mostrar(); // ahora sí llamamos al método de la clase Niño
         }
     }
 
@@ -59,9 +61,9 @@ public class HidingSpot : MonoBehaviour
 
         if (childSprite != null)
         {
-            var sr = childSprite.GetComponent<SpriteRenderer>();
-            if (sr != null)
-                sr.sortingOrder = -1; // detrás del spot
+            Niño n = childSprite.GetComponent<Niño>();
+            if (n != null)
+                n.Ocultar(); // ahora sí llamamos al método de la clase Niño
         }
     }
 }

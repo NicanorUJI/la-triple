@@ -19,6 +19,8 @@ public class PiRecuentoManager : MonoBehaviour
     private int currentRound = 1;
     private List<GameObject> availableChildren; // niños que aún no han sido encontrados
 
+    public GameObject panelReglas;
+
     void Start()
     {
         // Inicializar lista de niños disponibles
@@ -26,10 +28,16 @@ public class PiRecuentoManager : MonoBehaviour
 
         // Ocultamos mensaje al iniciar
         mensajeText.gameObject.SetActive(false);
-
-        StartRound();
     }
 
+    public void IniciarPartida() 
+    {
+        currentRound = 1;
+        if (panelReglas != null)
+            panelReglas.SetActive(false);
+        availableChildren = new List<GameObject>(childrenSprites);
+        StartRound();
+    }
     void StartRound()
     {
         Debug.Log($"Ronda {currentRound}");
@@ -78,14 +86,14 @@ public class PiRecuentoManager : MonoBehaviour
             spot.hasChild = true;
             spot.childSprite = child;
 
-            // Posicionar el niño en el spot
-            child.transform.position = spot.transform.position;
-            child.transform.SetParent(spot.transform);
+            Niño n = child.GetComponent<Niño>();
+            
+            if (n != null)
+                n.Ocultar(); // restauramos escala y sortingOrder
 
-            // Inicialmente detrás del spot
-            var sr = child.GetComponent<SpriteRenderer>();
-            if (sr != null)
-                sr.sortingOrder = -1;
+            // Ahora sí ponemos al niño en el spot
+            child.transform.SetParent(spot.transform);
+            child.transform.localPosition = Vector3.zero;
         }
 
         // Mensaje en consola con los spots donde están los niños
@@ -97,7 +105,7 @@ public class PiRecuentoManager : MonoBehaviour
         }
         Debug.Log("Niños escondidos en: " + string.Join(", ", spotsWithChildrenNames));
 
-        rondaText.text = $"Ronda {currentRound} / {rounds}";
+        rondaText.text = $"Ronda: {currentRound}/{rounds}";
     }
 
     public void OnSpotClicked(HidingSpot spot)
@@ -108,21 +116,40 @@ public class PiRecuentoManager : MonoBehaviour
         }
         else
         {
-            spot.RevealChild();
+            Niño n = spot.childSprite.GetComponent<Niño>();
+            if (n != null)
+            {
+                n.Mostrar(); // mostrar en primer plano
+            }
+
             StartCoroutine(MostrarMensaje("¡Encontraste a un niño!"));
 
-            // Quitar al niño encontrado de la lista disponible
-            if (availableChildren.Contains(spot.childSprite))
-                availableChildren.Remove(spot.childSprite);
+            // Quitar niño de la lista de disponibles
+            availableChildren.Remove(spot.childSprite);
+
+            // Esperar un momento antes de moverlo fuera
+            StartCoroutine(RemoverNiñoDelay(spot.childSprite));
         }
 
         currentRound++;
         StartCoroutine(NextRoundDelay());
     }
 
+
+    private IEnumerator RemoverNiñoDelay(GameObject child)
+    {
+        yield return new WaitForSeconds(2f); // tiempo para que el niño se vea
+        if (child != null)
+        {
+            child.transform.position = new Vector3(9999, 9999, 0);
+            child.transform.SetParent(null);
+        }
+    }
+
+
     private IEnumerator NextRoundDelay()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         StartRound();
     }
 

@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 5bd4aed9a3fc78144b4f6d7241139d26
+guid: f7b08ef62f8e8db43b408345d9c2cd73
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -652939912207050450
-    second: 6 (1)_0
-  - first:
-      213: -5814947299103070928
-    second: 6 (1)_1
+      213: -4216805011063119250
+    second: Banquito (MINIJUEGO PIRECUENTO)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -78,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 6 (1)_0
+      name: Banquito (MINIJUEGO PIRECUENTO)_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 3
-        width: 39
-        height: 102
-      alignment: 9
-      pivot: {x: 0.27699095, y: 0.21943992}
+        x: 467
+        y: 1
+        width: 91
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e295939fb9a40f6f0800000000000000
-      internalID: -652939912207050450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 6 (1)_1
-      rect:
-        serializedVersion: 2
-        x: 571
-        y: 3
-        width: 39
-        height: 102
-      alignment: 9
-      pivot: {x: 0.7343656, y: 0.19532676}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03528598d382d4fa0800000000000000
-      internalID: -5814947299103070928
+      spriteID: e62ee7c1f26ea75c0800000000000000
+      internalID: -4216805011063119250
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4f8a64447b89e74468d9926ed40f83ab
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      6 (1)_0: -652939912207050450
-      6 (1)_1: -5814947299103070928
+      Banquito (MINIJUEGO PIRECUENTO)_0: -4216805011063119250
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
