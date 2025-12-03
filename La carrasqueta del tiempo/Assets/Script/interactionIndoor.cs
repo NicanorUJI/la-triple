@@ -50,23 +50,21 @@ public class InteractionIndoor : MonoBehaviour
         {
             Debug.Log("Has recogido la llave 1");
             llave1 = true;
-            Destroy(collision.gameObject);
+
+            // Reproducir sonido de recolección desde AudioManager
+            if (AudioManager.instance != null)
+                AudioManager.instance.Reproducir(AudioManager.instance.clipLlave);
+
+            Destroy(collision.gameObject); // destruye la llave
+
             interactionIcon.SetActive(false);
 
-            // 👉 Buscar el objeto vacío "Puerta1" y eliminarlo
-            GameObject puertaTrigger = GameObject.FindGameObjectWithTag("Puerta1");
-            if (puertaTrigger != null)
-                Destroy(puertaTrigger);
-
-            // 👉 Instanciar la puerta abierta
+            // Instanciar la puerta abierta
             if (PuertaAbierta != null)
-            {
                 Instantiate(PuertaAbierta, puertaPos, Quaternion.identity);
-            }
 
             return;
         }
-
 
         // --- Detectar puerta cerrada ---
         if (collision.CompareTag("Puerta1"))
