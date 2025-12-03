@@ -16,23 +16,48 @@ MonoBehaviour:
   defaultSprite: {fileID: 0}
   lines:
   - speakerName: Test
-    lineText: Lore impsum o su puta madre
+    lineText: jfkjsflkd
     expression: {fileID: -1102015014942172634, guid: 2e685b492e11e5941bce872909b05550, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
-  - speakerName: Joaquin
-    lineText: Toca elegir cosas
-    expression: {fileID: 5149332164904416723, guid: 2e685b492e11e5941bce872909b05550, type: 3}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+  - speakerName: Test
+    lineText: dfkjdslf 2
+    expression: {fileID: -1102015014942172634, guid: 2e685b492e11e5941bce872909b05550, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
-  - speakerName: Joaquin
-    lineText: Toca elegir cosas
-    expression: {fileID: 5149332164904416723, guid: 2e685b492e11e5941bce872909b05550, type: 3}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 1
+    reward: caca
+  - speakerName: Test
+    lineText: "Elecci\xF3n con 4 cosas"
+    expression: {fileID: -1102015014942172634, guid: 2e685b492e11e5941bce872909b05550, type: 3}
     isPlayerSpeaking: 0
     isChoice: 1
     choiceA: {fileID: 11400000, guid: 34470d79de19de648949a3fdde62abc7, type: 2}
     choiceB: {fileID: 11400000, guid: 489b142e1abef254284d67c26eef9b57, type: 2}
+    choiceC: {fileID: 11400000, guid: 489b142e1abef254284d67c26eef9b57, type: 2}
+    choiceD: {fileID: 11400000}
+    hasReward: 0
+    reward: caca
+  - speakerName: Test
+    lineText: "Elecci\xF3n con 4 cosas"
+    expression: {fileID: -1102015014942172634, guid: 2e685b492e11e5941bce872909b05550, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 1
+    choiceA: {fileID: 11400000, guid: 34470d79de19de648949a3fdde62abc7, type: 2}
+    choiceB: {fileID: 11400000, guid: 489b142e1abef254284d67c26eef9b57, type: 2}
+    choiceC: {fileID: 11400000, guid: 489b142e1abef254284d67c26eef9b57, type: 2}
+    choiceD: {fileID: 11400000}
+    hasReward: 0
+    reward: caca
+  conditions:
+  - Prueba
