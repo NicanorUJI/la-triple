@@ -6,4 +6,7 @@ public class NPCDialogue : ScriptableObject
     public NPCDialogue originalDialogue;
     public Sprite defaultSprite;
     public DialogueLine[] lines;
+
+    [Header("Condiciones")]
+    public string[] conditions;
 }
