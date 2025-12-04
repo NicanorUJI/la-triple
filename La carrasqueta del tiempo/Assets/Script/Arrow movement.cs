@@ -22,7 +22,11 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
+    [Header("Animaciones")]
+    public Animator animator;
+
     private float minX, maxX, minY;
+    public bool canPlayerMove = true;
 
     void Start()
     {
@@ -52,10 +56,35 @@ public class PlayerMovement : MonoBehaviour
         float moveX = 0f;
         float moveY = 0f;
 
-        if (keyboard.rightArrowKey.isPressed) moveX = 1f;
-        if (keyboard.leftArrowKey.isPressed) moveX = -1f;
-        if (keyboard.upArrowKey.isPressed) moveY = 1f;
-        if (keyboard.downArrowKey.isPressed) moveY = -1f;
+        if (canPlayerMove) {
+            //MOVIMIENTO HORIZONTAL
+            if (keyboard.rightArrowKey.isPressed)
+                moveX = 1f;
+            else if (keyboard.leftArrowKey.isPressed)
+                moveX = -1f;
+
+            //MOVIMIENTO VERTICAL
+            if (keyboard.upArrowKey.isPressed)
+                moveY = 1f;
+            else if (keyboard.downArrowKey.isPressed)
+                moveY = -1f;
+        }
+        
+
+        //PARA LAS ANIMACIONES
+        //Si se está moviendo, en qué direccion (horizontal y vertical)
+        if (moveX != 0)
+            if(animator.GetBool("isGoingUp")) animator.SetBool("isGoingUp", false);
+            animator.SetBool("isGoingLeft", moveX < 0);
+
+        if (moveY != 0)
+            animator.SetBool("isGoingUp", moveY > 0);
+
+        //Comrpobar si está quieto
+        bool isMoving = (moveX != 0 || moveY != 0);
+        animator.SetBool("isMoving", isMoving);
+
+        //-------------------------------------------------------------------
 
         moveInput = new Vector2(moveX, moveY);
 
