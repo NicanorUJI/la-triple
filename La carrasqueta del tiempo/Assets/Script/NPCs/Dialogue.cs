@@ -3,10 +3,12 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class NPC : MonoBehaviour, IInteractable
 {
-    public NPCDialogue dialogueData;
+    //public NPCDialogue dialogueData;
+    public NPCDialogue[] opciones;
     public GameObject dialoguePanel;
     public TMP_Text dialogueText, nameText;
 
@@ -18,10 +20,32 @@ public class NPC : MonoBehaviour, IInteractable
     [Header("Botones")]
     public GameObject button_choice1;
     public GameObject button_choice2;
+    public GameObject button_choice3;
+    public GameObject button_choice4;
 
     private int dialogueIndex;
-    private bool isTyping, isDialogueActive;
+    private bool isTyping, isDialogueActive, isChoiceActive;
     private NPCDialogue originalDialogue;
+    private PlayerMovement movement;
+    private RewardManager rewardManager;
+
+    private NPCDialogue dialogueData;
+
+    public NPCDialogue getDialogue()
+    {
+        foreach (NPCDialogue opcion in opciones)
+        {
+            bool correct = true;
+            foreach (string condicion in opcion.conditions)
+            {
+                if(!GameManager.Check(condicion)) { correct = false; break; }
+            }
+            if(correct) return opcion;
+
+        }
+        Debug.Log("Hemos  llegado aqui");
+        return null; //no deberia llegar aqui
+    }
 
     public bool CanInteract()
     {
@@ -31,6 +55,9 @@ public class NPC : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("Interactuando");
+        movement = FindObjectOfType<PlayerMovement>();
+
+        dialogueData = getDialogue();
 
         //Si no hay dialogo, no puede hablar
         if (dialogueData.lines.Length == 0)
@@ -44,6 +71,7 @@ public class NPC : MonoBehaviour, IInteractable
         //Si no hay dialogo empezado, empezar la conversacion
         else
         {
+            
             originalDialogue = dialogueData;
             StartDialogue();
         }
@@ -53,11 +81,12 @@ public class NPC : MonoBehaviour, IInteractable
 
     void StartDialogue()
     {
+
         isDialogueActive = true;
+        isChoiceActive = false;
         dialogueIndex = 0;
-        /*
-        nameText.SetText(dialogueData.npcName);
-        portraitImage.sprite = dialogueData.expresiones[dialogueIndex];*/
+        
+        movement.canPlayerMove = false;
 
         DialogueLine line = dialogueData.lines[dialogueIndex];
         nameText.text = line.speakerName;
@@ -71,44 +100,93 @@ public class NPC : MonoBehaviour, IInteractable
 
     void NextLine()
     {
+        DialogueLine line = dialogueData.lines[dialogueIndex];
+
         if (isTyping)
         {
             StopAllCoroutines();
             //dialogueText.SetText(dialogueData.dialogueLines[dialogueIndex]);
             dialogueText.text = dialogueData.lines[dialogueIndex].lineText;
+
             isTyping = false;
-        }
 
-        //Si hay mas lineas de texto
-        else if(++dialogueIndex < dialogueData.lines.Length)
-        {
-            DialogueLine line = dialogueData.lines[dialogueIndex];
-
-            if(line.isChoice)
+            if (line.isChoice)
             {
-                Debug.Log(dialogueIndex);
-                joaquinPortrait_Object.SetActive(false);
-                button_choice1.SetActive(true);
-                button_choice2.SetActive(true);
+                //por algun motivo solo hace lo de poner los 4 botones A VECES ?????
+                if(line.choiceC == null)
+                {
+                    isChoiceActive = true;
+                    Debug.Log("Eligiendo 2");
+                    joaquinPortrait_Object.SetActive(false);
+                    button_choice1.SetActive(true);
+                    button_choice2.SetActive(true);
 
-                // get the Button components
-                Button b1 = button_choice1.GetComponent<Button>();
-                Button b2 = button_choice2.GetComponent<Button>();
+                    // get the Button components
+                    Button b1 = button_choice1.GetComponent<Button>();
+                    Button b2 = button_choice2.GetComponent<Button>();
 
-                // clear previous listeners
-                b1.onClick.RemoveAllListeners();
-                b2.onClick.RemoveAllListeners();
+                    // clear previous listeners
+                    b1.onClick.RemoveAllListeners();
+                    b2.onClick.RemoveAllListeners();
 
-                // capture the current line into a local variable for the closures
-                DialogueLine current = line;
+                    // capture the current line into a local variable for the closures
+                    DialogueLine current = line;
 
-                // add listeners that call a single handler with the chosen dialogue
-                b1.onClick.AddListener(() => OnChoiceSelected(current.choiceA));
-                b2.onClick.AddListener(() => OnChoiceSelected(current.choiceB));
+                    // add listeners that call a single handler with the chosen dialogue
+                    b1.onClick.AddListener(() => OnChoiceSelected(current.choiceA));
+                    b2.onClick.AddListener(() => OnChoiceSelected(current.choiceB));
+                }
+
+                else
+                {
+                    isChoiceActive = true;
+                    Debug.Log("Eligiendo 4");
+                    joaquinPortrait_Object.SetActive(false);
+                    button_choice1.SetActive(true);
+                    button_choice2.SetActive(true);
+                    button_choice3.SetActive(true);
+                    button_choice4.SetActive(true);
+
+                    // get the Button components
+                    Button b1 = button_choice1.GetComponent<Button>();
+                    Button b2 = button_choice2.GetComponent<Button>();
+
+                    // clear previous listeners
+                    b1.onClick.RemoveAllListeners();
+                    b2.onClick.RemoveAllListeners();
+
+                    // capture the current line into a local variable for the closures
+                    DialogueLine current = line;
+
+                    // add listeners that call a single handler with the chosen dialogue
+                    b1.onClick.AddListener(() => OnChoiceSelected(current.choiceA));
+                    b2.onClick.AddListener(() => OnChoiceSelected(current.choiceB));
+                }
+                
+
+            }
+            else if (line.hasReward)
+            {
+                rewardManager = FindObjectOfType<RewardManager>();
+                rewardManager.giveReward(line.reward);
 
             }
 
-            if(line.isPlayerSpeaking) joaquinPortrait.sprite = line.expression;
+            else if (line.startsMinigame)
+            {
+                ActivateMinigame(line.minigame);
+            }
+
+
+        }
+
+        //Si hay mas lineas de texto
+        else if(++dialogueIndex < dialogueData.lines.Length && !isChoiceActive)
+        {
+            Debug.Log(dialogueIndex);
+            //Cambiar expresiones de los portraits
+            line = dialogueData.lines[dialogueIndex];
+            if (line.isPlayerSpeaking) joaquinPortrait.sprite = line.expression;
             else portraitImage.sprite = line.expression;
             StartCoroutine(TypeLine(line));
         }
@@ -134,6 +212,44 @@ public class NPC : MonoBehaviour, IInteractable
             }
 
         isTyping = false;
+
+        //Si hay opciones de dialogo, salen una vez se acaba el dialogo
+        if (line.isChoice)
+        {
+            isChoiceActive = true;
+            Debug.Log(dialogueIndex);
+            joaquinPortrait_Object.SetActive(false);
+            button_choice1.SetActive(true);
+            button_choice2.SetActive(true);
+
+            // get the Button components
+            Button b1 = button_choice1.GetComponent<Button>();
+            Button b2 = button_choice2.GetComponent<Button>();
+
+            // clear previous listeners
+            b1.onClick.RemoveAllListeners();
+            b2.onClick.RemoveAllListeners();
+
+            // capture the current line into a local variable for the closures
+            DialogueLine current = line;
+
+            // add listeners that call a single handler with the chosen dialogue
+            b1.onClick.AddListener(() => OnChoiceSelected(current.choiceA));
+            b2.onClick.AddListener(() => OnChoiceSelected(current.choiceB));
+
+        }
+
+        else if (line.hasReward)
+        {
+            rewardManager = FindObjectOfType<RewardManager>();
+            rewardManager.giveReward(line.reward);
+
+        }
+
+        else if (line.startsMinigame)
+        {
+            ActivateMinigame(line.minigame);
+        }
     }
 
     public void LoadDialogue(NPCDialogue newDialogue)
@@ -149,24 +265,29 @@ public class NPC : MonoBehaviour, IInteractable
         isDialogueActive =false;
         dialogueText.SetText("");
         dialoguePanel.SetActive(false);
+        movement.canPlayerMove = true;
     }
 
 
     private void OnChoiceSelected(NPCDialogue nextDialogue)
     {
-        Debug.Log($"OnChoiceSelected called. current index = {dialogueIndex} on instance {GetInstanceID()}");
-        // hide the choice UI
         button_choice1.SetActive(false);
         button_choice2.SetActive(false);
         joaquinPortrait_Object.SetActive(true);
+        isChoiceActive = false;
 
         if (nextDialogue == null)
         {
-            Debug.LogError("Choice has no dialogue assigned!");
             return;
         }
 
         LoadDialogue(nextDialogue);
+    }
+
+    private void ActivateMinigame(string minigame)
+    {
+        Debug.Log("Se va a activar minijuego");
+        SceneManager.LoadScene(minigame);
     }
 
 
