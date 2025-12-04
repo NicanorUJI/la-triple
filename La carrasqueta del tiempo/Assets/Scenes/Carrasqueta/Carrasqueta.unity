@@ -233,11 +233,11 @@ GameObject:
   m_Component:
   - component: {fileID: 200109390}
   - component: {fileID: 200109389}
-  - component: {fileID: 200109393}
   - component: {fileID: 200109388}
   - component: {fileID: 200109387}
   - component: {fileID: 200109392}
-  m_Layer: 0
+  - component: {fileID: 200109393}
+  m_Layer: 6
   m_Name: Static Sprite
   m_TagString: Portal
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200109386}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 200109386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d358be2118871446a65c74e9f11d75c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0710409131b6cb24bb50bc4658fe746c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Viaje
   sceneToLoad: CarrasquetaPasado
@@ -1001,6 +1001,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+      propertyPath: musica
+      value: 
+      objectReference: {fileID: 1259451014}
+    - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+      propertyPath: sonidoBotonPausa
+      value: 
+      objectReference: {fileID: 299037419}
+    - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+      propertyPath: sonidoBotonOpcion
+      value: 
+      objectReference: {fileID: 961890853}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1563,13 +1575,57 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3094261522679533820, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848667738411000691, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: stepClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a0317037e85d1d49b0a79367382d656, type: 3}
     - target: {fileID: 3848667738411000691, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: background
       value: 
       objectReference: {fileID: 398289117}
+    - target: {fileID: 3848667738411000691, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: stepAudioSource
+      value: 
+      objectReference: {fileID: 352115011}
+    - target: {fileID: 4390973799498831609, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7664514243460857272, guid: 6c5b8dfb45df43e4d89fa2c372653550, type: 3}
+    - target: {fileID: 4544412489768654566, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_Size.x
+      value: 0.53615195
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544412489768654566, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3317857
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544412489768654566, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.025941163
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544412489768654566, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.68004334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7337207346345987894, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858091188771663495, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9095930261065474166, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_Name
       value: 'Joaquin '
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095930261065474166, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
