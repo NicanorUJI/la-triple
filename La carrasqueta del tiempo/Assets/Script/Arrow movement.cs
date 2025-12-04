@@ -9,10 +9,16 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Fondo")]
     public SpriteRenderer background;
-    public float padding = 0.1f; // espacio desde el borde del fondo
+    public float padding = 0.1f;
 
     [Header("Límite máximo en Y")]
     public float maxY = 5f;
+
+    [Header("Audio")]
+    public AudioSource stepAudioSource;   // Fuente de audio
+    public AudioClip stepClip;            // Sonido de pasos
+    public float stepVolume = 1f;
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
@@ -26,7 +32,15 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // Calcular límites según el fondo y el padding
+        // Preparar audio
+        if (stepAudioSource != null && stepClip != null)
+        {
+            stepAudioSource.clip = stepClip;
+            stepAudioSource.loop = true; // Se mantiene mientras se mueve
+            stepAudioSource.volume = stepVolume;
+        }
+
+        // Calcular límites
         Vector3 bgPos = background.transform.position;
         Vector2 bgSize = background.bounds.size;
 
@@ -78,17 +92,34 @@ public class PlayerMovement : MonoBehaviour
         float nextX = rb.position.x + moveInput.x * speed * Time.deltaTime;
         float nextY = rb.position.y + moveInput.y * speed * Time.deltaTime;
 
-        // Limitar movimiento en X
-        if (nextX-0.2 > maxX && moveInput.x > 0) moveInput.x = 0;
-        if (nextX+0.2 < minX && moveInput.x < 0) moveInput.x = 0;
+        // Límites X
+        if (nextX - 0.2 > maxX && moveInput.x > 0) moveInput.x = 0;
+        if (nextX + 0.2 < minX && moveInput.x < 0) moveInput.x = 0;
 
-        // Limitar movimiento en Y
-        if (nextY+0.12 > maxY && moveInput.y > 0) moveInput.y = 0; // límite superior asignable
-        if (nextY+0.1 < minY && moveInput.y < 0) moveInput.y = 0; // límite inferior según fondo
+        // Límites Y
+        if (nextY + 0.12 > maxY && moveInput.y > 0) moveInput.y = 0;
+        if (nextY + 0.1 < minY && moveInput.y < 0) moveInput.y = 0;
 
-        // Normalizar solo si es necesario
         if (moveInput.sqrMagnitude > 1f)
             moveInput.Normalize();
+
+        HandleStepAudio();
+    }
+
+    void HandleStepAudio()
+    {
+        bool isMoving = moveInput.sqrMagnitude > 0.01f;
+
+        if (isMoving)
+        {
+            if (!stepAudioSource.isPlaying)
+                stepAudioSource.Play();
+        }
+        else
+        {
+            if (stepAudioSource.isPlaying)
+                stepAudioSource.Stop();
+        }
     }
 
     void FixedUpdate()
