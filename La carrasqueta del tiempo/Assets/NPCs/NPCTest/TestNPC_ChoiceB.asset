@@ -22,3 +22,10 @@ MonoBehaviour:
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  conditions: []
