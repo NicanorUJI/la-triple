@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 3
   tags:
   - Portal
+  - Puerta1
+  - Llave1
+  - Activator
+  - Beat
+  - PuertaAbierta
+  - Punto
+  - Turn
+  - Door
+  - Ghost
   layers:
   - Default
   - TransparentFX
@@ -16,9 +25,9 @@ TagManager:
   - fondo sombra
   - characters
   - fondo 3
-  - 
-  - 
-  - 
+  - Wall
+  - pacoman
+  - puerta
   - 
   - 
   - 
