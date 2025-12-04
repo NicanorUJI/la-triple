@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
+    [SerializeField] private AudioSource sonidoAgua;
     [SerializeField] private GameObject botonPausa;
     [SerializeField] private GameObject menuPausa;
     [SerializeField] private AudioSource sonidoBotonPausa;
@@ -13,27 +14,42 @@ public class MenuPausa : MonoBehaviour
 
     public void Pausa()
     {
+        // Sonido de botón
         if (sonidoBotonPausa != null)
-            AudioManager.instance.Reproducir(AudioManager.instance.botonPausaClip);  // 🔊 sonido de clic
+            AudioManager.instance.Reproducir(AudioManager.instance.botonPausaClip);
+
         Time.timeScale = 0f;
         botonPausa.SetActive(false);
         menuPausa.SetActive(true);
 
+        // Pausar música ambiente global
         if (MusicaAmbiente.instance != null)
             MusicaAmbiente.instance.PausarMusica();
+
+        // Pausar música local de la escena
+        if (sonidoAgua != null && sonidoAgua.isPlaying)
+            sonidoAgua.Pause();
     }
+
 
     public void Reanudar()
     {
         if (sonidoBotonOpcion != null)
-            AudioManager.instance.Reproducir(AudioManager.instance.botonOpcionClip);  // 🔊 sonido de clic
+            AudioManager.instance.Reproducir(AudioManager.instance.botonOpcionClip);
+
         Time.timeScale = 1f;
         botonPausa.SetActive(true);
         menuPausa.SetActive(false);
 
+        // Reanudar música ambiente global
         if (MusicaAmbiente.instance != null)
             MusicaAmbiente.instance.ReanudarMusica();
+
+        // Reanudar música local
+        if (sonidoAgua != null && !sonidoAgua.isPlaying)
+            sonidoAgua.UnPause();
     }
+
 
     public void Cerrar()
     {
