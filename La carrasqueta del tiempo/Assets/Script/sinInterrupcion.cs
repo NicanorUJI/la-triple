@@ -1,56 +1,84 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MusicaAmbiente : MonoBehaviour
 {
-    // 💡 Usa una instancia estática para que sea fácil acceder a ella y para
-    // aplicar el patrón Singleton.
+    // Preferible usar PascalCase para propiedad pública si lo deseas
     public static MusicaAmbiente instance;
 
     private AudioSource audioSource;
 
+    [Header("Volúmenes y escena")]
+    public float volumenNormal = 1f;
+    public string escenaVolumenBajo = "Calderetes";
+    public float volumenBajo = 0.3f;
+
     private void Awake()
     {
-        // 1. **Implementar el patrón Singleton:**
-        // Si ya existe una instancia de este script, destruye esta nueva.
         if (instance != null && instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
             return;
         }
 
-        // 2. Si no hay otra instancia, esta es la única.
         instance = this;
-        audioSource = GetComponent<AudioSource>();
 
-        // 3. **Persistir el objeto:** Evita que el objeto se destruya al cargar una nueva escena.
-        DontDestroyOnLoad(this.gameObject);
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            Debug.LogWarning("MusicaAmbiente: falta AudioSource en el mismo GameObject.");
+
+        DontDestroyOnLoad(gameObject);
+
+        // Suscribirse a cambios de escena
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    // Opcional: Métodos públicos para controlar la música desde otros scripts
+    private void OnDestroy()
+    {
+        // Evitar fugas si se destruye
+        if (SceneManager.GetActiveScene() != null)
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (instance == this)
+            instance = null;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (audioSource == null) return;
+
+        if (scene.name == escenaVolumenBajo)
+            audioSource.volume = volumenBajo;
+        else
+            audioSource.volume = volumenNormal;
+    }
+
     public void PausarMusica()
     {
-        if (audioSource != null && audioSource.isPlaying)
+        if (audioSource == null)
         {
-            audioSource.Pause();
+            Debug.LogWarning("PausarMusica: audioSource es null.");
+            return;
         }
+
+        if (audioSource.isPlaying)
+            audioSource.Pause();
     }
 
     public void ReanudarMusica()
     {
-        if (audioSource != null && !audioSource.isPlaying)
+        if (audioSource == null)
         {
+            Debug.LogWarning("ReanudarMusica: audioSource es null.");
+            return;
+        }
+
+        if (!audioSource.isPlaying)
             audioSource.UnPause();
-        }
     }
-    
-    // Si la música debe empezar al cargar la primera escena y está marcada como 'Play On Awake', no necesitas el Start.
-    /*
-    private void Start()
+
+    public void SetVolume(float v)
     {
-        if (audioSource != null && !audioSource.isPlaying)
-        {
-            audioSource.Play();
-        }
+        if (audioSource == null) return;
+        audioSource.volume = Mathf.Clamp01(v);
     }
-    */
 }
