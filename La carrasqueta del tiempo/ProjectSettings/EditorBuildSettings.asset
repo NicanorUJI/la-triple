@@ -71,6 +71,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Mata Baja/esparde\xF1es.unity"
     guid: 41d85871822c5c844a6483b2ace3bdfc
+  - enabled: 1
+    path: Assets/Scenes/Pozuelas/Pozuelas.unity
+    guid: 729d14c410a73864f93927a921c9b46c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -415,7 +415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0710409131b6cb24bb50bc4658fe746c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Viaje
-  sceneToLoad: CarrasquetaPasado
+  escenaDestino: CarrasquetaPasado
+  sonidoViaje: {fileID: 0}
 --- !u!1 &398289116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,15 +1005,15 @@ PrefabInstance:
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: musica
       value: 
-      objectReference: {fileID: 1259451014}
+      objectReference: {fileID: 0}
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: sonidoBotonPausa
       value: 
-      objectReference: {fileID: 299037419}
+      objectReference: {fileID: 0}
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: sonidoBotonOpcion
       value: 
-      objectReference: {fileID: 961890853}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1590,7 +1591,7 @@ PrefabInstance:
     - target: {fileID: 3848667738411000691, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: stepAudioSource
       value: 
-      objectReference: {fileID: 352115011}
+      objectReference: {fileID: 0}
     - target: {fileID: 4390973799498831609, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_Sprite
       value: 
