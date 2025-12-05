@@ -900,6 +900,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22662d70b09b2644ca1b92dc351aa527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeepMusic
+  volumenNormal: 1
+  escenaVolumenBajo: Calderetes
+  volumenBajo: 0.3
 --- !u!1 &1274571025
 GameObject:
   m_ObjectHideFlags: 0
