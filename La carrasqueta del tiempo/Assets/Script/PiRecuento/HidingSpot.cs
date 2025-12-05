@@ -6,7 +6,7 @@ public class HidingSpot : MonoBehaviour
     public bool hasChild = false;
 
     [HideInInspector]
-    public GameObject childSprite; // se asigna dinámicamente
+    public GameObject childSprite; // se asigna dinï¿½micamente
 
     private bool found = false;
     private Renderer rend;
@@ -48,9 +48,9 @@ public class HidingSpot : MonoBehaviour
         found = true;
         if (childSprite != null)
         {
-            Niño n = childSprite.GetComponent<Niño>();
+            NiÃ±o n = childSprite.GetComponent<NiÃ±o>();
             if (n != null)
-                n.Mostrar(); // ahora sí llamamos al método de la clase Niño
+                n.Mostrar(); // ahora sï¿½ llamamos al mï¿½todo de la clase Niï¿½o
         }
     }
 
@@ -61,9 +61,9 @@ public class HidingSpot : MonoBehaviour
 
         if (childSprite != null)
         {
-            Niño n = childSprite.GetComponent<Niño>();
+            NiÃ±o n = childSprite.GetComponent<NiÃ±o>();
             if (n != null)
-                n.Ocultar(); // ahora sí llamamos al método de la clase Niño
+                n.Ocultar(); // ahora sï¿½ llamamos al mï¿½todo de la clase Niï¿½o
         }
     }
 }

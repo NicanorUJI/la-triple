@@ -5,8 +5,8 @@ using TMPro;
 
 public class PiRecuentoManager : MonoBehaviour
 {
-    [Header("Niños y Spots")]
-    public List<GameObject> childrenSprites; // 3 niños únicos
+    [Header("NiÃ±os y Spots")]
+    public List<GameObject> childrenSprites; // 3 niï¿½os ï¿½nicos
     public List<HidingSpot> spots;           // 5 spots
 
     [Header("Rondas")]
@@ -17,13 +17,13 @@ public class PiRecuentoManager : MonoBehaviour
     public TextMeshProUGUI mensajeText;
 
     private int currentRound = 1;
-    private List<GameObject> availableChildren; // niños que aún no han sido encontrados
+    private List<GameObject> availableChildren; // niï¿½os que aï¿½n no han sido encontrados
 
     public GameObject panelReglas;
 
     void Start()
     {
-        // Inicializar lista de niños disponibles
+        // Inicializar lista de niï¿½os disponibles
         availableChildren = new List<GameObject>(childrenSprites);
 
         // Ocultamos mensaje al iniciar
@@ -52,7 +52,7 @@ public class PiRecuentoManager : MonoBehaviour
         // Fin del juego
         if (availableChildren.Count == 0 || currentRound > rounds)
         {
-            Debug.Log("¡Juego terminado!");
+            Debug.Log("!Juego terminado!");
             rondaText.text = "Juego terminado";
             return;
         }
@@ -67,7 +67,7 @@ public class PiRecuentoManager : MonoBehaviour
             shuffledSpots[rand] = temp;
         }
 
-        // Mezclar niños disponibles
+        // Mezclar niï¿½os disponibles
         List<GameObject> shuffledChildren = new List<GameObject>(availableChildren);
         for (int i = 0; i < shuffledChildren.Count; i++)
         {
@@ -77,7 +77,7 @@ public class PiRecuentoManager : MonoBehaviour
             shuffledChildren[rand] = temp;
         }
 
-        // Asignar cada niño disponible a un spot diferente cada ronda
+        // Asignar cada niï¿½o disponible a un spot diferente cada ronda
         for (int i = 0; i < shuffledChildren.Count; i++)
         {
             HidingSpot spot = shuffledSpots[i];
@@ -86,24 +86,24 @@ public class PiRecuentoManager : MonoBehaviour
             spot.hasChild = true;
             spot.childSprite = child;
 
-            Niño n = child.GetComponent<Niño>();
+            NiÃ±o n = child.GetComponent<NiÃ±o>();
             
             if (n != null)
                 n.Ocultar(); // restauramos escala y sortingOrder
 
-            // Ahora sí ponemos al niño en el spot
+            // Ahora sï¿½ ponemos al niï¿½o en el spot
             child.transform.SetParent(spot.transform);
             child.transform.localPosition = Vector3.zero;
         }
 
-        // Mensaje en consola con los spots donde están los niños
+        // Mensaje en consola con los spots donde estï¿½n los niï¿½os
         List<string> spotsWithChildrenNames = new List<string>();
         foreach (var s in spots)
         {
             if (s.hasChild)
                 spotsWithChildrenNames.Add(s.name);
         }
-        Debug.Log("Niños escondidos en: " + string.Join(", ", spotsWithChildrenNames));
+        Debug.Log("NiÃ±os escondidos en: " + string.Join(", ", spotsWithChildrenNames));
 
         rondaText.text = $"Ronda: {currentRound}/{rounds}";
     }
@@ -112,23 +112,23 @@ public class PiRecuentoManager : MonoBehaviour
     {
         if (!spot.hasChild)
         {
-            StartCoroutine(MostrarMensaje("Aquí no hay nadie..."));
+            StartCoroutine(MostrarMensaje("AquÃ­ no hay nadie..."));
         }
         else
         {
-            Niño n = spot.childSprite.GetComponent<Niño>();
+            NiÃ±o n = spot.childSprite.GetComponent<NiÃ±o>();
             if (n != null)
             {
                 n.Mostrar(); // mostrar en primer plano
             }
 
-            StartCoroutine(MostrarMensaje("¡Encontraste a un niño!"));
+            StartCoroutine(MostrarMensaje("!Encontraste a un niÃ±o!"));
 
-            // Quitar niño de la lista de disponibles
+            // Quitar niï¿½o de la lista de disponibles
             availableChildren.Remove(spot.childSprite);
 
             // Esperar un momento antes de moverlo fuera
-            StartCoroutine(RemoverNiñoDelay(spot.childSprite));
+            StartCoroutine(RemoverNiÃ±oDelay(spot.childSprite));
         }
 
         currentRound++;
@@ -136,9 +136,9 @@ public class PiRecuentoManager : MonoBehaviour
     }
 
 
-    private IEnumerator RemoverNiñoDelay(GameObject child)
+    private IEnumerator RemoverNiÃ±oDelay(GameObject child)
     {
-        yield return new WaitForSeconds(2f); // tiempo para que el niño se vea
+        yield return new WaitForSeconds(2f); // tiempo para que el niï¿½o se vea
         if (child != null)
         {
             child.transform.position = new Vector3(9999, 9999, 0);
