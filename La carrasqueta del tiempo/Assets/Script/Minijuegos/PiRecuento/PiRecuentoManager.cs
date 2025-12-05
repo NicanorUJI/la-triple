@@ -52,7 +52,7 @@ public class PiRecuentoManager : MonoBehaviour
         // Fin del juego
         if (availableChildren.Count == 0 || currentRound > rounds)
         {
-            Debug.Log("!Juego terminado!");
+            Debug.Log("�Juego terminado!");
             rondaText.text = "Juego terminado";
             return;
         }
@@ -103,7 +103,7 @@ public class PiRecuentoManager : MonoBehaviour
             if (s.hasChild)
                 spotsWithChildrenNames.Add(s.name);
         }
-        Debug.Log("Niños escondidos en: " + string.Join(", ", spotsWithChildrenNames));
+        Debug.Log("Ni�os escondidos en: " + string.Join(", ", spotsWithChildrenNames));
 
         rondaText.text = $"Ronda: {currentRound}/{rounds}";
     }
@@ -112,7 +112,7 @@ public class PiRecuentoManager : MonoBehaviour
     {
         if (!spot.hasChild)
         {
-            StartCoroutine(MostrarMensaje("Aquí no hay nadie..."));
+            StartCoroutine(MostrarMensaje("Aqu� no hay nadie..."));
         }
         else
         {
@@ -122,7 +122,7 @@ public class PiRecuentoManager : MonoBehaviour
                 n.Mostrar(); // mostrar en primer plano
             }
 
-            StartCoroutine(MostrarMensaje("!Encontraste a un niño!"));
+            StartCoroutine(MostrarMensaje("�Encontraste a un ni�o!"));
 
             // Quitar ni�o de la lista de disponibles
             availableChildren.Remove(spot.childSprite);
