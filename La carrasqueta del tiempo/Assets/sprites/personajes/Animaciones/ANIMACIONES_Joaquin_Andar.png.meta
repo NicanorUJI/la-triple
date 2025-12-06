@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 15de6bfa7ad6a0dc9800ff792daf6089
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4032860568515520105
+    second: ANIMACIONES_Joaquin_Andar_0
+  - first:
+      213: 4256338407880448365
+    second: ANIMACIONES_Joaquin_Andar_1
+  - first:
+      213: 3259067029636476692
+    second: ANIMACIONES_Joaquin_Andar_2
+  - first:
+      213: 2593740082640302483
+    second: ANIMACIONES_Joaquin_Andar_3
+  - first:
+      213: 2951832759491862667
+    second: ANIMACIONES_Joaquin_Andar_4
+  - first:
+      213: 2395328336210308506
+    second: ANIMACIONES_Joaquin_Andar_5
+  - first:
+      213: -1423562653258127219
+    second: ANIMACIONES_Joaquin_Andar_6
+  - first:
+      213: 1277987342275331157
+    second: ANIMACIONES_Joaquin_Andar_7
+  - first:
+      213: 2846722693869899936
+    second: ANIMACIONES_Joaquin_Andar_8
+  - first:
+      213: -1215419254829933740
+    second: ANIMACIONES_Joaquin_Andar_9
+  - first:
+      213: -5272213317116699272
+    second: ANIMACIONES_Joaquin_Andar_10
+  - first:
+      213: 2103498789887086275
+    second: ANIMACIONES_Joaquin_Andar_11
+  - first:
+      213: -4683211255003377327
+    second: ANIMACIONES_Joaquin_Andar_12
+  - first:
+      213: -2840156623931129983
+    second: ANIMACIONES_Joaquin_Andar_13
+  - first:
+      213: 2791188979179791166
+    second: ANIMACIONES_Joaquin_Andar_14
+  - first:
+      213: 8388557656044738333
+    second: ANIMACIONES_Joaquin_Andar_15
+  - first:
+      213: -1444912735608596130
+    second: ANIMACIONES_Joaquin_Andar_16
+  - first:
+      213: -681987597502123843
+    second: ANIMACIONES_Joaquin_Andar_17
+  - first:
+      213: -1939141136410272093
+    second: ANIMACIONES_Joaquin_Andar_18
+  - first:
+      213: 5012738438117616885
+    second: ANIMACIONES_Joaquin_Andar_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_0
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 767
+        width: 110
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 799d3f01ea66808c0800000000000000
+      internalID: -4032860568515520105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_1
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 767
+        width: 110
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d69d09d1b3d811b30800000000000000
+      internalID: 4256338407880448365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_2
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 767
+        width: 110
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f6ba832388a3d20800000000000000
+      internalID: 3259067029636476692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_3
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 767
+        width: 110
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 391b779ecd0def320800000000000000
+      internalID: 2593740082640302483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_4
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 575
+        width: 110
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b80afd9514407f820800000000000000
+      internalID: 2951832759491862667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_5
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 575
+        width: 110
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d2e384e6aed3120800000000000000
+      internalID: 2395328336210308506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_6
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 575
+        width: 110
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8869092f4d7e3ce0800000000000000
+      internalID: -1423562653258127219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_7
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 575
+        width: 110
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55444cb77b25cb110800000000000000
+      internalID: 1277987342275331157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_8
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 383
+        width: 110
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a0982e1537918720800000000000000
+      internalID: 2846722693869899936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_9
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 383
+        width: 110
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45b11b690a6f12fe0800000000000000
+      internalID: -1215419254829933740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_10
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 383
+        width: 110
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87ddc25ebe555d6b0800000000000000
+      internalID: -5272213317116699272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_11
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 383
+        width: 110
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce0fac2101213d10800000000000000
+      internalID: 2103498789887086275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_12
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 191
+        width: 110
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15199612d24e10fb0800000000000000
+      internalID: -4683211255003377327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_13
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 191
+        width: 110
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18fbc1c299cb598d0800000000000000
+      internalID: -2840156623931129983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_14
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 191
+        width: 110
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e332ff4969b4cb620800000000000000
+      internalID: 2791188979179791166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_15
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 191
+        width: 110
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d171e626eb42a6470800000000000000
+      internalID: 8388557656044738333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_16
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 0
+        width: 110
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e599c9eb583a2fbe0800000000000000
+      internalID: -1444912735608596130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_17
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 0
+        width: 110
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db0f9a5b4e71986f0800000000000000
+      internalID: -681987597502123843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_18
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 0
+        width: 110
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ae1be21969c615e0800000000000000
+      internalID: -1939141136410272093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ANIMACIONES_Joaquin_Andar_19
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 0
+        width: 110
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fc62f30d03d09540800000000000000
+      internalID: 5012738438117616885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ANIMACIONES_Joaquin_Andar_0: -4032860568515520105
+      ANIMACIONES_Joaquin_Andar_1: 4256338407880448365
+      ANIMACIONES_Joaquin_Andar_10: -5272213317116699272
+      ANIMACIONES_Joaquin_Andar_11: 2103498789887086275
+      ANIMACIONES_Joaquin_Andar_12: -4683211255003377327
+      ANIMACIONES_Joaquin_Andar_13: -2840156623931129983
+      ANIMACIONES_Joaquin_Andar_14: 2791188979179791166
+      ANIMACIONES_Joaquin_Andar_15: 8388557656044738333
+      ANIMACIONES_Joaquin_Andar_16: -1444912735608596130
+      ANIMACIONES_Joaquin_Andar_17: -681987597502123843
+      ANIMACIONES_Joaquin_Andar_18: -1939141136410272093
+      ANIMACIONES_Joaquin_Andar_19: 5012738438117616885
+      ANIMACIONES_Joaquin_Andar_2: 3259067029636476692
+      ANIMACIONES_Joaquin_Andar_3: 2593740082640302483
+      ANIMACIONES_Joaquin_Andar_4: 2951832759491862667
+      ANIMACIONES_Joaquin_Andar_5: 2395328336210308506
+      ANIMACIONES_Joaquin_Andar_6: -1423562653258127219
+      ANIMACIONES_Joaquin_Andar_7: 1277987342275331157
+      ANIMACIONES_Joaquin_Andar_8: 2846722693869899936
+      ANIMACIONES_Joaquin_Andar_9: -1215419254829933740
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
