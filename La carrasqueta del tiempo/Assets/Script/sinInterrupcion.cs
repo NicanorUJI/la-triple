@@ -1,17 +1,17 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MusicaAmbiente : MonoBehaviour
 {
-    // Preferible usar PascalCase para propiedad pública si lo deseas
     public static MusicaAmbiente instance;
 
     private AudioSource audioSource;
 
-    [Header("Volúmenes y escena")]
-    public float volumenNormal = 1f;
-    public string escenaVolumenBajo = "Calderetes";
-    public float volumenBajo = 0.3f;
+    [Header("AudioMixer")]
+    public AudioMixer audioMixer;
+
+    private const string VOLUME_KEY = "savedMasterVolume";
 
     private void Awake()
     {
@@ -22,63 +22,47 @@ public class MusicaAmbiente : MonoBehaviour
         }
 
         instance = this;
-
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-            Debug.LogWarning("MusicaAmbiente: falta AudioSource en el mismo GameObject.");
-
         DontDestroyOnLoad(gameObject);
 
-        // Suscribirse a cambios de escena
+        audioSource = GetComponent<AudioSource>();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnDestroy()
+    private void Start()
     {
-        // Evitar fugas si se destruye
-        if (SceneManager.GetActiveScene() != null)
-            SceneManager.sceneLoaded -= OnSceneLoaded;
-        if (instance == this)
-            instance = null;
+        AplicarVolumenGuardado();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (audioSource == null) return;
+        AplicarVolumenGuardado();
+    }
 
-        if (scene.name == escenaVolumenBajo)
-            audioSource.volume = volumenBajo;
-        else
-            audioSource.volume = volumenNormal;
+    private void AplicarVolumenGuardado()
+    {
+        float saved = PlayerPrefs.GetFloat(VOLUME_KEY, 100f);
+
+        if (saved < 1) saved = 0.001f;
+
+        float db = Mathf.Log10(saved / 100f) * 20f;
+        audioMixer.SetFloat("MasterVolume", db);
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (instance == this) instance = null;
     }
 
     public void PausarMusica()
     {
-        if (audioSource == null)
-        {
-            Debug.LogWarning("PausarMusica: audioSource es null.");
-            return;
-        }
-
-        if (audioSource.isPlaying)
+        if (audioSource != null && audioSource.isPlaying)
             audioSource.Pause();
     }
 
     public void ReanudarMusica()
     {
-        if (audioSource == null)
-        {
-            Debug.LogWarning("ReanudarMusica: audioSource es null.");
-            return;
-        }
-
-        if (!audioSource.isPlaying)
+        if (audioSource != null && !audioSource.isPlaying)
             audioSource.UnPause();
-    }
-
-    public void SetVolume(float v)
-    {
-        if (audioSource == null) return;
-        audioSource.volume = Mathf.Clamp01(v);
     }
 }
