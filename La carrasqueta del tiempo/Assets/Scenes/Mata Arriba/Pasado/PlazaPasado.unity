@@ -1864,8 +1864,6 @@ MonoBehaviour:
   background: {fileID: 1447582567}
   smoothSpeed: 0.125
   offset: {x: 0, y: 0, z: -10}
-  desiredPixelsHeight: 112
-  PPU: 16
 --- !u!1 &543335562
 GameObject:
   m_ObjectHideFlags: 0
@@ -4601,7 +4599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c628f789dca553947b23130e5bbacb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::tp2
-  indiceEscena: 1
+  indiceEscena: 23
   tagJugador: Player
   retardo: 0
   nombrePuntoEntrada: CallejonPlaza

@@ -315,6 +315,9 @@ MonoBehaviour:
   background: {fileID: 0}
   padding: 0.1
   maxY: -0.26
+  stepAudioSource: {fileID: 0}
+  stepClip: {fileID: 8300000, guid: 2a0317037e85d1d49b0a79367382d656, type: 3}
+  stepVolume: 1
   animator: {fileID: 3808652320769367613}
   canPlayerMove: 1
 --- !u!61 &4544412489768654566
@@ -435,3 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ed1f2582f5b5946b2ac918621606ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  missionStarted: 0
+  missionID: 0
+  progressFlags: []
