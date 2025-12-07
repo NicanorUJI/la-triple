@@ -6,14 +6,16 @@ public class HidingSpot : MonoBehaviour
     public bool hasChild = false;
 
     [HideInInspector]
-    public GameObject childSprite; // se asigna din�micamente
+    public GameObject childSprite; // se asigna din�micamente
 
     private bool found = false;
     private Renderer rend;
     private Color originalColor;
     public Color hoverColor = Color.yellow;
 
+
     private PiRecuentoManager gameManager;
+
 
     void Start()
     {
@@ -46,9 +48,9 @@ public class HidingSpot : MonoBehaviour
         found = true;
         if (childSprite != null)
         {
-            var sr = childSprite.GetComponent<SpriteRenderer>();
-            if (sr != null)
-                sr.sortingOrder = 1; // mostrar delante del spot
+            Niño n = childSprite.GetComponent<Niño>();
+            if (n != null)
+                n.Mostrar(); // ahora s� llamamos al m�todo de la clase Ni�o
         }
     }
 
@@ -59,9 +61,9 @@ public class HidingSpot : MonoBehaviour
 
         if (childSprite != null)
         {
-            var sr = childSprite.GetComponent<SpriteRenderer>();
-            if (sr != null)
-                sr.sortingOrder = -1; // detr�s del spot
+            Niño n = childSprite.GetComponent<Niño>();
+            if (n != null)
+                n.Ocultar(); // ahora s� llamamos al m�todo de la clase Ni�o
         }
     }
 }
