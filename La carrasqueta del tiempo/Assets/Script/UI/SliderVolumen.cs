@@ -30,7 +30,7 @@ public class SliderVolumen : MonoBehaviour
         if (value < 1) value = 0.001f;
 
         float db = Mathf.Log10(value / 100f) * 20f;
-        masterMixer.SetFloat("MasterVolume", db);
+        masterMixer.SetFloat("MusicVolume", db);
     }
 
     // Llamado por el slider
