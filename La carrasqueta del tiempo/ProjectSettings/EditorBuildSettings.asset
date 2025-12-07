@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Escena Men\xFA.unity"
     guid: e69385a1388fc81449c9bb993b6f2915
+  - enabled: 1
+    path: Assets/Scenes/Minijuego_Morra.unity
+    guid: c4201355e5788e84b80dcad6239ddc1c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
