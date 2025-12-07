@@ -308,7 +308,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275, y: -6}
+  m_AnchoredPosition: {x: 282, y: -1}
   m_SizeDelta: {x: 126.9103, y: 56.9996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2916820284970263727
@@ -402,7 +402,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Ermita
+          m_StringArgument: ErmitaP
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2086167071276636180
@@ -525,7 +525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4830999633268494950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -650,6 +650,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapToggle
   mapPanel: {fileID: 0}
   movementComponentName: ArrowMovement
+  allowedScenes:
+  - CarrasquetaPasado
+  - CementerioPasado
+  - SantaBarbaraPasado
+  - CalleIntermPasado
+  - PlacitaPasado
+  - PlazaPasado
+  - colegioPasado
+  - barranquetPasado
+  - "esparde\xF1esPasado"
+  - PozuelasPasado
   playerMovementScript: {fileID: 0}
 --- !u!1 &3102532929576781979
 GameObject:
@@ -823,7 +834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -264, y: -13}
+  m_AnchoredPosition: {x: -273, y: 111}
   m_SizeDelta: {x: 62.883, y: 43.253}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8672445103453898264
@@ -917,7 +928,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: cementerio
+          m_StringArgument: cementerioP
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &3963003063862654825
@@ -1050,7 +1061,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Carrasqueta
+          m_StringArgument: CarrasquetaP
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4238730876929621181
@@ -1319,7 +1330,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: pozuelas
+          m_StringArgument: pozuelasP
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5152411614415733341
@@ -1437,7 +1448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: 39}
+  m_AnchoredPosition: {x: -33, y: 61}
   m_SizeDelta: {x: 136.2091, y: 46.5715}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4138157760026460264
@@ -1531,7 +1542,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Plaza
+          m_StringArgument: PlazaP
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7456701613824309560
@@ -1706,7 +1717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -28, y: -23}
+  m_AnchoredPosition: {x: -35, y: -16}
   m_SizeDelta: {x: 111.7461, y: 43.3346}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &242377143593414482
@@ -1800,7 +1811,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: esparde
+          m_StringArgument: espardeP
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &8834323225629232469
