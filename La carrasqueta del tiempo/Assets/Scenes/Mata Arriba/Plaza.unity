@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &6750456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2794235050187460128, guid: f8efe8b5b43a03752b1ea260ddeaaccb, type: 3}
-  m_PrefabInstance: {fileID: 1503541743}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &122258892
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +689,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.03540174, y: 0.05420753}
+  m_Offset: {x: -0.03540174, y: 0.049223393}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -704,7 +699,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.20696677, y: 0.012445189}
+  m_Size: {x: 0.20696677, y: 0.022413462}
   m_EdgeRadius: 0
 --- !u!114 &282483814
 MonoBehaviour:
@@ -1050,7 +1045,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.02106604, y: 0.07077499}
+  m_Offset: {x: -0.02106604, y: 0.06743993}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -1060,7 +1055,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.21897733, y: 0.018183358}
+  m_Size: {x: 0.21897733, y: 0.024853475}
   m_EdgeRadius: 0
 --- !u!114 &348154122
 MonoBehaviour:
@@ -2062,6 +2057,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57b0598274ddfd4e8840aa4c0adb645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  opciones: []
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  nameText: {fileID: 0}
+  portraitImage: {fileID: 0}
+  joaquinPortrait_Object: {fileID: 0}
+  joaquinPortrait: {fileID: 0}
+  button_choice1: {fileID: 0}
+  button_choice2: {fileID: 0}
+  button_choice3: {fileID: 0}
+  button_choice4: {fileID: 0}
 --- !u!114 &604354209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3494,6 +3500,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57b0598274ddfd4e8840aa4c0adb645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  opciones: []
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  nameText: {fileID: 0}
+  portraitImage: {fileID: 0}
+  joaquinPortrait_Object: {fileID: 0}
+  joaquinPortrait: {fileID: 0}
+  button_choice1: {fileID: 0}
+  button_choice2: {fileID: 0}
+  button_choice3: {fileID: 0}
+  button_choice4: {fileID: 0}
 --- !u!114 &1301941509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4061,6 +4078,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57b0598274ddfd4e8840aa4c0adb645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  opciones: []
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  nameText: {fileID: 0}
+  portraitImage: {fileID: 0}
+  joaquinPortrait_Object: {fileID: 0}
+  joaquinPortrait: {fileID: 0}
+  button_choice1: {fileID: 0}
+  button_choice2: {fileID: 0}
+  button_choice3: {fileID: 0}
+  button_choice4: {fileID: 0}
 --- !u!114 &1409011135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5196,6 +5224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1830003503}
   - component: {fileID: 1830003502}
+  - component: {fileID: 1830003504}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5231,6 +5260,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1830003504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830003501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3996cb374ef484442945e10c7e049b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapSwitcher
+  prefabMapA: {fileID: 3444083656711511263, guid: 610f2923cb9a52d4da3e427f0752541c, type: 3}
+  prefabMapB: {fileID: 1324183299571610302, guid: 84e91b025dd7549438c1950d75bc3b97, type: 3}
 --- !u!1 &1846082293
 GameObject:
   m_ObjectHideFlags: 0
@@ -6013,6 +6056,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57b0598274ddfd4e8840aa4c0adb645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  opciones: []
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  nameText: {fileID: 0}
+  portraitImage: {fileID: 0}
+  joaquinPortrait_Object: {fileID: 0}
+  joaquinPortrait: {fileID: 0}
+  button_choice1: {fileID: 0}
+  button_choice2: {fileID: 0}
+  button_choice3: {fileID: 0}
+  button_choice4: {fileID: 0}
 --- !u!1 &2143511665
 GameObject:
   m_ObjectHideFlags: 0
@@ -6463,8 +6517,6 @@ SceneRoots:
   - {fileID: 312037081}
   - {fileID: 1123338724}
   - {fileID: 1087007038}
-  - {fileID: 1867383141}
-  - {fileID: 1503541743}
   - {fileID: 3073723351891419985}
   - {fileID: 649262335}
   - {fileID: 2035988631}
