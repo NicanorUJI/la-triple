@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 5bd4aed9a3fc78144b4f6d7241139d26
+guid: 3aa9422d241e249448618ea631f4b44c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -652939912207050450
-    second: 6 (1)_0
-  - first:
-      213: -5814947299103070928
-    second: 6 (1)_1
+      213: -4932316062251636142
+    second: Pasado_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 6 (1)_0
+      name: Pasado_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 3
-        width: 39
-        height: 102
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 320
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e295939fb9a40f6f0800000000000000
-      internalID: -652939912207050450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 6 (1)_1
-      rect:
-        serializedVersion: 2
-        x: 571
-        y: 3
-        width: 39
-        height: 102
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03528598d382d4fa0800000000000000
-      internalID: -5814947299103070928
+      spriteID: 25aa9858ca4ec8bb0800000000000000
+      internalID: -4932316062251636142
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4f8a64447b89e74468d9926ed40f83ab
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      6 (1)_0: -652939912207050450
-      6 (1)_1: -5814947299103070928
+      Pasado_0: -4932316062251636142
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
