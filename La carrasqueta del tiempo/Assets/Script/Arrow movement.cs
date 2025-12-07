@@ -15,9 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxY = 5f;
 
     [Header("Audio")]
-    public AudioSource stepAudioSource;   // Fuente de audio
-    public AudioClip stepClip;            // Sonido de pasos
-    public float stepVolume = 1f;
+    public AudioSource stepAudioSource;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -32,13 +30,33 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // Preparar audio
-        if (stepAudioSource != null && stepClip != null)
+        // ----------------------------------------------------
+        // GESTIÓN DE AUDIO DE PASOS (Centralizada en Player)
+        // ----------------------------------------------------
+        if (AudioManager.instance != null)
         {
-            stepAudioSource.clip = stepClip;
-            stepAudioSource.loop = true; // Se mantiene mientras se mueve
-            stepAudioSource.volume = stepVolume;
+            if (stepAudioSource == null)
+            {
+                stepAudioSource = gameObject.AddComponent<AudioSource>();
+            }
+
+            stepAudioSource.clip = AudioManager.instance.ClipPasos;
+
+            stepAudioSource.loop = true;
+            stepAudioSource.playOnAwake = false;
+
+            // Asignamos el grupo del mixer SFX (¡El volumen se gestiona globalmente!)
+            stepAudioSource.outputAudioMixerGroup = AudioManager.instance.mainMixer.FindMatchingGroups("SFX")[0];
+
+            // Establecemos el volumen base del AudioSource a 1.0f (0 dB)
+            // El volumen final lo determinará el mixer.
+            stepAudioSource.volume = 1f;
         }
+        else
+        {
+            Debug.LogError("AudioManager.instance no se ha inicializado.");
+        }
+        // ----------------------------------------------------
 
         // Calcular límites
         Vector3 bgPos = background.transform.position;
@@ -69,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
             else if (keyboard.downArrowKey.isPressed)
                 moveY = -1f;
         }
-        
 
         //PARA LAS ANIMACIONES
         //Si se está moviendo, en qué direccion (horizontal y vertical)
@@ -105,9 +122,21 @@ public class PlayerMovement : MonoBehaviour
 
         HandleStepAudio();
     }
+    
+    // Método para actualizar el volumen si se cambia desde el menú de pausa
+    public void UpdateStepVolume(float newVolume)
+    {
+        if (stepAudioSource != null)
+        {
+            stepAudioSource.volume = newVolume;
+        }
+    }
+
 
     void HandleStepAudio()
     {
+        if (stepAudioSource == null) return; 
+
         bool isMoving = moveInput.sqrMagnitude > 0.01f;
 
         if (isMoving)
@@ -124,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Usamos linearVelocity para mover el Rigidbody
         rb.linearVelocity = moveInput * speed;
     }
 }

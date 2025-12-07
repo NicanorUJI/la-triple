@@ -53,7 +53,7 @@ public class InteractionIndoor : MonoBehaviour
 
             // Reproducir sonido de recolección desde AudioManager
             if (AudioManager.instance != null)
-                AudioManager.instance.Reproducir(AudioManager.instance.clipLlave);
+                AudioManager.instance.Reproducir(AudioManager.instance.ClipLlave);
 
             Destroy(collision.gameObject); // destruye la llave
 
