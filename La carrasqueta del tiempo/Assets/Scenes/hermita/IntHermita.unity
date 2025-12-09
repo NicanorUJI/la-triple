@@ -133,11 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4825125240427591744, guid: e06fb8b769293b441863935561e379af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.60024
+      value: 1.112
       objectReference: {fileID: 0}
     - target: {fileID: 4825125240427591744, guid: e06fb8b769293b441863935561e379af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.52129
+      value: 1.296
       objectReference: {fileID: 0}
     - target: {fileID: 4825125240427591744, guid: e06fb8b769293b441863935561e379af, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1781,17 +1781,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57b0598274ddfd4e8840aa4c0adb645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
-  opciones: []
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
-  nameText: {fileID: 0}
-  portraitImage: {fileID: 0}
-  joaquinPortrait_Object: {fileID: 0}
-  joaquinPortrait: {fileID: 0}
-  button_choice1: {fileID: 0}
-  button_choice2: {fileID: 0}
-  button_choice3: {fileID: 0}
-  button_choice4: {fileID: 0}
 --- !u!222 &665089527
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2204,7 +2193,7 @@ MonoBehaviour:
   indiceEscena: 2
   tagJugador: Player
   retardo: 0
-  nombrePuntoEntrada: Placita
+  nombrePuntoEntrada: SantaBarbara
 --- !u!61 &1051241375
 BoxCollider2D:
   m_ObjectHideFlags: 0
