@@ -5,7 +5,7 @@ public class MissionPanelHover : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] private RectTransform panel;      // El propio MissionPanel
-    [SerializeField] private TMP_Text missionText;     // Texto de la misión (opcional)
+    [SerializeField] private TMP_Text missionText;     // Texto de la misión
 
     [Header("Zona de apertura (0-1)")]
     [Tooltip("Porcentaje de la pantalla a partir del cual se abre el panel (ej: 0.97 = 97% del ancho).")]
@@ -42,12 +42,14 @@ public class MissionPanelHover : MonoBehaviour
 
     private void Update()
     {
-        // Normalizamos la posición X del ratón a [0,1]
+        // 1) Actualizar el texto de misión desde MissionController
+        UpdateMissionTextFromController();
+
+        // 2) Lógica de apertura / cierre según la posición del ratón
         float mouseXRatio = 0f;
         if (Screen.width > 0)
             mouseXRatio = Input.mousePosition.x / Screen.width;
 
-        // Lógica de apertura / cierre según la posición del ratón
         if (!isOpen && mouseXRatio >= openThreshold)
         {
             isOpen = true;
@@ -66,7 +68,26 @@ public class MissionPanelHover : MonoBehaviour
         );
     }
 
-    // Por si luego querés cambiar el texto desde otro script
+    // Lee siempre la misión activa del MissionController
+    private void UpdateMissionTextFromController()
+    {
+        if (missionText == null)
+            return;
+
+        var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
+        if (mc == null || !mc.missionStarted)
+        {
+            missionText.text = "";
+            return;
+        }
+
+        if (!string.IsNullOrEmpty(mc.activeMissionTitle))
+            missionText.text = mc.activeMissionTitle + "\n" + mc.activeMissionDescription;
+        else
+            missionText.text = mc.activeMissionDescription;
+    }
+
+    // Sigue existiendo por si quieres rellenar a mano desde algún sitio
     public void SetMissionText(string text)
     {
         if (missionText != null)

@@ -37,7 +37,7 @@ EditorBuildSettings:
     guid: d13a2dfa37aa0ad45b1f91eb8ea31e6a
   - enabled: 1
     path: Assets/Scenes/PozuelasPasado.unity
-    guid: 835d977fe13ca934da14fd51db9fa405
+    guid: 86e936977fa54d6c5ab0191a269a3f5f
   - enabled: 1
     path: Assets/Scenes/Mata Baja/Pasado/colegioPasado.unity
     guid: a645686821834fb49a48c960732faecc
@@ -46,7 +46,7 @@ EditorBuildSettings:
     guid: 5b16103fa04f5b64cb6c28b371f47e50
   - enabled: 1
     path: Assets/Scenes/Mata Arriba/Pasado/PlacitaPasado.unity
-    guid: 2cf65bc34ceb3804f862bc80c5d4c62d
+    guid: 8aa5733fcef7cd74d9a54843b78c89d8
   - enabled: 1
     path: Assets/Scenes/Cementerio/CementerioPasado.unity
     guid: 4a570771c2003c24ea2527123ce35a1d

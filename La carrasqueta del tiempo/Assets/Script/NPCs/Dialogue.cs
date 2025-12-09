@@ -35,16 +35,33 @@ public class NPC : MonoBehaviour, IInteractable
     {
         foreach (NPCDialogue opcion in opciones)
         {
-            bool correct = true;
-            foreach (string condicion in opcion.conditions)
-            {
-                if(!GameManager.Check(condicion)) { correct = false; break; }
-            }
-            if(correct) return opcion;
+            // Si el elemento está vacío en el inspector, lo saltamos
+            if (opcion == null)
+                continue;
 
+            bool correct = true;
+
+            // Si las conditions son null, lo tratamos como "sin condiciones"
+            var conds = opcion.conditions;
+
+            if (conds != null)
+            {
+                foreach (string condicion in conds)
+                {
+                    if (!GameManager.Check(condicion))
+                    {
+                        correct = false;
+                        break;
+                    }
+                }
+            }
+
+            if (correct)
+                return opcion;
         }
-        Debug.Log("Hemos  llegado aqui");
-        return null; //no deberia llegar aqui
+
+        Debug.LogWarning("NPC.getDialogue: no se encontró ningún diálogo válido en 'opciones'.");
+        return null;
     }
 
     public bool CanInteract()
@@ -59,24 +76,31 @@ public class NPC : MonoBehaviour, IInteractable
 
         dialogueData = getDialogue();
 
-        //Si no hay dialogo, no puede hablar
-        if (dialogueData.lines.Length == 0)
-        { return; }
+        // 🔹 Si no hay diálogo válido, salimos sin romper nada
+        if (dialogueData == null)
+        {
+            Debug.LogWarning($"NPC {name}: getDialogue() devolvió null, no hay diálogo que cumpla las condiciones.");
+            return;
+        }
 
-        //En caso de que haya dialogo empezado, ir a la siguiente linea
+        // 🔹 Si el diálogo no tiene líneas, también salimos
+        if (dialogueData.lines == null || dialogueData.lines.Length == 0)
+        {
+            Debug.LogWarning($"NPC {name}: el diálogo '{dialogueData.name}' no tiene líneas.");
+            return;
+        }
+
+        // En caso de que haya diálogo empezado, ir a la siguiente línea
         if (isDialogueActive)
         {
             NextLine();
         }
-        //Si no hay dialogo empezado, empezar la conversacion
+        // Si no hay diálogo empezado, empezar la conversación
         else
         {
-            
             originalDialogue = dialogueData;
             StartDialogue();
         }
-
-
     }
 
     void StartDialogue()
@@ -88,9 +112,10 @@ public class NPC : MonoBehaviour, IInteractable
         
         movement.canPlayerMove = false;
 
-        DialogueLine line = dialogueData.lines[dialogueIndex];
+        Dialogu﻿eLine line = dialogueData.lines[dialogueIndex];
         nameText.text = line.speakerName;
-        portraitImage.sprite = line.expression;
+
+        SetPortraitFromLine(line);
 
         dialoguePanel.SetActive(true);
 
@@ -98,22 +123,49 @@ public class NPC : MonoBehaviour, IInteractable
 
     }
 
+    private void SetPortraitFromLine(DialogueLine line)
+    {
+        if (line.isPlayerSpeaking)
+        {
+            // Habla Joaquín
+            joaquinPortrait.sprite = line.expression;
+        }
+        else
+        {
+            // Habla el NPC
+            portraitImage.sprite = line.expression;
+        }
+    }
+
     void NextLine()
     {
+        if (dialogueData == null || dialogueData.lines == null || dialogueData.lines.Length == 0)
+        {
+            EndDialogue();
+            return;
+        }
+
+        if (dialogueIndex < 0)
+            dialogueIndex = 0;
+
+        if (dialogueIndex >= dialogueData.lines.Length)
+        {
+            EndDialogue();
+            return;
+        }
+
         DialogueLine line = dialogueData.lines[dialogueIndex];
 
+        // 🟡 CASO 1: estaba escribiendo y el jugador pulsa E -> terminar de escribir esta línea
         if (isTyping)
         {
             StopAllCoroutines();
-            //dialogueText.SetText(dialogueData.dialogueLines[dialogueIndex]);
-            dialogueText.text = dialogueData.lines[dialogueIndex].lineText;
-
+            dialogueText.text = line.lineText;
             isTyping = false;
 
             if (line.isChoice)
             {
-                //por algun motivo solo hace lo de poner los 4 botones A VECES ?????
-                if(line.choiceC == null)
+                if (line.choiceC == null)
                 {
                     isChoiceActive = true;
                     Debug.Log("Eligiendo 2");
@@ -121,22 +173,17 @@ public class NPC : MonoBehaviour, IInteractable
                     button_choice1.SetActive(true);
                     button_choice2.SetActive(true);
 
-                    // get the Button components
                     Button b1 = button_choice1.GetComponent<Button>();
                     Button b2 = button_choice2.GetComponent<Button>();
 
-                    // clear previous listeners
                     b1.onClick.RemoveAllListeners();
                     b2.onClick.RemoveAllListeners();
 
-                    // capture the current line into a local variable for the closures
                     DialogueLine current = line;
 
-                    // add listeners that call a single handler with the chosen dialogue
                     b1.onClick.AddListener(() => OnChoiceSelected(current.choiceA));
                     b2.onClick.AddListener(() => OnChoiceSelected(current.choiceB));
                 }
-
                 else
                 {
                     isChoiceActive = true;
@@ -147,29 +194,25 @@ public class NPC : MonoBehaviour, IInteractable
                     button_choice3.SetActive(true);
                     button_choice4.SetActive(true);
 
-                    // get the Button components
                     Button b1 = button_choice1.GetComponent<Button>();
                     Button b2 = button_choice2.GetComponent<Button>();
 
-                    // clear previous listeners
                     b1.onClick.RemoveAllListeners();
                     b2.onClick.RemoveAllListeners();
 
-                    // capture the current line into a local variable for the closures
                     DialogueLine current = line;
 
-                    // add listeners that call a single handler with the chosen dialogue
                     b1.onClick.AddListener(() => OnChoiceSelected(current.choiceA));
                     b2.onClick.AddListener(() => OnChoiceSelected(current.choiceB));
                 }
-                
-
             }
             else if (line.hasReward)
             {
-                rewardManager = FindObjectOfType<RewardManager>();
-                rewardManager.giveReward(line.reward);
+                if (rewardManager == null)
+                    rewardManager = FindObjectOfType<RewardManager>();
 
+                if (rewardManager != null)
+                    rewardManager.giveReward(line.reward);
             }
 
             else if (line.startsMinigame)
@@ -177,25 +220,25 @@ public class NPC : MonoBehaviour, IInteractable
                 ActivateMinigame(line.minigame);
             }
 
-
+            return; // importante: no seguir a la parte de abajo
         }
 
-        //Si hay mas lineas de texto
-        else if(++dialogueIndex < dialogueData.lines.Length && !isChoiceActive)
+        // 🟡 CASO 2: ya se terminó de escribir la línea, pasar a la siguiente
+        if (!isChoiceActive && ++dialogueIndex < dialogueData.lines.Length)
         {
             Debug.Log(dialogueIndex);
-            //Cambiar expresiones de los portraits
+
             line = dialogueData.lines[dialogueIndex];
-            if (line.isPlayerSpeaking) joaquinPortrait.sprite = line.expression;
-            else portraitImage.sprite = line.expression;
+
+            SetPortraitFromLine(line);
+
             StartCoroutine(TypeLine(line));
         }
-
         else
         {
+            // No hay más líneas -> cerrar diálogo
             EndDialogue();
         }
-
     }
 
     IEnumerator TypeLine(DialogueLine line)
@@ -241,9 +284,11 @@ public class NPC : MonoBehaviour, IInteractable
 
         else if (line.hasReward)
         {
-            rewardManager = FindObjectOfType<RewardManager>();
-            rewardManager.giveReward(line.reward);
+            if (rewardManager == null)
+                rewardManager = FindObjectOfType<RewardManager>();
 
+            if (rewardManager != null)
+                rewardManager.giveReward(line.reward);
         }
 
         else if (line.startsMinigame)
