@@ -212,4 +212,9 @@ public class carta_controller : MonoBehaviour
         SceneManager.LoadScene("Minijuego_solterona");
     }
 
+    public void Continuar()
+    {
+        SceneManager.LoadScene("Minijuego_solterona");
+    }
+
 }

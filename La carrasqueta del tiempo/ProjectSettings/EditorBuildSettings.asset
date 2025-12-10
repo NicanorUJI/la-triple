@@ -21,13 +21,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Carrasqueta.unity
     guid: fdb17d0fc669507468c3c44214d590ce
   - enabled: 1
-    path: "Assets/Scenes/Mata Baja/esparde\xF1es.unity"
+    path: "Assets/Scenes/Mata Arriba/Mata Baja/esparde\xF1es.unity"
     guid: 02e14a1094f1bf0479c855366145e194
   - enabled: 1
-    path: Assets/Scenes/Mata Baja/colegio.unity
+    path: Assets/Scenes/Mata Arriba/Mata Baja/colegio.unity
     guid: fa678c00a1d84b74b836bd313b6905c8
   - enabled: 1
-    path: Assets/Scenes/Mata Baja/barranquet.unity
+    path: Assets/Scenes/Mata Arriba/Mata Baja/barranquet.unity
     guid: 2d809a99592e37b4dae8a6fabccbb605
   - enabled: 1
     path: Assets/Scenes/Cementerio.unity
