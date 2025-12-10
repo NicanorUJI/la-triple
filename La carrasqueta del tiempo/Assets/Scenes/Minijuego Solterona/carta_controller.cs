@@ -2,10 +2,14 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class carta_controller : MonoBehaviour
 {
+
+    public Animator animator;
+
     [Header("Cartas rival")]
     public carta thisCarta; // carta que clickas
     public carta otherCarta; // carta que no clickas
@@ -26,6 +30,9 @@ public class carta_controller : MonoBehaviour
     private SolteronaGeneral minijuegoController;
     public GameObject texto_victoria;
     public GameObject texto_derrota;
+    public Sprite[] imagenesPorTipo;
+    public GameObject continuar;
+    public GameObject reset;
 
 
 
@@ -43,6 +50,8 @@ public class carta_controller : MonoBehaviour
             //espera un segundo
             //alcaldeEligeCarta();
         }
+
+        
         
     }
 
@@ -53,19 +62,23 @@ public class carta_controller : MonoBehaviour
         {
             carta1.tipo = thisCarta.tipo;
             carta1Objeto.SetActive(true);
+            ActualizarImagen(carta1Objeto, carta1);
         }
 
         else if (carta2.tipo == 0)
         {
             carta2.tipo = thisCarta.tipo;
             carta2Objeto.SetActive(true);
+            ActualizarImagen(carta2Objeto, carta2);
         }
+
+        BarajarCartasJugador();
 
         thisCarta.tipo = 0;
 
         minijuegoController.turnoJuaquin = false;
         GetComponent<Image>().enabled = false;
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
 
 
         if (carta1.tipo == 1 && carta2.tipo ==1)
@@ -76,10 +89,12 @@ public class carta_controller : MonoBehaviour
             thisCartaObjeto.SetActive(false);
             otherCartaObjeto.SetActive(false);
             texto_victoria.SetActive(true);
+            reset.SetActive(true);
+            continuar.SetActive(true);
         }
 
         //thisCartaObjeto.SetActive(false);
-        //barajar_joaquin();
+  
         alcaldeEligeCarta();
     }
 
@@ -114,15 +129,11 @@ public class carta_controller : MonoBehaviour
             thisCarta.tipo = carta2.tipo;
             carta2.tipo = 0;
         }
-        
-        
 
-        thisCarta.tipo = numero;
 
-       
-       
-       
-        
+        BarajarCartasAlcalde();
+
+        //thisCarta.tipo = numero;
 
         minijuegoController.turnoJuaquin = true;
         GetComponent<Image>().enabled = true;
@@ -137,10 +148,11 @@ public class carta_controller : MonoBehaviour
             thisCartaObjeto.SetActive(false);
             otherCartaObjeto.SetActive(false);
             texto_derrota.SetActive(true);
+            reset.SetActive(true);
         
         }
 
-        //barajar_alcalde();
+       
         jugadorEligeCarta();
 
 
@@ -148,30 +160,56 @@ public class carta_controller : MonoBehaviour
 
     }
 
-    void barajar_joaquin()
+    public void ActualizarImagen(GameObject objetoCarta, carta cartaActual)
     {
-        int random  = Random.Range(1, 3);
-        Debug.Log("random = " + random);
-        if (random == 2) 
-        
-        {
-            carta1.tipo = carta2.tipo;
-            carta2.tipo = carta1.tipo;
-        }
-       
+        Image img = objetoCarta.GetComponent<Image>();
+        img.sprite = imagenesPorTipo[cartaActual.tipo];
     }
 
-    void barajar_alcalde()
+    public void BarajarCartasJugador()
     {
-        int random = Random.Range(1, 3);
-        Debug.Log("random = " + random);
-        if (random == 2)
+        // Si las dos cartas tienen un tipo asignado (no vacías)
+        if (carta1.tipo != 0 && carta2.tipo != 0)
         {
-            thisCarta.tipo = otherCarta.tipo;
-            otherCarta.tipo = thisCarta.tipo;
+            // 50% probabilidad de intercambiar
+            if (Random.Range(0, 2) == 1)
+            {
+                int tipoTemporal = carta1.tipo;
+                carta1.tipo = carta2.tipo;
+                carta2.tipo = tipoTemporal;
+
+                // Actualizar imágenes después de barajar
+                ActualizarImagen(carta1Objeto, carta1);
+                ActualizarImagen(carta2Objeto, carta2);
+
+                Debug.Log(">>> Cartas del jugador barajadas");
+            }
         }
-           
     }
 
+    public void BarajarCartasAlcalde()
+    {
+        // Si las dos cartas tienen un tipo asignado (no vacías)
+        if (thisCarta.tipo != 0 && otherCarta.tipo != 0)
+        {
+            animator.gameObject.SetActive(false);
+            animator.SetTrigger("mezclar_A");
+            // 50% probabilidad de intercambiar
+            if (Random.Range(0, 2) == 1)
+            {
+                int tipoTemporal = thisCarta.tipo;
+                thisCarta.tipo =   otherCarta.tipo;
+                otherCarta.tipo = tipoTemporal;
+
+                Debug.Log(">>> Cartas del jugador barajadas");
+            }
+        }
+        Debug.Log(">>> Cartas barajadas");
+    }
+
+    public void Reset()
+    {
+        SceneManager.LoadScene("Minijuego_solterona");
+    }
 
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6999a2ff57725a4da8e3339bd17525a, type: 3}
   m_Name: carta4
   m_EditorClassIdentifier: Assembly-CSharp::carta
-  carta_imagen: {fileID: 0}
-  tipo: 0
+  carta_imagen: {fileID: 35653544342944317, guid: 3ccea253b6fc32845bdbd542817ea67c, type: 3}
+  tipo: 1
   activo: 1
