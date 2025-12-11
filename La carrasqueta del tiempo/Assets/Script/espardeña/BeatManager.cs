@@ -11,7 +11,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     private bool gameStarted = false;
     private WaitForSeconds wait1s, waitHalf, waitEndDelay;
     private float nextBeatTime = 0f;
-    private float spawnY = 8f, minX = -5f, maxX = 5f, spawnZ = 0f;
+    private float spawnY = 8f, minX = -1f, maxX = 7f, spawnZ = 0f;
 
     [Header("")]
     public float beatInterval = 0.5f;
