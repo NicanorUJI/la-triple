@@ -3,9 +3,11 @@ using UnityEngine;
 public class Niño : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private Vector3 originalScale;
+    public Vector3 originalScale;
 
     private SpriteRenderer sr;
+
+    public string nombre;
 
     private void Start()
     {
