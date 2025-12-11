@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 5bd4aed9a3fc78144b4f6d7241139d26
+guid: 529bae17d383f9bd883f8df2c24b849b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -652939912207050450
-    second: 6 (1)_0
-  - first:
-      213: -5814947299103070928
-    second: 6 (1)_1
+      213: 1597853712253449665
+    second: NPC_Alcalde_Feliz_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -78,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 6 (1)_0
+      name: NPC_Alcalde_Feliz_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 3
-        width: 39
-        height: 102
-      alignment: 9
-      pivot: {x: 0.3144766, y: 0.26059288}
+        x: 9
+        y: 0
+        width: 117
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e295939fb9a40f6f0800000000000000
-      internalID: -652939912207050450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 6 (1)_1
-      rect:
-        serializedVersion: 2
-        x: 571
-        y: 3
-        width: 39
-        height: 102
-      alignment: 9
-      pivot: {x: 0.7087152, y: 0.21182476}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03528598d382d4fa0800000000000000
-      internalID: -5814947299103070928
+      spriteID: 1c5f7e94c77bc2610800000000000000
+      internalID: 1597853712253449665
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4f8a64447b89e74468d9926ed40f83ab
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      6 (1)_0: -652939912207050450
-      6 (1)_1: -5814947299103070928
+      NPC_Alcalde_Feliz_0: 1597853712253449665
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

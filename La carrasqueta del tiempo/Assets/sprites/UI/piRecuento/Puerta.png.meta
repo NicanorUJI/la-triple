@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 5bd4aed9a3fc78144b4f6d7241139d26
+guid: d1cddb29e455d834ebd4033acecf3efa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -652939912207050450
-    second: 6 (1)_0
-  - first:
-      213: -5814947299103070928
-    second: 6 (1)_1
+      213: -8909987091062915374
+    second: Puerta_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -78,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 6 (1)_0
+      name: Puerta_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 3
-        width: 39
-        height: 102
-      alignment: 9
-      pivot: {x: 0.3144766, y: 0.26059288}
+        x: 0
+        y: 0
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e295939fb9a40f6f0800000000000000
-      internalID: -652939912207050450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 6 (1)_1
-      rect:
-        serializedVersion: 2
-        x: 571
-        y: 3
-        width: 39
-        height: 102
-      alignment: 9
-      pivot: {x: 0.7087152, y: 0.21182476}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03528598d382d4fa0800000000000000
-      internalID: -5814947299103070928
+      spriteID: 2def0e3a2fd595480800000000000000
+      internalID: -8909987091062915374
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4f8a64447b89e74468d9926ed40f83ab
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      6 (1)_0: -652939912207050450
-      6 (1)_1: -5814947299103070928
+      Puerta_0: -8909987091062915374
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
