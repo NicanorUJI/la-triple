@@ -23,6 +23,12 @@ public class NPC : MonoBehaviour, IInteractable
     public GameObject button_choice3;
     public GameObject button_choice4;
 
+    [Header("Skip diálogo")]
+    public bool skipDialogueWhenFlagSet = false;
+    public string skipDialogueFlag;
+    public string skipDialogueScene;
+
+
     private int dialogueIndex;
     private bool isTyping, isDialogueActive, isChoiceActive;
     private NPCDialogue originalDialogue;
@@ -35,13 +41,10 @@ public class NPC : MonoBehaviour, IInteractable
     {
         foreach (NPCDialogue opcion in opciones)
         {
-            // Si el elemento está vacío en el inspector, lo saltamos
             if (opcion == null)
                 continue;
 
             bool correct = true;
-
-            // Si las conditions son null, lo tratamos como "sin condiciones"
             var conds = opcion.conditions;
 
             if (conds != null)
@@ -57,7 +60,15 @@ public class NPC : MonoBehaviour, IInteractable
             }
 
             if (correct)
+            {
+                if (opcion.name == "Act2_Quest_Espardenyes_Return"
+                    && GameManager.Check("Act2_Q_ESP_Done"))
+                {
+                    continue;
+                }
+
                 return opcion;
+            }
         }
 
         Debug.LogWarning("NPC.getDialogue: no se encontró ningún diálogo válido en 'opciones'.");
@@ -74,33 +85,45 @@ public class NPC : MonoBehaviour, IInteractable
         Debug.Log("Interactuando");
         movement = FindObjectOfType<PlayerMovement>();
 
-        dialogueData = getDialogue();
-
-        // 🔹 Si no hay diálogo válido, salimos sin romper nada
-        if (dialogueData == null)
-        {
-            Debug.LogWarning($"NPC {name}: getDialogue() devolvió null, no hay diálogo que cumpla las condiciones.");
-            return;
-        }
-
-        // 🔹 Si el diálogo no tiene líneas, también salimos
-        if (dialogueData.lines == null || dialogueData.lines.Length == 0)
-        {
-            Debug.LogWarning($"NPC {name}: el diálogo '{dialogueData.name}' no tiene líneas.");
-            return;
-        }
-
-        // En caso de que haya diálogo empezado, ir a la siguiente línea
+        // 1) Si ya hay un diálogo activo, solo avanzamos líneas
         if (isDialogueActive)
         {
             NextLine();
+            return;
         }
-        // Si no hay diálogo empezado, empezar la conversación
-        else
+
+        // 2) Si está configurado para saltar diálogo cuando un flag está activo
+        if (skipDialogueWhenFlagSet
+            && !string.IsNullOrEmpty(skipDialogueFlag)
+            && GameManager.Check(skipDialogueFlag))
         {
-            originalDialogue = dialogueData;
-            StartDialogue();
+            Debug.Log($"NPC {name}: skip de diálogo per flag {skipDialogueFlag}");
+
+            if (!string.IsNullOrEmpty(skipDialogueScene))
+            {
+                SceneManager.LoadScene(skipDialogueScene);
+            }
+
+            return;
         }
+
+        // 3) Comportamiento normal: buscamos qué diálogo tocaría ahora
+        dialogueData = getDialogue();
+
+        if (dialogueData == null)
+        {
+            Debug.LogWarning($"NPC {name}: getDialogue() va tornar null, no hi ha diàleg que complisca condicions.");
+            return;
+        }
+
+        if (dialogueData.lines == null || dialogueData.lines.Length == 0)
+        {
+            Debug.LogWarning($"NPC {name}: el diàleg '{dialogueData.name}' no té línies.");
+            return;
+        }
+
+        originalDialogue = dialogueData;
+        StartDialogue();
     }
 
     void StartDialogue()
@@ -156,7 +179,7 @@ public class NPC : MonoBehaviour, IInteractable
 
         DialogueLine line = dialogueData.lines[dialogueIndex];
 
-        // 🟡 CASO 1: estaba escribiendo y el jugador pulsa E -> terminar de escribir esta línea
+        // CASO 1: aún se está escribiendo la línea -> la terminamos de golpe
         if (isTyping)
         {
             StopAllCoroutines();
@@ -165,46 +188,7 @@ public class NPC : MonoBehaviour, IInteractable
 
             if (line.isChoice)
             {
-                if (line.choiceC == null)
-                {
-                    isChoiceActive = true;
-                    Debug.Log("Eligiendo 2");
-                    joaquinPortrait_Object.SetActive(false);
-                    button_choice1.SetActive(true);
-                    button_choice2.SetActive(true);
-
-                    Button b1 = button_choice1.GetComponent<Button>();
-                    Button b2 = button_choice2.GetComponent<Button>();
-
-                    b1.onClick.RemoveAllListeners();
-                    b2.onClick.RemoveAllListeners();
-
-                    DialogueLine current = line;
-
-                    b1.onClick.AddListener(() => OnChoiceSelected(current.choiceA));
-                    b2.onClick.AddListener(() => OnChoiceSelected(current.choiceB));
-                }
-                else
-                {
-                    isChoiceActive = true;
-                    Debug.Log("Eligiendo 4");
-                    joaquinPortrait_Object.SetActive(false);
-                    button_choice1.SetActive(true);
-                    button_choice2.SetActive(true);
-                    button_choice3.SetActive(true);
-                    button_choice4.SetActive(true);
-
-                    Button b1 = button_choice1.GetComponent<Button>();
-                    Button b2 = button_choice2.GetComponent<Button>();
-
-                    b1.onClick.RemoveAllListeners();
-                    b2.onClick.RemoveAllListeners();
-
-                    DialogueLine current = line;
-
-                    b1.onClick.AddListener(() => OnChoiceSelected(current.choiceA));
-                    b2.onClick.AddListener(() => OnChoiceSelected(current.choiceB));
-                }
+                ShowChoices(line);
             }
             else if (line.hasReward)
             {
@@ -214,29 +198,30 @@ public class NPC : MonoBehaviour, IInteractable
                 if (rewardManager != null)
                     rewardManager.giveReward(line.reward);
             }
-
             else if (line.startsMinigame)
             {
                 ActivateMinigame(line.minigame);
             }
 
-            return; // importante: no seguir a la parte de abajo
+            return;
         }
 
-        // 🟡 CASO 2: ya se terminó de escribir la línea, pasar a la siguiente
-        if (!isChoiceActive && ++dialogueIndex < dialogueData.lines.Length)
+        // CASO 2: ya ha terminado de escribir
+        // Si hay opciones en pantalla, no avanzamos con E
+        if (isChoiceActive)
+            return;
+
+        // Pasamos a la siguiente línea
+        dialogueIndex++;
+
+        if (dialogueIndex < dialogueData.lines.Length)
         {
-            Debug.Log(dialogueIndex);
-
             line = dialogueData.lines[dialogueIndex];
-
             SetPortraitFromLine(line);
-
             StartCoroutine(TypeLine(line));
         }
         else
         {
-            // No hay más líneas -> cerrar diálogo
             EndDialogue();
         }
     }
@@ -244,44 +229,24 @@ public class NPC : MonoBehaviour, IInteractable
     IEnumerator TypeLine(DialogueLine line)
     {
         isTyping = true;
+        isChoiceActive = false;
+
         dialogueText.SetText("");
         nameText.text = line.speakerName;
 
-
         foreach (char letter in line.lineText)
-            {
-                dialogueText.text += letter;
-                yield return new WaitForSeconds(.05f);
-            }
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(.05f);
+        }
 
         isTyping = false;
 
-        //Si hay opciones de dialogo, salen una vez se acaba el dialogo
+        // Una vez escrita la línea, vemos qué toca
         if (line.isChoice)
         {
-            isChoiceActive = true;
-            Debug.Log(dialogueIndex);
-            joaquinPortrait_Object.SetActive(false);
-            button_choice1.SetActive(true);
-            button_choice2.SetActive(true);
-
-            // get the Button components
-            Button b1 = button_choice1.GetComponent<Button>();
-            Button b2 = button_choice2.GetComponent<Button>();
-
-            // clear previous listeners
-            b1.onClick.RemoveAllListeners();
-            b2.onClick.RemoveAllListeners();
-
-            // capture the current line into a local variable for the closures
-            DialogueLine current = line;
-
-            // add listeners that call a single handler with the chosen dialogue
-            b1.onClick.AddListener(() => OnChoiceSelected(current.choiceA));
-            b2.onClick.AddListener(() => OnChoiceSelected(current.choiceB));
-
+            ShowChoices(line);
         }
-
         else if (line.hasReward)
         {
             if (rewardManager == null)
@@ -290,7 +255,6 @@ public class NPC : MonoBehaviour, IInteractable
             if (rewardManager != null)
                 rewardManager.giveReward(line.reward);
         }
-
         else if (line.startsMinigame)
         {
             ActivateMinigame(line.minigame);
@@ -316,13 +280,19 @@ public class NPC : MonoBehaviour, IInteractable
 
     private void OnChoiceSelected(NPCDialogue nextDialogue)
     {
-        button_choice1.SetActive(false);
-        button_choice2.SetActive(false);
-        joaquinPortrait_Object.SetActive(true);
+        if (button_choice1 != null) button_choice1.SetActive(false);
+        if (button_choice2 != null) button_choice2.SetActive(false);
+        if (button_choice3 != null) button_choice3.SetActive(false);
+        if (button_choice4 != null) button_choice4.SetActive(false);
+
+        if (joaquinPortrait_Object != null)
+            joaquinPortrait_Object.SetActive(true);
+
         isChoiceActive = false;
 
         if (nextDialogue == null)
         {
+            EndDialogue();
             return;
         }
 
@@ -335,8 +305,74 @@ public class NPC : MonoBehaviour, IInteractable
         SceneManager.LoadScene(minigame);
     }
 
+    private void ShowChoices(DialogueLine line)
+    {
+        isChoiceActive = true;
+        joaquinPortrait_Object.SetActive(false);
 
+        // Apagamos todos los botones al principio
+        if (button_choice1 != null) button_choice1.SetActive(false);
+        if (button_choice2 != null) button_choice2.SetActive(false);
+        if (button_choice3 != null) button_choice3.SetActive(false);
+        if (button_choice4 != null) button_choice4.SetActive(false);
+
+        // Configuramos cada botón solo si hay diálogo asignado
+        SetupChoiceButton(button_choice1, line.choiceA);
+        SetupChoiceButton(button_choice2, line.choiceB);
+        SetupChoiceButton(button_choice3, line.choiceC);
+        SetupChoiceButton(button_choice4, line.choiceD);
+    }
+
+    private void SetupChoiceButton(GameObject buttonObj, NPCDialogue nextDialogue)
+    {
+        if (buttonObj == null)
+            return;
+
+        var button = buttonObj.GetComponent<Button>();
+        if (button == null)
+            return;
+
+        // Si no hay diálogo, ocultamos el botón
+        if (nextDialogue == null)
+        {
+            buttonObj.SetActive(false);
+            button.onClick.RemoveAllListeners();
+            return;
+        }
+
+        // si la opción es de una quest ya completada, ocultar el botón
+        if (!IsQuestChoiceAvailable(nextDialogue))
+        {
+            buttonObj.SetActive(false);
+            button.onClick.RemoveAllListeners();
+            return;
+        }
+
+        // Si está disponible, activamos el botón y registramos el click
+        buttonObj.SetActive(true);
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(() => OnChoiceSelected(nextDialogue));
+    }
+
+    private bool IsQuestChoiceAvailable(NPCDialogue dlg)
+    {
+        if (dlg == null)
+            return false;
+
+        // Usar nombres exactos de los NPCDialogues en la carpeta Dialogues/Misiones!!
+
+        // Espardenyes
+        if (dlg.name == "Act2_Quest_Espardenyes_Intro" && GameManager.Check("Act2_Q_ESP_Done"))
+            return false;
+
+        // Llança
+        if (dlg.name == "Act2_Quest_Llanca_Intro" && GameManager.Check("Act2_Q_LLANCE_Done"))
+            return false;
+
+        // Menjar
+        if (dlg.name == "Act2_Quest_Menjar_Intro" && GameManager.Check("Act2_Q_MENJAR_Done"))
+            return false;
+
+        return true;
+    }
 }
-
-
-

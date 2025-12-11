@@ -555,7 +555,10 @@ MonoBehaviour:
   button_choice1: {fileID: 623267753}
   button_choice2: {fileID: 623267752}
   button_choice3: {fileID: 623267751}
-  button_choice4: {fileID: 623267750}
+  button_choice4: {fileID: 0}
+  skipDialogueWhenFlagSet: 1
+  skipDialogueFlag: Act1_FirstTravelPast
+  skipDialogueScene: CarrasquetaPasado
 --- !u!1 &269231464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,11 +1191,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620243387}
   m_CullTransparentMesh: 1
---- !u!1 &623267750 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2139996726682028523, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
-  m_PrefabInstance: {fileID: 811710297}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &623267751 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7391697022859408448, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
@@ -1434,7 +1432,10 @@ MonoBehaviour:
   button_choice1: {fileID: 623267753}
   button_choice2: {fileID: 623267752}
   button_choice3: {fileID: 623267751}
-  button_choice4: {fileID: 623267750}
+  button_choice4: {fileID: 0}
+  skipDialogueWhenFlagSet: 0
+  skipDialogueFlag: 
+  skipDialogueScene: 
 --- !u!1 &746116966
 GameObject:
   m_ObjectHideFlags: 0

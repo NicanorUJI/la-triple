@@ -76,15 +76,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (canPlayerMove) {
             //MOVIMIENTO HORIZONTAL
-            if (keyboard.rightArrowKey.isPressed)
+            if (keyboard.dKey.isPressed)
                 moveX = 1f;
-            else if (keyboard.leftArrowKey.isPressed)
+            else if (keyboard.aKey.isPressed)
                 moveX = -1f;
 
             //MOVIMIENTO VERTICAL
-            if (keyboard.upArrowKey.isPressed)
+            if (keyboard.wKey.isPressed)
                 moveY = 1f;
-            else if (keyboard.downArrowKey.isPressed)
+            else if (keyboard.sKey.isPressed)
                 moveY = -1f;
         }
 

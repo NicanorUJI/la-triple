@@ -1964,7 +1964,7 @@ MonoBehaviour:
   velocidadCaida: 3
   musicSource: {fileID: 1309484430}
   notaPrefab: {fileID: 3072582124033085596, guid: 26bfde979a0d4a247886a78498e28c0b, type: 3}
-  escenaSalir: Plaza
+  escenaSalir: "Esparde\xF1es"
   countdownImage: {fileID: 179400977}
   countdownSprites:
   - {fileID: -6470460504253458178, guid: f2954595708caee41a3c55685a919ce5, type: 3}
@@ -1978,6 +1978,8 @@ MonoBehaviour:
   endScreen: {fileID: 26905402}
   finalScoreText: {fileID: 1378212894}
   extraFinalText: {fileID: 403458664}
+  successFlag: Act2_Q_ESP_HasEspart
+  minHitRateToWin: 0
 --- !u!1 &1354140489
 GameObject:
   m_ObjectHideFlags: 0

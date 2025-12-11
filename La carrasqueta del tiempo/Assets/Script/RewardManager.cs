@@ -66,20 +66,20 @@ public class RewardManager : MonoBehaviour
         }
         else if (reward == "ACT1_FIRST_TRAVEL_PAST")
         {
-            // Evitar que se dispare dos veces
-            if (GameManager.Check("Act1_FirstTravelPast"))
-                return;
-
-            GameManager.Change("Act1_FirstTravelPast");
-            Debug.Log("Primer viatge al passat -> flag Act1_FirstTravelPast");
-
-            if (mc != null)
+            // Solo la primera vez marcamos el flag y la misión
+            if (!GameManager.Check("Act1_FirstTravelPast"))
             {
-                mc.SetActiveMission(
-                    4,
-                    "Missió activa",
-                    "Explora el poble en el passat i parla amb la gent."
-                );
+                GameManager.Change("Act1_FirstTravelPast");
+                Debug.Log("Primer viatge al passat -> flag Act1_FirstTravelPast");
+
+                if (mc != null)
+                {
+                    mc.SetActiveMission(
+                        4,
+                        "Missió activa",
+                        "Explora el poble en el passat i parla amb la gent."
+                    );
+                }
             }
 
             UnityEngine.SceneManagement.SceneManager.LoadScene("CarrasquetaPasado");
@@ -100,6 +100,60 @@ public class RewardManager : MonoBehaviour
                     "Ajuda a Maripili a preparar-se per a espantar l'ós."
                 );
             }
+        }
+        else if (reward == "ACT2_Q_LLANCE_START")
+        {
+            if (!GameManager.Check("Act2_Quest_Llanca_Started"))
+                GameManager.Change("Act2_Quest_Llanca_Started");
+
+            Debug.Log("Act2 -> Quest Llança STARTED");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    7,
+                    "Missió activa",
+                    "Busca la manera d’aconseguir la clau de l’ermita per a agarrar la llança."
+                );
+            }
+        }
+        else if (reward == "ACT2_Q_MENJAR_START")
+        {
+            if (!GameManager.Check("Act2_Quest_Menjar_Started"))
+                GameManager.Change("Act2_Quest_Menjar_Started");
+
+            Debug.Log("Act2 -> Quest Menjar STARTED");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    8,
+                    "Missió activa",
+                    "Parla amb la gent del poble per aconseguir menjar per a l’ós."
+                );
+            }
+        }
+        else if (reward == "ACT2_Q_ESP_START")
+        {
+            GameManager.Change("Act2_Q_ESP_Started");
+            if (mc != null)
+                mc.SetActiveMission(6, "Missió activa",
+                    "Ves a la tenda d'espardenyes i ajuda al sabater.");
+        }
+        else if (reward == "ACT2_Q_ESP_GOT_MATERIAL")
+        {
+            GameManager.Change("Act2_Q_ESP_HasEspart");
+            if (mc != null)
+                mc.SetActiveMission(6, "Missió activa",
+                    "Torna amb l'espart a parlar amb Maripili.");
+        }
+        else if (reward == "ACT2_Q_ESP_DONE")
+        {
+            GameManager.Change("Act2_Q_ESP_Done");
+            Debug.Log("Act2 -> Quest Espardenyes COMPLETED");
+
+            mc?.SetActiveMission(5, "Missió activa",
+                    "Parla amb Maripili i tria una altra cosa per a preparar contra l'ós.");
         }
 
         // aquí después añadiremos otros rewards

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
+  m_Name: Act2_ESP_Shoemaker_AfterMinigame
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  originalDialogue: {fileID: 0}
+  defaultSprite: {fileID: 0}
+  lines:
+  - speakerName: Antonio
+    lineText: "Molt b\xE9 xiquet, tens m\xE0 per a aquest treball!"
+    expression: {fileID: -8215116832123250920, guid: 8577884ffe24ec9e1ae1b8f4adcf5a29, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Antonio
+    lineText: "Tal com t\u2019he prom\xE9s, ac\xED tens l\u2019espart. Aprofita\u2019l
+      b\xE9."
+    expression: {fileID: -2251644730476938592, guid: 02398a2396b900899a3b66e60bf6666d, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 1
+    reward: ACT2_Q_ESP_GOT_MATERIAL
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "Moltes gr\xE0cies, Antonio!"
+    expression: {fileID: 3684638748939831445, guid: 423e9c4ed331f7ba7be40b4446b71b54, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  conditions:
+  - Act2_Q_ESP_Started
+  - Act2_Q_ESP_HasEspart

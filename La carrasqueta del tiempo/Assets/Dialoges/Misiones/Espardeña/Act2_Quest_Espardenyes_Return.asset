@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
+  m_Name: Act2_Quest_Espardenyes_Return
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  originalDialogue: {fileID: 0}
+  defaultSprite: {fileID: 0}
+  lines:
+  - speakerName: Joaquin
+    lineText: "Maripili! Ja tinc l\u2019espart!"
+    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Maripili
+    lineText: "Molt b\xE9! Amb aix\xF2 podrem preparar unes bones torxes per si l\u2019\xF3s
+      s\u2019acosta massa."
+    expression: {fileID: -2354228602472572489, guid: 137b836fd6e1645439f1250705b1e5b4, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "I ara qu\xE8 fem?"
+    expression: {fileID: 3198480329992687461, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Maripili
+    lineText: "Ara que ja tenim l\u2019espart, hem de pensar en la resta. Ves parlant
+      amb mi i tria una altra cosa per a preparar contra l\u2019\xF3s."
+    expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 1
+    reward: ACT2_Q_ESP_DONE
+    startsMinigame: 0
+    minigame: 
+  conditions:
+  - Act2_Q_ESP_HasEspart
