@@ -27,19 +27,28 @@ public class HidingSpot : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (!gameManager.inputEnabled) return;  //No permitir hover aún
+
         if (rend != null && !found)
             rend.material.color = hoverColor;
     }
 
     private void OnMouseExit()
     {
+        if (!gameManager.inputEnabled) return;  // No permitir hover aún
+
         if (rend != null && !found)
             rend.material.color = originalColor;
     }
 
     private void OnMouseDown()
     {
+        // Si el input está bloqueado, no permitir clics
+        if (!gameManager.inputEnabled) return;
+
         if (found) return;
+        if (rend != null)
+            rend.material.color = originalColor;
         gameManager.OnSpotClicked(this);
     }
 
