@@ -43,9 +43,9 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     [System.Serializable]
     public class BeatInfo { public float time, energy; }
 
-    // ---------------------------------------------------------
+
     //                       INICIO
-    // ---------------------------------------------------------
+
     void Start()
     {
         wait1s = new WaitForSeconds(1f);
@@ -58,7 +58,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         if (endScreen != null) endScreen.SetActive(false);
     }
 
-    public void OnStartButtonPressed()
+    public void OnStartButtonPressed()  //                          BOTON COMENZAR
     {
         if (startScreen != null) startScreen.SetActive(false);
         if (returnButton != null) returnButton.SetActive(true);
@@ -86,9 +86,9 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         topBeats.Clear();
     }
 
-    // ---------------------------------------------------------
+
     //               CUENTA ATRÁS Y COMIENZO MÚSICA
-    // ---------------------------------------------------------
+
     private IEnumerator StartMusicWithCountdown()
     {
         if (countdownSprites != null && countdownSprites.Length > 0 && countdownImage != null)
@@ -127,23 +127,19 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         }
     }
 
-    // ---------------------------------------------------------
-    //                    UPDATE (LOGICA ARREGLADA)
-    // ---------------------------------------------------------
+
     void Update()
     {
         if (!gameStarted) return;
         if (musicSource == null || !musicSource.isPlaying) return;
 
-        // Generar Beats
         if (musicSource.time >= nextBeatTime)
         {
             RegisterBeat(musicSource.time, 1f);
             nextBeatTime += beatInterval;
         }
 
-        // Input del jugador
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) //              SE GOLPEA LA NOTA CON SPACE
         {
             bool hitAnyNote = false;
 
@@ -151,25 +147,19 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
             foreach (GameObject note in notes)
             {
                 Note noteScript = note.GetComponent<Note>();
-                // Comprobamos si la nota es válida para ser pulsada
                 if (noteScript != null && noteScript.CanBePressed())
                 {
                     hitAnyNote = true;
 
-                    // --- CORRECCIÓN AQUÍ ---
-                    // 1. Avisamos al Manager que acertamos
                     if (RhythmGameManager.instance != null)
                         RhythmGameManager.instance.NoteHit();
-                    
-                    // 2. Destruimos la nota para que no falle al salir de pantalla ni se pulse dos veces
-                    Destroy(note); 
-                    // -----------------------
 
-                    break; // Solo permitimos acertar una nota por pulsación
+                    Destroy(note);
+
+                    break;
                 }
             }
 
-            // Si pulsamos espacio pero no había nota
             if (!hitAnyNote)
             {
                 if (RhythmGameManager.instance != null)
@@ -178,9 +168,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         }
     }
 
-    // ---------------------------------------------------------
-    //               FIN DE CANCIÓN Y PANTALLA FINAL
-    // ---------------------------------------------------------
+
     void StopGame()
     {
         gameStarted = false;
@@ -196,42 +184,32 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         ShowEndScreen();
     }
 
-    void ShowEndScreen()
+    void ShowEndScreen()  //                                      PANTALLA FINAL
     {
         if (endScreen != null) endScreen.SetActive(true);
         if (returnButton != null) returnButton.SetActive(false);
 
         if (finalScoreText != null && RhythmGameManager.instance != null)
         {
-            // 1. Obtenemos los datos
-            int finalScore = RhythmGameManager.instance.CurrentScore; // Puntuación con restas
-            int hits = RhythmGameManager.instance.HitNotes;           // Aciertos puros
-            int total = RhythmGameManager.instance.TotalNotes;        // Total de notas
+            int finalScore = RhythmGameManager.instance.CurrentScore;
+            int hits = RhythmGameManager.instance.HitNotes;
+            int total = RhythmGameManager.instance.TotalNotes;
 
-            // 2. CAMBIO AQUÍ: Mostramos la PUNTUACIÓN (Score) en el texto grande
-
-            // 3. Calculamos la precisión para el mensaje extra
             float hitRate = total > 0 ? (float)hits / total : 0f;
 
             if (extraFinalText != null)
             {
-                // Puedes añadir el detalle de aciertos aquí si quieres
                 string mensajeMotivacional =
-                    hitRate >= 0.50f ? "¡Molt bé!" :
-                    hitRate >= 0.40f ? "Nada mal, pero pots millorar." :
-                    "Continua practicant...";
+                    hitRate >= 0.50f ? "¡Molt bé, has guanyat!" :
+                    hitRate >= 0.40f ? "Hmm, sabem que pots millorar." :
 
-                // Muestra: "¡Increíble! (40/50 notas)"
-                finalScoreText.text = $"Puntuació Final: {finalScore} de {total} notes";
+                finalScoreText.text = $"Has acertat: {finalScore} de {total} notes";
 
                 extraFinalText.text = $"{mensajeMotivacional}";
             }
         }
     }
 
-    // ---------------------------------------------------------
-    //                   SPAWN DE NOTAS
-    // ---------------------------------------------------------
     void SpawnBeatVisual(float beatEnergy)
     {
         if (notaPrefab == null) return;
@@ -256,14 +234,9 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
         SpawnBeatVisual(energy);
 
-        // Esto cuenta el TOTAL de notas generadas
         if (RhythmGameManager.instance != null)
             RhythmGameManager.instance.RegisterNote();
     }
-
-    // ---------------------------------------------------------
-    //                     UTILIDADES
-    // ---------------------------------------------------------
     void ClearBeats()
     {
         GameObject[] beats = GameObject.FindGameObjectsWithTag("Beat");
