@@ -1348,6 +1348,7 @@ GameObject:
   - component: {fileID: 1523915532}
   - component: {fileID: 1523915531}
   - component: {fileID: 1523915533}
+  - component: {fileID: 1523915534}
   m_Layer: 0
   m_Name: fondo
   m_TagString: Untagged
@@ -1474,6 +1475,49 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.77642274, y: 0.05883777}
   m_EdgeRadius: 0
+--- !u!68 &1523915534
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523915530}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -3.0976725, y: -0.7286618}
+  - {x: -3.092785, y: 0.77935123}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1569050426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,7 +1817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c628f789dca553947b23130e5bbacb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::tp2
-  indiceEscena: 4
+  indiceEscena: 21
   tagJugador: Player
   retardo: 0
   nombrePuntoEntrada: "esparde\xF1es1"

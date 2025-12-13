@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 37cd8076039c5e948b40d551f19b25eb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6040527493073068967
+    second: UI_FaseEleccion_TextoSacar3_0
+  - first:
+      213: -31788958883986955
+    second: UI_FaseEleccion_TextoSacar3_1
+  - first:
+      213: 2385353080566292687
+    second: UI_FaseEleccion_TextoSacar3_2
+  - first:
+      213: -1937860221418189411
+    second: UI_FaseEleccion_TextoSacar3_3
+  - first:
+      213: 5718515880216534022
+    second: UI_FaseEleccion_TextoSacar3_4
+  - first:
+      213: -2884969685337311949
+    second: UI_FaseEleccion_TextoSacar3_5
+  - first:
+      213: 2075457779662447104
+    second: UI_FaseEleccion_TextoSacar3_6
+  - first:
+      213: -6844835096010282011
+    second: UI_FaseEleccion_TextoSacar3_7
+  - first:
+      213: 781026960928097397
+    second: UI_FaseEleccion_TextoSacar3_8
+  - first:
+      213: 3706685414387920139
+    second: UI_FaseEleccion_TextoSacar3_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoSacar3_0
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 359
+        width: 128
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95c1667cf3cbb2ca0800000000000000
+      internalID: -6040527493073068967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoSacar3_1
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 467
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f1c0fd3c101f8ff0800000000000000
+      internalID: -31788958883986955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoSacar3_2
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 383
+        width: 200
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc0a9071df97a1120800000000000000
+      internalID: 2385353080566292687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoSacar3_3
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 377
+        width: 146
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9d420655665b15e0800000000000000
+      internalID: -1937860221418189411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoSacar3_4
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 383
+        width: 62
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60c9cb225ef3c5f40800000000000000
+      internalID: 5718515880216534022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoSacar3_5
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 371
+        width: 104
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 335f2bd3b5786f7d0800000000000000
+      internalID: -2884969685337311949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoSacar3_6
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 233
+        width: 206
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 002e917bad18dcc10800000000000000
+      internalID: 2075457779662447104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoSacar3_7
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 239
+        width: 50
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eb2e24eeb24201a0800000000000000
+      internalID: -6844835096010282011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoSacar3_8
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 251
+        width: 62
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5744f1602e3c6da00800000000000000
+      internalID: 781026960928097397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoSacar3_9
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 233
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0da6badebac07330800000000000000
+      internalID: 3706685414387920139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      UI_FaseEleccion_TextoSacar3_0: -6040527493073068967
+      UI_FaseEleccion_TextoSacar3_1: -31788958883986955
+      UI_FaseEleccion_TextoSacar3_2: 2385353080566292687
+      UI_FaseEleccion_TextoSacar3_3: -1937860221418189411
+      UI_FaseEleccion_TextoSacar3_4: 5718515880216534022
+      UI_FaseEleccion_TextoSacar3_5: -2884969685337311949
+      UI_FaseEleccion_TextoSacar3_6: 2075457779662447104
+      UI_FaseEleccion_TextoSacar3_7: -6844835096010282011
+      UI_FaseEleccion_TextoSacar3_8: 781026960928097397
+      UI_FaseEleccion_TextoSacar3_9: 3706685414387920139
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

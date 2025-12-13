@@ -20,6 +20,9 @@ namespace Domino.Core
 
         public override string ToString() => $"{A}|{B}";
 
+        // cambiar aqui las imagenes de la ficha ??
+
+
         public bool Equals(DominoTile other) =>
             (A == other.A && B == other.B) || (A == other.B && B == other.A);
 

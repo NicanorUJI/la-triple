@@ -11,6 +11,10 @@ namespace Domino.UI
     {
         [SerializeField] TMP_Text label;
         [SerializeField] CanvasGroup canvasGroup;
+        [SerializeField] Image imageA;
+        [SerializeField] Image imageB;
+
+        [SerializeField] Sprite[] numberSprites;
 
         RectTransform rectTransform;
         Canvas parentCanvas;
@@ -42,7 +46,17 @@ namespace Domino.UI
             _onEndDrag = onEndDrag;
             _interactable = interactable;
 
-            if (label) label.text = $"{tile.A}|{tile.B}";
+            if (label)
+            {
+                label.text = $"{tile.A}|{tile.B}";
+
+                //cambiar imagen de la ficha
+
+                imageA.sprite = numberSprites[tile.A];
+                imageB.sprite = numberSprites[tile.B];
+            }
+
+            
 
             if (canvasGroup)
             {
