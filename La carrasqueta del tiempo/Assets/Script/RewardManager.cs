@@ -55,14 +55,6 @@ public class RewardManager : MonoBehaviour
                 );
             }
 
-            // ocultar sprite
-            var basket = GameObject.FindWithTag("Cesta");
-            if (basket != null)
-            {
-                var sprites = basket.GetComponentsInChildren<SpriteRenderer>();
-                foreach (var sr in sprites)
-                    sr.enabled = false;
-            }
         }
         else if (reward == "ACT1_FIRST_TRAVEL_PAST")
         {
@@ -241,6 +233,20 @@ public class RewardManager : MonoBehaviour
                     3,
                     "Aconseguir carn per a l’ós",
                     "Maripili diu que la mel és poca. Ves a la plaça i busca la carnisseria o algun lloc on aconseguir carn."
+                );
+            }
+        }
+        else if (reward == "ACT2_Q_ESQUELLES_START")
+        {
+            GameManager.Change("Act2_Q_ESQUELLES_Started");
+            Debug.Log("Act2 -> Esquelles: última missió començada.");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    4,
+                    "Buscar a Raúl a les calderetes",
+                    "Maripili t'ha dit que un xic anomenat Raúl podria tindre cencerros. Ves a les calderetes a buscar-lo."
                 );
             }
         }

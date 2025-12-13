@@ -106,7 +106,7 @@ MonoBehaviour:
     choiceD: {fileID: 0}
     hasReward: 0
     reward: 
-    startsMinigame: 0
-    minigame: 
+    startsMinigame: 1
+    minigame: Minijuego_Morra
   conditions:
   - Act2_Q_MENJAR_MorraStarted

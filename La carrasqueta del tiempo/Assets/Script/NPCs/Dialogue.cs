@@ -71,6 +71,17 @@ public class NPC : MonoBehaviour, IInteractable
                 {
                     continue;
                 }
+                if (opcion.name == "Act2_Quest_Menjar_ReturnMeat"
+                    && GameManager.Check("Act2_Q_MENJAR_Done"))
+                {
+                    continue;
+                }
+                if (opcion.name == "Act2_Quest_Esquelles_Intro"
+                    && GameManager.Check("Act2_Q_ESQUELLES_Done"))
+                {
+                    continue;
+                }
+
 
                 return opcion;
             }
