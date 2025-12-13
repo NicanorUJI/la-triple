@@ -150,7 +150,7 @@ public class DominoUI : MonoBehaviour
             GameManager.Change("Act2_Q_MENJAR_WonDomino");
             Debug.Log("[Menjar/Dominó] Joaquín ha guanyat el dominó.");
 
-             var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
+            var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
             if (mc != null)
             {
                 mc.SetActiveMission(

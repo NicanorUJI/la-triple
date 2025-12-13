@@ -250,5 +250,64 @@ public class RewardManager : MonoBehaviour
                 );
             }
         }
+        else if (reward == "ACT2_Q_ESQUELLES_TALKED_RAUL")
+        {
+            GameManager.Change("Act2_Q_ESQUELLES_TalkedToRaul");
+            Debug.Log("Act2 -> Esquelles: ja he parlat amb Raúl a les calderetes.");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    4,
+                    "Parlar amb la iaia al cementeri",
+                    "Raúl et demana que averigües quin regal li agradaria a Maria Pilar. Ves al cementeri a buscar a la iaia."
+                );
+            }
+        }
+        else if (reward == "ACT2_Q_ESQUELLES_TALKED_IAIA")
+        {
+            GameManager.Change("Act2_Q_ESQUELLES_TalkedToIaiaPresent");
+            Debug.Log("Act2 -> Esquelles: ja he parlat amb la iaia al cementeri.");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    4,
+                    "Anar al col·legi a buscar una polsera",
+                    "Al col·legi hi ha xiquets venent-ne, ves allí a parlar amb ells."
+                );
+            }
+        }
+        else if (reward == "ACT2_Q_ESQUELLES_BRACELET")
+        {
+            GameManager.Change("Act2_Q_ESQUELLES_HasBracelet");
+            Debug.Log("Act2 -> Esquelles: ja tinc la polsera.");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    4,
+                    "Portar la polsera a Raúl",
+                    "Has aconseguit una polsera al col·legi. Torna al passat i dóna-li-la a Raúl a les calderetes."
+                );
+            }
+        }
+        else if (reward == "ACT2_Q_ESQUELLES_DONE")
+        {
+            GameManager.Change("Act2_Q_ESQUELLES_Done");
+            GameManager.Change("Act2_HasCencerros");
+
+            Debug.Log("Act2 -> Esquelles completada. Joaquín ja té les esquelles.");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    5,
+                    "Tot preparat contra l’ós",
+                    "Ja tens les espardenyes, la llança, el menjar i les esquelles. Torna a parlar amb Maripili."
+                );
+            }
+        }
+
     }
 }

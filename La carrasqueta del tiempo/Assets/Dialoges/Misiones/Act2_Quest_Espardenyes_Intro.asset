@@ -18,7 +18,7 @@ MonoBehaviour:
   - speakerName: Maripili
     lineText: "Les espardenyes s\xF3n molt importants per a la festa. Sense elles,
       ni ball ni res."
-    expression: {fileID: 0}
+    expression: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -32,7 +32,7 @@ MonoBehaviour:
   - speakerName: Maripili
     lineText: "Ves a la tenda d\u2019espardenyes i pregunta si els sobra espart.
       Amb aix\xF2 podrem fer torxes."
-    expression: {fileID: 0}
+    expression: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
