@@ -16,9 +16,9 @@ MonoBehaviour:
   defaultSprite: {fileID: 0}
   lines:
   - speakerName: Maripili
-    lineText: "Una altra cosa: si l\u2019\xF3s t\xE9 la panxa plena, potser tindr\xE0
-      menys ganes de fer mal."
-    expression: {fileID: 0}
+    lineText: "Per\xF2 que dius tu ara xiquet? Com es va a menjar a alg\xFA del poble?
+      Estem bojos?"
+    expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -30,9 +30,9 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: "Parla amb la gent del poble i mira si pots aconseguir menjar. Alg\xFA
-      segur que et pot ajudar."
-    expression: {fileID: 0}
+    lineText: "Per\xF2 no es mala idea. A lo millor es calma una mica si t\xE9 la
+      panxa plena."
+    expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -44,8 +44,60 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Joaquin
-    lineText: "Molt b\xE9, parlar\xE9 amb el poble i veur\xE9 qu\xE8 puc trobar."
-    expression: {fileID: 0}
+    lineText: "Crec que a un \xF3s li podria agradar la mel."
+    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Maripili
+    lineText: "I aix\xF2 per qu\xE8?"
+    expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: Tot el mon sap que als ossos els agrada la mel.
+    expression: {fileID: 1236392363465906612, guid: 3262f44a6fd4064a7b582db6be41871c, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Maripili
+    lineText: "Si tu o dius. Crec que en venen a la panaderia aix\xED que ves i compra\u2019n."
+    expression: {fileID: 8747955740245679328, guid: 1c5e3b832e319170f90a9ea07e2aa8a4, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "D\u2019acord! Ara torne."
+    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

@@ -114,7 +114,17 @@ public class Button_Controller_Morra : MonoBehaviour
             {
                 if (puntos_jugador>puntos_NPC)
                 {
-                    debug_Text.SetText("Ha ganado Joaquin");
+                    GameManager.Change("Act2_Q_MENJAR_HasMeat");
+                    Debug.Log("[Menjar/Morra] JoaquÃ­n ha guanyat la cistella de menjar.");
+
+                    var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
+                    mc?.SetActiveMission(
+                            3,
+                            "Tornar amb la carn",
+                            "Has guanyat una cistella de menjar a la Morra. Torna al passat amb Maripili."
+                        );
+
+                    SceneManager.LoadScene("PlazaPasado");
                 }
                 else
                 {
@@ -155,6 +165,6 @@ public class Button_Controller_Morra : MonoBehaviour
     {
         if (puntos_jugador >= 3) SceneManager.LoadScene(Plaza);
 
-        else SceneManager.LoadScene(Escena Menú);
+        else SceneManager.LoadScene(Escena Menï¿½);
     }*/
 }

@@ -177,7 +177,72 @@ public class RewardManager : MonoBehaviour
                 MissionController.Instance.ClearMission();
             }
         }
+        else if (reward == "ACT2_Q_MENJAR_START")
+        {
+            GameManager.Change("Act2_Q_MENJAR_Started");
+            Debug.Log("Act2 -> Quest MENJAR STARTED");
 
-        // aquí después añadiremos otros rewards
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    3,
+                    "Buscar menjar",
+                    "Maripili creu que podem calmar l'ós donant-li de menjar. Pregunta al bar si pots aconseguir alguna cosa per a ell."
+                );
+            }
+        }
+        else if (reward == "ACT2_Q_MENJAR_DONE")
+        {
+            GameManager.Change("Act2_Q_MENJAR_Done");
+            Debug.Log("Act2 -> Quest MENJAR COMPLETED");
+
+            if (mc != null)
+            {
+                mc.ClearMission();
+            }
+        }
+        else if (reward == "ACT2_Q_MENJAR_GOT_HONEY")
+        {
+            GameManager.Change("Act2_Q_MENJAR_HasHoney");
+            Debug.Log("Act2 -> Menjar: ja tinc el pot de mel.");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    3,
+                    "Portar la mel a Maripili",
+                    "Has guanyat el pot de mel al dominó. Torna al passat i dóna-li'l a Maripili."
+                );
+            }
+        }
+
+        else if (reward == "ACT2_Q_MENJAR_NEEDS_MEAT")
+        {
+            GameManager.Change("Act2_Q_MENJAR_NeedsMeat");
+            Debug.Log("Act2 -> MENJAR: ara cal aconseguir carn.");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    3,
+                    "Buscar carn per a l’ós",
+                    "Maripili diu que la mel és poca. Ves cap a la plaça i busca la carnisseria."
+                );
+            }
+        }
+        else if (reward == "ACT2_Q_MENJAR_START_MORRA")
+        {
+            GameManager.Change("Act2_Q_MENJAR_MorraStarted");
+            Debug.Log("Act2 -> Menjar: iniciada fase de la carn (Morra).");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    3,
+                    "Aconseguir carn per a l’ós",
+                    "Maripili diu que la mel és poca. Ves a la plaça i busca la carnisseria o algun lloc on aconseguir carn."
+                );
+            }
+        }
     }
 }
