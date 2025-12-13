@@ -21,7 +21,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - npc_bar
   - Water
   - UI
   - fondo
@@ -57,8 +57,11 @@ TagManager:
   - name: character
     uniqueID: 1252618739
     locked: 0
-  - name: New UI 2
+  - name: npc_bar
     uniqueID: 2366525851
+    locked: 0
+  - name: New UI 2
+    uniqueID: 3810531221
     locked: 0
   m_RenderingLayers:
   - Default

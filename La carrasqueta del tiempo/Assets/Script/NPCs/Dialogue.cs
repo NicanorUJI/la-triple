@@ -66,6 +66,11 @@ public class NPC : MonoBehaviour, IInteractable
                 {
                     continue;
                 }
+                if (opcion.name == "Act2_Quest_Llanca_Return"
+                    && GameManager.Check("Act2_Q_LLANCE_Done"))
+                {
+                    continue;
+                }
 
                 return opcion;
             }

@@ -17,7 +17,7 @@ MonoBehaviour:
   lines:
   - speakerName: Antonio
     lineText: "Molt b\xE9 xiquet, tens m\xE0 per a aquest treball!"
-    expression: {fileID: -8215116832123250920, guid: 8577884ffe24ec9e1ae1b8f4adcf5a29, type: 3}
+    expression: {fileID: 2034427693296661028, guid: eb034a48146884376a653a7c523df0a9, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -31,7 +31,7 @@ MonoBehaviour:
   - speakerName: Antonio
     lineText: "Tal com t\u2019he prom\xE9s, ac\xED tens l\u2019espart. Aprofita\u2019l
       b\xE9."
-    expression: {fileID: -2251644730476938592, guid: 02398a2396b900899a3b66e60bf6666d, type: 3}
+    expression: {fileID: 3394518141796890859, guid: 702a897522d01f961a34b51c7ce5f4e1, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}

@@ -30,7 +30,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Antonio
     lineText: "Bon dia xic! Qu\xE8 se te perd per ac\xED?"
-    expression: {fileID: -6688073653609949091, guid: fc7d120a17bc66c3facc6c7680438328, type: 3}
+    expression: {fileID: -7163864861592193100, guid: 39f455c862bdc2d69a9d37676480ea21, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -57,7 +57,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Antonio
     lineText: "Espart? I per a qu\xE8 el vols, si es pot saber?"
-    expression: {fileID: -8215116832123250920, guid: 8577884ffe24ec9e1ae1b8f4adcf5a29, type: 3}
+    expression: {fileID: 2034427693296661028, guid: eb034a48146884376a653a7c523df0a9, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
   - speakerName: Antonio
     lineText: "Jajaja! Els xicons i els vostres jocs... Va, d\u2019acord, te\u2019n
       donar\xE9 una mica que tinc per ac\xED."
-    expression: {fileID: -2251644730476938592, guid: 02398a2396b900899a3b66e60bf6666d, type: 3}
+    expression: {fileID: 2034427693296661028, guid: eb034a48146884376a653a7c523df0a9, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   - speakerName: Antonio
     lineText: "Per\xF2 les coses no s\xF3n gratis. Per qu\xE8 no m\u2019ajudes un
       poc? Vols aprendre a fer espardenyes?"
-    expression: {fileID: -6688073653609949091, guid: fc7d120a17bc66c3facc6c7680438328, type: 3}
+    expression: {fileID: -7163864861592193100, guid: 39f455c862bdc2d69a9d37676480ea21, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
   - speakerName: Antonio
     lineText: "No home, no! Tu segueixes les meues indicacions i ja vor\xE0s que
       r\xE0pid se\u2019n fa una."
-    expression: {fileID: -8215116832123250920, guid: 8577884ffe24ec9e1ae1b8f4adcf5a29, type: 3}
+    expression: {fileID: 3394518141796890859, guid: 702a897522d01f961a34b51c7ce5f4e1, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -139,7 +139,7 @@ MonoBehaviour:
   - speakerName: Antonio
     lineText: "Va, prepara\u2019t. Dona-li a les tecles al ritme i vore\u2019m qu\xE8
       tal se\u2019t dona."
-    expression: {fileID: -8215116832123250920, guid: 8577884ffe24ec9e1ae1b8f4adcf5a29, type: 3}
+    expression: {fileID: 2034427693296661028, guid: eb034a48146884376a653a7c523df0a9, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}

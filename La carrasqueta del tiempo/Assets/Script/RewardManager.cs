@@ -101,38 +101,6 @@ public class RewardManager : MonoBehaviour
                 );
             }
         }
-        else if (reward == "ACT2_Q_LLANCE_START")
-        {
-            if (!GameManager.Check("Act2_Quest_Llanca_Started"))
-                GameManager.Change("Act2_Quest_Llanca_Started");
-
-            Debug.Log("Act2 -> Quest Llança STARTED");
-
-            if (mc != null)
-            {
-                mc.SetActiveMission(
-                    7,
-                    "Missió activa",
-                    "Busca la manera d’aconseguir la clau de l’ermita per a agarrar la llança."
-                );
-            }
-        }
-        else if (reward == "ACT2_Q_MENJAR_START")
-        {
-            if (!GameManager.Check("Act2_Quest_Menjar_Started"))
-                GameManager.Change("Act2_Quest_Menjar_Started");
-
-            Debug.Log("Act2 -> Quest Menjar STARTED");
-
-            if (mc != null)
-            {
-                mc.SetActiveMission(
-                    8,
-                    "Missió activa",
-                    "Parla amb la gent del poble per aconseguir menjar per a l’ós."
-                );
-            }
-        }
         else if (reward == "ACT2_Q_ESP_START")
         {
             GameManager.Change("Act2_Q_ESP_Started");
@@ -154,6 +122,60 @@ public class RewardManager : MonoBehaviour
 
             mc?.SetActiveMission(5, "Missió activa",
                     "Parla amb Maripili i tria una altra cosa per a preparar contra l'ós.");
+        }
+        else if (reward == "ACT2_Q_LLANCE_START")
+        {
+            GameManager.Change("Act2_Q_LLANCE_Started");
+
+            if (MissionController.Instance != null)
+            {
+                MissionController.Instance.SetActiveMission(
+                    2,
+                    "Conseguir la llança",
+                    "Ves a l’ermita de Santa Bàrbara (la de baix) i mira si pots aconseguir la llança."
+                );
+            }
+        }
+        else if (reward == "ACT2_Q_LLANCE_WON_SOLTERONA")
+        {
+            GameManager.Change("Act2_Q_LLANCE_WonSolterona");
+            Debug.Log("Act2 -> 'solterona' guanyada (sense minijoc).");
+        }
+        else if (reward == "ACT2_Q_LLANCE_GOT_CLUE")
+        {
+            GameManager.Change("Act2_Q_LLANCE_HasClue");
+
+            if (MissionController.Instance != null)
+            {
+                MissionController.Instance.SetActiveMission(
+                    2,
+                    "Buscar la clau de l’ermita",
+                    "L’alcalde t’ha dit que la clau està amagada en una pedra al costat de la creu de l’ermita."
+                );
+            }
+        }
+        else if (reward == "ACT2_Q_LLANCE_GOT_KEY")
+        {
+            GameManager.Change("Act2_Q_LLANCE_HasKey");
+            Debug.Log("Act2 -> Llança: ja tinc la clau de l'ermita.");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    2,
+                    "Obrir l’ermita",
+                    "Ja tens la clau. Torna a l’ermita de Santa Bàrbara i intenta obrir la porta."
+                );
+            }
+        }
+        else if (reward == "ACT2_Q_LLANCE_DONE")
+        {
+            GameManager.Change("Act2_Q_LLANCE_Done");
+
+            if (MissionController.Instance != null)
+            {
+                MissionController.Instance.ClearMission();
+            }
         }
 
         // aquí después añadiremos otros rewards
