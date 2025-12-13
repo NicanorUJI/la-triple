@@ -1,0 +1,1027 @@
+fileFormatVersion: 2
+guid: de469447e51ead749bdcfc4215be2614
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2765359971177751215
+    second: UIVariadas_0
+  - first:
+      213: -1494337675268709707
+    second: UIVariadas_1
+  - first:
+      213: 7281448388477912755
+    second: UIVariadas_2
+  - first:
+      213: -8594963780336429597
+    second: UIVariadas_3
+  - first:
+      213: 4733888083992065678
+    second: UIVariadas_4
+  - first:
+      213: 4804094555442374788
+    second: UIVariadas_5
+  - first:
+      213: -2649813615617815852
+    second: UIVariadas_6
+  - first:
+      213: -8293224812599584305
+    second: UIVariadas_7
+  - first:
+      213: -4345025633172238265
+    second: UIVariadas_8
+  - first:
+      213: -5415362735629656076
+    second: UIVariadas_9
+  - first:
+      213: -2190643307816513871
+    second: UIVariadas_10
+  - first:
+      213: -3323404552019297188
+    second: UIVariadas_11
+  - first:
+      213: 586907239236330535
+    second: UIVariadas_12
+  - first:
+      213: 2474329509581027144
+    second: UIVariadas_13
+  - first:
+      213: 7348714542172191370
+    second: UIVariadas_14
+  - first:
+      213: -6522620587760519557
+    second: UIVariadas_15
+  - first:
+      213: -5835631487298571858
+    second: UIVariadas_16
+  - first:
+      213: -6188732753297791943
+    second: UIVariadas_17
+  - first:
+      213: 8470436556626268216
+    second: UIVariadas_18
+  - first:
+      213: 1178708373771096915
+    second: UIVariadas_19
+  - first:
+      213: -5268226003972543404
+    second: UIVariadas_20
+  - first:
+      213: 6859537304835645697
+    second: UIVariadas_21
+  - first:
+      213: 9049239452255226016
+    second: UIVariadas_22
+  - first:
+      213: 4028445926757927075
+    second: UIVariadas_23
+  - first:
+      213: -8574608235232400196
+    second: UIVariadas_24
+  - first:
+      213: 3490062047829522113
+    second: UIVariadas_25
+  - first:
+      213: -3994245640161510962
+    second: UIVariadas_26
+  - first:
+      213: -8889647795819261665
+    second: UIVariadas_27
+  - first:
+      213: 4038661379500550872
+    second: UIVariadas_28
+  - first:
+      213: 8784419712488427724
+    second: UIVariadas_29
+  - first:
+      213: -3828283517979949774
+    second: UIVariadas_30
+  - first:
+      213: -2729597733509371099
+    second: UIVariadas_31
+  - first:
+      213: -4194148613233907196
+    second: UIVariadas_32
+  - first:
+      213: 8009781520981405899
+    second: UIVariadas_33
+  - first:
+      213: -7105545284406969619
+    second: UIVariadas_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UIVariadas_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 701
+        width: 614
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa262260e38806620800000000000000
+      internalID: 2765359971177751215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_1
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 857
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b2202b3dcb034be0800000000000000
+      internalID: -1494337675268709707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_2
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 857
+        width: 26
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b601950bb6ec0560800000000000000
+      internalID: 7281448388477912755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_3
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 839
+        width: 62
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5d2b7dafd88b880800000000000000
+      internalID: -8594963780336429597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_4
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 863
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e863dc4912622b140800000000000000
+      internalID: 4733888083992065678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_5
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 851
+        width: 20
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 488e7848b829ba240800000000000000
+      internalID: 4804094555442374788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_6
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 833
+        width: 86
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4da4b105e88f93bd0800000000000000
+      internalID: -2649813615617815852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_7
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 707
+        width: 74
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc9db8ae8fb88ec80800000000000000
+      internalID: -8293224812599584305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_8
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 737
+        width: 68
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7405dc2253e53b3c0800000000000000
+      internalID: -4345025633172238265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_9
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 731
+        width: 85
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ff18e4a844c8d4b0800000000000000
+      internalID: -5415362735629656076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_10
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 605
+        width: 44
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1be8200a4854991e0800000000000000
+      internalID: -2190643307816513871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_11
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 611
+        width: 74
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5c39f70b25e0e1d0800000000000000
+      internalID: -3323404552019297188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_12
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 659
+        width: 355
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72469c6460d152800800000000000000
+      internalID: 586907239236330535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_13
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 623
+        width: 410
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 847f7d35495965220800000000000000
+      internalID: 2474329509581027144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_14
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 575
+        width: 398
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8abbe1e0f0ebf560800000000000000
+      internalID: 7348714542172191370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_15
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 491
+        width: 44
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7672ed322ffa75a0800000000000000
+      internalID: -6522620587760519557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_16
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 491
+        width: 44
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea1fb7fa41ca30fa0800000000000000
+      internalID: -5835631487298571858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_17
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 503
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9342cd5a9543d1aa0800000000000000
+      internalID: -6188732753297791943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_18
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 551
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83011328b290d8570800000000000000
+      internalID: 8470436556626268216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_19
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 551
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3539768550d9b5010800000000000000
+      internalID: 1178708373771096915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_20
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 467
+        width: 50
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45cadb49c5083e6b0800000000000000
+      internalID: -5268226003972543404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_21
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 359
+        width: 332
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 101e44ad5d8f13f50800000000000000
+      internalID: 6859537304835645697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_22
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 269
+        width: 182
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a88f1f365b559d70800000000000000
+      internalID: 9049239452255226016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_23
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 275
+        width: 182
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a8864d0a3ae7e730800000000000000
+      internalID: 4028445926757927075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_24
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 425
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc65d28d3fd00980800000000000000
+      internalID: -8574608235232400196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_25
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 389
+        width: 110
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c673fcf0f03f6030800000000000000
+      internalID: 3490062047829522113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_26
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 389
+        width: 110
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec93580b0c69198c0800000000000000
+      internalID: -3994245640161510962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_27
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 269
+        width: 140
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f11dbd7dd60a1a480800000000000000
+      internalID: -8889647795819261665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_28
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 65
+        width: 68
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8da283d70253c0830800000000000000
+      internalID: 4038661379500550872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_29
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 65
+        width: 68
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0dfc8cf2788e970800000000000000
+      internalID: 8784419712488427724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_30
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 221
+        width: 146
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 235825b6c643fdac0800000000000000
+      internalID: -3828283517979949774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_31
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 221
+        width: 146
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52b667ac2558e1ad0800000000000000
+      internalID: -2729597733509371099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_32
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 53
+        width: 614
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40aeefcce046bc5c0800000000000000
+      internalID: -4194148613233907196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_33
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 83
+        width: 146
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc0b59e0bd5782f60800000000000000
+      internalID: 8009781520981405899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIVariadas_34
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 71
+        width: 146
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dea787be538046d90800000000000000
+      internalID: -7105545284406969619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      UIVariadas_0: 2765359971177751215
+      UIVariadas_1: -1494337675268709707
+      UIVariadas_10: -2190643307816513871
+      UIVariadas_11: -3323404552019297188
+      UIVariadas_12: 586907239236330535
+      UIVariadas_13: 2474329509581027144
+      UIVariadas_14: 7348714542172191370
+      UIVariadas_15: -6522620587760519557
+      UIVariadas_16: -5835631487298571858
+      UIVariadas_17: -6188732753297791943
+      UIVariadas_18: 8470436556626268216
+      UIVariadas_19: 1178708373771096915
+      UIVariadas_2: 7281448388477912755
+      UIVariadas_20: -5268226003972543404
+      UIVariadas_21: 6859537304835645697
+      UIVariadas_22: 9049239452255226016
+      UIVariadas_23: 4028445926757927075
+      UIVariadas_24: -8574608235232400196
+      UIVariadas_25: 3490062047829522113
+      UIVariadas_26: -3994245640161510962
+      UIVariadas_27: -8889647795819261665
+      UIVariadas_28: 4038661379500550872
+      UIVariadas_29: 8784419712488427724
+      UIVariadas_3: -8594963780336429597
+      UIVariadas_30: -3828283517979949774
+      UIVariadas_31: -2729597733509371099
+      UIVariadas_32: -4194148613233907196
+      UIVariadas_33: 8009781520981405899
+      UIVariadas_34: -7105545284406969619
+      UIVariadas_4: 4733888083992065678
+      UIVariadas_5: 4804094555442374788
+      UIVariadas_6: -2649813615617815852
+      UIVariadas_7: -8293224812599584305
+      UIVariadas_8: -4345025633172238265
+      UIVariadas_9: -5415362735629656076
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
