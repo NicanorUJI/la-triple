@@ -65,7 +65,13 @@ public class DominoUI : MonoBehaviour
 
     void OnTurnChanged(int p)
     {
-        txtTurno.text = $"Turno: P{p}";
+        string jugadorActual = "";
+        if (p == 0) jugadorActual = "Joaquin";
+        else if (p == 1) jugadorActual = "Encarna";
+        else if (p == 2) jugadorActual = "Josefina";
+        else jugadorActual = "M. Amparo";
+
+        txtTurno.text = $"És el torn de: {jugadorActual} !";
         txtMensaje.text = "";
         RedrawHand(); // re-evalúa interactuabilidad de fichas
     }
