@@ -1,0 +1,54 @@
+using UnityEngine;
+
+public class KeyPickup : MonoBehaviour
+{
+    [Header("Historia")]
+    public string keyFlag = "Act2_Q_LLANCE_HasKey";
+
+    [Header("Misión (opcional)")]
+    public bool updateMissionOnPickup = true;
+
+    private bool playerInside = false;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+            playerInside = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+            playerInside = false;
+    }
+
+    private void Update()
+    {
+        if (!playerInside)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // 1) Marcar flag de historia
+            GameManager.Change(keyFlag);
+            Debug.Log("[Santa Barbara] Llave recogida. Flag: " + keyFlag);
+
+            // 2) Actualizar texto de misión (opcional)
+            if (updateMissionOnPickup)
+            {
+                var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
+                if (mc != null)
+                {
+                    mc.SetActiveMission(
+                        2, // usa el mismo ID que la misión de la lanza
+                        "Missió activa",
+                        "Ja tinc la clau. Ara puc provar a obrir la porta de l’ermita en el present."
+                    );
+                }
+            }
+
+            // 3) Quitar la llave de la escena
+            gameObject.SetActive(false);
+        }
+    }
+}

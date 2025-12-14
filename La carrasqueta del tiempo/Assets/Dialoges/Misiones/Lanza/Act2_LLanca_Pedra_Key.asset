@@ -52,7 +52,7 @@ MonoBehaviour:
     choiceC: {fileID: 0}
     choiceD: {fileID: 0}
     hasReward: 1
-    reward: 
+    reward: ACT2_Q_LLANCE_GOT_KEY
     startsMinigame: 0
     minigame: 
   conditions:

@@ -190,7 +190,6 @@ GameObject:
   - component: {fileID: 925708204585424046}
   - component: {fileID: 3808652320769367613}
   - component: {fileID: 2972913646442578312}
-  - component: {fileID: 779692938014022020}
   m_Layer: 8
   m_Name: 'Joaquin '
   m_TagString: Player
@@ -315,6 +314,7 @@ MonoBehaviour:
   background: {fileID: 0}
   padding: 0.1
   maxY: -0.26
+  stepAudioSource: {fileID: 0}
   animator: {fileID: 3808652320769367613}
   canPlayerMove: 1
 --- !u!61 &4544412489768654566
@@ -423,15 +423,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   rewards: []
---- !u!114 &779692938014022020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9095930261065474166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43ed1f2582f5b5946b2ac918621606ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'

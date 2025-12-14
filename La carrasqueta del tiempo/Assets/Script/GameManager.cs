@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Linq;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,32 +18,56 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
+        }
+
+        EnsureMissionController();
+    }
+
+    // ðŸ”¹ Localiza el MissionController y asegura la lista de flags
+    private static void EnsureMissionController()
+    {
+        if (missionController == null)
+        {
+            missionController = FindObjectOfType<MissionController>();
+            if (missionController == null)
+            {
+                Debug.LogWarning("GameManager: no se encontrÃ³ MissionController en la escena.");
+                return;
+            }
+        }
+
+        if (missionController.progressFlags == null)
+        {
+            missionController.progressFlags = new List<string>();
         }
     }
 
     public static bool Check(string condicion)
     {
-        /*Mirar si el primer carácter es !(significa NO ha hecho tal cosa)
-        Si la condición pone "="-- > Split
-        Mirar si el numero al que tiene que ser igual se corresponde con el guardado
-        Devolver si al final se cumple o no*/
+        EnsureMissionController();
+        if (missionController == null)
+            return false;
 
-        missionController = FindObjectOfType<MissionController>();
+        if (missionController.progressFlags == null)
+            return false;
 
-        if (missionController.progressFlags.Contains(condicion))
-            { return true; }
-
-        return false;
-
+        return missionController.progressFlags.Contains(condicion);
     }
 
     public static void Change(string condicion)
     {
-        missionController = FindObjectOfType<MissionController>();
-        if (!missionController.progressFlags.Contains(condicion))
-        { 
-            missionController.progressFlags.Add(condicion); 
-        }
+        EnsureMissionController();
+        if (missionController == null)
+            return;
 
+        if (missionController.progressFlags == null)
+            missionController.progressFlags = new List<string>();
+
+        if (!missionController.progressFlags.Contains(condicion))
+        {
+            missionController.progressFlags.Add(condicion);
+            Debug.Log("GameManager.Change -> aÃ±adido flag: " + condicion);
+        }
     }
 }

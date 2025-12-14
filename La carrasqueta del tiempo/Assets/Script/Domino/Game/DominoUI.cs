@@ -152,6 +152,19 @@ public class DominoUI : MonoBehaviour
             txtResultado.text = "¡Ganaste!";
             txtRecompensa.text = "Has obtenido el tarro de miel";
             RewardSystemHook.Grant("TarroDeMiel");
+
+            GameManager.Change("Act2_Q_MENJAR_WonDomino");
+            Debug.Log("[Menjar/Dominó] Joaquín ha guanyat el dominó.");
+
+            var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    3,
+                    "Has guanyat el dominó",
+                    "Has guanyat el pot de mel. Parla amb l'iaia al bar."
+                );
+            }
         }
         else if (winnerIndex == -1)
         {
@@ -177,7 +190,7 @@ public class DominoUI : MonoBehaviour
         btnSalir.onClick.AddListener(() =>
         {
             panelFinPartida.SetActive(false);
-            SceneManager.LoadScene("Plaza");
+            SceneManager.LoadScene("Bar");
         });
     }
 

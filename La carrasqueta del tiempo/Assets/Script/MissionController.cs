@@ -4,11 +4,32 @@ using System.Collections.Generic;
 
 public class MissionController : MonoBehaviour
 {
-    public bool missionStarted; //true: hay alguna mision activa; false: pues no
-    public int missionID; //cada uno de los objetos tiene una mision ID. o algo. no se si esto se va a usar o que
+    public static MissionController Instance;
 
+    [Header("Estado de misión")]
+    public bool missionStarted;
+    public int missionID;
+
+    [TextArea] public string activeMissionTitle;
+    [TextArea] public string activeMissionDescription;
+
+    [Header("Progreso narrativo")]
     public List<string> progressFlags;
 
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        if (progressFlags == null)
+            progressFlags = new List<string>();
+    }
 
     public bool isInMission()
     {
@@ -18,5 +39,23 @@ public class MissionController : MonoBehaviour
     public int mission_ID()
     {
         return missionID;
+    }
+
+    // 🔹 NUEVO: función para activar / actualizar misión
+    public void SetActiveMission(int id, string title, string description)
+    {
+        missionID = id;
+        missionStarted = true;
+        activeMissionTitle = title;
+        activeMissionDescription = description;
+    }
+
+    // 🔹 Opcional: limpiar misión
+    public void ClearMission()
+    {
+        missionStarted = false;
+        missionID = 0;
+        activeMissionTitle = "";
+        activeMissionDescription = "";
     }
 }
