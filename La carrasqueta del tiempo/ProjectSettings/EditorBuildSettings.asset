@@ -18,13 +18,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Carrasqueta/Carrasqueta.unity
     guid: fdb17d0fc669507468c3c44214d590ce
   - enabled: 1
-    path: "Assets/Scenes/Mata Baja/Pasado/esparde\xF1esPasado.unity"
+    path: "Assets/Scenes/Mata Arriba/Mata Baja/Pasado/esparde\xF1esPasado.unity"
     guid: 02e14a1094f1bf0479c855366145e194
   - enabled: 1
-    path: Assets/Scenes/Mata Baja/colegio.unity
+    path: Assets/Scenes/Mata Arriba/Mata Baja/colegio.unity
     guid: fa678c00a1d84b74b836bd313b6905c8
   - enabled: 1
-    path: Assets/Scenes/Mata Baja/barranquet.unity
+    path: Assets/Scenes/Mata Arriba/Mata Baja/barranquet.unity
     guid: 2d809a99592e37b4dae8a6fabccbb605
   - enabled: 1
     path: Assets/Scenes/Pozuelas/PozuelasPasado.unity
@@ -33,13 +33,13 @@ EditorBuildSettings:
     path: "Assets/Scenes/Escena Men\xFA.unity"
     guid: e69385a1388fc81449c9bb993b6f2915
   - enabled: 1
-    path: Assets/Scenes/Mata Baja/Pasado/barranquetPasado.unity
+    path: Assets/Scenes/Mata Arriba/Mata Baja/Pasado/barranquetPasado.unity
     guid: d13a2dfa37aa0ad45b1f91eb8ea31e6a
   - enabled: 1
     path: Assets/Scenes/PozuelasPasado.unity
     guid: 86e936977fa54d6c5ab0191a269a3f5f
   - enabled: 1
-    path: Assets/Scenes/Mata Baja/Pasado/colegioPasado.unity
+    path: Assets/Scenes/Mata Arriba/Mata Baja/Pasado/colegioPasado.unity
     guid: a645686821834fb49a48c960732faecc
   - enabled: 1
     path: Assets/Scenes/Mata Arriba/Pasado/PlazaPasado.unity
@@ -69,7 +69,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Mata Arriba/Bar.unity
     guid: 6553f03046752884491bded3b4fcb7a8
   - enabled: 1
-    path: "Assets/Scenes/Mata Baja/esparde\xF1es.unity"
+    path: "Assets/Scenes/Mata Arriba/Mata Baja/esparde\xF1es.unity"
     guid: 41d85871822c5c844a6483b2ace3bdfc
   - enabled: 1
     path: Assets/Scenes/Pozuelas/Pozuelas.unity
