@@ -1,12 +1,13 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PiRecuentoManager : MonoBehaviour
 {
-    [Header("Niños y Spots")]
-    public List<GameObject> childrenSprites; // 3 niños únicos
+    [Header("NiÃ±os y Spots")]
+    public List<GameObject> childrenSprites; // 3 niï¿½os ï¿½nicos
     public List<HidingSpot> spots;           // 5 spots
 
     [Header("Rondas")]
@@ -17,23 +18,46 @@ public class PiRecuentoManager : MonoBehaviour
     public TextMeshProUGUI mensajeText;
 
     private int currentRound = 1;
-    private List<GameObject> availableChildren; // niños que aún no han sido encontrados
+    private List<GameObject> availableChildren; // niï¿½os que aï¿½n no han sido encontrados
+
+    public GameObject panelReglas;
+
+    public bool inputEnabled = false;
+
+    public void Aceptar()
+    {
+        inputEnabled = true;
+        if (panelReglas != null)
+            panelReglas.SetActive(false);
+        IniciarPartida();
+    }
+    public void FinishGame()
+    {
+        SceneManager.LoadScene("colegio");
+    }
+    public void ResetGame()
+    {
+        SceneManager.LoadScene("PiRecuentoMinijuego");
+    }
+
 
     void Start()
     {
-        // Inicializar lista de niños disponibles
+        // Inicializar lista de niï¿½os disponibles
         availableChildren = new List<GameObject>(childrenSprites);
 
         // Ocultamos mensaje al iniciar
         mensajeText.gameObject.SetActive(false);
-
-        StartRound();
     }
 
+    public void IniciarPartida()
+    {
+        currentRound = 1;
+        availableChildren = new List<GameObject>(childrenSprites);
+        StartRound();
+    }
     void StartRound()
     {
-        Debug.Log($"Ronda {currentRound}");
-
         // Reiniciamos todos los spots
         foreach (var s in spots)
         {
@@ -42,11 +66,13 @@ public class PiRecuentoManager : MonoBehaviour
         }
 
         // Fin del juego
-        if (availableChildren.Count == 0 || currentRound > rounds)
+        if (availableChildren.Count == 0)
         {
-            Debug.Log("¡Juego terminado!");
-            rondaText.text = "Juego terminado";
-            return;
+            FinishGame();
+        }
+        else if (currentRound > rounds)
+        {
+            ResetGame();
         }
 
         // Mezclar spots
@@ -59,7 +85,7 @@ public class PiRecuentoManager : MonoBehaviour
             shuffledSpots[rand] = temp;
         }
 
-        // Mezclar niños disponibles
+        // Mezclar niï¿½os disponibles
         List<GameObject> shuffledChildren = new List<GameObject>(availableChildren);
         for (int i = 0; i < shuffledChildren.Count; i++)
         {
@@ -69,7 +95,7 @@ public class PiRecuentoManager : MonoBehaviour
             shuffledChildren[rand] = temp;
         }
 
-        // Asignar cada niño disponible a un spot diferente cada ronda
+        // Asignar cada niï¿½o disponible a un spot diferente cada ronda
         for (int i = 0; i < shuffledChildren.Count; i++)
         {
             HidingSpot spot = shuffledSpots[i];
@@ -78,61 +104,103 @@ public class PiRecuentoManager : MonoBehaviour
             spot.hasChild = true;
             spot.childSprite = child;
 
-            // Posicionar el niño en el spot
-            child.transform.position = spot.transform.position;
+            NiÃ±o n = child.GetComponent<NiÃ±o>();
+
+            if (n != null)
+                n.Ocultar(); // restauramos escala y sortingOrder
+
+            // Ahora sï¿½ ponemos al niï¿½o en el spot
             child.transform.SetParent(spot.transform);
-
-            // Inicialmente detrás del spot
-            var sr = child.GetComponent<SpriteRenderer>();
-            if (sr != null)
-                sr.sortingOrder = -1;
+            child.transform.localPosition = Vector3.zero;
         }
 
-        // Mensaje en consola con los spots donde están los niños
-        List<string> spotsWithChildrenNames = new List<string>();
-        foreach (var s in spots)
-        {
-            if (s.hasChild)
-                spotsWithChildrenNames.Add(s.name);
-        }
-        Debug.Log("Niños escondidos en: " + string.Join(", ", spotsWithChildrenNames));
-
-        rondaText.text = $"Ronda {currentRound} / {rounds}";
+        rondaText.text = $"Ronda: {currentRound}/{rounds}";
     }
 
     public void OnSpotClicked(HidingSpot spot)
     {
         if (!spot.hasChild)
         {
-            StartCoroutine(MostrarMensaje("Aquí no hay nadie..."));
+            StartCoroutine(MostrarMensaje());
         }
         else
         {
-            spot.RevealChild();
-            StartCoroutine(MostrarMensaje("¡Encontraste a un niño!"));
+            NiÃ±o n = spot.childSprite.GetComponent<NiÃ±o>();
+            if (n != null)
+            {
+                n.Mostrar(); // mostrar en primer plano
+            }
 
-            // Quitar al niño encontrado de la lista disponible
-            if (availableChildren.Contains(spot.childSprite))
-                availableChildren.Remove(spot.childSprite);
+            StartCoroutine(MostrarMensaje(n.nombre));
+
+            // Quitar niï¿½o de la lista de disponibles
+            availableChildren.Remove(spot.childSprite);
+
+            // Esperar un momento antes de moverlo fuera
+            StartCoroutine(RemoverNiÃ±oDelay(spot.childSprite));
         }
 
         currentRound++;
         StartCoroutine(NextRoundDelay());
     }
 
+
+    private IEnumerator RemoverNiÃ±oDelay(GameObject child)
+    {
+        float showTime = 3f;          // tiempo que el niÃ±o se muestra
+        float swayAngle = 15f;        // Ã¡ngulo mÃ¡ximo de balanceo
+        float swaySpeed = 2f;         // velocidad del balanceo
+
+        NiÃ±o n = child.GetComponent<NiÃ±o>();
+
+        child.transform.localScale = n.originalScale * 2;
+
+        float elapsedTime = 0f;
+        while (elapsedTime <= showTime)
+        {
+            if (child != null)
+            {
+                // Balanceo lateral
+                float angle = Mathf.Sin(Time.time * swaySpeed) * swayAngle;
+                child.transform.rotation = Quaternion.Euler(0, 0, angle);
+            }
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Restaurar valores y remover
+        if (child != null)
+        {
+            child.transform.rotation = Quaternion.identity;
+            child.transform.position = new Vector3(9999, 9999, 0);
+            child.transform.SetParent(null);
+        }
+    }
+
     private IEnumerator NextRoundDelay()
     {
-        yield return new WaitForSeconds(0.5f);
+        inputEnabled = false;
+
+        yield return new WaitForSeconds(3f);
+
+        inputEnabled = true;
         StartRound();
     }
 
-    private IEnumerator MostrarMensaje(string texto)
+    private IEnumerator MostrarMensaje()
     {
         mensajeText.gameObject.SetActive(true);
-        mensajeText.text = texto;
-        yield return new WaitForSeconds(2f);
+        mensajeText.text = "AcÃ­ no hi ha ningÃº...";
+        yield return new WaitForSeconds(3f);
+        mensajeText.gameObject.SetActive(false);
+    }
+
+    private IEnumerator MostrarMensaje(string nombre)
+    {
+        mensajeText.gameObject.SetActive(true);
+        mensajeText.text = $"Has trobat a {nombre}!"; ;
+        yield return new WaitForSeconds(3f);
         mensajeText.gameObject.SetActive(false);
     }
 }
-
-

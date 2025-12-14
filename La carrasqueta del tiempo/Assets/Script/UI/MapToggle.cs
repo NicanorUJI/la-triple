@@ -10,32 +10,31 @@ public class MapToggle : MonoBehaviour
     [Tooltip("Nombre del script de movimiento del Player (exacto).")]
     public string movementComponentName = "ArrowMovement";
 
+    [Header("Map Settings")]
+    [Tooltip("Escenas en las que el mapa puede abrirse.")]
+    public string[] allowedScenes;
+
     [Header("Debug")]
     [SerializeField] private Behaviour playerMovementScript;
     private bool isOpen = false;
 
-    // ---------- Singleton + Persistencia ----------
-    private static MapToggle _instance;
     void Awake()
     {
-        if (_instance != null && _instance != this) { Destroy(gameObject); return; }
-        _instance = this;
         DontDestroyOnLoad(gameObject);
 
+        // Limpiar EventSystems duplicados (opcional)
         var eventSystems = FindObjectsByType<UnityEngine.EventSystems.EventSystem>(FindObjectsSortMode.None);
-        for (int i = 0; i < eventSystems.Length; i++)
-        {
-            if (i > 0) Destroy(eventSystems[i].gameObject);
-        }
+        for (int i = 1; i < eventSystems.Length; i++)
+            Destroy(eventSystems[i].gameObject);
     }
 
-    void OnEnable()  => SceneManager.sceneLoaded += OnSceneLoaded;
+    void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
     void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
 
     void Start()
     {
         if (mapPanel) mapPanel.SetActive(false);
-        RebindPlayer(); // primera escena
+        RebindPlayer();
     }
 
     private void OnSceneLoaded(Scene s, LoadSceneMode m)
@@ -67,7 +66,19 @@ public class MapToggle : MonoBehaviour
         }
     }
 
-    // ---------- Input para abrir/cerrar ----------
+    // ---------- Comprobar si esta escena permite abrir el mapa ----------
+    private bool CanOpenMap()
+    {
+        string current = SceneManager.GetActiveScene().name;
+
+        // Si no se configuró ninguna escena, permitir en todas
+        if (allowedScenes == null || allowedScenes.Length == 0)
+            return true;
+
+        return allowedScenes.Contains(current);
+    }
+
+    // ---------- Input ----------
     void Update()
     {
         if (Keyboard.current?.cKey.wasPressedThisFrame == true) Toggle();
@@ -78,6 +89,11 @@ public class MapToggle : MonoBehaviour
     public void Toggle()
     {
         if (!mapPanel) return;
+
+        // Bloqueo si la escena no permite abrir el mapa
+        if (!CanOpenMap())
+            return;
+
         isOpen = !isOpen;
         mapPanel.SetActive(isOpen);
         if (playerMovementScript) playerMovementScript.enabled = !isOpen;
