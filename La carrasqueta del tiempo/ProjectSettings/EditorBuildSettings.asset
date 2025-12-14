@@ -9,7 +9,89 @@ EditorBuildSettings:
     path: Assets/Scenes/Mata Arriba/Plaza.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+    path: Assets/Scenes/Mata Arriba/CalleInterm.unity
+    guid: fdf31a992d7a11743bf8f66df7c714b3
+  - enabled: 1
+    path: Assets/Scenes/Mata Arriba/Placita.unity
+    guid: a56daf14739aa5140814b022f4f57cca
+  - enabled: 1
+    path: Assets/Scenes/Carrasqueta/Carrasqueta.unity
+    guid: fdb17d0fc669507468c3c44214d590ce
+  - enabled: 1
+    path: "Assets/Scenes/Mata Baja/Pasado/esparde\xF1esPasado.unity"
+    guid: 02e14a1094f1bf0479c855366145e194
+  - enabled: 1
+    path: Assets/Scenes/Mata Baja/colegio.unity
+    guid: fa678c00a1d84b74b836bd313b6905c8
+  - enabled: 1
+    path: Assets/Scenes/Mata Baja/barranquet.unity
+    guid: 2d809a99592e37b4dae8a6fabccbb605
+  - enabled: 1
+    path: Assets/Scenes/Pozuelas/PozuelasPasado.unity
+    guid: 128dd430955a400409bf7b36e3e08525
+  - enabled: 1
     path: "Assets/Scenes/Escena Men\xFA.unity"
     guid: e69385a1388fc81449c9bb993b6f2915
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Scenes/Mata Baja/Pasado/barranquetPasado.unity
+    guid: d13a2dfa37aa0ad45b1f91eb8ea31e6a
+  - enabled: 1
+    path: Assets/Scenes/PozuelasPasado.unity
+    guid: 86e936977fa54d6c5ab0191a269a3f5f
+  - enabled: 1
+    path: Assets/Scenes/Mata Baja/Pasado/colegioPasado.unity
+    guid: a645686821834fb49a48c960732faecc
+  - enabled: 1
+    path: Assets/Scenes/Mata Arriba/Pasado/PlazaPasado.unity
+    guid: 5b16103fa04f5b64cb6c28b371f47e50
+  - enabled: 1
+    path: Assets/Scenes/Mata Arriba/Pasado/PlacitaPasado.unity
+    guid: 8aa5733fcef7cd74d9a54843b78c89d8
+  - enabled: 1
+    path: Assets/Scenes/Cementerio/CementerioPasado.unity
+    guid: 4a570771c2003c24ea2527123ce35a1d
+  - enabled: 1
+    path: Assets/Scenes/Carrasqueta/CarrasquetaPasado.unity
+    guid: b390e443e785af24ab3d2b40e75fe07e
+  - enabled: 1
+    path: Assets/Scenes/hermita/SantaBarbaraPasado.unity
+    guid: 0c72817d865bd5343830ae10f4e1af67
+  - enabled: 1
+    path: Assets/Scenes/Cementerio/Cementerio.unity
+    guid: 1664fb24f5bc6e81ebdd1ff6619177a7
+  - enabled: 1
+    path: Assets/Scenes/hermita/SantaBarbara.unity
+    guid: 810ca99189dce5345b88c72d2b24aac9
+  - enabled: 1
+    path: Assets/Scenes/hermita/IntHermita.unity
+    guid: c758dad8c6091b54a97a7fcdf54a953b
+  - enabled: 1
+    path: Assets/Scenes/Mata Arriba/Bar.unity
+    guid: 6553f03046752884491bded3b4fcb7a8
+  - enabled: 1
+    path: "Assets/Scenes/Mata Baja/esparde\xF1es.unity"
+    guid: 41d85871822c5c844a6483b2ace3bdfc
+  - enabled: 1
+    path: Assets/Scenes/Pozuelas/Pozuelas.unity
+    guid: 729d14c410a73864f93927a921c9b46c
+  - enabled: 1
+    path: Assets/Scenes/Mata Arriba/Pasado/CalleIntermPasado.unity
+    guid: 9342ec16851224949bfb96a53e55ee6e
+  - enabled: 1
+    path: Assets/Scenes/Minijuego_Espard.unity
+    guid: b59db8f87dd3d2641ac05d7ef37800b8
+  - enabled: 1
+    path: Assets/Scenes/Minijuego_Morra.unity
+    guid: c4201355e5788e84b80dcad6239ddc1c
+  - enabled: 1
+    path: Assets/Scenes/DominoMinigame.unity
+    guid: 76d15d079c86884a7ba4d0363ac9858f
+  - enabled: 1
+    path: Assets/Scenes/PiRecuentoMinijuego.unity
+    guid: 84446cd633039b941a51bea47bd443db
+  - enabled: 1
+    path: Assets/Scenes/Fin.unity
+    guid: ed745b77a3938aa46b8345448e408c54
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -1,14 +1,15 @@
-using UnityEngine;
+ï»¿using UnityEngine;
+using UnityEngine.SceneManagement; // <- Para cambiar escenas
 
 public class Manager : MonoBehaviour
 {
     public static Manager Instance;
-
     [Header("Player")]
     public int playerLives = 3;
-    public float invulnerabilityTime = 1f; // segundos de gracia tras recibir daño
-
+    public float invulnerabilityTime = 1f;
     private bool playerInvulnerable = false;
+    [Header("UI")]
+    public GameObject[] lifeIcons;
 
     private void Awake()
     {
@@ -22,18 +23,31 @@ public class Manager : MonoBehaviour
 
         playerLives--;
 
-        playerInvulnerable = true;
-        Invoke(nameof(ResetInvulnerability), invulnerabilityTime);
+        if (lifeIcons != null && playerLives >= 0 && playerLives < lifeIcons.Length)
+        {
+            if (lifeIcons[playerLives] != null)
+                lifeIcons[playerLives].SetActive(false);
+        }
 
-        // Reinicia Pacman y fantasmas
+        // ======== COMPROBAR GAME OVER ========
+        if (playerLives <= 0)
+        {
+            Debug.Log("[DEBUG MANAGER] GAME OVER");
+            SceneManager.LoadScene("Game-Over");
+            return;
+        }
+
         PacoManMovement player = FindObjectOfType<PacoManMovement>();
         if (player != null) player.RespawnPacman();
 
-        GhostMovement[] ghosts = FindObjectsOfType<GhostMovement>();
-        foreach (GhostMovement g in ghosts)
+        GhostyMovement[] ghosts = FindObjectsOfType<GhostyMovement>();
+        foreach (GhostyMovement g in ghosts)
         {
             g.RespawnGhost();
         }
+
+        playerInvulnerable = true;
+        Invoke(nameof(ResetInvulnerability), invulnerabilityTime);
     }
 
     private void ResetInvulnerability()

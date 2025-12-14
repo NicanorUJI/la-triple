@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -24,17 +24,31 @@ public class PiRecuentoManager : MonoBehaviour
 
     public bool inputEnabled = false;
 
-    public void Aceptar()
+    public void Aceptar() 
     {
         inputEnabled = true;
         if (panelReglas != null)
             panelReglas.SetActive(false);
         IniciarPartida();
     }
-    public void FinishGame()
+    public void FinishGame() 
     {
-        SceneManager.LoadScene("colegio");
+        GameManager.Change("Act2_Q_ESQUELLES_HasBracelet");
+        Debug.Log("[Esquelles/PiRecuento] Joaquín ha aconseguit la polsera.");
+
+        var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
+        if (mc != null)
+        {
+            mc.SetActiveMission(
+                4,
+                "Portar la polsera a Raúl",
+                "Has aconseguit una polsera al col·legi. Torna al passat i dóna-li-la a Raúl a les calderetes."
+            );
+        }
+
+        StartCoroutine(ReturnToSchoolAfterDelay(1.5f));
     }
+
     public void ResetGame()
     {
         SceneManager.LoadScene("PiRecuentoMinijuego");
@@ -50,7 +64,7 @@ public class PiRecuentoManager : MonoBehaviour
         mensajeText.gameObject.SetActive(false);
     }
 
-    public void IniciarPartida()
+    public void IniciarPartida() 
     {
         currentRound = 1;
         availableChildren = new List<GameObject>(childrenSprites);
@@ -69,10 +83,12 @@ public class PiRecuentoManager : MonoBehaviour
         if (availableChildren.Count == 0)
         {
             FinishGame();
+            return;
         }
-        else if (currentRound > rounds)
+        else if (currentRound > rounds) 
         {
             ResetGame();
+            return;
         }
 
         // Mezclar spots
@@ -105,7 +121,7 @@ public class PiRecuentoManager : MonoBehaviour
             spot.childSprite = child;
 
             Niño n = child.GetComponent<Niño>();
-
+            
             if (n != null)
                 n.Ocultar(); // restauramos escala y sortingOrder
 
@@ -202,5 +218,11 @@ public class PiRecuentoManager : MonoBehaviour
         mensajeText.text = $"Has trobat a {nombre}!"; ;
         yield return new WaitForSeconds(3f);
         mensajeText.gameObject.SetActive(false);
+    }
+
+    private IEnumerator ReturnToSchoolAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("colegio");  // usa el nombre real de la escena
     }
 }

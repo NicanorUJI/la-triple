@@ -198,7 +198,7 @@ public class Button_Controller_Morra : MonoBehaviour
 
         countdownObject.SetActive(false);
 
-        //Enseñar las manos y los bocadillos
+        //Enseï¿½ar las manos y los bocadillos
         fase_finalRonda.SetActive(true);
 
         SpriteRenderer joaquinMano_spriteR = manoJoaquin.GetComponent<SpriteRenderer>();
@@ -209,7 +209,7 @@ public class Button_Controller_Morra : MonoBehaviour
         joaquinMano_spriteR.sprite = manos_sprites[value_sacarINT-1];
         rivalMano_spriteR.sprite = manos_sprites[value_NPC_Sacar-1];
 
-        //Enseñar y poner texto del numero que cantan
+        //Enseï¿½ar y poner texto del numero que cantan
         textos_cantar.SetActive(true);
         text_joaquinCantar.SetText(value_Cantar + " !");
         text_rivalCantar.SetText(value_NPC_Cantar + " !");
@@ -251,13 +251,25 @@ public class Button_Controller_Morra : MonoBehaviour
         {
             if (puntos_jugador > puntos_NPC)
             {
-                debug_Text.SetText("Ha ganado Joaquin");
-                SceneManager.LoadScene("Plaza");
+                GameManager.Change("Act2_Q_MENJAR_HasMeat");
+                Debug.Log("[Menjar/Morra] JoaquÃ­n ha guanyat la cistella de menjar.");
+
+                var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
+                if (mc != null)
+                {
+                    mc.SetActiveMission(
+                        3,
+                        "Tornar amb la carn",
+                        "Has guanyat una cistella de menjar a la Morra. Torna al passat amb Maripili."
+                    );
+                }
+
+                SceneManager.LoadScene("PlazaPasado");
             }
             else
             {
                 debug_Text.SetText("Ha ganado el alcalde");
-                SceneManager.LoadScene("Escena Menú");
+                SceneManager.LoadScene("Minijuego_Morra");
             }
         }
 

@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
@@ -71,7 +71,7 @@ public class MapToggle : MonoBehaviour
     {
         string current = SceneManager.GetActiveScene().name;
 
-        // Si no se configur� ninguna escena, permitir en todas
+        // Si no se configuró ninguna escena, permitir en todas
         if (allowedScenes == null || allowedScenes.Length == 0)
             return true;
 
