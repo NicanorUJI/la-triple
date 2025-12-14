@@ -4517,6 +4517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   opciones:
+  - {fileID: 11400000, guid: 51f9c515cbc80d794add6437619b118b, type: 2}
   - {fileID: 11400000, guid: 6cef94ca3b26d26e98e9e3148656f14c, type: 2}
   dialoguePanel: {fileID: 3073723351891419990}
   dialogueText: {fileID: 3073723351891419989}
