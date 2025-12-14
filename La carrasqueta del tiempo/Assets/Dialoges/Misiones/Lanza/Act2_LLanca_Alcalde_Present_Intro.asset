@@ -117,9 +117,9 @@ MonoBehaviour:
     choiceB: {fileID: 0}
     choiceC: {fileID: 0}
     choiceD: {fileID: 0}
-    hasReward: 1
-    reward: ACT2_Q_LLANCE_WON_SOLTERONA
-    startsMinigame: 0
-    minigame: 
+    hasReward: 0
+    reward: 
+    startsMinigame: 1
+    minigame: Minijuego_Solterona
   conditions:
   - Act2_Q_LLANCE_Started
