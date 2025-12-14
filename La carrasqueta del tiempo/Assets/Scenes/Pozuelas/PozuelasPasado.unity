@@ -3415,8 +3415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   opciones:
-  - {fileID: 11400000, guid: 83b6bf46a67bc4b13a09a6c3ff0fb48a, type: 2}
   - {fileID: 11400000, guid: fa27a1a4d517a0bdca049c8fc11d3c34, type: 2}
+  - {fileID: 11400000, guid: 83b6bf46a67bc4b13a09a6c3ff0fb48a, type: 2}
   dialoguePanel: {fileID: 1789153240}
   dialogueText: {fileID: 602500484}
   nameText: {fileID: 1461706036}

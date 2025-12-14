@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Act2_Quest_Menjar_Domino_Intro
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
   lines:
   - speakerName: Josefina
     lineText: "Voleu posar algo m\xE9s?"
