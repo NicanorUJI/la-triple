@@ -3,6 +3,15 @@ using System.Collections.Generic;
 
 public class GhostyMovement : MonoBehaviour
 {
+    [Header("Sprites")]
+    public Sprite normalSprite;
+    public Sprite scaredSprite;
+    public Sprite eatenSprite;
+    private SpriteRenderer sr;
+
+    private enum GhostMode { Normal, Scared, Eaten }
+    private GhostMode mode = GhostMode.Normal;
+
     [Header("General Movement")]
     public float speed = 4f;
     public LayerMask wallLayer;
@@ -14,7 +23,6 @@ public class GhostyMovement : MonoBehaviour
 
     private Vector2 moveDirection = Vector2.zero;
     private Vector3 startPosition;
-
     private Rigidbody2D rb;
     private Collider2D col;
 
@@ -23,48 +31,37 @@ public class GhostyMovement : MonoBehaviour
     private float turnOverlapMargin = 0.02f;
 
     private bool hasDamaged = false;
+    private bool isEaten = false;
 
-    // Detectar patrones repetidos
     private Queue<Vector2> lastMoves = new Queue<Vector2>();
     private int patternRepeatLimit = 4;
-
-    // Primeros movimientos obligatorios
     private Queue<Vector2> initialPattern = new Queue<Vector2>();
     private bool executingInitialPattern = true;
+
+    private int originalLayer;
+
+    // COOLDOWNS SEPARADOS: uno para daño, otro para ser comido
+    private float lastDamageTime = -10f;
+    private float lastEatTime = -10f;
+    public float damageCooldown = 0.15f;   // muy corto → daño responde al instante
+    public float eatCooldown = 0.4f;       // un poco más largo para que se vea bien el sprite comido
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        sr = GetComponent<SpriteRenderer>();
         rb.gravityScale = 0;
         rb.linearVelocity = Vector2.zero;
         startPosition = transform.position;
+        originalLayer = gameObject.layer;
     }
 
     private void Start()
     {
-        bool chooseFirstPattern = Random.value < 0.5f;
-
-        initialPattern.Clear();
-        if (chooseFirstPattern)
-        {
-            initialPattern.Enqueue(Vector2.right);
-            initialPattern.Enqueue(Vector2.up);
-            initialPattern.Enqueue(Vector2.right);
-            initialPattern.Enqueue(Vector2.down);
-            initialPattern.Enqueue(Vector2.right);
-        }
-        else
-        {
-            initialPattern.Enqueue(Vector2.left);
-            initialPattern.Enqueue(Vector2.up);
-            initialPattern.Enqueue(Vector2.left);
-            initialPattern.Enqueue(Vector2.down);
-            initialPattern.Enqueue(Vector2.left);
-        }
-
         executingInitialPattern = true;
         state = GhostState.Normal;
+        sr.sprite = normalSprite;
     }
 
     private void FixedUpdate()
@@ -75,19 +72,33 @@ public class GhostyMovement : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
     }
 
+    public void SetScaredState(bool scared)
+    {
+        if (mode == GhostMode.Eaten) return;
+
+        if (scared)
+        {
+            mode = GhostMode.Scared;
+            sr.sprite = scaredSprite;
+            hasDamaged = false;
+            isEaten = false;
+        }
+        else
+        {
+            mode = GhostMode.Normal;
+            sr.sprite = normalSprite;
+        }
+    }
+
+    // ==================== MOVIMIENTO (sin cambios) ====================
     private void NormalMovementLogic()
     {
         bool touchingTurnCollider = IsTouchingTurnCollider();
-
-        // Primeros movimientos obligatorios
         if (executingInitialPattern && initialPattern.Count > 0)
         {
             moveDirection = initialPattern.Dequeue();
             rb.linearVelocity = CanMoveFully(moveDirection) ? moveDirection * speed : Vector2.zero;
-
-            if (initialPattern.Count == 0)
-                executingInitialPattern = false;
-
+            if (initialPattern.Count == 0) executingInitialPattern = false;
             wasTouchingTurn = touchingTurnCollider;
             return;
         }
@@ -115,7 +126,7 @@ public class GhostyMovement : MonoBehaviour
     {
         if (!CanMoveFully(moveDirection))
         {
-            moveDirection = GetRandomDirectionExceptCurrent(moveDirection, allowPatternOverride: true);
+            moveDirection = GetRandomDirectionExceptCurrent(moveDirection, true);
             AddMoveToHistory(moveDirection);
         }
         canChooseDirection = true;
@@ -139,12 +150,10 @@ public class GhostyMovement : MonoBehaviour
         moveDirection = GetRandomDirectionExceptCurrent(moveDirection);
         canChooseDirection = false;
         Invoke(nameof(ResetChooseFlag), 0.2f);
-
         AddMoveToHistory(moveDirection);
-
         if (IsRepeatingPattern())
         {
-            moveDirection = GetRandomDirectionExceptCurrent(moveDirection, allowPatternOverride: true);
+            moveDirection = GetRandomDirectionExceptCurrent(moveDirection, true);
             AddMoveToHistory(moveDirection);
         }
     }
@@ -170,17 +179,12 @@ public class GhostyMovement : MonoBehaviour
     private bool CanMoveFully(Vector2 direction)
     {
         if (direction == Vector2.zero) return false;
-
         Vector2 position = col.bounds.center;
         Vector2 size = col.bounds.size;
         float distance = Mathf.Max(size.x, size.y) / 2f + 0.05f;
-
         RaycastHit2D hit = Physics2D.BoxCast(position, size * 0.9f, 0f, direction, distance, wallLayer);
         if (hit.collider == null) return true;
-
-        if (hit.collider.CompareTag(doorTag))
-            return direction == Vector2.up; // solo atraviesan hacia arriba
-
+        if (hit.collider.CompareTag(doorTag)) return direction == Vector2.up;
         return false;
     }
 
@@ -199,17 +203,15 @@ public class GhostyMovement : MonoBehaviour
         Vector2[] dirs = new Vector2[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
         List<Vector2> valid = new List<Vector2>();
         Vector2 opposite = current != Vector2.zero ? -current : Vector2.zero;
-
         foreach (var d in dirs)
             if (d != current && d != opposite && CanMoveFully(d))
                 valid.Add(d);
-
         if (valid.Count == 0)
             return allowPatternOverride ? dirs[Random.Range(0, dirs.Length)] : current;
-
         return valid[Random.Range(0, valid.Count)];
     }
 
+    // ==================== RESPAWN ====================
     public void RespawnGhost()
     {
         transform.position = startPosition;
@@ -219,18 +221,59 @@ public class GhostyMovement : MonoBehaviour
         lastMoves.Clear();
         initialPattern.Clear();
         executingInitialPattern = true;
-        state = GhostState.Waiting;
+
+        mode = GhostMode.Normal;
+        sr.sprite = normalSprite;
+        state = GhostState.Normal;
+        hasDamaged = false;
+        isEaten = false;
+
+        gameObject.layer = originalLayer;
+        col.enabled = true;
+
+        // Reseteamos los cooldowns para que pueda colisionar al instante
+        lastDamageTime = -10f;
+        lastEatTime = -10f;
     }
 
+    // ==================== COLISIÓN CON PACMAN (LA CLAVE) ====================
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !hasDamaged)
+        if (!collision.CompareTag("Player")) return;
+        PacoManMovement player = collision.GetComponent<PacoManMovement>();
+        if (player == null) return;
+
+        // FANTASMA ASUSTADO → se lo come
+        if (mode == GhostMode.Scared)
         {
+            if (Time.time - lastEatTime < eatCooldown) return;
+            lastEatTime = Time.time;
+
+            isEaten = true;
+            mode = GhostMode.Eaten;
+            sr.sprite = eatenSprite;
+            col.enabled = false; // evita cualquier trigger extra
+
+            Invoke(nameof(RespawnGhost), 0.6f);
+            return;
+        }
+
+        // FANTASMA NORMAL → daño
+        if (mode == GhostMode.Normal)
+        {
+            if (Time.time - lastDamageTime < damageCooldown) return;
+            if (hasDamaged) return;
+
+            lastDamageTime = Time.time;
             hasDamaged = true;
-            collision.GetComponent<PacoManMovement>()?.ReceiveDamage();
+
+            player.ReceiveDamage(this);
             Invoke(nameof(ResetDamageFlag), 0.5f);
         }
     }
 
     private void ResetDamageFlag() => hasDamaged = false;
+
+    public bool IsEaten() => mode == GhostMode.Eaten;
+    public bool IsScared() => mode == GhostMode.Scared;
 }
