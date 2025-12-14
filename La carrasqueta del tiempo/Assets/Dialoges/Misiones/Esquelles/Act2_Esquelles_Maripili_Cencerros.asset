@@ -164,4 +164,3 @@ MonoBehaviour:
     minigame: 
   conditions:
   - Act2_Q_ESQUELLES_HasBracelet
-  - '!Act2_Q_ESQUELLES_Done'

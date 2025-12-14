@@ -17,7 +17,7 @@ MonoBehaviour:
   lines:
   - speakerName: Joaquin
     lineText: "Iaia! Iaia! On est\xE0s?!"
-    expression: {fileID: 1169979772233390810, guid: 542af1611a2dba5ea81aed2f7a0e3bfb, type: 3}
+    expression: {fileID: -5703435808359689965, guid: 60b817b8f671b42c2ac4e3c85d07b923, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -57,7 +57,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Joaquin
     lineText: "S\xF3c Joaqu\xEDn, el n\xE9t de Maria Pilar."
-    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
     lineText: "De Maria Pilar? Ac\xED soles hi ha una Maria Pilar, i eixa s\xF3c
       jo. I que jo s\xE0piga encara no tinc cap n\xE9t."
     expression: {fileID: -8926846126903474245, guid: 81c29258031bb7894a4321dc2d219bed, type: 3}
-    isPlayerSpeaking: 1
+    isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Joaquin
     lineText: "(\u2026La carrasqueta m'ha fet viatjar al passat...)"
-    expression: {fileID: -8926846126903474245, guid: 81c29258031bb7894a4321dc2d219bed, type: 3}
+    expression: {fileID: -5703435808359689965, guid: 60b817b8f671b42c2ac4e3c85d07b923, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   - speakerName: Joaquin
     lineText: "B\xE9, aix\xF2 ara no importa! Necessite ajuda! He vist un \xF3s a
       la carrasqueta! Era enorme i feia molta por!"
-    expression: {fileID: 167803326818533104, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
+    expression: {fileID: 6622962485173151977, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

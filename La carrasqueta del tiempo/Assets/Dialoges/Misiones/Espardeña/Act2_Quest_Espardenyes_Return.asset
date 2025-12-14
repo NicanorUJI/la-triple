@@ -17,7 +17,7 @@ MonoBehaviour:
   lines:
   - speakerName: Joaquin
     lineText: "Maripili! Ja tinc l\u2019espart!"
-    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -44,7 +44,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Joaquin
     lineText: "I ara qu\xE8 fem?"
-    expression: {fileID: 3198480329992687461, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
+    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

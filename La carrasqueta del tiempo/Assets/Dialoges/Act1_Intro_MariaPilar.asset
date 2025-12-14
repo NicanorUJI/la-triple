@@ -30,7 +30,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Maria Pilar
     lineText: Hola Joaquin. Quant de temps. Te he trobat a faltar.
-    expression: {fileID: 7005228422062525146, guid: a34b79527556fa054bc051ac2a70c857, type: 3}
+    expression: {fileID: 7005228422062525146, guid: 5e26fc60400b0e384bbede9f5b9696da, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
     lineText: "Podries vindre a visitar m\xE9s sovint a visitarme, que jo ac\xED
       em trobe molt asoles i trobe a faltar al meu net preferit. Vine i dona\u2019m
       un besset."
-    expression: {fileID: 7005228422062525146, guid: a34b79527556fa054bc051ac2a70c857, type: 3}
+    expression: {fileID: 2609695413090427051, guid: 7beecc0da340a265083fa00c5be08c62, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -86,7 +86,7 @@ MonoBehaviour:
   - speakerName: Maria Pilar
     lineText: "Si et sembla, posa les teues coses a la teua habitaci\xF3 i quan ho
       tingues tot ordenat vine que vull que em fages un favor."
-    expression: {fileID: 7005228422062525146, guid: a34b79527556fa054bc051ac2a70c857, type: 3}
+    expression: {fileID: 4462475327784966996, guid: c5ac9a984102a154589fe3cfa5884646, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   - speakerName: Maria Pilar
     lineText: "Ara vaig a anar a preparar el dinar, que de segur que tens molta fam
       despr\xE9s del viatge."
-    expression: {fileID: 7005228422062525146, guid: a34b79527556fa054bc051ac2a70c857, type: 3}
+    expression: {fileID: 2285674269585787274, guid: 0a55853af5bd6d731beff2c3677894c7, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -116,7 +116,7 @@ MonoBehaviour:
       que me\u2019n vaig deixar l\u2019altre dia quan vagi anar amb la Chelo. Saps
       com arribar no? Segueix el cam\xED com quan eres menut i anaven a recollir
       rovellons amb els teus cosins, i aix\xED tamb\xE9 te dona l\u2019aire una miqueta."
-    expression: {fileID: 7005228422062525146, guid: a34b79527556fa054bc051ac2a70c857, type: 3}
+    expression: {fileID: 4462475327784966996, guid: c5ac9a984102a154589fe3cfa5884646, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   - speakerName: Maria Pilar
     lineText: "Molt be xiquet, si es que sempre has estat ple d\u2019energia. Encara
       te'n recordes com anar, no?"
-    expression: {fileID: 7005228422062525146, guid: a34b79527556fa054bc051ac2a70c857, type: 3}
+    expression: {fileID: 2609695413090427051, guid: 7beecc0da340a265083fa00c5be08c62, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -156,8 +156,8 @@ MonoBehaviour:
     minigame: 
   - speakerName: Joaquin
     lineText: "Per supost que s\xED iaia!"
-    expression: {fileID: 7005228422062525146, guid: a34b79527556fa054bc051ac2a70c857, type: 3}
-    isPlayerSpeaking: 0
+    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Maria Pilar
     lineText: "Pues tira-l\xED."
-    expression: {fileID: 7005228422062525146, guid: a34b79527556fa054bc051ac2a70c857, type: 3}
+    expression: {fileID: 7005228422062525146, guid: 5e26fc60400b0e384bbede9f5b9696da, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}

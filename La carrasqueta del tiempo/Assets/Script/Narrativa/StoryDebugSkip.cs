@@ -7,9 +7,10 @@ public class StoryDebugSkip : MonoBehaviour
     public bool enableDebugSkips = true;
 
     [Header("Nombre de escenas (rellena en el inspector)")]
-    public string scenePastTown;      // p.ej. "Poble_Passat"
     public string sceneCementeri;     // p.ej. "Cementeri_Present"
     public string sceneCole;          // p.ej. "Cole_Present"
+    public string scenePlacitaPasado;     // "PlacitaPasado"
+
 
     private void Update()
     {
@@ -32,6 +33,13 @@ public class StoryDebugSkip : MonoBehaviour
         {
             SkipToCole();
         }
+
+        // F4 = dejar Acto 2 completamente terminado (incluye Esquelles Done) y llevarte a PlacitaPasado
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            SkipToAct3StartReady();
+        }
+
     }
 
     private void MarkAct2QuestsDone()
@@ -66,9 +74,9 @@ public class StoryDebugSkip : MonoBehaviour
             );
         }
 
-        if (!string.IsNullOrEmpty(scenePastTown))
+        if (!string.IsNullOrEmpty(scenePlacitaPasado))
         {
-            SceneManager.LoadScene(scenePastTown);
+            SceneManager.LoadScene(scenePlacitaPasado);
         }
 
         Debug.Log("[DEBUG] SkipToEsquellesIntro ejecutado.");
@@ -124,4 +132,38 @@ public class StoryDebugSkip : MonoBehaviour
 
         Debug.Log("[DEBUG] SkipToCole executat.");
     }
+
+    private void SkipToAct3StartReady()
+    {   
+        // Completa las 3 quests base
+        MarkAct2QuestsDone();
+
+        // Completa también Esquelles
+        GameManager.Change("Act2_Q_ESQUELLES_Done");
+
+        // (Opcional) por si algún diálogo mira started/otros flags de Esquelles:
+        GameManager.Change("Act2_Q_ESQUELLES_Started");
+        GameManager.Change("Act2_Q_ESQUELLES_TalkedToRaul");
+        GameManager.Change("Act2_Q_ESQUELLES_TalkedToIaiaPresent");
+        GameManager.Change("Act2_Q_ESQUELLES_HasBracelet");
+
+        // Misión opcional para que sepas en qué estado estás
+        var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
+        if (mc != null)
+        {
+            mc.SetActiveMission(
+                6,
+                "DEBUG",
+                "Acto 2 terminado. Ve a hablar con Maripili en la placita del pasado para iniciar el Acto 3."
+            );
+        }
+
+        if (!string.IsNullOrEmpty(scenePlacitaPasado))
+        {
+            SceneManager.LoadScene(scenePlacitaPasado);
+        }
+
+        Debug.Log("[DEBUG] SkipToAct3StartReady ejecutado (F4).");
+    }
+
 }

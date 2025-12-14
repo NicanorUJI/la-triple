@@ -81,8 +81,32 @@ public class NPC : MonoBehaviour, IInteractable
                 {
                     continue;
                 }
-
-
+                
+                if (opcion.name == "Act3_Start_MaripiliPasado"
+                    && GameManager.Check("Act3_Started"))
+                {
+                    continue;
+                }
+                if (opcion.name == "Act3_BarranquetPasado_Briefing"
+                    && GameManager.Check("Act3_PastBriefingDone"))
+                {
+                    continue;
+                }
+                if (opcion.name == "Act3_BarranquetPasado_Celebration"
+                    && GameManager.Check("Act3_PastCelebrationDone"))
+                {
+                    continue;
+                }
+                if (opcion.name == "Act3_CarrasquetaPresent_Warn"
+                    && GameManager.Check("Act3_CarrasquetaPresentWarned"))
+                {
+                    continue;
+                }
+                if (opcion.name == "Act3_BarranquetPresent_Final"
+                    && GameManager.Check("Act3_End"))
+                {
+                    continue;
+                }
                 return opcion;
             }
         }

@@ -308,6 +308,93 @@ public class RewardManager : MonoBehaviour
                 );
             }
         }
+        else if (reward == "ACT3_START")
+        {
+            if (GameManager.Check("Act3_Started"))
+                return;
 
+            GameManager.Change("Act3_Started");
+            Debug.Log("Act3 -> Start (flag Act3_Started)");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    6,
+                    "Missió activa",
+                    "Segueix a Maripili fins al barranquet."
+                );
+            }
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("barranquetPasado");
+        }
+        else if (reward == "ACT3_PAST_BRIEFING_DONE")
+        {
+            if (GameManager.Check("Act3_PastBriefingDone"))
+                return;
+
+            GameManager.Change("Act3_PastBriefingDone");
+            GameManager.Change("Act3_BearActive");
+            Debug.Log("Act3 -> Briefing passat done (flags Act3_PastBriefingDone + Act3_BearActive)");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    6,
+                    "Missió activa",
+                    "Atrau l’ós des de la Carrasqueta fins al poble."
+                );
+            }
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("CarrasquetaPasado");
+        }
+        else if (reward == "ACT3_BACK_TO_PRESENT_WITH_BEAR")
+        {
+            if (GameManager.Check("Act3_PastCelebrationDone"))
+                return;
+
+            GameManager.Change("Act3_PastCelebrationDone");
+            Debug.Log("Act3 -> Celebració passat done (flag Act3_PastCelebrationDone). Tornem al present amb l’ós actiu.");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    7,
+                    "Missió activa",
+                    "Corre al poble! Pareix que l’ós t’ha seguit."
+                );
+            }
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Carrasqueta");
+        }
+        else if (reward == "ACT3_WARNED_IN_PRESENT")
+        {
+            if (GameManager.Check("Act3_CarrasquetaPresentWarned"))
+                return;
+
+            GameManager.Change("Act3_CarrasquetaPresentWarned");
+            Debug.Log("Act3 -> Warned en present (flag Act3_CarrasquetaPresentWarned)");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    7,
+                    "Missió activa",
+                    "Ves al barranquet. La gent està reunida allí."
+                );
+            }
+        }
+        else if (reward == "ACT3_END")
+        {
+            if (GameManager.Check("Act3_End"))
+                return;
+
+            GameManager.Change("Act3_End");
+            Debug.Log("Act3 -> End (flag Act3_End). Tornem al menú.");
+
+            if (mc != null)
+                mc.ClearMission();
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Fin");
+        }
     }
 }
