@@ -46,8 +46,8 @@ MonoBehaviour:
   - speakerName: Joaquin
     lineText: "D\u2019acord, comen\xE7ar\xE9 per les espardenyes. Ara mateix vaig
       cap a la tenda."
-    expression: {fileID: 0}
-    isPlayerSpeaking: 0
+    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
+    isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}

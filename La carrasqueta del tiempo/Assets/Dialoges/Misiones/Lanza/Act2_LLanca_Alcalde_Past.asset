@@ -30,7 +30,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Alcalde
     lineText: Bon dia, xic!
-    expression: {fileID: 0}
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -57,7 +57,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Alcalde
     lineText: Parles amb la persona correcta. Jo he sigut qui ha deixat la nota.
-    expression: {fileID: 0}
+    expression: {fileID: -3644103294100017685, guid: 9c9c6503463fa285383681e4421ab9ff, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Alcalde
     lineText: "Qu\xE8 se t\u2019ha perdut a l\u2019ermita?"
-    expression: {fileID: 0}
+    expression: {fileID: -3644103294100017685, guid: 9c9c6503463fa285383681e4421ab9ff, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Alcalde
     lineText: "I per a qu\xE8 vols tu la llan\xE7a?"
-    expression: {fileID: 0}
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -123,7 +123,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Alcalde
     lineText: "Ah! Maripili! \xC9s veritat que aquest any li tocava a ella organitzar-la!"
-    expression: {fileID: 0}
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   - speakerName: Alcalde
     lineText: "Te deixaria la clau per obrir l\u2019ermita, per\xF2 per desgr\xE0cia
       l\u2019he perduda i no recorde on \xE9s l\u2019\xFAltim lloc on la vaig deixar."
-    expression: {fileID: 0}
+    expression: {fileID: -3644103294100017685, guid: 9c9c6503463fa285383681e4421ab9ff, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
