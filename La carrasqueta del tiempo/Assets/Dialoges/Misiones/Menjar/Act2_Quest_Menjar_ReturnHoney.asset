@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
+  m_Name: Act2_Quest_Menjar_ReturnHoney
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  originalDialogue: {fileID: 0}
+  defaultSprite: {fileID: 0}
+  lines:
+  - speakerName: Joaquin
+    lineText: Maripili! Ja he tornat i he aconseguit el pot de mel.
+    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Maripili
+    lineText: "Que b\xE9! Per\xF2 no ser\xE0 massa poc? Hauriem de conseguir algo
+      de carn tamb\xE9, no?"
+    expression: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Maripili
+    lineText: Tira a la carnisseria a vore si te donen una mica.
+    expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "Est\xE1 b\xE9, cap on est\xE0?"
+    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Maripili
+    lineText: "Ves a la pla\xE7a i desde ah\xED tira a la dreta. La veuras en seguida."
+    expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Maripili
+    lineText: Vale!
+    expression: {fileID: 1236392363465906612, guid: 3262f44a6fd4064a7b582db6be41871c, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 1
+    reward: ACT2_Q_MENJAR_START_MORRA
+    startsMinigame: 0
+    minigame: 
+  conditions:
+  - Act2_Q_MENJAR_HasHoney

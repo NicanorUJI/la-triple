@@ -456,11 +456,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2485974
+      value: -0.377
       objectReference: {fileID: 0}
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.46775356
+      value: -0.475
       objectReference: {fileID: 0}
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2310,6 +2310,9 @@ MonoBehaviour:
   button_choice2: {fileID: 0}
   button_choice3: {fileID: 0}
   button_choice4: {fileID: 0}
+  skipDialogueWhenFlagSet: 0
+  skipDialogueFlag: 
+  skipDialogueScene: 
 --- !u!222 &1248393766
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3317,6 +3320,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724629633}
   m_CullTransparentMesh: 1
+--- !u!1 &1761378302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1761378303}
+  m_Layer: 0
+  m_Name: SpawnOso
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1761378303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761378302}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.962, y: -0.413, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811840490
 GameObject:
   m_ObjectHideFlags: 0
@@ -3892,3 +3926,4 @@ SceneRoots:
   - {fileID: 1248393758}
   - {fileID: 336370279}
   - {fileID: 2144927926}
+  - {fileID: 1761378303}

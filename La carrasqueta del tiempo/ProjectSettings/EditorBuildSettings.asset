@@ -37,7 +37,7 @@ EditorBuildSettings:
     guid: d13a2dfa37aa0ad45b1f91eb8ea31e6a
   - enabled: 1
     path: Assets/Scenes/PozuelasPasado.unity
-    guid: 835d977fe13ca934da14fd51db9fa405
+    guid: 86e936977fa54d6c5ab0191a269a3f5f
   - enabled: 1
     path: Assets/Scenes/Mata Baja/Pasado/colegioPasado.unity
     guid: a645686821834fb49a48c960732faecc
@@ -46,7 +46,7 @@ EditorBuildSettings:
     guid: 5b16103fa04f5b64cb6c28b371f47e50
   - enabled: 1
     path: Assets/Scenes/Mata Arriba/Pasado/PlacitaPasado.unity
-    guid: 2cf65bc34ceb3804f862bc80c5d4c62d
+    guid: 8aa5733fcef7cd74d9a54843b78c89d8
   - enabled: 1
     path: Assets/Scenes/Cementerio/CementerioPasado.unity
     guid: 4a570771c2003c24ea2527123ce35a1d
@@ -75,8 +75,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Pozuelas/Pozuelas.unity
     guid: 729d14c410a73864f93927a921c9b46c
   - enabled: 1
+    path: Assets/Scenes/Mata Arriba/Pasado/CalleIntermPasado.unity
+    guid: 9342ec16851224949bfb96a53e55ee6e
+  - enabled: 1
+    path: Assets/Scenes/Minijuego_Espard.unity
+    guid: b59db8f87dd3d2641ac05d7ef37800b8
+  - enabled: 1
+    path: Assets/Scenes/Minijuego_Morra.unity
+    guid: c4201355e5788e84b80dcad6239ddc1c
+  - enabled: 1
+    path: Assets/Scenes/DominoMinigame.unity
+    guid: 76d15d079c86884a7ba4d0363ac9858f
+  - enabled: 1
     path: Assets/Scenes/PiRecuentoMinijuego.unity
     guid: 84446cd633039b941a51bea47bd443db
+  - enabled: 1
+    path: Assets/Scenes/Fin.unity
+    guid: ed745b77a3938aa46b8345448e408c54
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

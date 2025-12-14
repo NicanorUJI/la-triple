@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
+  m_Name: Act2_Quest_Llanca_Intro
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  originalDialogue: {fileID: 0}
+  defaultSprite: {fileID: 0}
+  lines:
+  - speakerName: Maripili
+    lineText: "Tamb\xE9 ens far\xE0 falta una llan\xE7a, per si l\u2019\xF3s s\u2019acosta
+      massa."
+    expression: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Maripili
+    lineText: "S\xE9 que n\u2019hi ha una guardada a l\u2019ermita de Santa B\xE0rbara.
+      Ves a vore si la pots agarrar."
+    expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "S\xE9 que n\u2019hi ha una guardada a l\u2019ermita de Santa B\xE0rbara.
+      Ves a vore si la pots agarrarEnt\xE9s. Anir\xE9 a l\u2019ermita i veur\xE9
+      com puc entrar."
+    expression: {fileID: -1180773124689011136, guid: 704c08af6c7afe52fb02d7b58df5574a, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 1
+    reward: ACT2_Q_LLANCE_START
+    startsMinigame: 0
+    minigame: 
+  conditions:
+  - Act2_MaripiliIntroDone

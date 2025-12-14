@@ -61,6 +61,12 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     [System.Serializable]
     public class BeatInfo { public float time, energy; }
 
+    [Header("Story / Misiones")]
+    public string successFlag = "Act2_Q_ESP_HasEspart";
+
+    [Range(0f, 1f)]
+    public float minHitRateToWin = 0.0f; // 0 => siempre gana
+    private bool playerWon = false;
 
     // ---------------------------------------------------------
     //                       INICIO
@@ -216,6 +222,8 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         if (endScreen != null) endScreen.SetActive(true);
         if (returnButton != null) returnButton.SetActive(false);
 
+        playerWon = false;
+
         if (finalScoreText != null && RhythmGameManager.instance != null)
         {
             int hits = RhythmGameManager.instance.HitNotes;
@@ -225,6 +233,10 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
             float hitRate = (float)hits / Mathf.Max(1, total);
 
+            // Decidimos si se considera "ganado" el minijoc
+            if (hitRate >= minHitRateToWin)
+                playerWon = true;
+
             if (extraFinalText != null)
             {
                 extraFinalText.text =
@@ -233,6 +245,11 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
                     hitRate >= 0.60f ? "Nada mal, pero pots millorar." :
                     "Continua practicant...";
             }
+        }
+        else
+        {
+            // Si por cualquier motivo no tenemos datos, lo consideramos ganado
+            playerWon = true;
         }
     }
     // ---------------------------------------------------------
@@ -279,7 +296,21 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
     public void OnSalirButtonPressed()
     {
+        // Si el minijuego se considera "ganado", marcamos el flag de historia
+        if (playerWon && !string.IsNullOrEmpty(successFlag))
+        {
+            GameManager.Change(successFlag);
+            Debug.Log($"[RhythmGame] Marcando flag de misión: {successFlag}");
+        }
+
         if (!string.IsNullOrEmpty(escenaSalir))
+        {
             SceneManager.LoadScene(escenaSalir);
+        }
+        else
+        {
+            Debug.LogWarning("[RhythmGame] escenaSalir no está configurada en el inspector.");
+        }
     }
+
 }
