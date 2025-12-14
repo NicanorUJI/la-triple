@@ -43,10 +43,8 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     [System.Serializable]
     public class BeatInfo { public float time, energy; }
 
+    void Start()  //                       INICIO
 
-    //                       INICIO
-
-    void Start()
     {
         wait1s = new WaitForSeconds(1f);
         waitHalf = new WaitForSeconds(0.5f);
@@ -128,7 +126,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     }
 
 
-    void Update()
+    void Update()       //                  BUCLE
     {
         if (!gameStarted) return;
         if (musicSource == null || !musicSource.isPlaying) return;
@@ -210,7 +208,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         }
     }
 
-    void SpawnBeatVisual(float beatEnergy)
+    void SpawnBeatVisual(float beatEnergy)   //               SPAWNEAR NOTAS
     {
         if (notaPrefab == null) return;
 
