@@ -3176,7 +3176,6 @@ GameObject:
   - component: {fileID: 1679053105}
   - component: {fileID: 1679053104}
   - component: {fileID: 1679053103}
-  - component: {fileID: 1679053107}
   m_Layer: 0
   m_Name: Piedra_0
   m_TagString: Untagged
@@ -3316,33 +3315,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1679053107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1679053102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17beb631499f6c57f882efb2e80f92f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC
-  opciones:
-  - {fileID: 11400000, guid: 6fba3b6268b6fc85db3cecd45be0dedc, type: 2}
-  dialoguePanel: {fileID: 1011847151}
-  dialogueText: {fileID: 1011847148}
-  nameText: {fileID: 1011847149}
-  portraitImage: {fileID: 1011847150}
-  joaquinPortrait_Object: {fileID: 0}
-  joaquinPortrait: {fileID: 1321373640}
-  button_choice1: {fileID: 0}
-  button_choice2: {fileID: 0}
-  button_choice3: {fileID: 0}
-  button_choice4: {fileID: 0}
-  skipDialogueWhenFlagSet: 0
-  skipDialogueFlag: 
-  skipDialogueScene: 
 --- !u!1 &1682197367
 GameObject:
   m_ObjectHideFlags: 0

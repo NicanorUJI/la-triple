@@ -71,6 +71,11 @@ public class NPC : MonoBehaviour, IInteractable
                 {
                     continue;
                 }
+                if (opcion.name == "Act2_Quest_Menjar_ReturnHoney"
+                    && (GameManager.Check("Act2_Q_MENJAR_Done") || GameManager.Check("Act2_Q_MENJAR_NeedsMeat")))
+                {
+                    continue;
+                }
                 if (opcion.name == "Act2_Quest_Menjar_ReturnMeat"
                     && GameManager.Check("Act2_Q_MENJAR_Done"))
                 {

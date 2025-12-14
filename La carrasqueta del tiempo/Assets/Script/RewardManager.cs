@@ -236,6 +236,20 @@ public class RewardManager : MonoBehaviour
                 );
             }
         }
+        else if (reward == "ACT2_Q_MENJAR_GOT_MEAT")
+        {
+            GameManager.Change("Act2_Q_MENJAR_HasMeat");
+            Debug.Log("Act2 -> Menjar: ja tinc la carn.");
+
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    3,
+                    "Portar la carn a Maripili",
+                    "Ja tens la carn. Torna al passat i dóna-li-la a Maripili."
+                );
+            }
+        }
         else if (reward == "ACT2_Q_ESQUELLES_START")
         {
             GameManager.Change("Act2_Q_ESQUELLES_Started");
