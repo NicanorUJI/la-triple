@@ -1,0 +1,351 @@
+fileFormatVersion: 2
+guid: 83d66ac676d3b8c4c983b024440f7a2e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4743155467884033352
+    second: UI_FaseEleccion_TextoCantar1_0
+  - first:
+      213: 1057309179238770886
+    second: UI_FaseEleccion_TextoCantar1_1
+  - first:
+      213: 5975250438843420580
+    second: UI_FaseEleccion_TextoCantar1_2
+  - first:
+      213: 1499984873107916347
+    second: UI_FaseEleccion_TextoCantar1_3
+  - first:
+      213: 7710789339451832275
+    second: UI_FaseEleccion_TextoCantar1_4
+  - first:
+      213: -3014165178596837036
+    second: UI_FaseEleccion_TextoCantar1_5
+  - first:
+      213: -5905204436477057238
+    second: UI_FaseEleccion_TextoCantar1_6
+  - first:
+      213: 9209398101184675518
+    second: UI_FaseEleccion_TextoCantar1_7
+  - first:
+      213: 7210360267283012626
+    second: UI_FaseEleccion_TextoCantar1_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoCantar1_0
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 371
+        width: 128
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ba02567b3dec2eb0800000000000000
+      internalID: -4743155467884033352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoCantar1_1
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 479
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c8694eb8115cae00800000000000000
+      internalID: 1057309179238770886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoCantar1_2
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 383
+        width: 200
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af424bad9a5ce250800000000000000
+      internalID: 5975250438843420580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoCantar1_3
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 377
+        width: 146
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b368e0a7b4401d410800000000000000
+      internalID: 1499984873107916347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoCantar1_4
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 383
+        width: 104
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d735ebfc0a320b60800000000000000
+      internalID: 7710789339451832275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoCantar1_5
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 383
+        width: 62
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45932636db88b26d0800000000000000
+      internalID: -3014165178596837036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoCantar1_6
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 245
+        width: 326
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2769b52adf7c0ea0800000000000000
+      internalID: -5905204436477057238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoCantar1_7
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 269
+        width: 62
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebef44097ca5ecf70800000000000000
+      internalID: 9209398101184675518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_FaseEleccion_TextoCantar1_8
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 251
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21c9ef10678501460800000000000000
+      internalID: 7210360267283012626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      UI_FaseEleccion_TextoCantar1_0: -4743155467884033352
+      UI_FaseEleccion_TextoCantar1_1: 1057309179238770886
+      UI_FaseEleccion_TextoCantar1_2: 5975250438843420580
+      UI_FaseEleccion_TextoCantar1_3: 1499984873107916347
+      UI_FaseEleccion_TextoCantar1_4: 7710789339451832275
+      UI_FaseEleccion_TextoCantar1_5: -3014165178596837036
+      UI_FaseEleccion_TextoCantar1_6: -5905204436477057238
+      UI_FaseEleccion_TextoCantar1_7: 9209398101184675518
+      UI_FaseEleccion_TextoCantar1_8: 7210360267283012626
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
