@@ -14,14 +14,12 @@ TagManager:
   - Turn
   - Door
   - Ghost
-  - Cesta
-  - DestelloCarrasqueta
-  - Carrasqueta
+  - PowerPellet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - npc_bar
+  - 
   - Water
   - UI
   - fondo
@@ -31,7 +29,7 @@ TagManager:
   - Wall
   - pacoman
   - puerta
-  - 
+  - GhostEaten
   - 
   - 
   - 
@@ -57,11 +55,8 @@ TagManager:
   - name: character
     uniqueID: 1252618739
     locked: 0
-  - name: npc_bar
-    uniqueID: 2366525851
-    locked: 0
   - name: New UI 2
-    uniqueID: 3810531221
+    uniqueID: 2366525851
     locked: 0
   m_RenderingLayers:
   - Default
