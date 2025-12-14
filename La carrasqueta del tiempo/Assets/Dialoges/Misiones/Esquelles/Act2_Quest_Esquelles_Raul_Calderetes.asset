@@ -163,7 +163,7 @@ MonoBehaviour:
   - speakerName: Joaquin
     lineText: I la resta del poble?
     expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
-    isPlayerSpeaking: 0
+    isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
@@ -373,4 +373,3 @@ MonoBehaviour:
     minigame: 
   conditions:
   - Act2_Q_ESQUELLES_Started
-  - '!Act2_Esquelles_Raul_Bracelet'

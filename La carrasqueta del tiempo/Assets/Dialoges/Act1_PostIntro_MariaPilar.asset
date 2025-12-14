@@ -18,7 +18,7 @@ MonoBehaviour:
   - speakerName: Maria Pilar
     lineText: "Joaquin, encara no has anat a la Carrasqueta a buscar la cistella
       que me\u2019n vaig deixar amb la Chelo?"
-    expression: {fileID: 7005228422062525146, guid: a34b79527556fa054bc051ac2a70c857, type: 3}
+    expression: {fileID: 4462475327784966996, guid: c5ac9a984102a154589fe3cfa5884646, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   - speakerName: Maria Pilar
     lineText: "Recorda el cam\xED, com quan eres menut i anaves amb els teus cosins
       a buscar rovellons. I no t\u2019entretingues massa, que el dinar no s\u2019espera."
-    expression: {fileID: 7005228422062525146, guid: a34b79527556fa054bc051ac2a70c857, type: 3}
+    expression: {fileID: 2285674269585787274, guid: 0a55853af5bd6d731beff2c3677894c7, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
