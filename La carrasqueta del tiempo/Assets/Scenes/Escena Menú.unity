@@ -590,6 +590,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5597811321696163599, guid: eb4f2743a3e37c049a8157160252158d, type: 3}
+      propertyPath: allowedScenes.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5597811321696163599, guid: eb4f2743a3e37c049a8157160252158d, type: 3}
+      propertyPath: 'allowedScenes.Array.data[2]'
+      value: "esparde\xF1esPasado"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5597811321696163599, guid: eb4f2743a3e37c049a8157160252158d, type: 3}
+      propertyPath: 'allowedScenes.Array.data[3]'
+      value: PlazaPasado
+      objectReference: {fileID: 0}
+    - target: {fileID: 5597811321696163599, guid: eb4f2743a3e37c049a8157160252158d, type: 3}
+      propertyPath: 'allowedScenes.Array.data[4]'
+      value: PlacitaPasado
+      objectReference: {fileID: 0}
     - target: {fileID: 8481141179893445955, guid: eb4f2743a3e37c049a8157160252158d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 424.37308

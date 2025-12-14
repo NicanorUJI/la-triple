@@ -53,7 +53,6 @@ public class Morra_Controller : MonoBehaviour
         }
         else
         {
-            Debug.Log(NPC_points);
             return ++NPC_points;
         }
     }

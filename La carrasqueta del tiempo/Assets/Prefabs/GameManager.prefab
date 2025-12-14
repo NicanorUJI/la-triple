@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8481141179893445955}
   - component: {fileID: 6758795142072374199}
+  - component: {fileID: 5597811321696163599}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,3 +46,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   lastExitName: 
+--- !u!114 &5597811321696163599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3965393032620516692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f80b9469dcc5ef9a83b4a92903f9f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BearDirector
+  bearPrefab: {fileID: 2188797495247896489, guid: c921eeab701f758ffa44f190ac9f1133, type: 3}

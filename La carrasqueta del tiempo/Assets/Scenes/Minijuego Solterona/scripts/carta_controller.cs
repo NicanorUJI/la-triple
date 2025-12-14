@@ -58,7 +58,7 @@ public class carta_controller : MonoBehaviour
     IEnumerator jugadorEligeCarta()
     {
         //cambiar tipo de la carta vacia de la mano del jugador
-        if (carta1.tipo == 0) //la carta está vacia
+        if (carta1.tipo == 0) //la carta estï¿½ vacia
         {
             carta1.tipo = thisCarta.tipo;
             carta1Objeto.SetActive(true);
@@ -168,7 +168,7 @@ public class carta_controller : MonoBehaviour
 
     public void BarajarCartasJugador()
     {
-        // Si las dos cartas tienen un tipo asignado (no vacías)
+        // Si las dos cartas tienen un tipo asignado (no vacï¿½as)
         if (carta1.tipo != 0 && carta2.tipo != 0)
         {
             // 50% probabilidad de intercambiar
@@ -178,7 +178,7 @@ public class carta_controller : MonoBehaviour
                 carta1.tipo = carta2.tipo;
                 carta2.tipo = tipoTemporal;
 
-                // Actualizar imágenes después de barajar
+                // Actualizar imï¿½genes despuï¿½s de barajar
                 ActualizarImagen(carta1Objeto, carta1);
                 ActualizarImagen(carta2Objeto, carta2);
 
@@ -189,7 +189,7 @@ public class carta_controller : MonoBehaviour
 
     public void BarajarCartasAlcalde()
     {
-        // Si las dos cartas tienen un tipo asignado (no vacías)
+        // Si las dos cartas tienen un tipo asignado (no vacï¿½as)
         if (thisCarta.tipo != 0 && otherCarta.tipo != 0)
         {
             animator.gameObject.SetActive(false);
@@ -214,7 +214,9 @@ public class carta_controller : MonoBehaviour
 
     public void Continuar()
     {
-        SceneManager.LoadScene("Plaza");
+        GameManager.Change("Act2_Q_LLANCE_WonSolterona");
+        Debug.Log("Cambiando a Act2_Q_LLANCE_WonSolterona");
+        SceneManager.LoadScene("Bar");
     }
 
 }
