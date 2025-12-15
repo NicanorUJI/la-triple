@@ -198,7 +198,7 @@ public class Button_Controller_Morra : MonoBehaviour
 
         countdownObject.SetActive(false);
 
-        //Enseï¿½ar las manos y los bocadillos
+        //Enseñar las manos y los bocadillos
         fase_finalRonda.SetActive(true);
 
         SpriteRenderer joaquinMano_spriteR = manoJoaquin.GetComponent<SpriteRenderer>();
@@ -209,7 +209,7 @@ public class Button_Controller_Morra : MonoBehaviour
         joaquinMano_spriteR.sprite = manos_sprites[value_sacarINT-1];
         rivalMano_spriteR.sprite = manos_sprites[value_NPC_Sacar-1];
 
-        //Enseï¿½ar y poner texto del numero que cantan
+        //Enseñar y poner texto del numero que cantan
         textos_cantar.SetActive(true);
         text_joaquinCantar.SetText(value_Cantar + " !");
         text_rivalCantar.SetText(value_NPC_Cantar + " !");
@@ -222,6 +222,7 @@ public class Button_Controller_Morra : MonoBehaviour
     private void setWinnerOfRound()
     {
         //Eleccion ganador
+        //La funcion devuelve un entero: -1: pierde jugador; 0: empate; 1: gana jugador
         int jugadorHaGanado = morraController.jugadorGanador(value_NPC_Sacar + value_Sacar, value_Cantar, value_NPC_Cantar);
         winner_Object.SetActive(true);
 
@@ -251,25 +252,13 @@ public class Button_Controller_Morra : MonoBehaviour
         {
             if (puntos_jugador > puntos_NPC)
             {
-                GameManager.Change("Act2_Q_MENJAR_HasMeat");
-                Debug.Log("[Menjar/Morra] JoaquÃ­n ha guanyat la cistella de menjar.");
-
-                var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
-                if (mc != null)
-                {
-                    mc.SetActiveMission(
-                        3,
-                        "Tornar amb la carn",
-                        "Has guanyat una cistella de menjar a la Morra. Torna al passat amb Maripili."
-                    );
-                }
-
-                SceneManager.LoadScene("PlazaPasado");
+                debug_Text.SetText("Ha ganado Joaquin");
+                SceneManager.LoadScene("Plaza");
             }
             else
             {
                 debug_Text.SetText("Ha ganado el alcalde");
-                SceneManager.LoadScene("Minijuego_Morra");
+                SceneManager.LoadScene("Escena Menú");
             }
         }
 
