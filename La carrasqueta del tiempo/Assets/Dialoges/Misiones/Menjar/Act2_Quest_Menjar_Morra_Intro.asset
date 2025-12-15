@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
+  m_Name: Act2_Quest_Menjar_Morra_Intro
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  originalDialogue: {fileID: 0}
+  defaultSprite: {fileID: 0}
+  lines:
+  - speakerName: Marc
+    lineText: Qui vullga participar que se apunte a la lista! El premi es una cistella
+      de menjar variat!
+    expression: {fileID: 0}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "Bon dia. Qu\xE8 est\xE0 passant?"
+    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Marc
+    lineText: "Hola xic, estem celebrant un concurs de Morra, el guanyador s\u2019endur\xE0
+      una cistella de menjar variat i embotits."
+    expression: {fileID: 0}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: Em va perfecte. Jo vull participar! On tinc que apuntarme?
+    expression: {fileID: 6816344690905786448, guid: a2e5e7b38ac7db4d693b36d349cce8f8, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Marc
+    lineText: Saps jugar a la morra?
+    expression: {fileID: 0}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: El meu tio em va ensenyar quan era menut.
+    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Marc
+    lineText: "Molt b\xE9. Entonces ets benvingut. Agafa una cadira xiquet."
+    expression: {fileID: 0}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 1
+    minigame: Minijuego_Morra
+  conditions:
+  - Act2_Q_MENJAR_MorraStarted

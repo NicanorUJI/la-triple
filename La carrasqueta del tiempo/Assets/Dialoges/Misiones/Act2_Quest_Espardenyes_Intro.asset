@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
+  m_Name: Act2_Quest_Espardenyes_Intro
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  originalDialogue: {fileID: 0}
+  defaultSprite: {fileID: 0}
+  lines:
+  - speakerName: Maripili
+    lineText: "Les espardenyes s\xF3n molt importants per a la festa. Sense elles,
+      ni ball ni res."
+    expression: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Maripili
+    lineText: "Ves a la tenda d\u2019espardenyes i pregunta si els sobra espart.
+      Amb aix\xF2 podrem fer torxes."
+    expression: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "D\u2019acord, comen\xE7ar\xE9 per les espardenyes. Ara mateix vaig
+      cap a la tenda."
+    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 1
+    reward: ACT2_Q_ESP_START
+    startsMinigame: 0
+    minigame: 
+  conditions:
+  - Act2_MaripiliIntroDone

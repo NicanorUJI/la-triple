@@ -1,45 +1,42 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
-public class ViajeTiempo : MonoBehaviour
+public class ArbolInteractuable : MonoBehaviour, IInteractable
 {
-    private IInteractable interactableInRange = null;
-    public GameObject interactionIcon;
+    public string escenaDestino;
+    public AudioClip sonidoViaje;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public bool CanInteract()
     {
-        interactionIcon.SetActive(false);
+        return true;
     }
 
-    public void Update()
+    public void Interact()
     {
-
-        if (Keyboard.current?.eKey.wasPressedThisFrame == true)
-        {
-            Debug.Log("Interactuando");
-            interactableInRange.Interact();
-        }
-    } 
-
-    // Update is called once per frame
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.TryGetComponent(out IInteractable interactable) && interactable.CanInteract())
-        {
-            interactableInRange = interactable;
-            interactionIcon.SetActive(true);
-        }
+        StartCoroutine(ViajarConAudio());
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private System.Collections.IEnumerator ViajarConAudio()
     {
-        if (collision.TryGetComponent(out IInteractable interactable) && interactable == interactableInRange)
-        {
-            interactableInRange = null;
-            interactionIcon.SetActive(false);
-        }
+        Debug.Log("Viajando en el tiempo...");
+
+        // Crear un objeto para reproducir el sonido
+        GameObject audioObj = new GameObject("AudioTransicion");
+        AudioSource audioSource = audioObj.AddComponent<AudioSource>();
+
+        audioSource.clip = sonidoViaje;
+        audioSource.Play();
+
+        // Mantenerlo al cambiar de escena
+        DontDestroyOnLoad(audioObj);
+
+        // Esperar 1 segundo antes de cambiar
+        yield return new WaitForSeconds(1f);
+
+        // Cambiar de escena
+        SceneManager.LoadScene(escenaDestino);
+
+        // Destruir el objeto cuando termine el audio
+        Destroy(audioObj, sonidoViaje.length);
     }
 }

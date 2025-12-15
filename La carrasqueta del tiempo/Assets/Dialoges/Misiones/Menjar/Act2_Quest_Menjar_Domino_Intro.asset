@@ -1,0 +1,163 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
+  m_Name: Act2_Quest_Menjar_Domino_Intro
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  originalDialogue: {fileID: 0}
+  defaultSprite: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+  lines:
+  - speakerName: Josefina
+    lineText: "Voleu posar algo m\xE9s?"
+    expression: {fileID: -3690097810477892078, guid: d968a4a21ae27a311a110caff1ae189f, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Josefina
+    lineText: Jo tinc aquest pot de mel.
+    expression: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "Hola, bon d\xEDa. Qu\xE8 esteu fent?"
+    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Josefina
+    lineText: "Bon d\xEDa xiquet. Anem a jugar al domin\xF3."
+    expression: {fileID: -3690097810477892078, guid: d968a4a21ae27a311a110caff1ae189f, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "I per a qu\xE8 \xE9s la mel?"
+    expression: {fileID: 167803326818533104, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Josefina
+    lineText: "Qui guanye se l\u2019emporta."
+    expression: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: (!)
+    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "Jo tamb\xE9 vull jugar!"
+    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Josefina
+    lineText: "Est\xE0s segur de que vols jugar? Nosaltres portem molts anys jugant.
+      No tens ninguna oportunitat."
+    expression: {fileID: -3690097810477892078, guid: d968a4a21ae27a311a110caff1ae189f, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Josefina
+    lineText: Va, deixa al xiquet. Per un jovenet que ve a fer-nos cas.
+    expression: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Josefina
+    lineText: Va, deixa al xiquet. Per un jovenet que ve a fer-nos cas.
+    expression: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 1
+    minigame: DominoMinigame
+  conditions:
+  - Act2_Q_MENJAR_Started

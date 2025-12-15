@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
+  m_Name: Act2_LLanca_Alcalde_Past
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  originalDialogue: {fileID: 0}
+  defaultSprite: {fileID: 0}
+  lines:
+  - speakerName: Joaquin
+    lineText: Hola, bon dia!
+    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Alcalde
+    lineText: Bon dia, xic!
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "Saps qui \xE9s la persona encarregada de l\u2019ermita que ha deixat
+      una nota a la porta?"
+    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Alcalde
+    lineText: Parles amb la persona correcta. Jo he sigut qui ha deixat la nota.
+    expression: {fileID: -3644103294100017685, guid: 9c9c6503463fa285383681e4421ab9ff, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Alcalde
+    lineText: "Qu\xE8 se t\u2019ha perdut a l\u2019ermita?"
+    expression: {fileID: -3644103294100017685, guid: 9c9c6503463fa285383681e4421ab9ff, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "Necessite la llan\xE7a."
+    expression: {fileID: 167803326818533104, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Alcalde
+    lineText: "I per a qu\xE8 vols tu la llan\xE7a?"
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "Uh\u2026 Per a Maripili, que me l\u2019ha demanat per a l\u2019organitzaci\xF3
+      de la festa de l\u2019Onso."
+    expression: {fileID: 3198480329992687461, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Alcalde
+    lineText: "Ah! Maripili! \xC9s veritat que aquest any li tocava a ella organitzar-la!"
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Alcalde
+    lineText: "Te deixaria la clau per obrir l\u2019ermita, per\xF2 per desgr\xE0cia
+      l\u2019he perduda i no recorde on \xE9s l\u2019\xFAltim lloc on la vaig deixar."
+    expression: {fileID: -3644103294100017685, guid: 9c9c6503463fa285383681e4421ab9ff, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "Oh\u2026"
+    expression: {fileID: 3198480329992687461, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "A lo millor no han canviat el pany en 50 anys\u2026?"
+    expression: {fileID: -1180773124689011136, guid: 704c08af6c7afe52fb02d7b58df5574a, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  conditions:
+  - Act2_Q_LLANCE_Started

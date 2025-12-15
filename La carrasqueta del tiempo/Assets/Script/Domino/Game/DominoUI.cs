@@ -65,7 +65,13 @@ public class DominoUI : MonoBehaviour
 
     void OnTurnChanged(int p)
     {
-        txtTurno.text = $"Turno: P{p}";
+        string jugadorActual = "";
+        if (p == 0) jugadorActual = "Joaquin";
+        else if (p == 1) jugadorActual = "Encarna";
+        else if (p == 2) jugadorActual = "Josefina";
+        else jugadorActual = "M. Amparo";
+
+        txtTurno.text = $"És el torn de: {jugadorActual} !";
         txtMensaje.text = "";
         RedrawHand(); // re-evalúa interactuabilidad de fichas
     }
@@ -146,6 +152,19 @@ public class DominoUI : MonoBehaviour
             txtResultado.text = "¡Ganaste!";
             txtRecompensa.text = "Has obtenido el tarro de miel";
             RewardSystemHook.Grant("TarroDeMiel");
+
+            GameManager.Change("Act2_Q_MENJAR_WonDomino");
+            Debug.Log("[Menjar/Dominó] Joaquín ha guanyat el dominó.");
+
+            var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
+            if (mc != null)
+            {
+                mc.SetActiveMission(
+                    3,
+                    "Has guanyat el dominó",
+                    "Has guanyat el pot de mel. Parla amb l'iaia al bar."
+                );
+            }
         }
         else if (winnerIndex == -1)
         {
@@ -171,7 +190,7 @@ public class DominoUI : MonoBehaviour
         btnSalir.onClick.AddListener(() =>
         {
             panelFinPartida.SetActive(false);
-            SceneManager.LoadScene("Plaza");
+            SceneManager.LoadScene("Bar");
         });
     }
 

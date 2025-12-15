@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
+  m_Name: Act2_Esquelles_School_PiIntro
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  originalDialogue: {fileID: 0}
+  defaultSprite: {fileID: 0}
+  lines:
+  - speakerName: Joaquin
+    lineText: Hola, bon dia.
+    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Jan
+    lineText: Hola!
+    expression: {fileID: 129569322397778913, guid: 113cfc7e9c70688b59a8001218ba9c0a, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "Sou els que esteu fent polseres que m\u2019ha dit la meua \xE0via?"
+    expression: {fileID: 167803326818533104, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Jan
+    lineText: "S\xED, som nosaltres. I les estem venent!"
+    expression: {fileID: -2517251984187696129, guid: e6add0d1fe6b1a2598dc1771955a2649, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Jan
+    lineText: Vols fer-ne una amb nosaltres?
+    expression: {fileID: -2517251984187696129, guid: e6add0d1fe6b1a2598dc1771955a2649, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: Es que tinc presa. Em podeu donar una?
+    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Jan
+    lineText: Clar. Pero tens que pagar.
+    expression: {fileID: -2517251984187696129, guid: e6add0d1fe6b1a2598dc1771955a2649, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: Quant?
+    expression: {fileID: 1169979772233390810, guid: 542af1611a2dba5ea81aed2f7a0e3bfb, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Jan
+    lineText: "Cinquanta mil milions d\u2019euros!"
+    expression: {fileID: 129569322397778913, guid: 113cfc7e9c70688b59a8001218ba9c0a, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: Ala! Jo no tinc tants de diners!
+    expression: {fileID: 3198480329992687461, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Jan
+    lineText: "Bueno, a lo millor podem fer-te una rebaixa si jugues amb nosaltres
+      i ens guanyes. Per\xF2 te avisem que ning\xFA ens ha guanyat mai en la vida."
+    expression: {fileID: -2517251984187696129, guid: e6add0d1fe6b1a2598dc1771955a2649, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: Vale. A que voleu jugar?
+    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Jan
+    lineText: Al pi recuento!
+    expression: {fileID: -2517251984187696129, guid: e6add0d1fe6b1a2598dc1771955a2649, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 1
+    minigame: PiRecuentoMinijuego
+  conditions:
+  - Act2_Q_ESQUELLES_Started
