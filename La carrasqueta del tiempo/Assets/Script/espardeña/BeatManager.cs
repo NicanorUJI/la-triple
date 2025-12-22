@@ -11,79 +11,52 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     private bool gameStarted = false;
     private WaitForSeconds wait1s, waitHalf, waitEndDelay;
     private float nextBeatTime = 0f;
-    private float spawnY = 8f, minX = -1f, maxX = 7f, spawnZ = 0f;
+    private float spawnY = 0f, minX = -1f, maxX = -0.3f;
 
-    [Header("")]
+    [Header("Configuración Rítmica")]
     public float beatInterval = 0.5f;
 
-    [Header("")]
-    public float velocidadCaida = 3f;
+    [Header("Configuración Notas")]
+    public float velocidadCaida = 1f;
 
-    [Header("")]
+    [Header("Audio")]
     public AudioSource musicSource;
 
-    [Header("")]
+    [Header("Prefabs y Referencias")]
     public GameObject notaPrefab;
-
-    [Header("")]
     public string escenaSalir;
 
-    [Header(" ")]
+    [Header("Cuenta Atrás")]
     public Image countdownImage;
-
-    [Header("")]
     public Sprite[] countdownSprites;
-
-    [Header("")]
     public float countdownDuration = 3f;
-
-    [Header("")]
     public AudioSource countdownAudioSource;
-
-    [Header("")]
     public AudioClip countdownBeep;
 
-    [Header("")]
+    [Header("UI Pantallas")]
     public GameObject startScreen;
-
-    [Header("")]
     public GameObject returnButton;
-
-    [Header("")]
     public GameObject endScreen;
-
-    [Header("")]
     public TMP_Text finalScoreText;
-
-    [Header("")]
     public TMP_Text extraFinalText;
 
     [System.Serializable]
     public class BeatInfo { public float time, energy; }
 
-    [Header("Story / Misiones")]
-    public string successFlag = "Act2_Q_ESP_HasEspart";
-
-    [Range(0f, 1f)]
-    public float minHitRateToWin = 0.0f; // 0 => siempre gana
-    private bool playerWon = false;
-
     // ---------------------------------------------------------
     //                       INICIO
     // ---------------------------------------------------------
     void Start()
-{
-    wait1s = new WaitForSeconds(1f);
-    waitHalf = new WaitForSeconds(0.5f);
-    waitEndDelay = new WaitForSeconds(3f); // si quieres 3s siempre
+    {
+        wait1s = new WaitForSeconds(1f);
+        waitHalf = new WaitForSeconds(0.5f);
+        waitEndDelay = new WaitForSeconds(3f);
 
-    if (countdownImage != null) countdownImage.gameObject.SetActive(false);
-    if (startScreen != null) startScreen.SetActive(true);
-    if (returnButton != null) returnButton.SetActive(false);
-    if (endScreen != null) endScreen.SetActive(false);
-}
-
-
+        if (countdownImage != null) countdownImage.gameObject.SetActive(false);
+        if (startScreen != null) startScreen.SetActive(true);
+        if (returnButton != null) returnButton.SetActive(false);
+        if (endScreen != null) endScreen.SetActive(false);
+    }
 
     public void OnStartButtonPressed()
     {
@@ -92,7 +65,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
         StartCoroutine(StartMusicWithCountdown());
     }
-
 
     public void OnReturnButtonPressed()
     {
@@ -114,7 +86,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         topBeats.Clear();
     }
 
-
     // ---------------------------------------------------------
     //               CUENTA ATRÁS Y COMIENZO MÚSICA
     // ---------------------------------------------------------
@@ -131,17 +102,15 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
                 if (countdownAudioSource != null && countdownBeep != null)
                     countdownAudioSource.PlayOneShot(countdownBeep);
 
-                yield return wait1s;   // AHORA CACHEADO
+                yield return wait1s;
             }
 
             if (countdownSprites.Length > countdownDuration)
             {
                 countdownImage.sprite = countdownSprites[(int)countdownDuration];
-
                 if (countdownAudioSource != null && countdownBeep != null)
                     countdownAudioSource.PlayOneShot(countdownBeep);
-
-                yield return waitHalf; // CACHEADO
+                yield return waitHalf;
             }
 
             countdownImage.gameObject.SetActive(false);
@@ -154,47 +123,57 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         {
             musicSource.PlayScheduled(AudioSettings.dspTime + 0.1);
             Invoke(nameof(StopGame), musicSource.clip.length - 0.1f);
-
             StartCoroutine(ShowEndScreenWithDelay());
         }
     }
+
     // ---------------------------------------------------------
-    //                    UPDATE (SPAWN FIJO)
+    //                    UPDATE (LOGICA ARREGLADA)
     // ---------------------------------------------------------
     void Update()
     {
         if (!gameStarted) return;
         if (musicSource == null || !musicSource.isPlaying) return;
 
-        // Verificar si es momento de generar un nuevo beat
+        // Generar Beats
         if (musicSource.time >= nextBeatTime)
         {
             RegisterBeat(musicSource.time, 1f);
             nextBeatTime += beatInterval;
         }
 
-        // Detectar si el jugador presiona la barra espaciadora y verificar si hay alguna nota presionable
+        // Input del jugador
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Verificar si alguna nota está dentro de la zona de acierto
             bool hitAnyNote = false;
 
-            // Buscar si hay alguna nota dentro de la zona de acierto
             GameObject[] notes = GameObject.FindGameObjectsWithTag("Beat");
             foreach (GameObject note in notes)
             {
                 Note noteScript = note.GetComponent<Note>();
+                // Comprobamos si la nota es válida para ser pulsada
                 if (noteScript != null && noteScript.CanBePressed())
                 {
                     hitAnyNote = true;
-                    break;  // Si encontramos al menos una nota presionable, salimos del bucle
+
+                    // --- CORRECCIÓN AQUÍ ---
+                    // 1. Avisamos al Manager que acertamos
+                    if (RhythmGameManager.instance != null)
+                        RhythmGameManager.instance.NoteHit();
+                    
+                    // 2. Destruimos la nota para que no falle al salir de pantalla ni se pulse dos veces
+                    Destroy(note); 
+                    // -----------------------
+
+                    break; // Solo permitimos acertar una nota por pulsación
                 }
             }
 
-            // Si no hay ninguna nota presionable, restamos un punto
+            // Si pulsamos espacio pero no había nota
             if (!hitAnyNote)
             {
-                RhythmGameManager.instance.MissNote();  // Resta un punto
+                if (RhythmGameManager.instance != null)
+                    RhythmGameManager.instance.MissNote();
             }
         }
     }
@@ -212,7 +191,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         if (musicSource != null && musicSource.clip != null)
             yield return new WaitForSeconds(musicSource.clip.length - 0.1f);
 
-        yield return waitEndDelay;  // CACHEADO
+        yield return waitEndDelay;
 
         ShowEndScreen();
     }
@@ -222,36 +201,34 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         if (endScreen != null) endScreen.SetActive(true);
         if (returnButton != null) returnButton.SetActive(false);
 
-        playerWon = false;
-
         if (finalScoreText != null && RhythmGameManager.instance != null)
         {
-            int hits = RhythmGameManager.instance.HitNotes;
-            int total = RhythmGameManager.instance.TotalNotes;
+            // 1. Obtenemos los datos
+            int finalScore = RhythmGameManager.instance.CurrentScore; // Puntuación con restas
+            int hits = RhythmGameManager.instance.HitNotes;           // Aciertos puros
+            int total = RhythmGameManager.instance.TotalNotes;        // Total de notas
 
-            finalScoreText.text = $"Has acertat {hits} de {total} notes";
+            // 2. CAMBIO AQUÍ: Mostramos la PUNTUACIÓN (Score) en el texto grande
 
-            float hitRate = (float)hits / Mathf.Max(1, total);
-
-            // Decidimos si se considera "ganado" el minijoc
-            if (hitRate >= minHitRateToWin)
-                playerWon = true;
+            // 3. Calculamos la precisión para el mensaje extra
+            float hitRate = total > 0 ? (float)hits / total : 0f;
 
             if (extraFinalText != null)
             {
-                extraFinalText.text =
-                    hitRate >= 0.95f ? "¡Increíble! Eres un maestre del ritme." :
-                    hitRate >= 0.80f ? "¡Molt bé!" :
-                    hitRate >= 0.60f ? "Nada mal, pero pots millorar." :
+                // Puedes añadir el detalle de aciertos aquí si quieres
+                string mensajeMotivacional =
+                    hitRate >= 0.50f ? "¡Molt bé!" :
+                    hitRate >= 0.40f ? "Nada mal, pero pots millorar." :
                     "Continua practicant...";
+
+                // Muestra: "¡Increíble! (40/50 notas)"
+                finalScoreText.text = $"Puntuació Final: {finalScore} de {total} notes";
+
+                extraFinalText.text = $"{mensajeMotivacional}";
             }
         }
-        else
-        {
-            // Si por cualquier motivo no tenemos datos, lo consideramos ganado
-            playerWon = true;
-        }
     }
+
     // ---------------------------------------------------------
     //                   SPAWN DE NOTAS
     // ---------------------------------------------------------
@@ -259,7 +236,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     {
         if (notaPrefab == null) return;
 
-        Vector3 pos = new(Random.Range(minX, maxX), spawnY, spawnZ);
+        Vector3 pos = new Vector3(Random.Range(minX, maxX), spawnY, 0);
         GameObject note = Instantiate(notaPrefab, pos, Quaternion.identity);
 
         float fallSpeed = velocidadCaida;
@@ -279,10 +256,10 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
         SpawnBeatVisual(energy);
 
+        // Esto cuenta el TOTAL de notas generadas
         if (RhythmGameManager.instance != null)
             RhythmGameManager.instance.RegisterNote();
     }
-
 
     // ---------------------------------------------------------
     //                     UTILIDADES
@@ -296,21 +273,9 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
     public void OnSalirButtonPressed()
     {
-        // Si el minijuego se considera "ganado", marcamos el flag de historia
-        if (playerWon && !string.IsNullOrEmpty(successFlag))
-        {
-            GameManager.Change(successFlag);
-            Debug.Log($"[RhythmGame] Marcando flag de misión: {successFlag}");
-        }
+        GameManager.Change("Act2_Q_ESP_HasEspart");
 
         if (!string.IsNullOrEmpty(escenaSalir))
-        {
             SceneManager.LoadScene(escenaSalir);
-        }
-        else
-        {
-            Debug.LogWarning("[RhythmGame] escenaSalir no está configurada en el inspector.");
-        }
     }
-
 }

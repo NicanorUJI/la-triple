@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6999a2ff57725a4da8e3339bd17525a, type: 3}
+  m_Name: carta2
+  m_EditorClassIdentifier: Assembly-CSharp::carta
+  carta_imagen: {fileID: 21300000, guid: e44123b242425b34fa35989a9c14f6e9, type: 3}
+  tipo: 0
+  activo: 1

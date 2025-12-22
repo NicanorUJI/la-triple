@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    public float fallSpeed = 3f;
-    public float destroyY = -5f;
+    public float fallSpeed = 0.6f;
+    public float destroyY = -0.2f;
 
     private bool canBePressed = false; // Solo se puede presionar dentro de la HitZone
 

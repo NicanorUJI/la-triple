@@ -92,6 +92,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fin.unity
     guid: ed745b77a3938aa46b8345448e408c54
+  - enabled: 1
+    path: Assets/Scenes/Minijuego Solterona/Minijuego_solterona.unity
+    guid: b8b2dad478a17a64c904d65d28c970a6
+  - enabled: 1
+    path: Assets/Scenes/arcade/inicio.unity
+    guid: b6aa3b1044087f74c81c32c6c9de32bd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

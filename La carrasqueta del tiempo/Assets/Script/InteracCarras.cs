@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class ArbolInteractuable : MonoBehaviour, IInteractable
 {
     public string escenaDestino;
-    public AudioClip sonidoViaje;
+    public AudioSource audioViaje;   // <- AudioSource existente en la escena
 
     public bool CanInteract()
     {
@@ -20,15 +20,17 @@ public class ArbolInteractuable : MonoBehaviour, IInteractable
     {
         Debug.Log("Viajando en el tiempo...");
 
-        // Crear un objeto para reproducir el sonido
-        GameObject audioObj = new GameObject("AudioTransicion");
-        AudioSource audioSource = audioObj.AddComponent<AudioSource>();
+        if (audioViaje == null)
+        {
+            Debug.LogError("No se ha asignado un AudioSource en la Inspector!");
+            yield break;
+        }
 
-        audioSource.clip = sonidoViaje;
-        audioSource.Play();
+        // Reproducir audio
+        audioViaje.Play();
 
         // Mantenerlo al cambiar de escena
-        DontDestroyOnLoad(audioObj);
+        DontDestroyOnLoad(audioViaje.gameObject);
 
         // Esperar 1 segundo antes de cambiar
         yield return new WaitForSeconds(1f);
@@ -37,6 +39,6 @@ public class ArbolInteractuable : MonoBehaviour, IInteractable
         SceneManager.LoadScene(escenaDestino);
 
         // Destruir el objeto cuando termine el audio
-        Destroy(audioObj, sonidoViaje.length);
+        Destroy(audioViaje.gameObject, audioViaje.clip.length);
     }
 }
