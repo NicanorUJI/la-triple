@@ -680,7 +680,7 @@ MonoBehaviour:
   nameText: {fileID: 956895674}
   portraitImage: {fileID: 1079811743}
   joaquinPortrait_Object: {fileID: 0}
-  joaquinPortrait: {fileID: 0}
+  joaquinPortrait: {fileID: 811710307}
   button_choice1: {fileID: 623267753}
   button_choice2: {fileID: 623267752}
   button_choice3: {fileID: 623267751}
