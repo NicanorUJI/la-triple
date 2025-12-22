@@ -183,6 +183,17 @@ public class NPC : MonoBehaviour, IInteractable
         Dialogu﻿eLine line = dialogueData.lines[dialogueIndex];
         nameText.text = line.speakerName;
 
+        if(dialogueData.defaultSprite != null)
+        {
+            portraitImage.sprite = dialogueData.defaultSprite;
+            portraitImage.gameObject.SetActive(true);
+        }
+            
+        else
+            portraitImage.gameObject.SetActive(false);
+
+        joaquinPortrait.sprite = dialogueData.joaquinDefault;
+
         SetPortraitFromLine(line);
 
         dialoguePanel.SetActive(true);
