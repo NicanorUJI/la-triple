@@ -4,7 +4,6 @@ using System.Collections;
 
 public class LoadManager : MonoBehaviour
 {
-    // 🔹 Este método lo puedes asignar al botón de "Cargar Partida"
     public void CargarPartida()
     {
         GameData data = SaveSystem.Load();
@@ -15,24 +14,7 @@ public class LoadManager : MonoBehaviour
             return;
         }
 
-        // Si estamos en el menú, cargar la escena guardada
-        if (SceneManager.GetActiveScene().name == "Escena Menú")
-        {
-            Debug.Log("Cargando escena guardada...");
-            StartCoroutine(CargarEscena(data));
-        }
-        else
-        {
-            // Si ya estás dentro del juego, simplemente recoloca al jugador
-            if (SceneManager.GetActiveScene().name == data.sceneName)
-            {
-                ColocarJugador(data);
-            }
-            else
-            {
-                StartCoroutine(CargarEscena(data));
-            }
-        }
+        StartCoroutine(CargarEscena(data));
     }
 
     IEnumerator CargarEscena(GameData data)
@@ -41,7 +23,27 @@ public class LoadManager : MonoBehaviour
         while (!async.isDone)
             yield return null;
 
+        // 1️⃣ Colocar jugador
         ColocarJugador(data);
+
+        // 2️⃣ Restaurar audio
+        if (data.volumenAmbiente > 0)
+            PlayerPrefs.SetFloat("SavedAmbienteVolume", data.volumenAmbiente);
+
+        if (data.volumenEfectos > 0)
+            PlayerPrefs.SetFloat("SavedSFXVolume", data.volumenEfectos);
+
+        // 3️⃣ Esperar a que la UI exista
+        yield return null;
+        yield return null;
+
+        // 4️⃣ Refrescar UI de recompensas (seguro)
+        if (RewardManager.Instance != null)
+        {
+            RewardManager.Instance.ReaplicarRecompensas();
+        }
+
+        Debug.Log("✅ Partida cargada completamente");
     }
 
     void ColocarJugador(GameData data)
@@ -49,8 +51,8 @@ public class LoadManager : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
-            player.transform.position = new Vector3(data.playerX, data.playerY, data.playerZ);
-            Debug.Log("Jugador colocado en la posición guardada.");
+            player.transform.position =
+                new Vector3(data.playerX, data.playerY, data.playerZ);
         }
     }
 }

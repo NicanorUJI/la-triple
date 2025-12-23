@@ -5,12 +5,97 @@ public class RewardManager : MonoBehaviour
 {
     public List<string> rewards = new List<string>();
 
+    public SpriteChanger lanzaUI;
+    public SpriteChanger llaveUI;
+    public SpriteChanger cestaUI;
+    public SpriteChanger espardenyaUI;
+    public SpriteChanger campanasUI;
+    public SpriteChanger mielUI;
+    public SpriteChanger pulseraUI;
+
+    public static RewardManager Instance;
+
+    void Awake()
+    {
+        // 🔹 Singleton
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        // 🔹 Inicializar referencias a la UI
+        FindUI();
+    }
+
+    void FindUI()
+    {
+        // 🔹 Solo asignamos UI que estén vacías
+        var allUI = FindObjectsOfType<SpriteChanger>(true); // true = incluye objetos inactivos
+        foreach (var ui in allUI)
+        {
+            if (ui.name == "espardenya" && espardenyaUI == null) espardenyaUI = ui;
+            else if (ui.name == "lanza" && lanzaUI == null) lanzaUI = ui;
+            else if (ui.name == "cesta" && cestaUI == null) cestaUI = ui;
+            else if (ui.name == "campanas" && campanasUI == null) campanasUI = ui;
+            else if (ui.name == "miel" && mielUI == null) mielUI = ui;
+            else if (ui.name == "llave" && llaveUI == null) llaveUI = ui;
+            else if (ui.name == "pulsera" && pulseraUI == null) pulseraUI = ui;
+        }
+    }
+
+    public void ReaplicarRecompensas()
+    {
+        foreach (string reward in rewards)
+        {
+            // Reaplicamos SOLO la UI, sin volver a dar recompensas
+            if (reward == "Act2_Q_ESP_HasEspart")
+                espardenyaUI?.SetCompletado(true);
+
+            if (reward == "ACT2_Q_LLANCE_DONE")
+                lanzaUI?.SetCompletado(true);
+
+            if (reward == "ACT2_Q_LLANCE_GOT_KEY")
+                llaveUI?.SetCompletado(true);
+
+            if (reward == "ACT2_Q_MENJAR_GOT_MEAT")
+                cestaUI?.SetCompletado(true);
+
+            if (reward == "ACT2_Q_MENJAR_GOT_HONEY")
+                mielUI?.SetCompletado(true);
+
+            if (reward == "ACT2_Q_ESQUELLES_DONE")
+                campanasUI?.SetCompletado(true);
+
+            if (reward == "ACT2_Q_ESQUELLES_BRACELET")
+                pulseraUI?.SetCompletado(true);
+        }
+    }
+
+    public void ResetUI()
+    {
+        lanzaUI?.SetCompletado(false);
+        llaveUI?.SetCompletado(false);
+        cestaUI?.SetCompletado(false);
+        espardenyaUI?.SetCompletado(false);
+        campanasUI?.SetCompletado(false);
+        mielUI?.SetCompletado(false);
+        pulseraUI?.SetCompletado(false);
+        rewards.Clear();
+    }
     public void giveReward(string reward)
     {
         rewards.Add(reward);
         Debug.Log("Reward recibida: " + reward);
 
         var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
+
+        // 🔹 Reasignar UI si alguna referencia se perdió al cambiar de escena
+        FindUI();
+
+        // -------------------- Rewards --------------------
 
         if (reward == "ACT1_INTRO_END")
         {
@@ -103,6 +188,7 @@ public class RewardManager : MonoBehaviour
         else if (reward == "ACT2_Q_ESP_GOT_MATERIAL")
         {
             GameManager.Change("Act2_Q_ESP_HasEspart");
+            espardenyaUI?.SetCompletado(true);
             if (mc != null)
                 mc.SetActiveMission(6, "Missió activa",
                     "Torna amb l'espart a parlar amb Maripili.");
@@ -151,6 +237,8 @@ public class RewardManager : MonoBehaviour
             GameManager.Change("Act2_Q_LLANCE_HasKey");
             Debug.Log("Act2 -> Llança: ja tinc la clau de l'ermita.");
 
+            llaveUI?.SetCompletado(true);
+
             if (mc != null)
             {
                 mc.SetActiveMission(
@@ -163,6 +251,7 @@ public class RewardManager : MonoBehaviour
         else if (reward == "ACT2_Q_LLANCE_DONE")
         {
             GameManager.Change("Act2_Q_LLANCE_Done");
+            lanzaUI?.SetCompletado(true);
 
             if (MissionController.Instance != null)
             {
@@ -197,6 +286,7 @@ public class RewardManager : MonoBehaviour
         {
             GameManager.Change("Act2_Q_MENJAR_HasHoney");
             Debug.Log("Act2 -> Menjar: ja tinc el pot de mel.");
+            mielUI?.SetCompletado(true);
 
             if (mc != null)
             {
@@ -240,6 +330,8 @@ public class RewardManager : MonoBehaviour
         {
             GameManager.Change("Act2_Q_MENJAR_HasMeat");
             Debug.Log("Act2 -> Menjar: ja tinc la carn.");
+            
+            cestaUI?.SetCompletado(true);
 
             if (mc != null)
             {
@@ -296,6 +388,7 @@ public class RewardManager : MonoBehaviour
         {
             GameManager.Change("Act2_Q_ESQUELLES_HasBracelet");
             Debug.Log("Act2 -> Esquelles: ja tinc la polsera.");
+            pulseraUI?.SetCompletado(true);
 
             if (mc != null)
             {
@@ -310,6 +403,8 @@ public class RewardManager : MonoBehaviour
         {
             GameManager.Change("Act2_Q_ESQUELLES_Done");
             GameManager.Change("Act2_HasCencerros");
+
+            campanasUI?.SetCompletado(true);
 
             Debug.Log("Act2 -> Esquelles completada. Joaquín ja té les esquelles.");
 
