@@ -13,7 +13,20 @@ MonoBehaviour:
   m_Name: AlcaldePasado_Default
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
-  lines: []
+  defaultSprite: {fileID: -3644103294100017685, guid: 9c9c6503463fa285383681e4421ab9ff, type: 3}
+  joaquinDefault: {fileID: 6622962485173151977, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
+  lines:
+  - speakerName: Senyor
+    lineText: "Despr\xE9s tenim un torneo de morra, esperem que la gent participe."
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
   conditions: []
