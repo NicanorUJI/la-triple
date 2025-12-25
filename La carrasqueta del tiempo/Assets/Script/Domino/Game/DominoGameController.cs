@@ -20,8 +20,9 @@ public class DominoGameController : MonoBehaviour
         tm.OnTurnChanged += OnTurnChanged;
         tm.OnMatchEnded += (_, _) => StopAllCoroutines();
 
-        tm.StartMatch(playerCount: 3);
-        ui.InitAndDraw();
+        // tm.StartMatch(playerCount: 3);
+        // ui.InitAndDraw();
+        ui.ShowIntro();
     }
 
     void OnTurnChanged(int playerIndex)
