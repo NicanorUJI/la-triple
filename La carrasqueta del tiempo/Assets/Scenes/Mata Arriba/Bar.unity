@@ -2672,7 +2672,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.5849915, y: -0.32533568}
+  m_Offset: {x: -0.5849915, y: -0.4101129}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2682,7 +2682,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.104074836, y: 0.34263027}
+  m_Size: {x: 0.104074836, y: 0.5121847}
   m_EdgeRadius: 0
 --- !u!4 &1051241376
 Transform:
@@ -3990,7 +3990,7 @@ GameObject:
   - component: {fileID: 2086536010}
   - component: {fileID: 2086536009}
   - component: {fileID: 2086536008}
-  - component: {fileID: 2086536007}
+  - component: {fileID: 2086536012}
   m_Layer: 3
   m_Name: Alcalde
   m_TagString: Untagged
@@ -3998,19 +3998,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2086536007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2086536006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d7b9a0351eb68b4d94e8a9420371b49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpriteSorter
-  sortingOffset: 100
 --- !u!114 &2086536008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4073,17 +4060,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.0629279}
+  m_Offset: {x: -0.05960071, y: 0.15232867}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.98, y: 1.63}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.8741442}
+  m_Size: {x: 0.69007874, y: 0.26622105}
   m_EdgeRadius: 0
 --- !u!212 &2086536010
 SpriteRenderer:
@@ -4129,8 +4116,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1928441445
-  m_SortingLayer: 2
+  m_SortingLayerID: 1252618739
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -4774163340609610636, guid: 2e685b492e11e5941bce872909b05550, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4152,12 +4139,25 @@ Transform:
   m_GameObject: {fileID: 2086536006}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.546, y: -0.377, z: 0}
+  m_LocalPosition: {x: -0.546, y: -0.509, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2086536012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086536006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7b9a0351eb68b4d94e8a9420371b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteSorter
+  sortingOffset: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
