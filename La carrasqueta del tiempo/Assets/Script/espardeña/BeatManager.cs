@@ -40,7 +40,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     public TMP_Text finalScoreText;
     public TMP_Text extraFinalText;
 
-
     [System.Serializable]
     public class BeatInfo { public float time, energy; }
 
@@ -194,11 +193,10 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
         yield return waitEndDelay;
 
-    
-        RhythmGameManager.instance.MostrarPantallaFinal();
+        ShowEndScreen();
     }
 
-    /*private int calcularVictoria()
+    void ShowEndScreen()
     {
         if (endScreen != null) endScreen.SetActive(true);
         if (returnButton != null) returnButton.SetActive(false);
@@ -229,7 +227,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
                 extraFinalText.text = $"{mensajeMotivacional}";
             }
         }
-    }*/
+    }
 
     // ---------------------------------------------------------
     //                   SPAWN DE NOTAS

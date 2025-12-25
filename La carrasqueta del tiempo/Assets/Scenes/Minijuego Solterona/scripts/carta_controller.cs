@@ -1,9 +1,8 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class carta_controller : MonoBehaviour
@@ -35,7 +34,7 @@ public class carta_controller : MonoBehaviour
     public GameObject continuar;
     public GameObject reset;
 
-    
+
 
 
     public void onClick()
@@ -50,7 +49,10 @@ public class carta_controller : MonoBehaviour
             Debug.Log(">>> CORUTINA jugadorEligeCarta INICIADA");
             //espera un segundo
             //alcaldeEligeCarta();
-        }        
+        }
+
+        
+        
     }
 
     IEnumerator jugadorEligeCarta()
@@ -86,10 +88,9 @@ public class carta_controller : MonoBehaviour
             carta2Objeto.SetActive(false);
             thisCartaObjeto.SetActive(false);
             otherCartaObjeto.SetActive(false);
-
-
-            minijuegoController.haGanado = true;
-            minijuegoController.MostrarPanelFin();
+            texto_victoria.SetActive(true);
+            reset.SetActive(true);
+            continuar.SetActive(true);
         }
 
         //thisCartaObjeto.SetActive(false);
@@ -118,6 +119,8 @@ public class carta_controller : MonoBehaviour
             carta1Objeto.SetActive(false); ;
             thisCarta.tipo = carta1.tipo;
             carta1.tipo = 0;
+
+
         }
 
         else
@@ -144,14 +147,18 @@ public class carta_controller : MonoBehaviour
             carta2Objeto.SetActive(false);
             thisCartaObjeto.SetActive(false);
             otherCartaObjeto.SetActive(false);
-
-            minijuegoController.haGanado = false;
-            MostrarPanelFinConDelay(1.5f);
+            texto_derrota.SetActive(true);
+            reset.SetActive(true);
+        
         }
+
+       
         jugadorEligeCarta();
 
-    }
 
+
+
+    }
 
     public void ActualizarImagen(GameObject objetoCarta, carta cartaActual)
     {
@@ -200,10 +207,16 @@ public class carta_controller : MonoBehaviour
         Debug.Log(">>> Cartas barajadas");
     }
 
-    private IEnumerator MostrarPanelFinConDelay(float delay)
+    public void Reset()
     {
-        yield return new WaitForSeconds(delay);  // espera X segundos
-        minijuegoController.MostrarPanelFin();    // luego muestra el panel
+        SceneManager.LoadScene("Minijuego_solterona");
+    }
+
+    public void Continuar()
+    {
+        GameManager.Change("Act2_Q_LLANCE_WonSolterona");
+        Debug.Log("Cambiando a Act2_Q_LLANCE_WonSolterona");
+        SceneManager.LoadScene("Bar");
     }
 
 }
