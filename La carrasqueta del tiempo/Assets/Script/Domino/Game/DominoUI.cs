@@ -40,10 +40,24 @@ public class DominoUI : MonoBehaviour
     public UnityEngine.UI.ScrollRect scrollMesa;
     public RectTransform contenidoMesa;
 
+    [Header("Intro Reglas")]
+    public GameObject panelInstruccionesDomino;
+    public Button btnAcceptar;
+    private bool _gameStarted = false;
+
     void Awake()
     {
-        btnRobar.onClick.AddListener(() => turn.DrawOrPass(PlayerIndex));
-        btnPasar.onClick.AddListener(() => turn.DrawOrPass(PlayerIndex));
+        btnRobar.onClick.AddListener(() =>
+        {
+            if (!_gameStarted) return;
+            turn.DrawOrPass(PlayerIndex);
+        });
+
+        btnPasar.onClick.AddListener(() =>
+        {
+            if (!_gameStarted) return;
+            turn.DrawOrPass(PlayerIndex);
+        });
     }
 
     public void HookEvents()
@@ -61,6 +75,25 @@ public class DominoUI : MonoBehaviour
         RedrawBoard();
         RedrawHand(); // mano inicial
         OnTurnChanged(turn.CurrentPlayerIndex);
+    }
+
+    public void ShowIntro()
+    {
+        _gameStarted = false;
+
+        if (panelInstruccionesDomino != null)
+            panelInstruccionesDomino.SetActive(true);
+    }
+
+    public void StartGame()
+    {
+        if (panelInstruccionesDomino != null)
+            panelInstruccionesDomino.SetActive(false);
+
+        _gameStarted = true;
+
+        turn.StartMatch(3);
+        InitAndDraw();
     }
 
     void OnTurnChanged(int p)
@@ -147,6 +180,13 @@ public class DominoUI : MonoBehaviour
     {
         panelFinPartida.SetActive(true);
 
+        bool playerWon = (winnerIndex == PlayerIndex);
+
+        btnSalir.gameObject.SetActive(playerWon);
+        btnReintentar.gameObject.SetActive(!playerWon);
+
+        btnSalir.interactable = playerWon;
+
         if (winnerIndex == PlayerIndex)
         {
             txtResultado.text = "¡Ganaste!";
@@ -177,25 +217,30 @@ public class DominoUI : MonoBehaviour
             txtRecompensa.text = "Intenta de nuevo.";
         }
 
-        btnReintentar.onClick.RemoveAllListeners();
         btnSalir.onClick.RemoveAllListeners();
-
         btnReintentar.onClick.AddListener(() =>
         {
             panelFinPartida.SetActive(false);
+            _gameStarted = true;
             turn.StartMatch(3);
             InitAndDraw();
         });
 
+        btnSalir.onClick.RemoveAllListeners();
         btnSalir.onClick.AddListener(() =>
         {
-            panelFinPartida.SetActive(false);
-            SceneManager.LoadScene("Bar");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Bar");
         });
     }
 
     void OnTileDropped(DominoTile tile, Vector2 screenPos)
     {
+        if (!_gameStarted)
+        {
+            RedrawHand();
+            return;
+        }
+
         // Si no es tu turno, ignorar
         if (turn.CurrentPlayerIndex != PlayerIndex)
         {
