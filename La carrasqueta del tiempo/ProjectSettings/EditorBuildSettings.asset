@@ -98,6 +98,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/arcade/inicio.unity
     guid: b6aa3b1044087f74c81c32c6c9de32bd
+  - enabled: 1
+    path: Assets/Scenes/arcade/Arcade.unity
+    guid: d0c7870fe98f8cd4ca6d8cd1ca666a88
+  - enabled: 1
+    path: Assets/Scenes/arcade/Game-Over.unity
+    guid: da111fcfaf4f82343a61b69dc21edaf2
+  - enabled: 1
+    path: Assets/Scenes/arcade/Win.unity
+    guid: 9a01b286eacf07d419b4b6fadc51f1f5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
