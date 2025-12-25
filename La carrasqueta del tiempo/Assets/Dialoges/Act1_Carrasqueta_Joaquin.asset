@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
+  joaquinDefault: {fileID: 21300000, guid: e9075545f6e90dfeea0a508e193d398c, type: 3}
   lines:
   - speakerName: Joaquin
     lineText: "La carrasqueta\u2026 se sent com si tinguera alguna cosa especial\u2026"
-    expression: {fileID: 2739810035937253938, guid: e9075545f6e90dfeea0a508e193d398c, type: 3}
+    expression: {fileID: 21300000, guid: e9075545f6e90dfeea0a508e193d398c, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -30,7 +31,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Joaquin
     lineText: Vaig a tocar-la.
-    expression: {fileID: 2739810035937253938, guid: e9075545f6e90dfeea0a508e193d398c, type: 3}
+    expression: {fileID: 21300000, guid: e9075545f6e90dfeea0a508e193d398c, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

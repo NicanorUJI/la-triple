@@ -1,6 +1,8 @@
-using UnityEngine;
-using TMPro;
 using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RhythmGameManager : MonoBehaviour
 {
@@ -27,9 +29,21 @@ public class RhythmGameManager : MonoBehaviour
     [Header("Estado: FAIL (Fallo)")]
     public Sprite charFail; // Cara triste
     public Sprite textFail; // Imagen "Mal"
-    
+
     [Header("Configuración")]
     public float feedbackDuration = 0.5f;
+
+
+    [Header("Panel Fin de Juego")]
+    public GameObject panelFin;
+    public Image imagenResultado;
+    public TMP_Text textoResultado;
+    public Button botonContinuar;
+    public Button botonReintentar;
+    public Sprite spriteVictoria;
+    public Sprite spriteDerrota;
+
+    private bool haGanado = false;
 
     // Variables internas
     private int currentScore = 0;
@@ -128,10 +142,51 @@ public class RhythmGameManager : MonoBehaviour
     // Inicia el cambio temporal
     private void TriggerFeedback(Sprite FaceSprite, Sprite TextSprite)
     {
-        StopCoroutine(nameof(ResetToIdle)); 
+        StopCoroutine(nameof(ResetToIdle));
         SetVisuals(FaceSprite, TextSprite);
         StartCoroutine(nameof(ResetToIdle));
     }
+
+
+    public void MostrarPantallaFinal()
+    {
+        // Primero calculamos la victoria
+        haGanado = CalcularVictoria();
+
+        // Activamos el panel final
+        if (panelFin != null)
+            panelFin.SetActive(true);
+
+        // Texto y sprite según victoria o derrota
+        if (haGanado)
+        {
+            if (botonContinuar != null) botonContinuar.interactable = true;
+            if (textoResultado != null) textoResultado.text = $"Molt bé! Has aconseguit {hitNotes}/{totalNotes} notes.";
+            if (imagenResultado != null) imagenResultado.sprite = spriteVictoria;
+        }
+        else
+        {
+            if (botonContinuar != null) botonContinuar.interactable = false;
+            if (textoResultado != null) textoResultado.text = $"Ho sentim, només has aconseguit {hitNotes}/{totalNotes} notes.";
+            if (imagenResultado != null) imagenResultado.sprite = spriteDerrota;
+        }
+    }
+
+    private bool CalcularVictoria()
+    {
+        // Ejemplo: consideramos victoria si se acierta al menos el 50% de las notas
+        if (totalNotes == 0) return false; // seguridad
+        float ratio = (float)hitNotes / totalNotes;
+        return ratio >= 0.5f;
+    }
+    public void ResetGame()
+    {
+        // Recarga la escena actual para reiniciar el minijuego
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+
+
 
     private IEnumerator ResetToIdle()
     {
