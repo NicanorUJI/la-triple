@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: b6861a3d6f189264595a95bce0bebf90
+guid: 9228ec03cb83c61409af282b5c9a3f0e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9095853184155359625
-    second: Normal_0
+      213: 6124770286402956929
+    second: BotonContinuar (1)_0
+  - first:
+      213: 6431076791982367228
+    second: BotonContinuar (1)_1
+  - first:
+      213: 4766572672395505312
+    second: BotonContinuar (1)_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -72,11 +78,11 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -87,7 +93,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Normal_0
+      name: BotonContinuar (1)_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 97
-        height: 126
+        x: 1211
+        y: 604
+        width: 362
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9899fa27746fa3e70800000000000000
-      internalID: 9095853184155359625
+      spriteID: 18e6ae3002e8ff450800000000000000
+      internalID: 6124770286402956929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BotonContinuar (1)_1
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 444
+        width: 362
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf12e5dd446cf3950800000000000000
+      internalID: 6431076791982367228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BotonContinuar (1)_2
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 278
+        width: 362
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aee7365794462240800000000000000
+      internalID: 4766572672395505312
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Normal_0: 9095853184155359625
+      BotonContinuar (1)_0: 6124770286402956929
+      BotonContinuar (1)_1: 6431076791982367228
+      BotonContinuar (1)_2: 4766572672395505312
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

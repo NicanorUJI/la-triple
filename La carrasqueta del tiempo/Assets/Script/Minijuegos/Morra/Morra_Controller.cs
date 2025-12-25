@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Morra_Controller : MonoBehaviour
 {
+    public GameObject panelInstrucciones;
+    private bool gameStarted = false;
+
     private int NPC_sacar = 0;
     private int NPC_cantar = 0;
 
@@ -12,9 +15,22 @@ public class Morra_Controller : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-    }
+        if (panelInstrucciones != null)
+            panelInstrucciones.SetActive(true);
 
+        gameStarted = false;
+    }
+    public void StartGame()
+    {
+        if (panelInstrucciones != null)
+            panelInstrucciones.SetActive(false);
+
+        // Reset por si se vuelve a jugar
+        player_points = 0;
+        NPC_points = 0;
+
+        gameStarted = true;
+    }
     public int sacar_NPC()
     {
         System.Random rnd = new System.Random();

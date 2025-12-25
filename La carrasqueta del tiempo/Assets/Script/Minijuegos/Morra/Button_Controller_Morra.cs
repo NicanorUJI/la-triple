@@ -56,6 +56,18 @@ public class Button_Controller_Morra : MonoBehaviour
     [Header("Scripts")]
     public Morra_Controller morraController;
 
+    [Header("Panel Fin de Juego")]
+    public GameObject panelFinMorra;
+    public Image imagenResultado;
+    public TMP_Text textoResultado;
+    public Button botonContinuar;
+    public Button botonReintentar;
+
+    public Sprite spriteVictoria;
+    public Sprite spriteDerrota;
+
+    private bool haGanado = false;
+
 
     private bool endGame_nextClick = false;
     private bool startNewRound_nextClick = false;
@@ -91,7 +103,7 @@ public class Button_Controller_Morra : MonoBehaviour
             object_NumSacar.SetActive(false);
             object_NumCantar.SetActive(true);
             valueText.SetText("2");
-            endGame_nextClick=true;
+            endGame_nextClick = true;
         }
         else
         {
@@ -110,12 +122,12 @@ public class Button_Controller_Morra : MonoBehaviour
             value_NPC_Sacar = morraController.sacar_NPC();
             value_NPC_Cantar = morraController.cantar_NPC(value_NPC_Sacar);
 
-            debug_Text.SetText("El jugador saca: " + value_Sacar + 
-                "\nEl jugador canta: " + value_Cantar + 
-                "\nEl NPC saca: " + value_NPC_Sacar + 
+            debug_Text.SetText("El jugador saca: " + value_Sacar +
+                "\nEl jugador canta: " + value_Cantar +
+                "\nEl NPC saca: " + value_NPC_Sacar +
                 "\nEl NPC canta: " + value_NPC_Cantar);
 
-            
+
             //INICIAR FASE DE FINAL DE RONDA
             StartCoroutine(fase_finalDeRonda());
 
@@ -132,7 +144,8 @@ public class Button_Controller_Morra : MonoBehaviour
             {
                 SpriteRenderer img = puntos[i].GetComponent<SpriteRenderer>();
 
-                if (img.sprite == sprite_noPoint) {
+                if (img.sprite == sprite_noPoint)
+                {
                     img.sprite = sprite_Point;
                     return;
                 }
@@ -180,11 +193,114 @@ public class Button_Controller_Morra : MonoBehaviour
         valueText.SetText("1");
     }
 
-    
+
+    private void MostrarPanelFin()
+    {
+        // Desactivar fases de ronda
+        fase_eleccionSacar.SetActive(false);
+        fase_eleccionCantar.SetActive(false);
+        burbuja_pensar.SetActive(false);
+        fase_finalRonda.SetActive(false);
+        textos_cantar.SetActive(false);
+        object_NumCantar.SetActive(false);
+        object_NumSacar.SetActive(false);
+        winner_Object.SetActive(false);
+        countdownObject.SetActive(false);
+
+        // Activar panel de fin
+        panelFinMorra.SetActive(true);
+
+        // Cambiar sprite y texto según gane o pierda
+        if (haGanado)
+        {
+            imagenResultado.sprite = spriteVictoria;
+            textoResultado.text = "Has guanyat contra l'alcalde";
+        }
+        else
+        {
+            imagenResultado.sprite = spriteDerrota;
+            textoResultado.text = "Has perdut :(";
+        }
+
+        // Botón continuar solo activo si ha ganado
+        if (botonContinuar != null)
+            botonContinuar.interactable = haGanado;
+    }
+
+
+
+
+
+    private void setWinnerOfRound()
+    {
+        //Eleccion ganador
+        int jugadorHaGanado = morraController.jugadorGanador(value_NPC_Sacar + value_Sacar, value_Cantar, value_NPC_Cantar);
+        winner_Object.SetActive(true);
+
+        if (jugadorHaGanado == 0)
+        {
+            winner_Text.SetText("Empate");
+        }
+
+        else if (jugadorHaGanado > 0)
+        {
+            winner_Text.SetText("Punt per a Joaquín");
+            puntos_jugador = morraController.givePoint(true);
+            setPoints(true);
+        }
+
+        else
+        {
+            winner_Text.SetText("Punt per a l'alcalde");
+            puntos_NPC = morraController.givePoint(false);
+            setPoints(false);
+
+        }
+
+
+        // END GAME
+        if (puntos_jugador >= 3 || puntos_NPC >= 3)
+        {
+            haGanado = puntos_jugador > puntos_NPC;
+            StartCoroutine(MostrarPanelFinConDelay(2.5f));
+        }
+        else
+        {
+            startNewRound_nextClick = true;
+        }
+
+    }
+
+    public void ContinuarJuego()
+    {
+        if (!haGanado) return;
+
+        panelFinMorra.SetActive(false);
+
+        // Mantener misión y cambio de escena
+        var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
+        if (mc != null)
+        {
+            mc.SetActiveMission(
+                3,
+                "Tornar amb la carn",
+                "Has guanyat una cistella de menjar a la Morra. Torna al passat amb Maripili."
+            );
+        }
+
+        GameManager.Change("Act2_Q_MENJAR_HasMeat");
+        SceneManager.LoadScene("PlazaPasado");
+    }
+
+    public void ReintentarJuego()
+    {
+        SceneManager.LoadScene("Minijuego_Morra");
+    }
+
 
     private IEnumerator fase_finalDeRonda()
     {
-        
+
         countdownObject.SetActive(true);
 
         for (int i = 0; i < 3; i++)
@@ -206,8 +322,8 @@ public class Button_Controller_Morra : MonoBehaviour
 
         int value_sacarINT = (int)value_Sacar;
 
-        joaquinMano_spriteR.sprite = manos_sprites[value_sacarINT-1];
-        rivalMano_spriteR.sprite = manos_sprites[value_NPC_Sacar-1];
+        joaquinMano_spriteR.sprite = manos_sprites[value_sacarINT - 1];
+        rivalMano_spriteR.sprite = manos_sprites[value_NPC_Sacar - 1];
 
         //Ense�ar y poner texto del numero que cantan
         textos_cantar.SetActive(true);
@@ -218,65 +334,13 @@ public class Button_Controller_Morra : MonoBehaviour
         setWinnerOfRound();
 
     }
-
-    private void setWinnerOfRound()
+    private IEnumerator MostrarPanelFinConDelay(float delay)
     {
-        //Eleccion ganador
-        int jugadorHaGanado = morraController.jugadorGanador(value_NPC_Sacar + value_Sacar, value_Cantar, value_NPC_Cantar);
-        winner_Object.SetActive(true);
-
-        if (jugadorHaGanado == 0)
-        {
-            winner_Text.SetText("Empate");
-        }
-
-        else if (jugadorHaGanado > 0)
-        {
-            winner_Text.SetText("Punto para Joaquin");
-            puntos_jugador = morraController.givePoint(true);
-            setPoints(true);
-        }
-
-        else
-        {
-            winner_Text.SetText("Punto para el Alcalde");
-            puntos_NPC = morraController.givePoint(false);
-            setPoints(false);
-
-        }
-
-
-        //END GAME
-        if (puntos_jugador >= 3 || puntos_NPC >= 3)
-        {
-            if (puntos_jugador > puntos_NPC)
-            {
-                GameManager.Change("Act2_Q_MENJAR_HasMeat");
-                Debug.Log("[Menjar/Morra] Joaquín ha guanyat la cistella de menjar.");
-
-                var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
-                if (mc != null)
-                {
-                    mc.SetActiveMission(
-                        3,
-                        "Tornar amb la carn",
-                        "Has guanyat una cistella de menjar a la Morra. Torna al passat amb Maripili."
-                    );
-                }
-
-                SceneManager.LoadScene("PlazaPasado");
-            }
-            else
-            {
-                debug_Text.SetText("Ha ganado el alcalde");
-                SceneManager.LoadScene("Minijuego_Morra");
-            }
-        }
-
-        else
-        {
-            startNewRound_nextClick = true;
-        }
+        yield return new WaitForSeconds(delay);  // espera X segundos
+        MostrarPanelFin();                       // luego muestra el panel
     }
-    
+
+
 }
+
+

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b6861a3d6f189264595a95bce0bebf90
+guid: 1330af8555a8fd5489f53a5897c1ea16
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9095853184155359625
-    second: Normal_0
+      213: 639796736013144193
+    second: canastas_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,11 +72,11 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
-    compressionQuality: 100
+    compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -87,7 +87,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Normal_0
+      name: canastas_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 97
-        height: 126
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 168
+        y: 14
+        width: 15
+        height: 67
+      alignment: 9
+      pivot: {x: 0.47106424, y: 0.24984695}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9899fa27746fa3e70800000000000000
-      internalID: 9095853184155359625
+      spriteID: 180948addb301e800800000000000000
+      internalID: 639796736013144193
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 96d424b65ce13ab4788fa9f6363da0c7
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Normal_0: 9095853184155359625
+      canastas_0: 639796736013144193
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
