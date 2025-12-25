@@ -241,7 +241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2.7}
+  m_AnchoredPosition: {x: 0, y: 2.7000008}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &357771043
@@ -411,8 +411,8 @@ Canvas:
   m_GameObject: {fileID: 479287198}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1487987637}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -422,7 +422,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1928441445
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &479287202
@@ -1232,7 +1232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -40.1, y: -56.3}
+  m_AnchoredPosition: {x: -40.099976, y: -56.3}
   m_SizeDelta: {x: 177.5912, y: 59.1971}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1200997588
@@ -1692,7 +1692,6 @@ GameObject:
   - component: {fileID: 1487987636}
   - component: {fileID: 1487987639}
   - component: {fileID: 1487987640}
-  - component: {fileID: 1487987641}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1743,7 +1742,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 0.95666665
+  orthographic size: 0.9375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1834,30 +1833,6 @@ MonoBehaviour:
   background: {fileID: 1425410538}
   smoothSpeed: 0.125
   offset: {x: 0, y: 0, z: -10}
---- !u!114 &1487987641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1487987635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
-  m_ComponentVersion: 1
-  m_AssetsPPU: 100
-  m_RefResolutionX: 320
-  m_RefResolutionY: 180
-  m_CropFrame: 0
-  m_GridSnapping: 1
-  m_FilterMode: 0
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
 --- !u!1 &1665083478
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,6 +43,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public static void ResetGame()
+    {
+        EnsureMissionController();
+
+        if (missionController != null && missionController.progressFlags != null)
+        {
+            missionController.progressFlags.Clear();
+        }
+
+        Debug.Log("GameManager: partida reseteada");
+    }
+
+
     public static bool Check(string condicion)
     {
         EnsureMissionController();
