@@ -2547,6 +2547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   opciones:
   - {fileID: 11400000, guid: 3a9904db6415adc7e94c8c879ecb661e, type: 2}
+  - {fileID: 11400000, guid: ff4eca554c81fc9449e0f938cc4dfa9b, type: 2}
   dialoguePanel: {fileID: 950819522}
   dialogueText: {fileID: 950819521}
   nameText: {fileID: 950819520}
@@ -3659,17 +3660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57b0598274ddfd4e8840aa4c0adb645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
-  opciones: []
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
-  nameText: {fileID: 0}
-  portraitImage: {fileID: 0}
-  joaquinPortrait_Object: {fileID: 0}
-  joaquinPortrait: {fileID: 0}
-  button_choice1: {fileID: 0}
-  button_choice2: {fileID: 0}
-  button_choice3: {fileID: 0}
-  button_choice4: {fileID: 0}
 --- !u!222 &1740885489
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
-  m_Name: Act1_Cistella_Joaquin
+  m_Name: Maripili_Default
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 21300000, guid: 423e9c4ed331f7ba7be40b4446b71b54, type: 3}
+  defaultSprite: {fileID: 8747955740245679328, guid: 1c5e3b832e319170f90a9ea07e2aa8a4, type: 3}
+  joaquinDefault: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
   lines:
-  - speakerName: Joaquin
-    lineText: "Aix\xED est\xE0! Menos mal que ning\xFA se l\u2019ha portat\u2013"
-    expression: {fileID: 21300000, guid: 423e9c4ed331f7ba7be40b4446b71b54, type: 3}
-    isPlayerSpeaking: 1
+  - speakerName: ???
+    lineText: (...)
+    expression: {fileID: 8747955740245679328, guid: 1c5e3b832e319170f90a9ea07e2aa8a4, type: 3}
+    isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
@@ -30,16 +30,16 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Joaquin
-    lineText: (!)
-    expression: {fileID: 21300000, guid: 542af1611a2dba5ea81aed2f7a0e3bfb, type: 3}
-    isPlayerSpeaking: 1
+    lineText: (...)
+    expression: {fileID: 8747955740245679328, guid: 1c5e3b832e319170f90a9ea07e2aa8a4, type: 3}
+    isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
     choiceC: {fileID: 0}
     choiceD: {fileID: 0}
-    hasReward: 1
-    reward: ACT1_FOUND_BASKET
+    hasReward: 0
+    reward: 
     startsMinigame: 0
     minigame: 
   conditions: []
