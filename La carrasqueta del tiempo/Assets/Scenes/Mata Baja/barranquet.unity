@@ -2995,7 +2995,7 @@ MonoBehaviour:
   dialogueText: {fileID: 86358702}
   nameText: {fileID: 1277131353}
   portraitImage: {fileID: 1857664634}
-  joaquinPortrait_Object: {fileID: 0}
+  joaquinPortrait_Object: {fileID: 1830275277}
   joaquinPortrait: {fileID: 1830275278}
   button_choice1: {fileID: 0}
   button_choice2: {fileID: 0}
@@ -4089,6 +4089,10 @@ PrefabInstance:
       value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 3630903034337704735, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034928999416875307, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

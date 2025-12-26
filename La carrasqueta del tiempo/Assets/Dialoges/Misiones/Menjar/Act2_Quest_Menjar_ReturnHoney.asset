@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
+  joaquinDefault: {fileID: 0}
   lines:
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: Maripili! Ja he tornat i he aconseguit el pot de mel.
     expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
@@ -29,8 +30,8 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: "Que b\xE9! Per\xF2 no ser\xE0 massa poc? Hauriem de conseguir algo
-      de carn tamb\xE9, no?"
+    lineText: "Que b\xE9! Per\xF2 no ser\xE0 massa poc? Haur\xEDem d\u2019aconseguir
+      una mica de carn tamb\xE9, no?"
     expression: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -43,7 +44,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: Tira a la carnisseria a vore si te donen una mica.
+    lineText: "Tira a la carnisseria a vore si te\u2019n donen una mica.\r\n"
     expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -55,8 +56,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "Est\xE1 b\xE9, cap on est\xE0?"
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Est\xE0 b\xE9, cap on est\xE0?"
     expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
@@ -69,7 +70,8 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: "Ves a la pla\xE7a i desde ah\xED tira a la dreta. La veuras en seguida."
+    lineText: "Ves a la pla\xE7a i des d\u2019all\xED tira a la dreta. La veur\xE0s
+      de seguida.."
     expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0

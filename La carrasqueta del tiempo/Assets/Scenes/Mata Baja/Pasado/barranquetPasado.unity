@@ -241,6 +241,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc3267502d6605f40af78ead30a798da, type: 3}
+--- !u!1 &147225119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4331022614862900712, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+  m_PrefabInstance: {fileID: 1465082730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &255537112
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,7 +554,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1465082734}
   nameText: {fileID: 1465082733}
   portraitImage: {fileID: 1465082732}
-  joaquinPortrait_Object: {fileID: 0}
+  joaquinPortrait_Object: {fileID: 147225119}
   joaquinPortrait: {fileID: 1465082731}
   button_choice1: {fileID: 0}
   button_choice2: {fileID: 0}
@@ -1390,7 +1395,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1465082734}
   nameText: {fileID: 1465082733}
   portraitImage: {fileID: 1465082732}
-  joaquinPortrait_Object: {fileID: 0}
+  joaquinPortrait_Object: {fileID: 147225119}
   joaquinPortrait: {fileID: 1465082731}
   button_choice1: {fileID: 0}
   button_choice2: {fileID: 0}
@@ -2516,6 +2521,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3630903034337704735, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034928999416875307, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7902731202491799527, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
@@ -2609,7 +2618,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8789210495900486636, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
   m_PrefabInstance: {fileID: 1465082730}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 147225119}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}

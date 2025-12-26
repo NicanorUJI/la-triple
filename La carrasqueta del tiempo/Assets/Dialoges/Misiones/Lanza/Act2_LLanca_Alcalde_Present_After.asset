@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
+  joaquinDefault: {fileID: 0}
   lines:
   - speakerName: Alcalde
-    lineText: "Jaja, sort del principiant. Has jugat b\xE9, xic."
+    lineText: Jaja, la sort del principiant.
     expression: {fileID: 1597853712253449665, guid: 529bae17d383f9bd883f8df2c24b849b, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -42,8 +43,8 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Alcalde
-    lineText: "Des de generacions, sempre la guardem en una pedra al costat de la
-      creu de l\u2019ermita per evitar que es perda."
+    lineText: "Des de generacions, sempre guardem la clau en una pedra al costat
+      de la creu en l\u2019ermita per evitar que es perda. "
     expression: {fileID: 1597853712253449665, guid: 529bae17d383f9bd883f8df2c24b849b, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -56,8 +57,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Joaquin
-    lineText: "Perfecte! Llavors tornar\xE9 al passat i mirar\xE9 al costat de la
-      creu."
+    lineText: "Perfecte! Llavors anir\xE9 a l'ermita i agafar\xE9 la clau."
     expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0

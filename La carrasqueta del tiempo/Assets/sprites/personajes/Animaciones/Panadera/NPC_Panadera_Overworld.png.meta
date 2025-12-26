@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: a2e5e7b38ac7db4d693b36d349cce8f8
+guid: 1d79531eda4323446b70de5aa52d2f9b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6816344690905786448
-    second: MC_Joaquin_Feliz_OjosCerrados_Pasado_0
+      213: 607196262156614577
+    second: NPC_Panadera_Overworld_0
+  - first:
+      213: -2724911919434290026
+    second: NPC_Panadera_Overworld_1
+  - first:
+      213: 3106982430892859168
+    second: NPC_Panadera_Overworld_2
+  - first:
+      213: 8608907491582422206
+    second: NPC_Panadera_Overworld_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_Joaquin_Feliz_OjosCerrados_Pasado_0
+      name: NPC_Panadera_Overworld_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 29
         y: 0
-        width: 83
-        height: 122
+        width: 134
+        height: 217
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0582f00c165889e50800000000000000
-      internalID: 6816344690905786448
+      spriteID: 1bb3aca88c13d6800800000000000000
+      internalID: 607196262156614577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Panadera_Overworld_1
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 0
+        width: 146
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69c24e5eb0b2f2ad0800000000000000
+      internalID: -2724911919434290026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Panadera_Overworld_2
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 0
+        width: 152
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f9fb43f083e1b20800000000000000
+      internalID: 3106982430892859168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Panadera_Overworld_3
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 0
+        width: 146
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc28fb60cbf87770800000000000000
+      internalID: 8608907491582422206
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MC_Joaquin_Feliz_OjosCerrados_Pasado_0: 6816344690905786448
+      NPC_Panadera_Overworld_0: 607196262156614577
+      NPC_Panadera_Overworld_1: -2724911919434290026
+      NPC_Panadera_Overworld_2: 3106982430892859168
+      NPC_Panadera_Overworld_3: 8608907491582422206
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

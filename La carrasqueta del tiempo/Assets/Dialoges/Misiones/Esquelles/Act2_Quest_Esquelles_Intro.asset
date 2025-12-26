@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
+  joaquinDefault: {fileID: 0}
   lines:
-  - speakerName: Joaquin
-    lineText: "Vaig escoltar que en la festa de l\u2019Onso utilitzen cencerros..."
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Perqu\xE8 l\u2019Onso fa\xE7a soroll i que el poble s\xE0piga on est\xE0.
+      Per\xF2 d'on podem traure unes esquelles?"
     expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
@@ -28,23 +30,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "Per a que l\u2019Onso fasca soroll i que el poble s\xE0piga on est\xE0.
-      Per\xF2 d'on podem traure uns cencerros?"
-    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
-    isPlayerSpeaking: 1
-    isChoice: 0
-    choiceA: {fileID: 0}
-    choiceB: {fileID: 0}
-    choiceC: {fileID: 0}
-    choiceD: {fileID: 0}
-    hasReward: 0
-    reward: 
-    startsMinigame: 0
-    minigame: 
   - speakerName: Maripili
-    lineText: "Hmm\u2026 Jo conec a un xic que te fam\xEDlia amb vaques. Eixe xic
-      sempre va rodant pel poble per\xF2 alomillor el pots trobar a les calderetes."
+    lineText: "Hmm\u2026 Jo conec a un xic que t\xE9 fam\xEDlia amb vaques. Eixe
+      xic sempre va rodant pel poble, per\xF2 igual el pots trobar a les calderetes. "
     expression: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -56,8 +44,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: Com se diu?
+  - speakerName: "Joaqu\xEDn"
+    lineText: Com es diu?
     expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
@@ -70,7 +58,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: "Ra\xFAl. Es un xic alt amb el monyo castany clar i els ulls verds."
+    lineText: "Ra\xFAl. \xC9s un xic alt amb el monyo castany clar i els ulls verds. "
     expression: {fileID: 8833923459880237216, guid: e3685ac615ce7f0809ecf83758807687, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -82,7 +70,7 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: "(Ra\xFAl\u2026 No ser\xE0\u2026?)"
     expression: {fileID: -6676206179498459708, guid: b34e5b53d8d7fdfa88b6ef1da34ba083, type: 3}
     isPlayerSpeaking: 1
@@ -95,8 +83,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "D\u2019acord, m\u2019en vaig a les calderetes a veure si est\xE0."
+  - speakerName: "Joaqu\xEDn"
+    lineText: "D\u2019acord, me\u2019n vaig a les calderetes a veure si est\xE0."
     expression: {fileID: 6622962485173151977, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0

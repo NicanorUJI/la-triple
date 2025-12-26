@@ -2712,6 +2712,7 @@ GameObject:
   - component: {fileID: 1264853081}
   - component: {fileID: 1264853080}
   - component: {fileID: 1264853079}
+  - component: {fileID: 1264853084}
   m_Layer: 8
   m_Name: fornera
   m_TagString: Untagged
@@ -2793,17 +2794,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.0629279}
+  m_Offset: {x: 0, y: -0.2926818}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.98, y: 1.39}
+    oldSize: {x: 1.34, y: 2.17}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.8741442}
+  m_Size: {x: 1, y: 1.5853636}
   m_EdgeRadius: 0
 --- !u!212 &1264853082
 SpriteRenderer:
@@ -2852,7 +2853,7 @@ SpriteRenderer:
   m_SortingLayerID: 1252618739
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4234553523983039439, guid: 8af6426dda5f203e786c83675081e0ed, type: 3}
+  m_Sprite: {fileID: 607196262156614577, guid: 1d79531eda4323446b70de5aa52d2f9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -2872,12 +2873,34 @@ Transform:
   m_GameObject: {fileID: 1264853078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.643, y: -0.318, z: 0}
+  m_LocalPosition: {x: -1.62, y: -0.292, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1264853084
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264853078}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a7edbed03ac67fd419cef32a2ab1ef4b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1333522334
 PrefabInstance:
   m_ObjectHideFlags: 0

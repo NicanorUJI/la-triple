@@ -438,13 +438,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FinalController
   finalText: {fileID: 1036792247}
   menuSceneName: "Escena Men\xFA"
-  textToShow: "La festivitat de l\u2019Onso es una festa local del poble de La Mata.
-    Aquesta tradici\xF3 es va recuperar despr\xE9s de quasi 50 anys la qual ave\xEFna
-    el final de l\u2019hivern i l\u2019arribada de la primavera i del bon temps.
-    En ella, la figura de l\u2019Onso va per tot el poble acompanyat de les figures
-    m\xE9s importants com el joglar, les diablesses i el ca\xE7ador. Tot el poble
-    ix al carrer amb menjar per compartir amb els ve\xEFns i ve\xEFnes i dsrutar
-    tots junts d'aquesta noble tradici\xF3\u2026"
+  textToShow: "La festivitat de l\u2019Onso \xE9s una tradici\xF3 recuperada des
+    de fa 20 anys, despr\xE9s de 50 anys sense celebrar-se, aquest personatge representa
+    el final de l\u2019hivern i l\u2019arribada de la primavera. Quan arriba el bon
+    temps, desperta d\u2019hivernar i els ca\xE7adors van a buscar-lo al bosc. El
+    trobador avisa a la poblaci\xF3 de la Mata que ja arriba i totes les cases trauen
+    menjar i beguda per alimentar-lo despr\xE9s del llarg hivern,  entre el ca\xE7ador
+    i les diableres el porten per tot el poble nugat.\r\nTot el poble ix al carrer
+    per celebrar el canvi d\u2019estaci\xF3, compartir i gaudir junts d\u2019aquesta
+    estimada tradici\xF3.\r\n"
 --- !u!1 &922339489
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
+  joaquinDefault: {fileID: 0}
   lines:
-  - speakerName: Joaquin
-    lineText: "\u201CSi es necessita algo, estic al forn.\u201D"
+  - speakerName: "Joaqu\xEDn"
+    lineText: "\u201CSi es necessita alguna cosa, estic al forn.\u201D"
     expression: {fileID: 3198480329992687461, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
@@ -28,7 +29,7 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: "Jolines, est\xE0 tancat."
     expression: {fileID: -5182770522798236632, guid: f75a4dbd04ef511e7873a923a9d52e53, type: 3}
     isPlayerSpeaking: 1

@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
+  joaquinDefault: {fileID: 0}
   lines:
   - speakerName: Maripili
-    lineText: "Molt b\xE9. Ara, Joaqu\xEDn, ves a buscar a l\u2019\xF3s i porta\u2019l
-      ac\xED per a espantar-lo i que no torne mai m\xE9s!"
+    lineText: "Molt b\xE9. Ara, Joaquin, ves a buscar a l'\xF3s i porta\u2019l ac\xED
+      per a espantar-lo i que no torne mai m\xE9s!"
     expression: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -29,7 +30,7 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: Vale...
     expression: {fileID: -5703435808359689965, guid: 60b817b8f671b42c2ac4e3c85d07b923, type: 3}
     isPlayerSpeaking: 1

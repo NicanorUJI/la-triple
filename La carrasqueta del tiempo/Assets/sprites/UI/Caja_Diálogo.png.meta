@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a2e5e7b38ac7db4d693b36d349cce8f8
+guid: 8e4d9f4a89dd44746986284b198e6451
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6816344690905786448
-    second: MC_Joaquin_Feliz_OjosCerrados_Pasado_0
+      213: 5121640716294794174
+    second: "Caja_Di\xE1logo_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_Joaquin_Feliz_OjosCerrados_Pasado_0
+      name: "Caja_Di\xE1logo_0"
       rect:
         serializedVersion: 2
-        x: 7
-        y: 0
-        width: 83
-        height: 122
+        x: 1
+        y: 11
+        width: 104
+        height: 39
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0582f00c165889e50800000000000000
-      internalID: 6816344690905786448
+      spriteID: ebbade98819b31740800000000000000
+      internalID: 5121640716294794174
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MC_Joaquin_Feliz_OjosCerrados_Pasado_0: 6816344690905786448
+      "Caja_Di\xE1logo_0": 5121640716294794174
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
