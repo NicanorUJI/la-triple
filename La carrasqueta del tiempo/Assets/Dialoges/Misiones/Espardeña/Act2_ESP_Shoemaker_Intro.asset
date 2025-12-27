@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Act2_ESP_Shoemaker_Intro
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: -7163864861592193100, guid: 39f455c862bdc2d69a9d37676480ea21, type: 3}
   joaquinDefault: {fileID: 0}
   lines:
   - speakerName: "Joaqu\xEDn"

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Act2_ESP_Shoemaker_AfterMinigame
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  defaultSprite: {fileID: 2034427693296661028, guid: eb034a48146884376a653a7c523df0a9, type: 3}
+  joaquinDefault: {fileID: 3289418361607064246, guid: 25b6aa80d54229e4ba73157fb8bdb21a, type: 3}
   lines:
   - speakerName: Antonio
     lineText: "Molt b\xE9 xiquet, tens m\xE0 per a aquest treball!"
@@ -59,7 +59,7 @@ MonoBehaviour:
   - speakerName: Antonio
     lineText: De res. Va, tira. I saluda a la teua iaia de la meua part.
     expression: {fileID: 3394518141796890859, guid: 702a897522d01f961a34b51c7ce5f4e1, type: 3}
-    isPlayerSpeaking: 1
+    isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}

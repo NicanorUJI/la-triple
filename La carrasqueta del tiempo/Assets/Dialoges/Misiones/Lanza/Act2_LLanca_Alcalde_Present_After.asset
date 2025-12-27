@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Act2_LLanca_Alcalde_Present_After
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  defaultSprite: {fileID: -5406564271734706521, guid: ee4b25bbe12e56de0b3062bf88ba071a, type: 3}
+  joaquinDefault: {fileID: 6622962485173151977, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
   lines:
   - speakerName: Alcalde
     lineText: Jaja, la sort del principiant.

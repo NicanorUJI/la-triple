@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  joaquinDefault: {fileID: 6622962485173151977, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
   lines:
   - speakerName: Maripili
     lineText: Ja has tornat?

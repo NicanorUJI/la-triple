@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Act2_Quest_Llanca_Intro
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  defaultSprite: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
+  joaquinDefault: {fileID: 1236392363465906612, guid: 3262f44a6fd4064a7b582db6be41871c, type: 3}
   lines:
   - speakerName: Maripili
     lineText: "Tamb\xE9 ens far\xE0 falta una llan\xE7a, per si l\u2019\xF3s s\u2019acosta
