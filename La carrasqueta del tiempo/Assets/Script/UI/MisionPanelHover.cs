@@ -37,7 +37,7 @@ public class MissionPanelHover : MonoBehaviour
         // Posición inicial del panel en la escena = posición cerrada (fuera de pantalla)
         closedPos = panel.anchoredPosition;
         // Posición abierta = misma Y, desplazada hacia la izquierda lo que mide el panel
-        openPos = closedPos + new Vector2(-panel.rect.width, 0f);
+        openPos = closedPos + new Vector2(-panel.rect.width * 0.8f, 0f);
     }
 
     private void Update()

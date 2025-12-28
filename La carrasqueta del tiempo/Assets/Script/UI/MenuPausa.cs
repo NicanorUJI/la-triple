@@ -144,6 +144,8 @@ public class MenuPausa : MonoBehaviour
 
     public void AbrirSubMenuVolumen()
     {
+        Debug.Log(gameObject.name);
+        Debug.Log("Hola");
         AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonOpcion);
 
         menuPausa?.SetActive(false);
