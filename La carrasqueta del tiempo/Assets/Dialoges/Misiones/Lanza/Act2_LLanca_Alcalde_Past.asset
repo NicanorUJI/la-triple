@@ -18,7 +18,7 @@ MonoBehaviour:
   lines:
   - speakerName: "Joaqu\xEDn"
     lineText: Hola, bon dia!
-    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   - speakerName: "Joaqu\xEDn"
     lineText: "Saps qui \xE9s la persona encarregada de l'ermita que ha deixat una
       nota a la porta?"
-    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Necessite la llan\xE7a."
-    expression: {fileID: 167803326818533104, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
+    expression: {fileID: 6622962485173151977, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   - speakerName: "Joaqu\xEDn"
     lineText: "Uh\u2026 Per a Maripili que me l\u2019ha demanat. Per a l'organitzaci\xF3
       de la festa de l\u2019Onso."
-    expression: {fileID: 3198480329992687461, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
+    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -151,7 +151,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Oh\u2026"
-    expression: {fileID: 3198480329992687461, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
+    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Potser no han canviat el pany en 50 anys\u2026?"
-    expression: {fileID: -1180773124689011136, guid: 704c08af6c7afe52fb02d7b58df5574a, type: 3}
+    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

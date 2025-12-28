@@ -42,5 +42,4 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  conditions:
-  - Act2_Q_LLANCE_Started
+  conditions: []

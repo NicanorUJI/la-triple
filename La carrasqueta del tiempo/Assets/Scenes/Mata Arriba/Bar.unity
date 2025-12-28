@@ -444,6 +444,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65981277}
   m_CullTransparentMesh: 1
+--- !u!114 &180285448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8841065627593823171, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+  m_PrefabInstance: {fileID: 752434613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &263163211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,7 +1654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3630903034337704735, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5414278069297712048, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: m_IsActive
@@ -2626,6 +2637,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016421723}
   m_CullTransparentMesh: 1
+--- !u!114 &1042239481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1118503716707250982, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+  m_PrefabInstance: {fileID: 752434613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1051241373
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,6 +2743,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1249243117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5034928999416875307, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+  m_PrefabInstance: {fileID: 752434613}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1327712855
 GameObject:
   m_ObjectHideFlags: 0
@@ -2988,6 +3015,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1507178850 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 249491111487608722, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+  m_PrefabInstance: {fileID: 752434613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1520946920
 GameObject:
   m_ObjectHideFlags: 0
@@ -4035,12 +4073,13 @@ MonoBehaviour:
   opciones:
   - {fileID: 11400000, guid: a8062eecd32be2a9dafe08255ee9a3fc, type: 2}
   - {fileID: 11400000, guid: 18bfef8087ebbf7cda140352387b7f85, type: 2}
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
-  nameText: {fileID: 0}
-  portraitImage: {fileID: 0}
-  joaquinPortrait_Object: {fileID: 0}
-  joaquinPortrait: {fileID: 0}
+  - {fileID: 11400000, guid: c99c0ef0e7cbfc444a99f1f91aa8ab43, type: 2}
+  dialoguePanel: {fileID: 1249243117}
+  dialogueText: {fileID: 1507178850}
+  nameText: {fileID: 180285448}
+  portraitImage: {fileID: 1042239481}
+  joaquinPortrait_Object: {fileID: 752434617}
+  joaquinPortrait: {fileID: 752434618}
   button_choice1: {fileID: 0}
   button_choice2: {fileID: 0}
   button_choice3: {fileID: 0}
