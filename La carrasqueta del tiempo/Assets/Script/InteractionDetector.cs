@@ -15,7 +15,7 @@ public class InteractionDetector : MonoBehaviour
 
     public void Update()
     {
-        if (Keyboard.current?.eKey.wasPressedThisFrame == true)
+        if (Keyboard.current?.spaceKey.wasPressedThisFrame == true)
         {
             // Si no hay nada cerca, no hagas nada (evita el NullReference)
             if (interactableInRange == null)
