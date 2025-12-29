@@ -14,9 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
+  joaquinDefault: {fileID: 6622962485173151977, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
   lines:
-  - speakerName: Joaquin
-    lineText: "Maripili! Ja he aconseguit la llan\xE7a de l\u2019ermita."
+  - speakerName: Maripili
+    lineText: Ja has tornat?
+    expression: {fileID: -2354228602472572489, guid: 137b836fd6e1645439f1250705b1e5b4, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: "Joaqu\xEDn"
+    lineText: "S\xED! I tinc la llan\xE7a."
     expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
@@ -29,8 +43,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: "Fant\xE0stic! Amb aix\xF2 ja tenim una bona defensa per si l\u2019\xF3s
-      s\u2019acosta massa."
+    lineText: "Molt b\xE9. Haurem de pensar a qui cridem perqu\xE8 ens ajude a utilitzar-la."
     expression: {fileID: -2354228602472572489, guid: 137b836fd6e1645439f1250705b1e5b4, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -43,8 +56,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: "Moltes gr\xE0cies, Joaqu\xEDn. Cada volta estem m\xE9s a prop de tindre-ho
-      tot preparat per a la festa."
+    lineText: Puc ser jo?
     expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -56,10 +68,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "M\u2019alegre d\u2019haver pogut ajudar. Si vols puc continuar ajudant-te
-      en la resta de coses."
-    expression: {fileID: 3684638748939831445, guid: 423e9c4ed331f7ba7be40b4446b71b54, type: 3}
+  - speakerName: "Joaqu\xEDn"
+    lineText: :(
+    expression: {fileID: 2823007718376515410, guid: cc6c3d28a2bb46daf8cb48b5c2077985, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -68,6 +79,19 @@ MonoBehaviour:
     choiceD: {fileID: 0}
     hasReward: 1
     reward: ACT2_Q_LLANCE_DONE
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Maripili
+    lineText: Crec que tinc una idea de qui podria ajudar-nos...
+    expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
     startsMinigame: 0
     minigame: 
   conditions:

@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Act2_Quest_Menjar_Intro
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
+  joaquinDefault: {fileID: 6622962485173151977, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
   lines:
   - speakerName: Maripili
-    lineText: "Per\xF2 que dius tu ara xiquet? Com es va a menjar a alg\xFA del poble?
-      Estem bojos?"
+    lineText: "Per\xF2 que dius tu ara xiquet? Com s\u2019ha de menjar a alg\xFA
+      del poble? Estem bojos?"
     expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -30,7 +31,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: "Per\xF2 no es mala idea. A lo millor es calma una mica si t\xE9 la
+    lineText: "Per\xF2 no \xE9s mala idea. Tal volta es calma una mica si t\xE9 la
       panxa plena."
     expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
     isPlayerSpeaking: 0
@@ -43,7 +44,7 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: "Crec que a un \xF3s li podria agradar la mel."
     expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
@@ -69,8 +70,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: Tot el mon sap que als ossos els agrada la mel.
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Tot el m\xF3n sap que als ossos els agrada la mel. "
     expression: {fileID: 1236392363465906612, guid: 3262f44a6fd4064a7b582db6be41871c, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
@@ -83,7 +84,8 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: "Si tu o dius. Crec que en venen a la panaderia aix\xED que ves i compra\u2019n."
+    lineText: "Si tu ho dius. Crec que en venen a la panaderia aix\xED que ves i
+      compra\u2019n."
     expression: {fileID: 8747955740245679328, guid: 1c5e3b832e319170f90a9ea07e2aa8a4, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -95,7 +97,7 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: "D\u2019acord! Ara torne."
     expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1

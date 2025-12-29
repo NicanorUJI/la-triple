@@ -17,7 +17,7 @@ MonoBehaviour:
   joaquinDefault: {fileID: 21300000, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
   lines:
   - speakerName: Jan
-    lineText: Esten molt ocupats!
+    lineText: Estem molt ocupats!
     expression: {fileID: -2517251984187696129, guid: e6add0d1fe6b1a2598dc1771955a2649, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0

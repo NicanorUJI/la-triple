@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3001e489df091f84392ead5fc87691d1
+guid: 15f4787584ce91945a2c6579b0404218
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7094013995592496803
-    second: Instrucciones_PiRecuento 1_0
+      213: -3534443110029208378
+    second: Intruvciones_PiRecuento2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Instrucciones_PiRecuento 1_0
+      name: Intruvciones_PiRecuento2_0
       rect:
         serializedVersion: 2
         x: 319
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d594f015bdffc8d90800000000000000
-      internalID: -7094013995592496803
+      spriteID: 6c4d1ebb7b223fec0800000000000000
+      internalID: -3534443110029208378
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Instrucciones_PiRecuento 1_0: -7094013995592496803
+      Intruvciones_PiRecuento2_0: -3534443110029208378
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

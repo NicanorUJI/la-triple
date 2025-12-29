@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
+  joaquinDefault: {fileID: 0}
   lines:
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: Bon dia.
     expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
@@ -28,8 +29,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Fornera
-    lineText: "Bon dia xic! Qu\xE8 necessites? La teua mare te ha enviat a per p\xE0?"
+  - speakerName: Panadera
+    lineText: "Bon dia xic! Qu\xE8 necessites? La teua mare t\u2019ha enviat a comprar
+      pa?"
     expression: {fileID: 0}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -41,8 +43,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "Necesite mel, no te quedar\xE0 per casualitat un pot?"
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Necessite mel, no et quedar\xE0 per casualitat un pot?"
     expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
@@ -54,8 +56,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Fornera
-    lineText: "S\xED clar, serien 500 pesetes."
+  - speakerName: Panadera
+    lineText: "S\xED clar, serien 500 pessetes."
     expression: {fileID: 0}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -67,8 +69,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "Tinc 2 euros\u2026"
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Tinc 2 euros\u2026\r\n"
     expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
@@ -80,8 +82,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Fornera
-    lineText: "Qu\xE8 \xE9s un euro. Xiquet si vols comprar necessites diners de
+  - speakerName: Panadera
+    lineText: "Qu\xE8 \xE9s un euro?. Xiquet si vols comprar necessites diners de
       veritat."
     expression: {fileID: 0}
     isPlayerSpeaking: 0
@@ -94,8 +96,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "Pues no res, anir\xE9 al bar a preguntar. Moltes gr\xE0cies igualment!"
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Res, anir\xE9 al bar a preguntar. Moltes gr\xE0cies igualment!"
     expression: {fileID: 1236392363465906612, guid: 3262f44a6fd4064a7b582db6be41871c, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
@@ -107,8 +109,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Fornera
-    lineText: "Qu\xE8 bar?"
+  - speakerName: Panadera
+    lineText: Quin bar?
     expression: {fileID: 0}
     isPlayerSpeaking: 0
     isChoice: 0

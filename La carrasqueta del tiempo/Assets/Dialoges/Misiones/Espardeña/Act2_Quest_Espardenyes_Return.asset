@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Act2_Quest_Espardenyes_Return
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
+  joaquinDefault: {fileID: 0}
   lines:
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: "Maripili! Ja tinc l\u2019espart!"
     expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
@@ -29,8 +30,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: "Molt b\xE9! Amb aix\xF2 podrem preparar unes bones torxes per si l\u2019\xF3s
-      s\u2019acosta massa."
+    lineText: "Molt b\xE9! Amb aix\xF2 servir\xE0, segurament."
     expression: {fileID: -2354228602472572489, guid: 137b836fd6e1645439f1250705b1e5b4, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -42,8 +42,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "I ara qu\xE8 fem?"
+  - speakerName: "Joaqu\xEDn"
+    lineText: "A per qu\xE8 he d\u2019anar ara?"
     expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
@@ -56,8 +56,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: "Ara que ja tenim l\u2019espart, hem de pensar en la resta. Ves parlant
-      amb mi i tria una altra cosa per a preparar contra l\u2019\xF3s."
+    lineText: Tu tries.
     expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0

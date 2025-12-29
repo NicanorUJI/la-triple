@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Act2_ESP_Shoemaker_AfterMinigame
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: 2034427693296661028, guid: eb034a48146884376a653a7c523df0a9, type: 3}
+  joaquinDefault: {fileID: 3289418361607064246, guid: 25b6aa80d54229e4ba73157fb8bdb21a, type: 3}
   lines:
   - speakerName: Antonio
     lineText: "Molt b\xE9 xiquet, tens m\xE0 per a aquest treball!"
@@ -29,8 +30,8 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Antonio
-    lineText: "Tal com t\u2019he prom\xE9s, ac\xED tens l\u2019espart. Aprofita\u2019l
-      b\xE9."
+    lineText: "Va, t\xE9n l\u2019espart. Pots tornar a ajudar-me quan vulgues. Mai
+      ve mal una m\xE0 extra. "
     expression: {fileID: 3394518141796890859, guid: 702a897522d01f961a34b51c7ce5f4e1, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -42,10 +43,23 @@ MonoBehaviour:
     reward: ACT2_Q_ESP_GOT_MATERIAL
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "Moltes gr\xE0cies, Antonio!"
-    expression: {fileID: 3684638748939831445, guid: 423e9c4ed331f7ba7be40b4446b71b54, type: 3}
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Moltes gr\xE0cies!"
+    expression: {fileID: 21300000, guid: 423e9c4ed331f7ba7be40b4446b71b54, type: 3}
     isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Antonio
+    lineText: De res. Va, tira. I saluda a la teua iaia de la meua part.
+    expression: {fileID: 3394518141796890859, guid: 702a897522d01f961a34b51c7ce5f4e1, type: 3}
+    isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}

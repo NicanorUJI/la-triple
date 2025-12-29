@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
+  joaquinDefault: {fileID: 0}
   lines:
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: Hola, bon dia.
-    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    expression: {fileID: 21300000, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -41,9 +42,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "Sou els que esteu fent polseres que m\u2019ha dit la meua \xE0via?"
-    expression: {fileID: 167803326818533104, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Sou els que esteu fent polseres que m\u2019ha dit la meua iaia?"
+    expression: {fileID: 21300000, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -80,9 +81,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: Es que tinc presa. Em podeu donar una?
-    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Tinc pressa. Me\u2019n podeu donar una?"
+    expression: {fileID: 21300000, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -94,7 +95,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Jan
-    lineText: Clar. Pero tens que pagar.
+    lineText: "Clar. Per\xF2 has de pagar."
     expression: {fileID: -2517251984187696129, guid: e6add0d1fe6b1a2598dc1771955a2649, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -106,9 +107,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: Quant?
-    expression: {fileID: 1169979772233390810, guid: 542af1611a2dba5ea81aed2f7a0e3bfb, type: 3}
+    expression: {fileID: 21300000, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -132,9 +133,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: Ala! Jo no tinc tants de diners!
-    expression: {fileID: 3198480329992687461, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
+  - speakerName: "Joaqu\xEDn"
+    lineText: Hala! Jo no tinc tants de diners!
+    expression: {fileID: 21300000, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -146,8 +147,8 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Jan
-    lineText: "Bueno, a lo millor podem fer-te una rebaixa si jugues amb nosaltres
-      i ens guanyes. Per\xF2 te avisem que ning\xFA ens ha guanyat mai en la vida."
+    lineText: "B\xE9, podem fer-te una rebaixa si jugues amb nosaltres i ens guanyes.
+      Per\xF2 t\u2019avisem que ning\xFA ens ha guanyat mai en la vida."
     expression: {fileID: -2517251984187696129, guid: e6add0d1fe6b1a2598dc1771955a2649, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -159,9 +160,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: Vale. A que voleu jugar?
-    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    expression: {fileID: 21300000, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

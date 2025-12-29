@@ -23,15 +23,6 @@ TextureImporter:
   - first:
       213: 139872728406126747
     second: Iconos Nintendo_6
-  - first:
-      213: -8581054505916441895
-    second: Iconos Nintendo_7
-  - first:
-      213: -6159717959386366019
-    second: Iconos Nintendo_8
-  - first:
-      213: -5538764441955705626
-    second: Iconos Nintendo_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,12 +118,56 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: Iconos Nintendo_0
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 28
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a3383e2fe0558520800000000000000
+      internalID: 2703656139508691879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Iconos Nintendo_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 28
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e50110d564d824240800000000000000
+      internalID: 4774533888313725022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Iconos Nintendo_2
       rect:
         serializedVersion: 2
-        x: 29
-        y: 83
-        width: 9
+        x: 110
+        y: 28
+        width: 12
         height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -152,9 +187,9 @@ TextureImporter:
       name: Iconos Nintendo_3
       rect:
         serializedVersion: 2
-        x: 45
-        y: 83
-        width: 11
+        x: 76
+        y: 13
+        width: 12
         height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -174,8 +209,8 @@ TextureImporter:
       name: Iconos Nintendo_4
       rect:
         serializedVersion: 2
-        x: 61
-        y: 83
+        x: 93
+        y: 13
         width: 12
         height: 12
       alignment: 0
@@ -193,35 +228,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Iconos Nintendo_5
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 83
-        width: 12
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a455484357cf03690800000000000000
-      internalID: -7624316588815788726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Iconos Nintendo_6
       rect:
         serializedVersion: 2
-        x: 92
-        y: 83
-        width: 7
-        height: 11
+        x: 110
+        y: 13
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,33 +249,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Iconos Nintendo_7
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 80
-        width: 19
-        height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9dad5982468f9e880800000000000000
-      internalID: -8581054505916441895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3c8928da804062e6484a892277bb5fa0
+    spriteID: 65e43fe6949b4d94092d5b1a1e321945
     internalID: 0
     vertices: []
     indices: 
@@ -270,9 +261,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
       Iconos Nintendo_0: 2703656139508691879
       Iconos Nintendo_1: 4774533888313725022
@@ -281,9 +270,6 @@ TextureImporter:
       Iconos Nintendo_4: -8143337595432661697
       Iconos Nintendo_5: -7624316588815788726
       Iconos Nintendo_6: 139872728406126747
-      Iconos Nintendo_7: -8581054505916441895
-      Iconos Nintendo_8: -6159717959386366019
-      Iconos Nintendo_9: -5538764441955705626
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
+  joaquinDefault: {fileID: 0}
   lines:
   - speakerName: Maripili
-    lineText: "Ah! Joaquin. Has tornat? Hola, Ra\xFAl."
+    lineText: "Ah! Joaqu\xEDn. Has tornat? Hola, Ra\xFAl."
     expression: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -28,9 +29,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Raul
+  - speakerName: "Ra\xFAl"
     lineText: "H-hola Maria Pilar. Em\u2026 volia donar-te una cosa, que no s\xE9
-      si t'agradar\xE0\u2026 \xC9s un detallet de no res.."
+      si t'agradar\xE0\u2026 \xC9s un detallet de no res..."
     expression: {fileID: 6949391057282013784, guid: 454cc8c7cf2a9ff0ca7d944f6706c27e, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -43,7 +44,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: Els cencerros?
+    lineText: Les esquelles?
     expression: {fileID: 8833923459880237216, guid: e3685ac615ce7f0809ecf83758807687, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -55,7 +56,7 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Raul
+  - speakerName: "Ra\xFAl"
     lineText: "No. Es- um. Aix\xF2."
     expression: {fileID: 5217216570333625129, guid: 6ef57e0265fdcf5909fb3b66c0fbe866, type: 3}
     isPlayerSpeaking: 0
@@ -68,9 +69,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Raul
-    lineText: "Es que la he fet amb els xiquets. I he pensat en donar-te-la a tu.
-      Per\xF2 no perque estiguera pensant en tu o alguna cosa de l\u2019estil."
+  - speakerName: "Ra\xFAl"
+    lineText: "L\u2019he fet amb els xiquets. I he pensat donar-te-la a tu. Per\xF2
+      no perqu\xE8 estiguera pensant en tu o alguna cosa de l\u2019estil."
     expression: {fileID: -8356804877860787289, guid: 3a6b89dfea504bf33854ef58adaa5510, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -83,8 +84,8 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: "Aiii per\xF2 si es preciosa! M\u2019encanta Ra\xFAl! No era necessari.
-      Te ho puc pagar de alguna manera?"
+    lineText: "Aiii, per\xF2 si \xE9s preciosa! M\u2019encanta Ra\xFAl! No era necessari.
+      T\u2019ho puc pagar d\u2019alguna manera?"
     expression: {fileID: -2354228602472572489, guid: 137b836fd6e1645439f1250705b1e5b4, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -96,8 +97,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Raul
-    lineText: "No \xE9s necessari Maria Pilar, es lo que un home deu fer."
+  - speakerName: "Ra\xFAl"
+    lineText: "No \xE9s necessari Maria Pilar. Nom\xE9s \xE9s un detall."
     expression: {fileID: 5217216570333625129, guid: 6ef57e0265fdcf5909fb3b66c0fbe866, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -109,7 +110,7 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Raul
+  - speakerName: "Ra\xFAl"
     lineText: "Ara, si em dones un momentet\u2026"
     expression: {fileID: 5217216570333625129, guid: 6ef57e0265fdcf5909fb3b66c0fbe866, type: 3}
     isPlayerSpeaking: 0
@@ -122,9 +123,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Raul
-    lineText: "Moltes gr\xE0cies Joaqu\xEDn. Gr\xE0cies a tu he pogut fer feli\xE7
-      a Maria Pilar. Te dec una, xic."
+  - speakerName: "Ra\xFAl"
+    lineText: "Moltes gr\xE0cies, Joaqu\xEDn. Gr\xE0cies a tu he pogut fer feli\xE7
+      a Maria Pilar. Et dec una, xic."
     expression: {fileID: 5217216570333625129, guid: 6ef57e0265fdcf5909fb3b66c0fbe866, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -136,8 +137,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "Me deus els cencerros que hav\xEDem acordat."
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Em deus les esquellesos que hav\xEDem acordat."
     expression: {fileID: 6816344690905786448, guid: a2e5e7b38ac7db4d693b36d349cce8f8, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
@@ -149,8 +150,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Raul
-    lineText: "Ai si tens ra\xF3, ac\xED els tens."
+  - speakerName: "Ra\xFAl"
+    lineText: "Ai si tens ra\xF3, ac\xED les tens."
     expression: {fileID: 7392340578830681171, guid: 57e215e368a1a7567b67d089bf9e2779, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0

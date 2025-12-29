@@ -32,10 +32,10 @@ public class PacoManMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow)) nextDirection = Vector2.up;
-        if (Input.GetKeyDown(KeyCode.DownArrow)) nextDirection = Vector2.down;
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) nextDirection = Vector2.left;
-        if (Input.GetKeyDown(KeyCode.RightArrow)) nextDirection = Vector2.right;
+        if (Input.GetKeyDown(KeyCode.W)) nextDirection = Vector2.up;
+        if (Input.GetKeyDown(KeyCode.S)) nextDirection = Vector2.down;
+        if (Input.GetKeyDown(KeyCode.A)) nextDirection = Vector2.left;
+        if (Input.GetKeyDown(KeyCode.D)) nextDirection = Vector2.right;
 
         UpdateRotation();
     }
