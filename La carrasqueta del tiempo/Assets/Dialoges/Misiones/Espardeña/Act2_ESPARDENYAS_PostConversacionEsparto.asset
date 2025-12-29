@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
-  m_Name: act1_1aAppariciion_Oso
+  m_Name: Act2_ESPARDENYAS_PostConversacionEsparto
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
   joaquinDefault: {fileID: 0}
   lines:
   - speakerName: "Joaqu\xEDn"
-    lineText: '[!]'
-    expression: {fileID: -6676206179498459708, guid: b34e5b53d8d7fdfa88b6ef1da34ba083, type: 3}
+    lineText: "Vale, ja he aconseguit l\u2019espart, ara he de tornar al passat a
+      parlar amb Maripili."
+    expression: {fileID: 21300000, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -29,18 +30,5 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: "Joaqu\xEDn"
-    lineText: "Aix\xF2 era un \xF3s? Oh no! He de tornar de pressa per avisar a la
-      iaia!"
-    expression: {fileID: -5703435808359689965, guid: 60b817b8f671b42c2ac4e3c85d07b923, type: 3}
-    isPlayerSpeaking: 1
-    isChoice: 0
-    choiceA: {fileID: 0}
-    choiceB: {fileID: 0}
-    choiceC: {fileID: 0}
-    choiceD: {fileID: 0}
-    hasReward: 0
-    reward: 
-    startsMinigame: 0
-    minigame: 
-  conditions: []
+  conditions:
+  - ACT2_Q_ESP_GOT_MATERIAL
