@@ -27,8 +27,8 @@ MonoBehaviour:
     choiceD: {fileID: 0}
     hasReward: 0
     reward: 
-    startsMinigame: 1
-    minigame: Minijuego_Solterona
+    startsMinigame: 0
+    minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: '[!]'
     expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}

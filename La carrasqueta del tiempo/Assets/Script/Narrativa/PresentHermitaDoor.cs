@@ -65,7 +65,7 @@ public class PresentHermitaDoor : MonoBehaviour
         if (!playerInside)
             return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("[Door] E pressed near door.");
 
