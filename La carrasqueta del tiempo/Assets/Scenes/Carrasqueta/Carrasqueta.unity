@@ -1175,7 +1175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &604747279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3852,65 +3852,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3094261522679533820, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3848667738411000691, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: stepClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2a0317037e85d1d49b0a79367382d656, type: 3}
-    - target: {fileID: 3848667738411000691, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: background
-      value: 
-      objectReference: {fileID: 398289117}
-    - target: {fileID: 3848667738411000691, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: stepAudioSource
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4200059614598720808, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: m_Radius
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4200059614598720808, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4390973799498831609, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7664514243460857272, guid: 6c5b8dfb45df43e4d89fa2c372653550, type: 3}
-    - target: {fileID: 4544412489768654566, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: m_Size.x
-      value: 0.53615195
-      objectReference: {fileID: 0}
-    - target: {fileID: 4544412489768654566, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: m_Size.y
-      value: 0.21522643
-      objectReference: {fileID: 0}
-    - target: {fileID: 4544412489768654566, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.025941163
-      objectReference: {fileID: 0}
-    - target: {fileID: 4544412489768654566, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.12176371
-      objectReference: {fileID: 0}
-    - target: {fileID: 7337207346345987894, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7858091188771663495, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9095930261065474166, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_Name
       value: 'Joaquin '
-      objectReference: {fileID: 0}
-    - target: {fileID: 9095930261065474166, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3934,7 +3878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2033852762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4051,9 +3995,9 @@ SceneRoots:
   - {fileID: 1931782275}
   - {fileID: 1600841039}
   - {fileID: 119037667}
-  - {fileID: 604747283}
   - {fileID: 1846157616}
   - {fileID: 1023994191}
   - {fileID: 1502383080}
   - {fileID: 1914445977}
+  - {fileID: 604747283}
   - {fileID: 2033852763}
