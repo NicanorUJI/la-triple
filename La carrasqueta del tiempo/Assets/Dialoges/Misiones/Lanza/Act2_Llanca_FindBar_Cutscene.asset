@@ -15,5 +15,33 @@ MonoBehaviour:
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
   joaquinDefault: {fileID: 0}
-  lines: []
-  conditions: []
+  lines:
+  - speakerName: Joaquin
+    lineText: "En realitat, i ara on trobe jo a l\u2019encarregat de l\u2019ermita?"
+    expression: {fileID: 21300000, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Joaquin
+    lineText: "\u2026com diu sempre mon pare, si busques a alg\xFA, busca primer
+      al bar m\xE9s proper.\r\n"
+    expression: {fileID: 21300000, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 1
+    reward: cutsceneFindBar_DONE
+    startsMinigame: 0
+    minigame: 
+  conditions:
+  - Act2_Q_LLANCE_MayorPast

@@ -1317,8 +1317,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AutoDialogueTrigger
   npc: {fileID: 1786204264}
   oneShot: 1
-  requiredFlags: []
-  forbiddenFlags: []
+  requiredFlags:
+  - Act2_Q_LLANCE_MayorPast
+  forbiddenFlags:
+  - cutsceneFindBar_DONE
 --- !u!1 &1377416636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,7 +1766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   opciones:
-  - {fileID: 11400000, guid: c99c0ef0e7cbfc444a99f1f91aa8ab43, type: 2}
+  - {fileID: 11400000, guid: 4218a78b9424fc84ebd392e3b47f8526, type: 2}
   dialoguePanel: {fileID: 1722711732}
   dialogueText: {fileID: 1722711727}
   nameText: {fileID: 1722711728}
