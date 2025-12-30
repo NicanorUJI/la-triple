@@ -1175,7 +1175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &604747279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1250,7 +1250,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -1.4832976, y: -0.6071894}
+  m_Offset: {x: 0, y: -3.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3814,11 +3814,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.378
+      value: -1.3020518
       objectReference: {fileID: 0}
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.471
+      value: -0.47464758
       objectReference: {fileID: 0}
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3867,6 +3867,14 @@ PrefabInstance:
     - target: {fileID: 3848667738411000691, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: stepAudioSource
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200059614598720808, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200059614598720808, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4390973799498831609, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_Sprite
@@ -4004,7 +4012,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.81702614, y: -0.056094334}
+  m_Offset: {x: -0.81702614, y: -0.6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
