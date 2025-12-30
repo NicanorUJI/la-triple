@@ -25,8 +25,8 @@ MonoBehaviour:
     choiceB: {fileID: 0}
     choiceC: {fileID: 0}
     choiceD: {fileID: 0}
-    hasReward: 0
-    reward: 
+    hasReward: 1
+    reward: Act2_Q_LLANCE_NoteFound
     startsMinigame: 0
     minigame: 
   - speakerName: "Joaqu\xEDn"
@@ -42,4 +42,5 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  conditions: []
+  conditions:
+  - Act2_Q_LLANCE_Started
