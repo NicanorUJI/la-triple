@@ -2487,6 +2487,10 @@ PrefabInstance:
       propertyPath: background
       value: 
       objectReference: {fileID: 1523915531}
+    - target: {fileID: 7923611049877032649, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9095930261065474166, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_Name
       value: 'Joaquin '

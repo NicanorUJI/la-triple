@@ -505,5 +505,10 @@ public class RewardManager : MonoBehaviour
 
             UnityEngine.SceneManagement.SceneManager.LoadScene("Fin");
         }
+
+        else
+        {
+            GameManager.Change(reward);
+        }
     }
 }

@@ -37,12 +37,39 @@ public class AutoDialogueTrigger : MonoBehaviour
 
         if (npc != null)
         {
-            npc.Interact();   // Esto inicia el diálogo igual que si pulsaras E
+            npc.Interact();   // Esto inicia el diálogo igual que si pulsaras espacio
         }
         else
         {
             Debug.LogWarning($"AutoDialogueTrigger en {name} no tiene NPC asignado.");
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!alreadyTriggered)
+        {
+            if (!other.CompareTag("Player"))
+                return;
+
+            if (oneShot && alreadyTriggered)
+                return;
+
+            if (!CheckFlags())
+                return;
+
+            alreadyTriggered = true;
+
+            if (npc != null)
+            {
+                npc.Interact();   // Esto inicia el diálogo igual que si pulsaras espacio
+            }
+            else
+            {
+                Debug.LogWarning($"AutoDialogueTrigger en {name} no tiene NPC asignado.");
+            }
+        }
+        
     }
 
     private bool CheckFlags()
