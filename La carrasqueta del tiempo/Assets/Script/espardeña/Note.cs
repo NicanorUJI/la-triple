@@ -2,29 +2,28 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    public float fallSpeed = 0.6f;
-    public float destroyY = -0.2f;
+    public float fallSpeed = 0.5f; // Valor por defecto más alto
+    public float destroyY = -5f; // Asegúrate que este valor esté bien abajo de tu pantalla
 
-    private bool canBePressed = false; // Solo se puede presionar dentro de la HitZone
+    private bool canBePressed = false;
 
     void Update()
     {
-        // Movimiento constante hacia abajo
+        // Solo se encarga de caer
         transform.position += Vector3.down * fallSpeed * Time.deltaTime;
 
-        // Si sale de la pantalla, se destruye
+        // Si sale de la pantalla por abajo, se destruye
         if (transform.position.y < destroyY)
         {
-            Destroy(gameObject);
-        }
+            // Opcional: Avisar al manager que se perdió la nota (Miss)
+            if (RhythmGameManager.instance != null)
+                RhythmGameManager.instance.NoteLost();
 
-        // Detectar pulsación solo cuando está en la zona de acierto
-        if (canBePressed && Input.GetKeyDown(KeyCode.Space))
-        {
-            RhythmGameManager.instance.NoteHit();  // Incrementa el puntaje
             Destroy(gameObject);
         }
     }
+
+    // Estas funciones son leídas por el AutoBeatDetector
     public bool CanBePressed()
     {
         return canBePressed;
@@ -33,17 +32,12 @@ public class Note : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Activator"))
-            canBePressed = true;  // La nota está en la zona de acierto
+            canBePressed = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Activator"))
-        {
-            canBePressed = false;  // La nota salió de la zona de acierto
-        }
+            canBePressed = false;
     }
 }
-
-
-
