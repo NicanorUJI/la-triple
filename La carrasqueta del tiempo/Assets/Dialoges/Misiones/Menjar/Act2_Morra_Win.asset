@@ -57,6 +57,5 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   conditions:
-  - Act2_Q_MENJAR_MorraStarted
   - Act2_Q_MENJAR_NeedsMeat
   - Act2_Q_MENJAR_HasMeat

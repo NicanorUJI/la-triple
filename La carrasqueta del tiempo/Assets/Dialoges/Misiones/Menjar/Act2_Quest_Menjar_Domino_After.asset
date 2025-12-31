@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Act2_Quest_Menjar_Domino_After
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  defaultSprite: {fileID: -7372192891005804176, guid: cd5e1878ba1097dacb04ec7584989e1a, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 423e9c4ed331f7ba7be40b4446b71b54, type: 3}
   lines:
   - speakerName: Josefina
     lineText: "Com \xE9s possible que ens hages guanyat!? "
@@ -60,7 +60,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Vale! Moltes gr\xE0cies! Fins despr\xE9s!"
-    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    expression: {fileID: 21300000, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
