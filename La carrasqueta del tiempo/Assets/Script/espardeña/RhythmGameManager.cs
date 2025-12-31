@@ -161,13 +161,13 @@ public class RhythmGameManager : MonoBehaviour
         if (haGanado)
         {
             if (botonContinuar != null) botonContinuar.interactable = true;
-            if (textoResultado != null) textoResultado.text = $"Molt bé! Has aconseguit {hitNotes}/{totalNotes} notes.";
+            if (textoResultado != null) textoResultado.text = $"Molt bé! Has aconseguit {currentScore}/{totalNotes} notes.";
             if (imagenResultado != null) imagenResultado.sprite = spriteVictoria;
         }
         else
         {
             if (botonContinuar != null) botonContinuar.interactable = false;
-            if (textoResultado != null) textoResultado.text = $"Ho sentim, només has aconseguit {hitNotes}/{totalNotes} notes.";
+            if (textoResultado != null) textoResultado.text = $"Ho sentim, només has aconseguit {currentScore}/{totalNotes} notes.";
             if (imagenResultado != null) imagenResultado.sprite = spriteDerrota;
         }
     }
@@ -176,7 +176,7 @@ public class RhythmGameManager : MonoBehaviour
     {
         // Ejemplo: consideramos victoria si se acierta al menos el 50% de las notas
         if (totalNotes == 0) return false; // seguridad
-        float ratio = (float)hitNotes / totalNotes;
+        float ratio = (float)currentScore / totalNotes;
         return ratio >= 0.5f;
     }
     public void ResetGame()
