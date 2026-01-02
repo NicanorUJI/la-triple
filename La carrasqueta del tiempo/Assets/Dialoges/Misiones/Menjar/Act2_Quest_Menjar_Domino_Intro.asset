@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Act2_Quest_Menjar_Domino_Intro
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
-  joaquinDefault: {fileID: 0}
+  defaultSprite: {fileID: -3690097810477892078, guid: d968a4a21ae27a311a110caff1ae189f, type: 3}
+  joaquinDefault: {fileID: 3289418361607064246, guid: 25b6aa80d54229e4ba73157fb8bdb21a, type: 3}
   lines:
   - speakerName: Josefina
     lineText: "Voleu posar alguna cosa m\xE9s?"
@@ -44,7 +44,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Hola, bon dia. Qu\xE8 esteu fent?"
-    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+    expression: {fileID: 21300000, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "I per a qu\xE8 \xE9s la mel?"
-    expression: {fileID: 167803326818533104, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
+    expression: {fileID: 21300000, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: '[!]'
-    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    expression: {fileID: 21300000, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Jo tamb\xE9 vull jugar!"
-    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    expression: {fileID: 21300000, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -123,6 +123,19 @@ MonoBehaviour:
   - speakerName: Josefina
     lineText: "Est\xE0s segur que vols jugar? Nosaltres fa molts anys que juguem.
       No tens cap oportunitat. "
+    expression: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 1
+    minigame: DominoMinigame
+  - speakerName: Josefina
+    lineText: 
     expression: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0

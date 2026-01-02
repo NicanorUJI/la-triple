@@ -655,6 +655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 5414278069297712048, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7902731202491799527, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1572,7 +1576,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.649
+      value: -1.44
       objectReference: {fileID: 0}
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1609,6 +1613,10 @@ PrefabInstance:
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221038404513209525, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3848667738411000691, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: stepClip
@@ -1679,12 +1687,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   opciones:
   - {fileID: 11400000, guid: 9af76cc98f27d10d98b167bab1c3bc79, type: 2}
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
-  nameText: {fileID: 0}
-  portraitImage: {fileID: 0}
-  joaquinPortrait_Object: {fileID: 0}
-  joaquinPortrait: {fileID: 0}
+  dialoguePanel: {fileID: 196821872}
+  dialogueText: {fileID: 196821869}
+  nameText: {fileID: 196821870}
+  portraitImage: {fileID: 196821871}
+  joaquinPortrait_Object: {fileID: 226897058}
+  joaquinPortrait: {fileID: 226897056}
   button_choice1: {fileID: 0}
   button_choice2: {fileID: 0}
   button_choice3: {fileID: 0}
