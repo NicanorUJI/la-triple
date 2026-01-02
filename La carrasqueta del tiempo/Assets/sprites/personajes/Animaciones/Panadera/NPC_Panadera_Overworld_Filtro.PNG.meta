@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 60b817b8f671b42c2ac4e3c85d07b923
+guid: 79bbb603edefcc14fa5624a00d229b08
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5703435808359689965
-    second: MC_Joaquin_Asustado_BocaAbierta_Pasado_0
+      213: -3338324219220898328
+    second: NPC_Panadera_Overworld 2_0
+  - first:
+      213: 5068059868535983184
+    second: NPC_Panadera_Overworld 2_1
+  - first:
+      213: 5361079540030439281
+    second: NPC_Panadera_Overworld 2_2
+  - first:
+      213: 8955863380268128218
+    second: NPC_Panadera_Overworld 2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MC_Joaquin_Asustado_BocaAbierta_Pasado_0
+      name: NPC_Panadera_Overworld 2_0
       rect:
         serializedVersion: 2
-        x: 17
+        x: 29
         y: 0
-        width: 72
-        height: 122
+        width: 134
+        height: 217
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3115a73b95359d0b0800000000000000
-      internalID: -5703435808359689965
+      spriteID: 8ed41405fc3eba1d0800000000000000
+      internalID: -3338324219220898328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Panadera_Overworld 2_1
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 0
+        width: 146
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05c0084499d555640800000000000000
+      internalID: 5068059868535983184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Panadera_Overworld 2_2
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 0
+        width: 152
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17ff02cff61666a40800000000000000
+      internalID: 5361079540030439281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NPC_Panadera_Overworld 2_3
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 0
+        width: 146
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad79fcd4b4e994c70800000000000000
+      internalID: 8955863380268128218
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MC_Joaquin_Asustado_BocaAbierta_Pasado_0: -5703435808359689965
+      NPC_Panadera_Overworld 2_0: -3338324219220898328
+      NPC_Panadera_Overworld 2_1: 5068059868535983184
+      NPC_Panadera_Overworld 2_2: 5361079540030439281
+      NPC_Panadera_Overworld 2_3: 8955863380268128218
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

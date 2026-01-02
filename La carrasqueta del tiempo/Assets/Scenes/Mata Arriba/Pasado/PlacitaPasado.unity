@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   opciones:
+  - {fileID: 11400000, guid: cd1b3f72e20c6b14691d68560fd57239, type: 2}
   - {fileID: 11400000, guid: 9ccf53c4fc684073cb207a537605b21c, type: 2}
   - {fileID: 11400000, guid: 238d0ab0e7fd0a89d845068b2b34548d, type: 2}
   - {fileID: 11400000, guid: cbc3434aef2972139b635d3619b57011, type: 2}
@@ -1576,11 +1577,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.44
+      value: 0.507
       objectReference: {fileID: 0}
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.434
+      value: -0.439
       objectReference: {fileID: 0}
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.z

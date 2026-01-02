@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
-  m_Name: Maripili_Default
+  m_Name: Maripili_Lanza_Started
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 8747955740245679328, guid: 1c5e3b832e319170f90a9ea07e2aa8a4, type: 3}
-  joaquinDefault: {fileID: 21300000, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+  defaultSprite: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
+  joaquinDefault: {fileID: 6622962485173151977, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
   lines:
-  - speakerName: ???
-    lineText: (...)
-    expression: {fileID: 8747955740245679328, guid: 1c5e3b832e319170f90a9ea07e2aa8a4, type: 3}
+  - speakerName: Maripili
+    lineText: "Prova a anar a l\u2019ermita de Santa B\xE0rbara a veure si la llan\xE7a
+      es troba all\xED.\r\n"
+    expression: {fileID: 0}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -29,9 +30,10 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: (...)
-    expression: {fileID: 8747955740245679328, guid: 1c5e3b832e319170f90a9ea07e2aa8a4, type: 3}
+  - speakerName: Maripili
+    lineText: "Recorda que es troba a les afores del poble. Tira cap a la dreta y
+      la trobar\xE0s.\r\n"
+    expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -42,4 +44,5 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  conditions: []
+  conditions:
+  - Act2_Q_LLANCE_Started
