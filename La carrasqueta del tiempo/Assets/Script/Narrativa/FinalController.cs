@@ -8,8 +8,12 @@ public class FinalController : MonoBehaviour
     [Header("UI")]
     public TMP_Text finalText;
     public RectTransform textRect;
-    public Button nextButton; // Botón para pasar de Parte 1 a Parte 2
-    public Button menuButton; // Botón para volver al menú
+    public Button nextButton;
+    public Button menuButton;
+
+    [Header("Fondo")]
+    public Animator backgroundAnimator;
+    public float backgroundAnimDuration = 2f;
 
     [Header("Scene names")]
     public string menuSceneName = "Escena Menú";
@@ -18,27 +22,39 @@ public class FinalController : MonoBehaviour
     [TextArea(5, 10)] public string textPart1;
     [TextArea(5, 10)] public string textPart2;
 
-    [Header("Efectos")]
-    public float charDelay = 0.04f;
+    [Header("Velocidad de escritura")]
+    [Tooltip("Caracteres por segundo")]
+    [Range(1f, 100f)]
+    public float charsPerSecond = 25f;
+
+    [Header("Movimiento del texto")]
     public float scrollSpeed = 15f;
 
-    private string currentText;
+    private string currentText = "";
     private int charIndex;
     private float charTimer;
 
-    private enum Estado { Parte1, EsperandoBoton, Parte2, Terminado }
-    private Estado estadoActual = Estado.Parte1;
+    private enum Estado
+    {
+        AnimacionInicial,
+        Parte1,
+        EsperandoBoton,
+        AnimacionParte2,
+        Parte2,
+        Terminado
+    }
+
+    private Estado estadoActual = Estado.AnimacionInicial;
 
     private void Start()
     {
-        // Inicializa la primera parte
-        IniciarParte(textPart1);
+        finalText.text = "";
+        currentText = "";
 
-        // Configura botones
         if (nextButton != null)
         {
             nextButton.gameObject.SetActive(false);
-            nextButton.onClick.AddListener(PasarAParte2);
+            nextButton.onClick.AddListener(PulsarNext);
         }
 
         if (menuButton != null)
@@ -46,16 +62,38 @@ public class FinalController : MonoBehaviour
             menuButton.gameObject.SetActive(false);
             menuButton.onClick.AddListener(GoToMenu);
         }
+
+        // Animación inicial
+        ReproducirAnimacionFondo();
+        Invoke(nameof(IniciarParte1), backgroundAnimDuration);
     }
 
     private void Update()
     {
-        EscribirTexto();
-        SubirTexto();
+        if (estadoActual == Estado.Parte1 || estadoActual == Estado.Parte2)
+        {
+            EscribirTexto();
+            SubirTexto();
+        }
+
         ControlEstados();
     }
 
-    private void IniciarParte(string texto)
+    // ───────────── TEXTOS ─────────────
+
+    private void IniciarParte1()
+    {
+        estadoActual = Estado.Parte1;
+        IniciarTexto(textPart1);
+    }
+
+    private void IniciarParte2()
+    {
+        estadoActual = Estado.Parte2;
+        IniciarTexto(textPart2);
+    }
+
+    private void IniciarTexto(string texto)
     {
         currentText = texto;
         finalText.text = "";
@@ -66,10 +104,13 @@ public class FinalController : MonoBehaviour
 
     private void EscribirTexto()
     {
+        if (string.IsNullOrEmpty(currentText)) return;
         if (charIndex >= currentText.Length) return;
 
         charTimer += Time.deltaTime;
-        if (charTimer >= charDelay)
+        float delay = 1f / charsPerSecond;
+
+        if (charTimer >= delay)
         {
             charTimer = 0f;
             charIndex++;
@@ -85,6 +126,8 @@ public class FinalController : MonoBehaviour
         }
     }
 
+    // ───────────── ESTADOS ─────────────
+
     private void ControlEstados()
     {
         switch (estadoActual)
@@ -92,7 +135,6 @@ public class FinalController : MonoBehaviour
             case Estado.Parte1:
                 if (charIndex >= currentText.Length)
                 {
-                    // Cuando termina la Parte 1, muestra el botón de siguiente
                     estadoActual = Estado.EsperandoBoton;
                     if (nextButton != null)
                         nextButton.gameObject.SetActive(true);
@@ -102,7 +144,6 @@ public class FinalController : MonoBehaviour
             case Estado.Parte2:
                 if (charIndex >= currentText.Length)
                 {
-                    // Cuando termina la Parte 2, muestra el botón de menú
                     estadoActual = Estado.Terminado;
                     if (menuButton != null)
                         menuButton.gameObject.SetActive(true);
@@ -111,17 +152,35 @@ public class FinalController : MonoBehaviour
         }
     }
 
-    private void PasarAParte2()
+    // ───────────── BOTONES ─────────────
+
+    private void PulsarNext()
     {
         if (nextButton != null)
             nextButton.gameObject.SetActive(false);
 
-        estadoActual = Estado.Parte2;
-        IniciarParte(textPart2);
+        // Oculta el texto 1 inmediatamente
+        finalText.text = "";
+        currentText = "";
+
+        estadoActual = Estado.AnimacionParte2;
+
+        ReproducirAnimacionFondo();
+        Invoke(nameof(IniciarParte2), backgroundAnimDuration);
     }
 
     public void GoToMenu()
     {
         SceneManager.LoadScene(menuSceneName);
+    }
+
+    // ───────────── FONDO ─────────────
+
+    private void ReproducirAnimacionFondo()
+    {
+        if (backgroundAnimator != null)
+        {
+            backgroundAnimator.SetTrigger("Play");
+        }
     }
 }
