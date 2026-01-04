@@ -602,6 +602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapUIController
   mapToggle: {fileID: 0}
+  transicion: {fileID: 0}
 --- !u!1 &2908160412171224221
 GameObject:
   m_ObjectHideFlags: 0
