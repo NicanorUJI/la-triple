@@ -54,8 +54,8 @@ MonoBehaviour:
     choiceB: {fileID: 0}
     choiceC: {fileID: 0}
     choiceD: {fileID: 0}
-    hasReward: 0
-    reward: 
+    hasReward: 1
+    reward: habladoYaya
     startsMinigame: 0
     minigame: 
   - speakerName: Joaquin

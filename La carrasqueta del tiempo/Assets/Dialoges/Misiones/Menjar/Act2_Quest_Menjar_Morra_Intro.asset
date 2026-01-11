@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Act2_Quest_Menjar_Morra_Intro
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  defaultSprite: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
+  joaquinDefault: {fileID: 6622962485173151977, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
   lines:
   - speakerName: Alcalde
     lineText: "Qui vulga participar que s\u2019apunte a la llista! El premi \xE9s
       una cistella de menjar variat!"
-    expression: {fileID: 0}
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   - speakerName: Alcalde
     lineText: "Hola xic, estem celebrant un concurs de Morra, el guanyador s\u2019endur\xE0
       una cistella de menjar variat i embotits."
-    expression: {fileID: 0}
+    expression: {fileID: -3644103294100017685, guid: 9c9c6503463fa285383681e4421ab9ff, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Alcalde
     lineText: Saps jugar a la morra?
-    expression: {fileID: 0}
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}

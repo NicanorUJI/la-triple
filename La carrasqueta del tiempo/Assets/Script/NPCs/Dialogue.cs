@@ -12,6 +12,10 @@ public class NPC : MonoBehaviour, IInteractable
     public GameObject dialoguePanel;
     public TMP_Text dialogueText, nameText;
 
+    [Header("Audio Clip")]
+    public AudioSource talkingAudioSource;
+    public AudioClip npcTalk_Clip;
+
     [Header("Retratos")]
     public Image portraitImage;
     public GameObject joaquinPortrait_Object;
@@ -37,7 +41,15 @@ public class NPC : MonoBehaviour, IInteractable
 
     private NPCDialogue dialogueData;
 
-    public NPCDialogue getDialogue()
+    void Start()
+    {
+            if (talkingAudioSource == null)
+            {
+            talkingAudioSource = gameObject.AddComponent<AudioSource>();
+            }
+    }
+
+        public NPCDialogue getDialogue()
     {
         foreach (NPCDialogue opcion in opciones)
         {
@@ -293,6 +305,7 @@ public class NPC : MonoBehaviour, IInteractable
         foreach (char letter in line.lineText)
         {
             dialogueText.text += letter;
+            talkingAudioSource.PlayOneShot(npcTalk_Clip);
             yield return new WaitForSeconds(.05f);
         }
 

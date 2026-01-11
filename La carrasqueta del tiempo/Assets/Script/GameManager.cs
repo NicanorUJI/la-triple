@@ -77,10 +77,15 @@ public class GameManager : MonoBehaviour
         if (missionController.progressFlags == null)
             missionController.progressFlags = new List<string>();
 
-        if (!missionController.progressFlags.Contains(condicion))
+        if (!missionController.progressFlags.Contains(condicion)) //si no incluye la condicion, añadirla
         {
             missionController.progressFlags.Add(condicion);
             Debug.Log("GameManager.Change -> añadido flag: " + condicion);
+        }
+
+        else //si la incluye, quitarla
+        {
+            missionController.progressFlags.Remove(condicion);
         }
     }
 }

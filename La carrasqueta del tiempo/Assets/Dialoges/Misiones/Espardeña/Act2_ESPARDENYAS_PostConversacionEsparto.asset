@@ -31,4 +31,4 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   conditions:
-  - ACT2_Q_ESP_GOT_MATERIAL
+  - Act2_VolverMaripili
