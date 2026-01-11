@@ -1,5 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
+
 
 public class RewardManager : MonoBehaviour
 {
@@ -14,10 +17,21 @@ public class RewardManager : MonoBehaviour
     public SpriteChanger pulseraUI;
 
     public static RewardManager Instance;
+    public GameObject botonPausa;
+
+    [Header("Objetos relacionados con el oso")]
+    public GameObject flecha;           // Flecha que se activa cuando se desactiva el botón
+    public string nombreFlecha;           // Nombre exacto de la flecha en la escena
+
+    public string nombreOsoSceneObject;   // Nombre del objeto del oso en su escena
+    public GameObject osoSceneObject;      // Objeto que se activa en la escena del oso
+
+    public string[] nombresObjetosADesactivar; // Array de nombres de objetos a desactivar cuando la flag esté activa
+
+    bool osoActivo = false;
 
     void Awake()
     {
-        // 🔹 Singleton
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -26,10 +40,108 @@ public class RewardManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // 🔹 Inicializar referencias a la UI
+        SceneManager.sceneLoaded += OnSceneLoaded;
         FindUI();
     }
 
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        BuscarBotonPausa();
+        BuscarFlecha();
+        BuscarOsoSceneObject(scene);
+
+        AplicarEstadoOso();
+    }
+
+    void BuscarFlecha()
+    {
+        if (string.IsNullOrEmpty(nombreFlecha)) return;
+        if (nombreFlecha != null) return;
+
+        GameObject[] allObjects = FindObjectsOfType<GameObject>(true);
+        foreach (var obj in allObjects)
+        {
+            if (obj.name == nombreFlecha)
+            {
+                flecha = obj;
+                break;
+            }
+        }
+    }
+
+    void BuscarOsoSceneObject(Scene scene)
+    {
+        if (string.IsNullOrEmpty(nombreOsoSceneObject)) return;
+        if (osoSceneObject != null) return;
+
+        GameObject[] allObjects = FindObjectsOfType<GameObject>(true);
+        foreach (var obj in allObjects)
+        {
+            if (obj.name == nombreOsoSceneObject)
+            {
+                osoSceneObject = obj;
+                break;
+            }
+        }
+    }
+    void BuscarBotonPausa()
+    {
+        if (botonPausa != null) return;
+
+        GameObject[] allObjects = FindObjectsOfType<GameObject>(true);
+        foreach (var obj in allObjects)
+        {
+            if (obj.name == "BotonPausa" && obj.layer == LayerMask.NameToLayer("UI"))
+            {
+                botonPausa = obj;
+                break;
+            }
+        }
+    }
+
+    public void SetOsoActivo(bool activo)
+    {
+        osoActivo = activo;
+        AplicarEstadoOso();
+    }
+
+    void AplicarEstadoOso()
+    {
+        if (botonPausa != null)
+        {
+            botonPausa.SetActive(!osoActivo);
+        }
+
+        if (flecha != null)
+        {
+            flecha.SetActive(osoActivo);
+        }
+
+        if (osoSceneObject != null)
+        {
+            osoSceneObject.SetActive(osoActivo);
+        }
+
+        DesactivarObjetosPorNombre();
+    }
+
+    void DesactivarObjetosPorNombre()
+    {
+        if (!osoActivo || nombresObjetosADesactivar == null) return;
+
+        GameObject[] allObjects = FindObjectsOfType<GameObject>(true);
+        foreach (var obj in allObjects)
+        {
+            foreach (var nombre in nombresObjetosADesactivar)
+            {
+                if (obj.name == nombre)
+                {
+                    obj.SetActive(false);
+                    break;
+                }
+            }
+        }
+    }
     void FindUI()
     {
         // 🔹 Solo asignamos UI que estén vacías
@@ -446,6 +558,9 @@ public class RewardManager : MonoBehaviour
 
             GameManager.Change("Act3_PastBriefingDone");
             GameManager.Change("Act3_BearActive");
+
+            SetOsoActivo(true);
+
             Debug.Log("Act3 -> Briefing passat done (flags Act3_PastBriefingDone + Act3_BearActive)");
 
             if (mc != null)
@@ -465,6 +580,7 @@ public class RewardManager : MonoBehaviour
                 return;
 
             GameManager.Change("Act3_PastCelebrationDone");
+            SetOsoActivo(false);
             Debug.Log("Act3 -> Celebració passat done (flag Act3_PastCelebrationDone). Tornem al present amb l’ós actiu.");
 
             if (mc != null)
@@ -501,6 +617,8 @@ public class RewardManager : MonoBehaviour
                 return;
 
             GameManager.Change("Act3_End");
+
+
             Debug.Log("Act3 -> End (flag Act3_End). Tornem al menú.");
 
             if (mc != null)
