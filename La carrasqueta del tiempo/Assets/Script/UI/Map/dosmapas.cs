@@ -39,6 +39,29 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    public void OpenMapForCurrentScene()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        // Cerrar todos los mapas abiertos
+        if (mapA != null && mapA.isOpen) mapA.Close();
+        if (mapB != null && mapB.isOpen) mapB.Close();
+
+        // Abrir solo el mapa que tenga esta escena en allowedScenes
+        if (mapA != null && mapA.allowedScenes != null &&
+            System.Array.Exists(mapA.allowedScenes, s => s == currentScene.name))
+        {
+            mapA.Toggle();
+            return;
+        }
+
+        if (mapB != null && mapB.allowedScenes != null &&
+            System.Array.Exists(mapB.allowedScenes, s => s == currentScene.name))
+        {
+            mapB.Toggle();
+        }
+    }
+
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
