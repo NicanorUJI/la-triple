@@ -11,22 +11,33 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     private bool gameStarted = false;
     private WaitForSeconds wait1s, waitHalf, waitEndDelay;
     private float nextBeatTime = 0f;
-    private float spawnY = 0f, minX = -1f, maxX = -0.3f;
+    
+    // MODIFICADO: Eliminamos minX y maxX, dejamos spawnY
+    private float spawnY = 0f; // Asegúrate de ajustar esto en el inspector o inicializarlo donde prefieras
 
     [Header("Configuración Rítmica")]
     public float beatInterval = 0.5f;
 
     [Header("Configuración Velocidad")]
-    public float velocidadCaida = 0.5f; 
-    
-    [Tooltip("Cuánto aumenta la velocidad por segundo. Pon 0 para velocidad constante.")]
-    // Variable placeholder por si quieres implementar aceleración futura
+    public float velocidadCaida = 5f; 
+
+    // --- NUEVO: CONFIGURACIÓN DE CARRILES ---
+    [Header("Configuración de Carriles (Posición X)")]
+    [Tooltip("Posición X para el prefab que tenga el Tag 'nota1' (Tecla A)")]
+    public float xPosNota1 = -2f; 
+
+    [Tooltip("Posición X para el prefab que tenga el Tag 'nota2' (Tecla S)")]
+    public float xPosNota2 = 0f;
+
+    [Tooltip("Posición X para el prefab que tenga el Tag 'nota3' (Tecla D)")]
+    public float xPosNota3 = 2f;
+    // ----------------------------------------
 
     [Header("Audio")]
     public AudioSource musicSource;
 
     [Header("Prefabs y Referencias")]
-    public GameObject[] notasPrefabs; // Asegúrate de que los prefabs tengan los tags asignados en el Inspector
+    public GameObject[] notasPrefabs; 
     public string escenaSalir;
 
     [Header("Cuenta Atrás")]
@@ -46,13 +57,14 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     [System.Serializable]
     public class BeatInfo { public float time, energy; }
 
-    // Definimos los tags aquí para evitar errores de escritura
+    // Definimos los tags
     private string tag1 = "nota1";
     private string tag2 = "nota2";
     private string tag3 = "nota3";
 
     void Start()
     {
+        // Inicializamos spawnY fuera de la pantalla (puedes ajustar este valor)
         wait1s = new WaitForSeconds(1f);
         waitHalf = new WaitForSeconds(0.5f);
         waitEndDelay = new WaitForSeconds(3f);
@@ -127,24 +139,16 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
             }
         }
 
-        // --- PARTE 2: INPUT DEL JUGADOR (MULTITECLA) ---
-        
-        // Verificamos Tecla A para nota1
+        // --- PARTE 2: INPUT DEL JUGADOR ---
         VerificarInput(KeyCode.A, tag1);
-
-        // Verificamos Tecla S para nota2
         VerificarInput(KeyCode.S, tag2);
-
-        // Verificamos Tecla D para nota3
         VerificarInput(KeyCode.D, tag3);
     }
 
-    // --- NUEVA FUNCIÓN PARA GESTIONAR CADA TECLA ---
     void VerificarInput(KeyCode tecla, string tagObjetivo)
     {
         if (Input.GetKeyDown(tecla))
         {
-            // Solo buscamos objetos con el Tag específico de esa tecla
             GameObject[] notes = GameObject.FindGameObjectsWithTag(tagObjetivo);
             
             Note bestNote = null;
@@ -153,6 +157,8 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
             foreach (GameObject noteObj in notes)
             {
                 Note noteScript = noteObj.GetComponent<Note>();
+                // Verificamos si la nota está dentro de la zona de hit (CanBePressed)
+                // Opcional: También podrías verificar la distancia en X si quisieras ser muy estricto
                 if (noteScript != null && noteScript.CanBePressed())
                 {
                     if (noteObj.transform.position.y < minY)
@@ -165,7 +171,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
             if (bestNote != null)
             {
-                // ACIERTO
                 if (RhythmGameManager.instance != null)
                     RhythmGameManager.instance.NoteHit();
                 
@@ -173,7 +178,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
             }
             else
             {
-                // FALLO (Pulsó la tecla pero no había nota de ese tipo cerca)
                 if (RhythmGameManager.instance != null)
                     RhythmGameManager.instance.MissNote();
             }
@@ -198,16 +202,40 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
             RhythmGameManager.instance.MostrarPantallaFinal();
     }
 
+    // --- FUNCIÓN MODIFICADA: SPAWN EN CARRILES ---
     void SpawnBeatVisual(float beatEnergy)
     {
         if (notasPrefabs == null || notasPrefabs.Length == 0) return;
 
+        // 1. Elegimos un prefab al azar (cada prefab debe tener su Tag asignado en el Inspector del proyecto)
         int randomIndex = Random.Range(0, notasPrefabs.Length);
         GameObject prefabSeleccionado = notasPrefabs[randomIndex];
 
-        Vector3 pos = new Vector3(Random.Range(minX, maxX), spawnY, 0);
+        // 2. Determinamos la posición X basándonos en el Tag del prefab elegido
+        float targetX = 0f;
+
+        if (prefabSeleccionado.CompareTag(tag1))
+        {
+            targetX = xPosNota1;
+        }
+        else if (prefabSeleccionado.CompareTag(tag2))
+        {
+            targetX = xPosNota2;
+        }
+        else if (prefabSeleccionado.CompareTag(tag3))
+        {
+            targetX = xPosNota3;
+        }
+        else
+        {
+            // Fallback por si el prefab no tiene tag correcto
+            Debug.LogWarning("El prefab seleccionado no tiene un tag reconocido (nota1, nota2, nota3). Se usará X=0");
+            targetX = 0f;
+        }
+
+        Vector3 pos = new Vector3(targetX, spawnY, 0);
         
-        // Al instanciar, el objeto mantendrá el Tag que tenga puesto el Prefab
+        // 3. Instanciamos la nota en la posición calculada
         GameObject note = Instantiate(prefabSeleccionado, pos, Quaternion.identity);
 
         Note noteScript = note.GetComponent<Note>();
@@ -226,12 +254,9 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
             RhythmGameManager.instance.RegisterNote();
     }
 
-    // --- ACTUALIZADO PARA LIMPIAR TODOS LOS TAGS ---
     void ClearBeats()
     {
-        // Creamos una lista temporal con todos los tags a limpiar
         string[] tagsToClean = { tag1, tag2, tag3 };
-
         foreach (string t in tagsToClean)
         {
             GameObject[] beats = GameObject.FindGameObjectsWithTag(t);

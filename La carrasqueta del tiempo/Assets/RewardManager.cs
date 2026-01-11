@@ -290,7 +290,7 @@ public class RewardManager : MonoBehaviour
                 );
             }
         }
-        else if (reward == "ACT2_Q_ESP_START")
+        else if (reward == "ACT2_Q_ESP_START") //EMPIEZA MISION ESPARTO
         {
             GameManager.Change("Act2_Q_ESP_Started");
             if (mc != null)
@@ -305,15 +305,16 @@ public class RewardManager : MonoBehaviour
                 mc.SetActiveMission(6, "Missió activa",
                     "Torna amb l'espart a parlar amb Maripili.");
         }
-        else if (reward == "ACT2_Q_ESP_DONE")
+        else if (reward == "ACT2_Q_ESP_DONE") //ACABA MISION ESPARTO
         {
             GameManager.Change("Act2_Q_ESP_Done");
+            GameManager.Change("Act2_Q_ESP_Started"); //quita la flag
             Debug.Log("Act2 -> Quest Espardenyes COMPLETED");
 
             mc?.SetActiveMission(5, "Missió activa",
                     "Parla amb Maripili i tria una altra cosa per a preparar contra l'ós.");
         }
-        else if (reward == "ACT2_Q_LLANCE_START")
+        else if (reward == "ACT2_Q_LLANCE_START") //EMPIEZA MISION LANZA
         {
             GameManager.Change("Act2_Q_LLANCE_Started");
 
@@ -360,9 +361,10 @@ public class RewardManager : MonoBehaviour
                 );
             }
         }
-        else if (reward == "ACT2_Q_LLANCE_DONE")
+        else if (reward == "ACT2_Q_LLANCE_DONE") //TERMINA MISION LANZA
         {
             GameManager.Change("Act2_Q_LLANCE_Done");
+            GameManager.Change("Act2_Q_LLANCE_Started");
             lanzaUI?.SetCompletado(true);
 
             if (MissionController.Instance != null)
@@ -370,7 +372,7 @@ public class RewardManager : MonoBehaviour
                 MissionController.Instance.ClearMission();
             }
         }
-        else if (reward == "ACT2_Q_MENJAR_START")
+        else if (reward == "ACT2_Q_MENJAR_START") //EMPIEZA MISION COMIDA
         {
             GameManager.Change("Act2_Q_MENJAR_Started");
             Debug.Log("Act2 -> Quest MENJAR STARTED");
@@ -384,9 +386,10 @@ public class RewardManager : MonoBehaviour
                 );
             }
         }
-        else if (reward == "ACT2_Q_MENJAR_DONE")
+        else if (reward == "ACT2_Q_MENJAR_DONE")//TERMINA MISION COMIDA
         {
-            GameManager.Change("Act2_Q_MENJAR_Done");
+            GameManager.Change("Act2_Q_MENJAR_Done"); 
+            GameManager.Change("Act2_Q_MENJAR_Started"); 
             Debug.Log("Act2 -> Quest MENJAR COMPLETED");
 
             if (mc != null)

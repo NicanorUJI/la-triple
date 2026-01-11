@@ -233,6 +233,9 @@ public class Button_Controller_Morra : MonoBehaviour
 
     private void setWinnerOfRound()
     {
+        Button btnConfirmar = boton_Confirmar.GetComponent<Button>();
+        btnConfirmar.interactable = true;
+
         //Eleccion ganador
         int jugadorHaGanado = morraController.jugadorGanador(value_NPC_Sacar + value_Sacar, value_Cantar, value_NPC_Cantar);
         winner_Object.SetActive(true);
@@ -262,6 +265,8 @@ public class Button_Controller_Morra : MonoBehaviour
         if (puntos_jugador >= 3 || puntos_NPC >= 3)
         {
             haGanado = puntos_jugador > puntos_NPC;
+            btnConfirmar.interactable = false;
+
             StartCoroutine(MostrarPanelFinConDelay(2.5f));
         }
         else
@@ -300,6 +305,8 @@ public class Button_Controller_Morra : MonoBehaviour
 
     private IEnumerator fase_finalDeRonda()
     {
+        Button btnConfirmar = boton_Confirmar.GetComponent<Button>();
+        btnConfirmar.interactable = false;
 
         countdownObject.SetActive(true);
 
