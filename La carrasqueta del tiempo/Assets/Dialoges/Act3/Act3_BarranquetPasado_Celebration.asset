@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Act3_BarranquetPasado_Celebration
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: 7392340578830681171, guid: 57e215e368a1a7567b67d089bf9e2779, type: 3}
   joaquinDefault: {fileID: 0}
   lines:
   - speakerName: "Joaqu\xEDn"
     lineText: "Ac\xED estic!"
-    expression: {fileID: 6622962485173151977, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
+    expression: {fileID: 21300000, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -123,7 +123,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Tornar\xE9 per on he vingut."
-    expression: {fileID: 1236392363465906612, guid: 3262f44a6fd4064a7b582db6be41871c, type: 3}
+    expression: {fileID: 21300000, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Ra\xFAl"
     lineText: "Quin xic m\xE9s raret."
-    expression: {fileID: -8926846126903474245, guid: 81c29258031bb7894a4321dc2d219bed, type: 3}
+    expression: {fileID: -7518618742345834175, guid: 66d5cd92992c58b6c8f9ad4cd9b43c98, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}

@@ -306,7 +306,7 @@ public class NPC : MonoBehaviour, IInteractable
         {
             dialogueText.text += letter;
             talkingAudioSource.PlayOneShot(npcTalk_Clip);
-            yield return new WaitForSeconds(.05f);
+            yield return new WaitForSeconds(.04f);
         }
 
         isTyping = false;

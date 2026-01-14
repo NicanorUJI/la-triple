@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
+  joaquinDefault: {fileID: 0}
   lines:
   - speakerName: Joaquin
     lineText: (!)
-    expression: {fileID: 1169979772233390810, guid: 542af1611a2dba5ea81aed2f7a0e3bfb, type: 3}
+    expression: {fileID: 21300000, guid: e9075545f6e90dfeea0a508e193d398c, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -30,7 +31,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Joaquin
     lineText: "Oh no\u2026 l\u2019\xF3s m\u2019ha seguit! Tinc que c\xF3rrer al poble!"
-    expression: {fileID: 1169979772233390810, guid: 542af1611a2dba5ea81aed2f7a0e3bfb, type: 3}
+    expression: {fileID: 21300000, guid: 542af1611a2dba5ea81aed2f7a0e3bfb, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
