@@ -16,7 +16,7 @@ public class MapToggle : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private Behaviour playerMovementScript;
-    private bool isOpen = false;
+    public bool isOpen = false;
 
     void Awake()
     {
@@ -97,13 +97,16 @@ public class MapToggle : MonoBehaviour
         isOpen = !isOpen;
         mapPanel.SetActive(isOpen);
         if (playerMovementScript) playerMovementScript.enabled = !isOpen;
+
     }
 
     public void Close()
     {
+
         if (!mapPanel || !isOpen) return;
         isOpen = false;
         mapPanel.SetActive(false);
         if (playerMovementScript) playerMovementScript.enabled = true;
+
     }
 }
