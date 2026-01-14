@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Act2_Esquelles_School_PiAfter
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  defaultSprite: {fileID: 129569322397778913, guid: 113cfc7e9c70688b59a8001218ba9c0a, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 704c08af6c7afe52fb02d7b58df5574a, type: 3}
   lines:
   - speakerName: Jan
     lineText: "No \xE9s just! Segur que has fet trampa!"

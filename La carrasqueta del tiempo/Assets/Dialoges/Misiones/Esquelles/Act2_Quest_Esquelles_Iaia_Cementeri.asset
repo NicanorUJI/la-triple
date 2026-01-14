@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Act2_Quest_Esquelles_Iaia_Cementeri
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  defaultSprite: {fileID: 2285674269585787274, guid: 0a55853af5bd6d731beff2c3677894c7, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
   lines:
   - speakerName: Maria Pilar
     lineText: Hola xiquet.
