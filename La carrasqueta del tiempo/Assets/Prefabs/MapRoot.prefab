@@ -602,7 +602,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapUIController
   mapToggle: {fileID: 0}
-  transicion: {fileID: 0}
 --- !u!1 &2908160412171224221
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,6 +662,7 @@ MonoBehaviour:
   - "esparde\xF1esPasado"
   - PozuelasPasado
   playerMovementScript: {fileID: 0}
+  isOpen: 0
 --- !u!1 &3102532929576781979
 GameObject:
   m_ObjectHideFlags: 0

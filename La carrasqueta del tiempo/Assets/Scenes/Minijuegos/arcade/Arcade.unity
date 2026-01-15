@@ -651,6 +651,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giro (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.y
+      value: 0.09048593
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.8813093
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1301,6 +1309,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giro (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.y
+      value: 0.08295941
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.8645569
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1471,6 +1487,14 @@ PrefabInstance:
     - target: {fileID: 2770295741685001027, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
       propertyPath: m_Name
       value: Giro (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.11642611
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.5829921
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2694,6 +2718,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giro (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.13230395
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.550357
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2750,6 +2782,14 @@ PrefabInstance:
     - target: {fileID: 2770295741685001027, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
       propertyPath: m_Name
       value: Giro (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.10877633
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.4620949
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4147,6 +4187,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giro (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.13174152
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.5117869
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4374,6 +4422,14 @@ PrefabInstance:
     - target: {fileID: 2770295741685001027, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
       propertyPath: m_Name
       value: Giro (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.y
+      value: 0.11499441
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.8684814
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4659,6 +4715,14 @@ PrefabInstance:
     - target: {fileID: 2770295741685001027, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
       propertyPath: m_Name
       value: Giro (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.12701178
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.5106618
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5419,6 +5483,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giro (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.09345269
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.5309314
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5971,6 +6043,14 @@ PrefabInstance:
     - target: {fileID: 2770295741685001027, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
       propertyPath: m_Name
       value: Giro (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.08996248
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.5080154
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6849,6 +6929,14 @@ PrefabInstance:
     - target: {fileID: 2770295741685001027, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
       propertyPath: m_Name
       value: Giro (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.y
+      value: 0.104359865
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.887132
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7947,6 +8035,22 @@ PrefabInstance:
     - target: {fileID: 2770295741685001027, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
       propertyPath: m_Name
       value: Giro (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.10106838
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.y
+      value: 0.09499431
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.5347393
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.7975265
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11227,6 +11331,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giro (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.10661173
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.y
+      value: 0.09499431
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.5031619
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.8581096
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12839,6 +12959,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giro (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.y
+      value: 0.10851908
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.8452437
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14359,6 +14487,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giro (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.y
+      value: 0.10965049
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.8714573
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15211,6 +15347,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giro (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.12666464
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.y
+      value: 0.10011363
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.4861052
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.7796088
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15512,6 +15664,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Giro (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.14347553
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.y
+      value: 0.07696152
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.4883194
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.8474977
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15739,6 +15907,22 @@ PrefabInstance:
     - target: {fileID: 2770295741685001027, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
       propertyPath: m_Name
       value: Giro (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.x
+      value: 0.14714241
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Size.y
+      value: 0.12571049
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.5577762
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844632194227136192, guid: ebc4d834747ac8247a87732e9adf4e37, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.7872877
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
