@@ -13,7 +13,7 @@ public class PacoManMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D col;
 
-    private float turnOverlapMargin = 0.01f;
+    private float turnOverlapMargin = 0.00f;
     private Vector3 startPosition;
 
     public bool isImmortal = false;

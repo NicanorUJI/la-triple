@@ -1042,6 +1042,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &479542589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5414278069297712048, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+  m_PrefabInstance: {fileID: 3073723351891419985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &485196040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,6 +1426,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57b0598274ddfd4e8840aa4c0adb645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  opciones: []
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  nameText: {fileID: 0}
+  talkingAudioSource: {fileID: 0}
+  npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 0}
+  portraitImage: {fileID: 0}
+  joaquinPortrait_Object: {fileID: 0}
+  joaquinPortrait: {fileID: 0}
+  button_choice1: {fileID: 0}
+  button_choice2: {fileID: 0}
+  button_choice3: {fileID: 0}
+  button_choice4: {fileID: 0}
+  skipDialogueWhenFlagSet: 0
+  skipDialogueFlag: 
+  skipDialogueScene: 
 --- !u!114 &604354209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2495,6 +2517,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57b0598274ddfd4e8840aa4c0adb645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  opciones: []
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  nameText: {fileID: 0}
+  talkingAudioSource: {fileID: 0}
+  npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 0}
+  portraitImage: {fileID: 0}
+  joaquinPortrait_Object: {fileID: 0}
+  joaquinPortrait: {fileID: 0}
+  button_choice1: {fileID: 0}
+  button_choice2: {fileID: 0}
+  button_choice3: {fileID: 0}
+  button_choice4: {fileID: 0}
+  skipDialogueWhenFlagSet: 0
+  skipDialogueFlag: 
+  skipDialogueScene: 
 --- !u!114 &1301941509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3020,6 +3059,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57b0598274ddfd4e8840aa4c0adb645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  opciones: []
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  nameText: {fileID: 0}
+  talkingAudioSource: {fileID: 0}
+  npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 0}
+  portraitImage: {fileID: 0}
+  joaquinPortrait_Object: {fileID: 0}
+  joaquinPortrait: {fileID: 0}
+  button_choice1: {fileID: 0}
+  button_choice2: {fileID: 0}
+  button_choice3: {fileID: 0}
+  button_choice4: {fileID: 0}
+  skipDialogueWhenFlagSet: 0
+  skipDialogueFlag: 
+  skipDialogueScene: 
 --- !u!114 &1409011135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3251,6 +3307,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.16334748, y: 1.12}
   m_EdgeRadius: 0
+--- !u!1 &1455410458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4381938344004605606, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+  m_PrefabInstance: {fileID: 3073723351891419985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1503541743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3580,6 +3641,7 @@ GameObject:
   - component: {fileID: 1830003504}
   - component: {fileID: 1830003506}
   - component: {fileID: 1830003507}
+  - component: {fileID: 1830003508}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -3648,12 +3710,27 @@ MonoBehaviour:
   campanasUI: {fileID: 3073723351891419988}
   mielUI: {fileID: 3073723351891419986}
   pulseraUI: {fileID: 1387255295}
-  botonPausa: {fileID: 0}
+  botonPausa: {fileID: 1455410458}
   flecha: {fileID: 0}
   nombreFlecha: 
   nombreOsoSceneObject: 
   osoSceneObject: {fileID: 0}
   nombresObjetosADesactivar: []
+--- !u!114 &1830003508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830003501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddabab7a8c9ef9fe8ea0df76675cd73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapUIController
+  mapToggle: {fileID: 0}
+  objetoAOcultar: {fileID: 479542589}
+  objetoAActivar: {fileID: 1455410458}
 --- !u!1 &1846082293
 GameObject:
   m_ObjectHideFlags: 0
@@ -4440,6 +4517,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57b0598274ddfd4e8840aa4c0adb645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
+  opciones: []
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  nameText: {fileID: 0}
+  talkingAudioSource: {fileID: 0}
+  npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 0}
+  portraitImage: {fileID: 0}
+  joaquinPortrait_Object: {fileID: 0}
+  joaquinPortrait: {fileID: 0}
+  button_choice1: {fileID: 0}
+  button_choice2: {fileID: 0}
+  button_choice3: {fileID: 0}
+  button_choice4: {fileID: 0}
+  skipDialogueWhenFlagSet: 0
+  skipDialogueFlag: 
+  skipDialogueScene: 
 --- !u!1 &2143511665
 GameObject:
   m_ObjectHideFlags: 0
@@ -4803,7 +4897,7 @@ PrefabInstance:
       objectReference: {fileID: 1639757707}
     - target: {fileID: 6110796986618971845, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OcultarScroll
+      value: ToggleScroll
       objectReference: {fileID: 0}
     - target: {fileID: 6172158786576962080, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: m_AnchorMax.y
