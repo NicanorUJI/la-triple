@@ -629,7 +629,8 @@ MonoBehaviour:
   dialogueText: {fileID: 1783918266}
   nameText: {fileID: 1984794449}
   talkingAudioSource: {fileID: 0}
-  npcTalk_Clip: {fileID: 8300000, guid: b736507a03b1271418263b3801efee05, type: 3}
+  npcTalk_Clip: {fileID: 8300000, guid: fcc25fc8eadd47243853d67873169ded, type: 3}
+  joaquinTalk_Clip: {fileID: 8300000, guid: 0dcd1c7eb069ca343994719791964c88, type: 3}
   portraitImage: {fileID: 279327302}
   joaquinPortrait_Object: {fileID: 729174482}
   joaquinPortrait: {fileID: 709050307}
@@ -1426,6 +1427,7 @@ MonoBehaviour:
   nameText: {fileID: 0}
   talkingAudioSource: {fileID: 0}
   npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 0}
   portraitImage: {fileID: 0}
   joaquinPortrait_Object: {fileID: 0}
   joaquinPortrait: {fileID: 0}
@@ -2516,6 +2518,7 @@ MonoBehaviour:
   nameText: {fileID: 0}
   talkingAudioSource: {fileID: 0}
   npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 0}
   portraitImage: {fileID: 0}
   joaquinPortrait_Object: {fileID: 0}
   joaquinPortrait: {fileID: 0}
@@ -3057,6 +3060,7 @@ MonoBehaviour:
   nameText: {fileID: 0}
   talkingAudioSource: {fileID: 0}
   npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 0}
   portraitImage: {fileID: 0}
   joaquinPortrait_Object: {fileID: 0}
   joaquinPortrait: {fileID: 0}
@@ -3733,7 +3737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c628f789dca553947b23130e5bbacb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::tp2
-  indiceEscena: 1
+  indiceEscena: 2
   transicion: {fileID: 6686111618337468342}
   tagJugador: Player
   retardo: 0
@@ -4493,6 +4497,7 @@ MonoBehaviour:
   nameText: {fileID: 0}
   talkingAudioSource: {fileID: 0}
   npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 0}
   portraitImage: {fileID: 0}
   joaquinPortrait_Object: {fileID: 0}
   joaquinPortrait: {fileID: 0}

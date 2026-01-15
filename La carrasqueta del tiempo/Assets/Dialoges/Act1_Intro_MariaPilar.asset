@@ -56,9 +56,8 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maria Pilar
-    lineText: "Podries vindre a visitar m\xE9s vegades a visitar-me, que jo ac\xED
-      em trobe molt sola i trobe a faltar al meu net preferit. Vine i dona\u2019m
-      un beset."
+    lineText: "Podries vindre m\xE9s vegades a visitar-me, que jo ac\xED em trobe
+      molt sola i trobe a faltar al meu net preferit. Vine i dona\u2019m un beset."
     expression: {fileID: 7005228422062525146, guid: 5e26fc60400b0e384bbede9f5b9696da, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0

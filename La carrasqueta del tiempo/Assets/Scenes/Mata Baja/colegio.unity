@@ -3697,6 +3697,9 @@ MonoBehaviour:
   dialoguePanel: {fileID: 850651901}
   dialogueText: {fileID: 850651900}
   nameText: {fileID: 850651899}
+  talkingAudioSource: {fileID: 0}
+  npcTalk_Clip: {fileID: 8300000, guid: 82104e772704bfe4f9da4ec29fe512a4, type: 3}
+  joaquinTalk_Clip: {fileID: 8300000, guid: 0dcd1c7eb069ca343994719791964c88, type: 3}
   portraitImage: {fileID: 850651898}
   joaquinPortrait_Object: {fileID: 2033727122}
   joaquinPortrait: {fileID: 2033727123}
