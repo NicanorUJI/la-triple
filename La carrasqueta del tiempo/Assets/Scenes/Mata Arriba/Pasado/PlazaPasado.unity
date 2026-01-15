@@ -2882,6 +2882,7 @@ MonoBehaviour:
   movementComponentName: ArrowMovement
   allowedScenes: []
   playerMovementScript: {fileID: 1182651488}
+  isOpen: 0
 --- !u!4 &1867383141
 Transform:
   m_ObjectHideFlags: 0
@@ -2949,6 +2950,9 @@ MonoBehaviour:
   dialoguePanel: {fileID: 964070745}
   dialogueText: {fileID: 1323645257}
   nameText: {fileID: 964070743}
+  talkingAudioSource: {fileID: 0}
+  npcTalk_Clip: {fileID: 8300000, guid: ae0c9fdd756388e499a4c302b264df63, type: 3}
+  joaquinTalk_Clip: {fileID: 8300000, guid: 0dcd1c7eb069ca343994719791964c88, type: 3}
   portraitImage: {fileID: 964070744}
   joaquinPortrait_Object: {fileID: 1323645260}
   joaquinPortrait: {fileID: 1651946867}

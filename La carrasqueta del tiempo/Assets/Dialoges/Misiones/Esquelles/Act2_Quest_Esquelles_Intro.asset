@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Act2_Quest_Esquelles_Intro
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
   joaquinDefault: {fileID: 0}
   lines:
   - speakerName: "Joaqu\xEDn"
     lineText: "Perqu\xE8 l\u2019Onso fa\xE7a soroll i que el poble s\xE0piga on est\xE0.
       Per\xF2 d'on podem traure unes esquelles?"
-    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+    expression: {fileID: 21300000, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: Com es diu?
-    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+    expression: {fileID: 21300000, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -85,7 +85,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "D\u2019acord, me\u2019n vaig a les calderetes a veure si est\xE0."
-    expression: {fileID: 6622962485173151977, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
+    expression: {fileID: 21300000, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

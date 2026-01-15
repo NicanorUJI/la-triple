@@ -18,7 +18,7 @@ MonoBehaviour:
   lines:
   - speakerName: "Joaqu\xEDn"
     lineText: "Jolines, est\xE0 tancat."
-    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+    expression: {fileID: 21300000, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -32,7 +32,7 @@ MonoBehaviour:
   - speakerName: "Joaqu\xEDn"
     lineText: "\u201CSi es necessita alguna cosa, estic al forn.\u201D"
     expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
-    isPlayerSpeaking: 1
+    isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}

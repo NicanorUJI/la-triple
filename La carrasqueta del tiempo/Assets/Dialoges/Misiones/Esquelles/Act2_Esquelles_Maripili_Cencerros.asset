@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  joaquinDefault: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
   lines:
   - speakerName: Maripili
     lineText: "Ah! Joaqu\xEDn. Has tornat? Hola, Ra\xFAl."
@@ -139,7 +139,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Em deus les esquellesos que hav\xEDem acordat."
-    expression: {fileID: 6816344690905786448, guid: a2e5e7b38ac7db4d693b36d349cce8f8, type: 3}
+    expression: {fileID: 21300000, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

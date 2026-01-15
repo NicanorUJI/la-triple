@@ -3430,7 +3430,8 @@ MonoBehaviour:
   dialogueText: {fileID: 86358702}
   nameText: {fileID: 1277131353}
   talkingAudioSource: {fileID: 0}
-  npcTalk_Clip: {fileID: 0}
+  npcTalk_Clip: {fileID: 8300000, guid: fcc25fc8eadd47243853d67873169ded, type: 3}
+  joaquinTalk_Clip: {fileID: 8300000, guid: 0dcd1c7eb069ca343994719791964c88, type: 3}
   portraitImage: {fileID: 1857664634}
   joaquinPortrait_Object: {fileID: 1830275277}
   joaquinPortrait: {fileID: 1830275278}

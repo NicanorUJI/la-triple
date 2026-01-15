@@ -18,7 +18,7 @@ MonoBehaviour:
   lines:
   - speakerName: "Joaqu\xEDn"
     lineText: "No pot ser, est\xE0 tancat!"
-    expression: {fileID: -5703435808359689965, guid: 60b817b8f671b42c2ac4e3c85d07b923, type: 3}
+    expression: {fileID: 21300000, guid: 60b817b8f671b42c2ac4e3c85d07b923, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -31,7 +31,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "I ara que faig? Estar\xE0 oberta en altre moment...?\t"
-    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+    expression: {fileID: 21300000, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

@@ -18,7 +18,7 @@ MonoBehaviour:
   lines:
   - speakerName: "Joaqu\xEDn"
     lineText: Bon dia.
-    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
+    expression: {fileID: 21300000, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Necessite mel, no et quedar\xE0 per casualitat un pot?"
-    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+    expression: {fileID: 21300000, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Tinc 2 euros\u2026\r\n"
-    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+    expression: {fileID: 21300000, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Res, anir\xE9 al bar a preguntar. Moltes gr\xE0cies igualment!"
-    expression: {fileID: 1236392363465906612, guid: 3262f44a6fd4064a7b582db6be41871c, type: 3}
+    expression: {fileID: 21300000, guid: 3262f44a6fd4064a7b582db6be41871c, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

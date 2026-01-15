@@ -629,7 +629,8 @@ MonoBehaviour:
   dialogueText: {fileID: 1783918266}
   nameText: {fileID: 1984794449}
   talkingAudioSource: {fileID: 0}
-  npcTalk_Clip: {fileID: 8300000, guid: ae26893283712f646a3a026533267361, type: 3}
+  npcTalk_Clip: {fileID: 8300000, guid: fcc25fc8eadd47243853d67873169ded, type: 3}
+  joaquinTalk_Clip: {fileID: 8300000, guid: 0dcd1c7eb069ca343994719791964c88, type: 3}
   portraitImage: {fileID: 279327302}
   joaquinPortrait_Object: {fileID: 729174482}
   joaquinPortrait: {fileID: 709050307}
@@ -3647,6 +3648,12 @@ MonoBehaviour:
   campanasUI: {fileID: 3073723351891419988}
   mielUI: {fileID: 3073723351891419986}
   pulseraUI: {fileID: 1387255295}
+  botonPausa: {fileID: 0}
+  flecha: {fileID: 0}
+  nombreFlecha: 
+  nombreOsoSceneObject: 
+  osoSceneObject: {fileID: 0}
+  nombresObjetosADesactivar: []
 --- !u!1 &1846082293
 GameObject:
   m_ObjectHideFlags: 0
@@ -3679,7 +3686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c628f789dca553947b23130e5bbacb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::tp2
-  indiceEscena: 1
+  indiceEscena: 2
   transicion: {fileID: 6686111618337468342}
   tagJugador: Player
   retardo: 0
@@ -4833,6 +4840,10 @@ PrefabInstance:
     - target: {fileID: 6733285206293761666, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1639757707}
+    - target: {fileID: 6733285206293761666, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CerrarSubMenuVolumen
       objectReference: {fileID: 0}
     - target: {fileID: 7509676806430077729, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: m_AnchorMax.y
