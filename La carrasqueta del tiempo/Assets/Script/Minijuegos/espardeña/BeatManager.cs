@@ -52,6 +52,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     private string tag1 = "nota1";
     private string tag2 = "nota2";
     private string tag3 = "nota3";
+    private RewardManager rewardManager;
 
     void Start()
     {
@@ -242,6 +243,11 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
     public void OnSalirButtonPressed()
     {
+        if (rewardManager == null)
+            rewardManager = FindObjectOfType<RewardManager>();
+
+        rewardManager.giveReward("Act2_Q_ESP_AfterMinigame");
+
         // --- MODIFICACIÓN INICIO ---
         // Al salir, reactivamos la música ambiental del juego principal
         if (AudioManager.instance != null)

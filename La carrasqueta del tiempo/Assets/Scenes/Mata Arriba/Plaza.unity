@@ -4989,7 +4989,7 @@ PrefabInstance:
       objectReference: {fileID: 1637926335}
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: escenasSinMenu.Array.size
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: 'escenasSinMenu.Array.data[0]'
@@ -5001,34 +5001,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: 'escenasSinMenu.Array.data[2]'
-      value: Minijuego_Espard
+      value: Minijuego_solterona
       objectReference: {fileID: 0}
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: 'escenasSinMenu.Array.data[3]'
-      value: Minijuego_Morra
+      value: Minijuego_Espard
       objectReference: {fileID: 0}
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: 'escenasSinMenu.Array.data[4]'
-      value: DominoMinigame
+      value: Minijuego_Morra
       objectReference: {fileID: 0}
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: 'escenasSinMenu.Array.data[5]'
-      value: PiRecuentoMinijuego
+      value: DominoMinigame
       objectReference: {fileID: 0}
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: 'escenasSinMenu.Array.data[6]'
-      value: Arcade
+      value: PiRecuentoMinijuego
       objectReference: {fileID: 0}
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: 'escenasSinMenu.Array.data[7]'
-      value: Game-Over
+      value: Arcade
       objectReference: {fileID: 0}
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: 'escenasSinMenu.Array.data[8]'
-      value: inicio
+      value: Game-Over
       objectReference: {fileID: 0}
     - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
       propertyPath: 'escenasSinMenu.Array.data[9]'
+      value: inicio
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+      propertyPath: 'escenasSinMenu.Array.data[10]'
       value: Win
       objectReference: {fileID: 0}
     - target: {fileID: 8904686934061667555, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
