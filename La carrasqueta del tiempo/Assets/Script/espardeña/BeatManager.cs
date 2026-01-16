@@ -12,8 +12,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     private WaitForSeconds wait1s, waitHalf, waitEndDelay;
     private float nextBeatTime = 0f;
     
-    // MODIFICADO: Eliminamos minX y maxX, dejamos spawnY
-    private float spawnY = 0f; // Asegúrate de ajustar esto en el inspector o inicializarlo donde prefieras
+    private float spawnY = 0f; 
 
     [Header("Configuración Rítmica")]
     public float beatInterval = 0.5f;
@@ -21,20 +20,13 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     [Header("Configuración Velocidad")]
     public float velocidadCaida = 5f; 
 
-    // --- NUEVO: CONFIGURACIÓN DE CARRILES ---
     [Header("Configuración de Carriles (Posición X)")]
-    [Tooltip("Posición X para el prefab que tenga el Tag 'nota1' (Tecla A)")]
     public float xPosNota1 = -2f; 
-
-    [Tooltip("Posición X para el prefab que tenga el Tag 'nota2' (Tecla S)")]
     public float xPosNota2 = 0f;
-
-    [Tooltip("Posición X para el prefab que tenga el Tag 'nota3' (Tecla D)")]
     public float xPosNota3 = 2f;
-    // ----------------------------------------
 
     [Header("Audio")]
-    public AudioSource musicSource;
+    public AudioSource musicSource; // Música del minijuego
 
     [Header("Prefabs y Referencias")]
     public GameObject[] notasPrefabs; 
@@ -57,14 +49,20 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     [System.Serializable]
     public class BeatInfo { public float time, energy; }
 
-    // Definimos los tags
     private string tag1 = "nota1";
     private string tag2 = "nota2";
     private string tag3 = "nota3";
 
     void Start()
     {
-        // Inicializamos spawnY fuera de la pantalla (puedes ajustar este valor)
+        // --- MODIFICACIÓN INICIO ---
+        // Al entrar al minijuego, pausamos la música de fondo de la Plaza/Mundo
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PausarMusica();
+        }
+        // --- MODIFICACIÓN FIN ---
+
         wait1s = new WaitForSeconds(1f);
         waitHalf = new WaitForSeconds(0.5f);
         waitEndDelay = new WaitForSeconds(3f);
@@ -75,6 +73,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         if (endScreen != null) endScreen.SetActive(false);
     }
 
+    // (El resto de métodos OnStartButtonPressed, OnReturnButtonPressed, etc. siguen igual...)
     public void OnStartButtonPressed()
     {
         if (startScreen != null) startScreen.SetActive(false);
@@ -129,7 +128,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     {
         if (!gameStarted) return;
 
-        // --- PARTE 1: GENERACIÓN DE NOTAS ---
         if (musicSource != null && musicSource.isPlaying)
         {
             if (musicSource.time >= nextBeatTime)
@@ -139,7 +137,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
             }
         }
 
-        // --- PARTE 2: INPUT DEL JUGADOR ---
         VerificarInput(KeyCode.A, tag1);
         VerificarInput(KeyCode.S, tag2);
         VerificarInput(KeyCode.D, tag3);
@@ -157,8 +154,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
             foreach (GameObject noteObj in notes)
             {
                 Note noteScript = noteObj.GetComponent<Note>();
-                // Verificamos si la nota está dentro de la zona de hit (CanBePressed)
-                // Opcional: También podrías verificar la distancia en X si quisieras ser muy estricto
                 if (noteScript != null && noteScript.CanBePressed())
                 {
                     if (noteObj.transform.position.y < minY)
@@ -202,40 +197,22 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
             RhythmGameManager.instance.MostrarPantallaFinal();
     }
 
-    // --- FUNCIÓN MODIFICADA: SPAWN EN CARRILES ---
     void SpawnBeatVisual(float beatEnergy)
     {
         if (notasPrefabs == null || notasPrefabs.Length == 0) return;
 
-        // 1. Elegimos un prefab al azar (cada prefab debe tener su Tag asignado en el Inspector del proyecto)
         int randomIndex = Random.Range(0, notasPrefabs.Length);
         GameObject prefabSeleccionado = notasPrefabs[randomIndex];
 
-        // 2. Determinamos la posición X basándonos en el Tag del prefab elegido
         float targetX = 0f;
 
-        if (prefabSeleccionado.CompareTag(tag1))
-        {
-            targetX = xPosNota1;
-        }
-        else if (prefabSeleccionado.CompareTag(tag2))
-        {
-            targetX = xPosNota2;
-        }
-        else if (prefabSeleccionado.CompareTag(tag3))
-        {
-            targetX = xPosNota3;
-        }
-        else
-        {
-            // Fallback por si el prefab no tiene tag correcto
-            Debug.LogWarning("El prefab seleccionado no tiene un tag reconocido (nota1, nota2, nota3). Se usará X=0");
-            targetX = 0f;
-        }
+        if (prefabSeleccionado.CompareTag(tag1)) targetX = xPosNota1;
+        else if (prefabSeleccionado.CompareTag(tag2)) targetX = xPosNota2;
+        else if (prefabSeleccionado.CompareTag(tag3)) targetX = xPosNota3;
+        else targetX = 0f;
 
         Vector3 pos = new Vector3(targetX, spawnY, 0);
         
-        // 3. Instanciamos la nota en la posición calculada
         GameObject note = Instantiate(prefabSeleccionado, pos, Quaternion.identity);
 
         Note noteScript = note.GetComponent<Note>();
@@ -246,7 +223,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     void RegisterBeat(float time, float energy)
     {
         if (topBeats.Count > 50) topBeats.RemoveAt(0);
-        
         topBeats.Add(new BeatInfo { time = time, energy = energy });
         SpawnBeatVisual(energy);
 
@@ -266,6 +242,14 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
     public void OnSalirButtonPressed()
     {
+        // --- MODIFICACIÓN INICIO ---
+        // Al salir, reactivamos la música ambiental del juego principal
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.ReanudarMusica();
+        }
+        // --- MODIFICACIÓN FIN ---
+
         if (!string.IsNullOrEmpty(escenaSalir))
             SceneManager.LoadScene(escenaSalir);
     }
