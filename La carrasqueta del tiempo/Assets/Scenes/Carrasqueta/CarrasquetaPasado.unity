@@ -2732,7 +2732,8 @@ MonoBehaviour:
   npc: {fileID: 1237405538}
   oneShot: 1
   requiredFlags: []
-  forbiddenFlags: []
+  forbiddenFlags:
+  - aparicionOso_Vista
 --- !u!61 &1666161617
 BoxCollider2D:
   m_ObjectHideFlags: 0

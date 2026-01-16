@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CambioDeEscenaPorIndice
   indiceEscena: 2
-  transicion: {fileID: 0}
+  transicion: {fileID: 125002638}
   tagJugador: Player
   retardo: 0
   nombrePuntoEntrada: "esparde\xF1es3"

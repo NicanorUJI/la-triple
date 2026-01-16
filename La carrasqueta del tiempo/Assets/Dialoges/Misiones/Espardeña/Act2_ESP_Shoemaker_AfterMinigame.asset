@@ -71,4 +71,4 @@ MonoBehaviour:
     minigame: 
   conditions:
   - Act2_Q_ESP_Started
-  - Act2_Q_ESP_HasEspart
+  - Act2_Q_ESP_AfterMinigame
