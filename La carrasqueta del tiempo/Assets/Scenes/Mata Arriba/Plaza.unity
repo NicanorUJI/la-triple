@@ -2442,7 +2442,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   anim: {fileID: 0}
   requiredFlags: []
-  forbiddenFlags: []
+  forbiddenFlags:
+  - Act1_FirstTravelPast
 --- !u!1 &1301941506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3647,6 +3648,12 @@ MonoBehaviour:
   campanasUI: {fileID: 3073723351891419988}
   mielUI: {fileID: 3073723351891419986}
   pulseraUI: {fileID: 1387255295}
+  botonPausa: {fileID: 0}
+  flecha: {fileID: 0}
+  nombreFlecha: 
+  nombreOsoSceneObject: 
+  osoSceneObject: {fileID: 0}
+  nombresObjetosADesactivar: []
 --- !u!1 &1846082293
 GameObject:
   m_ObjectHideFlags: 0
