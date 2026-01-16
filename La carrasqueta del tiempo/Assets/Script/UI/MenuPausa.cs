@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 
 public class MenuPausa : MonoBehaviour
@@ -30,6 +31,8 @@ public class MenuPausa : MonoBehaviour
     [Header("Panel de misiones")]
     [SerializeField] private GameObject missionPanel;
 
+    private bool iniciado = false; // Para que Start solo corra una vez
+
     void Awake()
     {
         // ------------------ SINGLETON ------------------
@@ -54,6 +57,9 @@ public class MenuPausa : MonoBehaviour
 
     void Start()
     {
+        if (iniciado) return;
+        iniciado = true;
+
         menuPausa?.SetActive(false);
         subMenuSonido?.SetActive(false);
         scrollView?.SetActive(false);
@@ -71,32 +77,22 @@ public class MenuPausa : MonoBehaviour
     // ================= ESCENA =================
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        bool ocultarMenu = false;
-
-        // Comprobamos si la escena actual está en la lista de escenas sin menú
-        foreach (string escena in escenasSinMenu)
-        {
-            if (scene.name == escena)
-            {
-                ocultarMenu = true;
-                break;
-            }
-        }
-
-        if (ocultarMenu)
-        {
-            menuPausa?.SetActive(false);
-            subMenuSonido?.SetActive(false);
-            botonPausa?.SetActive(false);
-            scrollView?.SetActive(false);
-            missionPanel?.SetActive(false); // 🔹 Ocultar panel de misiones
-        }
-        else
-        {
-            botonPausa?.SetActive(true);
-            missionPanel?.SetActive(true); // 🔹 Mostrar panel de misiones en escenas normales
-        }
+        StartCoroutine(AjustarUI(scene));
     }
+
+    private IEnumerator AjustarUI(Scene scene)
+    {
+        yield return null; // esperar un frame para que otros scripts terminen de activar/desactivar
+        bool ocultarMenu = escenasSinMenu.Exists(s => s.Trim().ToLower() == scene.name.Trim().ToLower());
+        Debug.Log($"Escena cargada: {scene.name} | Ocultar menú: {ocultarMenu}");
+
+
+        subMenuSonido?.SetActive(false);
+        botonPausa?.SetActive(!ocultarMenu);
+        scrollView?.SetActive(false);
+        missionPanel?.SetActive(!ocultarMenu);
+    }
+
 
     // ================= SCROLL =================
     public void ToggleScroll()
