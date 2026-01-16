@@ -140,7 +140,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.377
+      value: -1.338
       objectReference: {fileID: 0}
     - target: {fileID: 2223654013092656167, guid: b7372fc1d3c186149aaa5bfe7d4071c2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 200109388}
   - component: {fileID: 200109387}
   - component: {fileID: 200109392}
+  - component: {fileID: 200109394}
   m_Layer: 0
   m_Name: Static Sprite
   m_TagString: Portal
@@ -534,12 +535,42 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200109386}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d358be2118871446a65c74e9f11d75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Viaje
   sceneToLoad: Carrasqueta
+--- !u!114 &200109394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200109386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17beb631499f6c57f882efb2e80f92f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPC
+  opciones:
+  - {fileID: 11400000, guid: fbc95d15771ad41b7a1041c953880ab8, type: 2}
+  dialoguePanel: {fileID: 732571819}
+  dialogueText: {fileID: 53709181}
+  nameText: {fileID: 1714803486}
+  talkingAudioSource: {fileID: 0}
+  npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 0}
+  portraitImage: {fileID: 0}
+  joaquinPortrait_Object: {fileID: 0}
+  joaquinPortrait: {fileID: 0}
+  button_choice1: {fileID: 1248393761}
+  button_choice2: {fileID: 1248393760}
+  button_choice3: {fileID: 1248393759}
+  button_choice4: {fileID: 0}
+  skipDialogueWhenFlagSet: 1
+  skipDialogueFlag: Act1_FirstTravelPast
+  skipDialogueScene: Carrasqueta
 --- !u!1 &336370277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,6 +2074,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+--- !u!1 &1248393759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7391697022859408448, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+  m_PrefabInstance: {fileID: 1248393758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1248393760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7603587135780808982, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+  m_PrefabInstance: {fileID: 1248393758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1248393761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5617239886787538523, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+  m_PrefabInstance: {fileID: 1248393758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1248393762 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4331022614862900712, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
