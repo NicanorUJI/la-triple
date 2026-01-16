@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Act2_Esquelles_Raul_Bracelet
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: 7392340578830681171, guid: 57e215e368a1a7567b67d089bf9e2779, type: 3}
   joaquinDefault: {fileID: 0}
   lines:
   - speakerName: "Joaqu\xEDn"
     lineText: "Ra\xFAl! He trobat una cosa que crec que li podria agradar a MariPili!"
-    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
+    expression: {fileID: 21300000, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -44,7 +44,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Mira, mira. \xC9s una polsera."
-    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    expression: {fileID: 21300000, guid: a2e5e7b38ac7db4d693b36d349cce8f8, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -83,7 +83,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Segur\xEDssim! Anem a donar-li-la."
-    expression: {fileID: 1236392363465906612, guid: 3262f44a6fd4064a7b582db6be41871c, type: 3}
+    expression: {fileID: 21300000, guid: a2e5e7b38ac7db4d693b36d349cce8f8, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -110,7 +110,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Ra\xFAl. L\u2019\xF3s."
-    expression: {fileID: 2823007718376515410, guid: cc6c3d28a2bb46daf8cb48b5c2077985, type: 3}
+    expression: {fileID: 21300000, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -124,19 +124,6 @@ MonoBehaviour:
   - speakerName: "Ra\xFAl"
     lineText: "S\xED! Clar! \xC9s veritat! Anem."
     expression: {fileID: 7392340578830681171, guid: 57e215e368a1a7567b67d089bf9e2779, type: 3}
-    isPlayerSpeaking: 0
-    isChoice: 0
-    choiceA: {fileID: 0}
-    choiceB: {fileID: 0}
-    choiceC: {fileID: 0}
-    choiceD: {fileID: 0}
-    hasReward: 0
-    reward: 
-    startsMinigame: 0
-    minigame: 
-  - speakerName: "Ra\xFAl"
-    lineText: "Mart\xED! Max! Vega! Marxem!"
-    expression: {fileID: -8107499566567467610, guid: ea00f324a739be704ba4dd7113471d48, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}

@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c628f789dca553947b23130e5bbacb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::tp2
-  indiceEscena: 2
+  indiceEscena: 3
   transicion: {fileID: 1056279506}
   tagJugador: Player
   retardo: 0
@@ -3790,6 +3790,7 @@ MonoBehaviour:
   nameText: {fileID: 243095251}
   talkingAudioSource: {fileID: 0}
   npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 8300000, guid: 0dcd1c7eb069ca343994719791964c88, type: 3}
   portraitImage: {fileID: 243095250}
   joaquinPortrait_Object: {fileID: 1523699103}
   joaquinPortrait: {fileID: 1523699104}

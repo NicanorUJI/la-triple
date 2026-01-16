@@ -776,6 +776,7 @@ MonoBehaviour:
   nameText: {fileID: 956895674}
   talkingAudioSource: {fileID: 0}
   npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 0}
   portraitImage: {fileID: 1079811743}
   joaquinPortrait_Object: {fileID: 811710301}
   joaquinPortrait: {fileID: 811710307}
@@ -1377,6 +1378,7 @@ MonoBehaviour:
   nameText: {fileID: 956895674}
   talkingAudioSource: {fileID: 0}
   npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 8300000, guid: 0dcd1c7eb069ca343994719791964c88, type: 3}
   portraitImage: {fileID: 1079811743}
   joaquinPortrait_Object: {fileID: 811710301}
   joaquinPortrait: {fileID: 811710307}
@@ -2310,6 +2312,7 @@ MonoBehaviour:
   nameText: {fileID: 956895674}
   talkingAudioSource: {fileID: 0}
   npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 8300000, guid: 0dcd1c7eb069ca343994719791964c88, type: 3}
   portraitImage: {fileID: 1079811743}
   joaquinPortrait_Object: {fileID: 811710301}
   joaquinPortrait: {fileID: 811710307}
@@ -3376,6 +3379,7 @@ MonoBehaviour:
   nameText: {fileID: 956895674}
   talkingAudioSource: {fileID: 0}
   npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 8300000, guid: 0dcd1c7eb069ca343994719791964c88, type: 3}
   portraitImage: {fileID: 1079811743}
   joaquinPortrait_Object: {fileID: 811710301}
   joaquinPortrait: {fileID: 811710307}

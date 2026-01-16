@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Act2_Morra_Win
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  defaultSprite: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 3262f44a6fd4064a7b582db6be41871c, type: 3}
   lines:
   - speakerName: Alcalde
     lineText: "Jaja. Molt b\xE9 xic! Has nascut per a a\xE7\xF2! Ac\xED tens el teu
@@ -45,7 +45,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Moltes gr\xE0cies!"
-    expression: {fileID: 6816344690905786448, guid: a2e5e7b38ac7db4d693b36d349cce8f8, type: 3}
+    expression: {fileID: 21300000, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

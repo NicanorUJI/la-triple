@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Act2_Quest_Esquelles_Iaia_Cementeri
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  defaultSprite: {fileID: 2285674269585787274, guid: 0a55853af5bd6d731beff2c3677894c7, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
   lines:
   - speakerName: Maria Pilar
     lineText: Hola xiquet.
@@ -31,7 +31,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Hola iaia. Qu\xE8 fas ac\xED?"
-    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    expression: {fileID: 21300000, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: He vingut a buscar-te. Et volia preguntar una cosa.
-    expression: {fileID: 3198480329992687461, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
+    expression: {fileID: 21300000, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -83,7 +83,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "Iaia, com \xE9s que et vas enamorar del iaio?"
-    expression: {fileID: 3198480329992687461, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
+    expression: {fileID: 21300000, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "No s\xE9. M\u2019ha vingut la curiositat\u2026"
-    expression: {fileID: 3684638748939831445, guid: 423e9c4ed331f7ba7be40b4446b71b54, type: 3}
+    expression: {fileID: 21300000, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -164,7 +164,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: Que bonic.
-    expression: {fileID: 3684638748939831445, guid: 423e9c4ed331f7ba7be40b4446b71b54, type: 3}
+    expression: {fileID: 21300000, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -191,7 +191,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "A s\xED?"
-    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+    expression: {fileID: 21300000, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

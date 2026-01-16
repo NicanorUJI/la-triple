@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Act3_BarranquetPasado_Briefing
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  defaultSprite: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
   lines:
   - speakerName: Maripili
     lineText: "Molt b\xE9. Ara, Joaquin, ves a buscar a l'\xF3s i porta\u2019l ac\xED
@@ -32,7 +32,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: Vale...
-    expression: {fileID: -5703435808359689965, guid: 60b817b8f671b42c2ac4e3c85d07b923, type: 3}
+    expression: {fileID: 21300000, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

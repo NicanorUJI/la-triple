@@ -15,6 +15,8 @@ public class NPC : MonoBehaviour, IInteractable
     [Header("Audio Clip")]
     public AudioSource talkingAudioSource;
     public AudioClip npcTalk_Clip;
+    public AudioClip joaquinTalk_Clip;
+
 
     [Header("Retratos")]
     public Image portraitImage;
@@ -302,11 +304,17 @@ public class NPC : MonoBehaviour, IInteractable
         dialogueText.SetText("");
         nameText.text = line.speakerName;
 
+        AudioClip currentSpeakerSound;
+        if (line.isPlayerSpeaking)
+            currentSpeakerSound = joaquinTalk_Clip;
+        else
+            currentSpeakerSound = npcTalk_Clip;
+
         foreach (char letter in line.lineText)
         {
             dialogueText.text += letter;
-            talkingAudioSource.PlayOneShot(npcTalk_Clip);
-            yield return new WaitForSeconds(.05f);
+            talkingAudioSource.PlayOneShot(currentSpeakerSound);
+            yield return new WaitForSeconds(.04f);
         }
 
         isTyping = false;

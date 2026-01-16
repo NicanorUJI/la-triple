@@ -18,7 +18,7 @@ MonoBehaviour:
   lines:
   - speakerName: "Joaqu\xEDn"
     lineText: '[!]'
-    expression: {fileID: -6676206179498459708, guid: b34e5b53d8d7fdfa88b6ef1da34ba083, type: 3}
+    expression: {fileID: 21300000, guid: b34e5b53d8d7fdfa88b6ef1da34ba083, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -32,7 +32,7 @@ MonoBehaviour:
   - speakerName: "Joaqu\xEDn"
     lineText: "Aix\xF2 era un \xF3s? Oh no! He de tornar de pressa per avisar a la
       iaia!"
-    expression: {fileID: -5703435808359689965, guid: 60b817b8f671b42c2ac4e3c85d07b923, type: 3}
+    expression: {fileID: 21300000, guid: 60b817b8f671b42c2ac4e3c85d07b923, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
