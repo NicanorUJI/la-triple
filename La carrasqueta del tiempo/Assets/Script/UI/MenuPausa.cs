@@ -203,31 +203,30 @@ public class MenuPausa : MonoBehaviour
 
     public void GuardarPartida()
     {
-        // Buscar al jugador
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
         {
-            Debug.LogWarning("No se encontró el jugador para guardar posición.");
+            Debug.LogWarning("No se encontró el jugador.");
             return;
         }
 
-        // Crear objeto GameData
         GameData data = new GameData();
+
+        // Posición
         data.playerX = player.transform.position.x;
         data.playerY = player.transform.position.y;
         data.playerZ = player.transform.position.z;
         data.sceneName = SceneManager.GetActiveScene().name;
 
-        // Guardar volúmenes
-        if (sliderAmbiente != null) data.volumenAmbiente = sliderAmbiente.value;
-        if (sliderEfectos != null) data.volumenEfectos = sliderEfectos.value;
+        // Volumen
+        data.volumenAmbiente = sliderAmbiente.value;
+        data.volumenEfectos = sliderEfectos.value;
 
-        // Ejemplo: guardar flags de misiones
-        // data.misionesCompletadas = GameManager.instance.MisionesFlags;
+        // 🔴 GUARDAR FLAGS (REWARDS)
+        if (RewardManager.Instance != null)
+            data.rewards = new List<string>(RewardManager.Instance.rewards);
 
-        // Guardar en disco
         SaveSystem.Save(data);
-
-        Debug.Log("Partida guardada correctamente.");
+        Debug.Log("✅ Partida guardada con rewards");
     }
 }

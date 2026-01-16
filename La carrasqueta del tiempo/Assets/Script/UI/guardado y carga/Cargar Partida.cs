@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 public class LoadManager : MonoBehaviour
 {
@@ -19,29 +20,27 @@ public class LoadManager : MonoBehaviour
 
     IEnumerator CargarEscena(GameData data)
     {
+        // 1️⃣ Cargar escena
         AsyncOperation async = SceneManager.LoadSceneAsync(data.sceneName);
         while (!async.isDone)
             yield return null;
 
-        // 1️⃣ Colocar jugador
+        // 2️⃣ Colocar jugador
         ColocarJugador(data);
 
-        // 2️⃣ Restaurar audio
-        if (data.volumenAmbiente > 0)
-            PlayerPrefs.SetFloat("SavedAmbienteVolume", data.volumenAmbiente);
+        // 3️⃣ Restaurar audio
+        PlayerPrefs.SetFloat("SavedAmbienteVolume", data.volumenAmbiente);
+        PlayerPrefs.SetFloat("SavedSFXVolume", data.volumenEfectos);
 
-        if (data.volumenEfectos > 0)
-            PlayerPrefs.SetFloat("SavedSFXVolume", data.volumenEfectos);
-
-        // 3️⃣ Esperar a que la UI exista
+        // 4️⃣ Esperar a que managers persistentes estén listos
         yield return null;
         yield return null;
 
-        // 4️⃣ Refrescar UI de recompensas (seguro)
-        if (RewardManager.Instance != null)
-        {
-            RewardManager.Instance.ReaplicarRecompensas();
-        }
+        // 5️⃣ Restaurar rewards / flags
+        RestaurarRewards(data);
+
+        // 6️⃣ Reaplicar UI y estados visuales
+        RewardManager.Instance?.ReaplicarRecompensas();
 
         Debug.Log("✅ Partida cargada completamente");
     }
@@ -51,8 +50,44 @@ public class LoadManager : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
-            player.transform.position =
-                new Vector3(data.playerX, data.playerY, data.playerZ);
+            player.transform.position = new Vector3(
+                data.playerX,
+                data.playerY,
+                data.playerZ
+            );
         }
+        else
+        {
+            Debug.LogWarning("⚠️ No se encontró el jugador al cargar.");
+        }
+    }
+
+    void RestaurarRewards(GameData data)
+    {
+        if (RewardManager.Instance == null)
+        {
+            Debug.LogWarning("⚠️ RewardManager no disponible.");
+            return;
+        }
+
+        if (data.rewards == null)
+        {
+            Debug.Log("ℹ️ No hay rewards guardadas.");
+            return;
+        }
+
+        // Limpiar estado actual
+        RewardManager.Instance.rewards.Clear();
+
+        // Restaurar rewards y flags internas
+        foreach (string reward in data.rewards)
+        {
+            RewardManager.Instance.rewards.Add(reward);
+
+            // 🔹 Restaurar flags SIN ejecutar lógica secundaria
+            GameManager.Change(reward);
+        }
+
+        Debug.Log($"🔄 Rewards restauradas: {data.rewards.Count}");
     }
 }
