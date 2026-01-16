@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
-  m_Name: act1_1aAppariciion_Oso
+  m_Name: notaYaLeida
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: 0}
-  joaquinDefault: {fileID: 0}
+  joaquinDefault: {fileID: 21300000, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
   lines:
-  - speakerName: "Joaqu\xEDn"
-    lineText: '[!]'
-    expression: {fileID: 21300000, guid: b34e5b53d8d7fdfa88b6ef1da34ba083, type: 3}
-    isPlayerSpeaking: 1
+  - speakerName: Nota
+    lineText: "\u201CSi es necessita alguna cosa, estic al forn.\u201D"
+    expression: {fileID: 0}
+    isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
@@ -29,18 +29,17 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: "Joaqu\xEDn"
-    lineText: "Aix\xF2 era un \xF3s? Oh no! He de tornar de pressa per avisar a la
-      iaia!"
-    expression: {fileID: 21300000, guid: 60b817b8f671b42c2ac4e3c85d07b923, type: 3}
-    isPlayerSpeaking: 1
+  - speakerName: Joaquin
+    lineText: 'A la '
+    expression: {fileID: 0}
+    isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
     choiceC: {fileID: 0}
     choiceD: {fileID: 0}
-    hasReward: 1
-    reward: aparicionOso_Vista
+    hasReward: 0
+    reward: 
     startsMinigame: 0
     minigame: 
   conditions: []

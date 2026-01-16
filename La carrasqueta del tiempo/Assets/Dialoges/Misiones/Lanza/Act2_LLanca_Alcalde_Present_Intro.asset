@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: -5406564271734706521, guid: ee4b25bbe12e56de0b3062bf88ba071a, type: 3}
-  joaquinDefault: {fileID: 3289418361607064246, guid: 25b6aa80d54229e4ba73157fb8bdb21a, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
   lines:
   - speakerName: Alcalde
     lineText: "Ie, jefe, posa\u2019m una altra que aquesta tenia un forat!"
@@ -31,7 +31,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: '[!]'
-    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+    expression: {fileID: 21300000, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -44,7 +44,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: Bon dia.
-    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+    expression: {fileID: 21300000, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
