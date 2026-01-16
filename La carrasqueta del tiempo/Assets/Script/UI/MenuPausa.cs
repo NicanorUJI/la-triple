@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 
 public class MenuPausa : MonoBehaviour
@@ -30,6 +31,8 @@ public class MenuPausa : MonoBehaviour
     [Header("Panel de misiones")]
     [SerializeField] private GameObject missionPanel;
 
+    private bool iniciado = false; // Para que Start solo corra una vez
+
     void Awake()
     {
         // ------------------ SINGLETON ------------------
@@ -54,6 +57,9 @@ public class MenuPausa : MonoBehaviour
 
     void Start()
     {
+        if (iniciado) return;
+        iniciado = true;
+
         menuPausa?.SetActive(false);
         subMenuSonido?.SetActive(false);
         scrollView?.SetActive(false);
@@ -71,32 +77,22 @@ public class MenuPausa : MonoBehaviour
     // ================= ESCENA =================
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        bool ocultarMenu = false;
-
-        // Comprobamos si la escena actual está en la lista de escenas sin menú
-        foreach (string escena in escenasSinMenu)
-        {
-            if (scene.name == escena)
-            {
-                ocultarMenu = true;
-                break;
-            }
-        }
-
-        if (ocultarMenu)
-        {
-            menuPausa?.SetActive(false);
-            subMenuSonido?.SetActive(false);
-            botonPausa?.SetActive(false);
-            scrollView?.SetActive(false);
-            missionPanel?.SetActive(false); // 🔹 Ocultar panel de misiones
-        }
-        else
-        {
-            botonPausa?.SetActive(true);
-            missionPanel?.SetActive(true); // 🔹 Mostrar panel de misiones en escenas normales
-        }
+        StartCoroutine(AjustarUI(scene));
     }
+
+    private IEnumerator AjustarUI(Scene scene)
+    {
+        yield return null; // esperar un frame para que otros scripts terminen de activar/desactivar
+        bool ocultarMenu = escenasSinMenu.Exists(s => s.Trim().ToLower() == scene.name.Trim().ToLower());
+        Debug.Log($"Escena cargada: {scene.name} | Ocultar menú: {ocultarMenu}");
+
+
+        subMenuSonido?.SetActive(false);
+        botonPausa?.SetActive(!ocultarMenu);
+        scrollView?.SetActive(false);
+        missionPanel?.SetActive(!ocultarMenu);
+    }
+
 
     // ================= SCROLL =================
     public void ToggleScroll()
@@ -207,31 +203,30 @@ public class MenuPausa : MonoBehaviour
 
     public void GuardarPartida()
     {
-        // Buscar al jugador
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
         {
-            Debug.LogWarning("No se encontró el jugador para guardar posición.");
+            Debug.LogWarning("No se encontró el jugador.");
             return;
         }
 
-        // Crear objeto GameData
         GameData data = new GameData();
+
+        // Posición
         data.playerX = player.transform.position.x;
         data.playerY = player.transform.position.y;
         data.playerZ = player.transform.position.z;
         data.sceneName = SceneManager.GetActiveScene().name;
 
-        // Guardar volúmenes
-        if (sliderAmbiente != null) data.volumenAmbiente = sliderAmbiente.value;
-        if (sliderEfectos != null) data.volumenEfectos = sliderEfectos.value;
+        // Volumen
+        data.volumenAmbiente = sliderAmbiente.value;
+        data.volumenEfectos = sliderEfectos.value;
 
-        // Ejemplo: guardar flags de misiones
-        // data.misionesCompletadas = GameManager.instance.MisionesFlags;
+        // 🔴 GUARDAR FLAGS (REWARDS)
+        if (RewardManager.Instance != null)
+            data.rewards = new List<string>(RewardManager.Instance.rewards);
 
-        // Guardar en disco
         SaveSystem.Save(data);
-
-        Debug.Log("Partida guardada correctamente.");
+        Debug.Log("✅ Partida guardada con rewards");
     }
 }
