@@ -720,7 +720,7 @@ Transform:
   m_GameObject: {fileID: 355668250}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.162, y: -0.362, z: 0}
+  m_LocalPosition: {x: -0.385, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -836,7 +836,6 @@ MonoBehaviour:
   tagJugador: Player
   retardo: 0
   nombrePuntoEntrada: arbolPres
-  cooldown: 0
 --- !u!212 &362371463
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1673,6 +1672,37 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3487534786070636435, guid: 78eee873bb7dd1440b65702628c1365c, type: 3}
   m_PrefabInstance: {fileID: 1029616095}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1056248666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1056248667}
+  m_Layer: 0
+  m_Name: TP_PrimeraCarrasqueta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1056248667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056248666}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.358, y: -0.429, z: 0}
+  m_LocalScale: {x: 0.0782, y: 0.17512816, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1114123239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,7 +1903,6 @@ MonoBehaviour:
   tagJugador: Player
   retardo: 0
   nombrePuntoEntrada: "esparde\xF1es1"
-  cooldown: 2
 --- !u!212 &1142843448
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3101,7 +3130,6 @@ MonoBehaviour:
   tagJugador: Player
   retardo: 0
   nombrePuntoEntrada: Oso
-  cooldown: 2
 --- !u!212 &1681888661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3613,6 +3641,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1977662434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1977662435}
+  m_Layer: 0
+  m_Name: TP_PrimeraCarrasqueta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1977662435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977662434}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.941, y: -0.459, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2084289862
 GameObject:
   m_ObjectHideFlags: 0
@@ -3858,6 +3917,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1915726378}
   - {fileID: 1142843449}
+  - {fileID: 1056248667}
   - {fileID: 362371464}
   - {fileID: 1029616095}
   - {fileID: 398289118}
@@ -3881,6 +3941,7 @@ SceneRoots:
   - {fileID: 336370279}
   - {fileID: 2144927926}
   - {fileID: 1761378303}
+  - {fileID: 1977662435}
   - {fileID: 2084289865}
   - {fileID: 1928954885}
   - {fileID: 1237405537}

@@ -1779,6 +1779,9 @@ MonoBehaviour:
   dialoguePanel: {fileID: 0}
   dialogueText: {fileID: 0}
   nameText: {fileID: 0}
+  talkingAudioSource: {fileID: 0}
+  npcTalk_Clip: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 0}
   portraitImage: {fileID: 0}
   joaquinPortrait_Object: {fileID: 0}
   joaquinPortrait: {fileID: 0}
@@ -2168,6 +2171,11 @@ RectTransform:
   m_AnchoredPosition: {x: 11, y: -354}
   m_SizeDelta: {x: 232.226, y: 28.264}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1013107255 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3487534786070636435, guid: 78eee873bb7dd1440b65702628c1365c, type: 3}
+  m_PrefabInstance: {fileID: 1746070950}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1051241373
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,7 +2207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CambioDeEscenaPorIndice
   indiceEscena: 18
-  transicion: {fileID: 0}
+  transicion: {fileID: 1013107255}
   tagJugador: Player
   retardo: 0
   nombrePuntoEntrada: SantaBarbara
@@ -3443,7 +3451,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.059525073}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3453,7 +3461,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.45, y: 0.14}
+  m_Size: {x: 0.45, y: 0.25905013}
   m_EdgeRadius: 0
 --- !u!1001 &1746070950
 PrefabInstance:
