@@ -271,6 +271,10 @@ public class RewardManager : MonoBehaviour
                 }
             }
 
+            //UnityEngine.SceneManagement.SceneManager.LoadScene("CarrasquetaPasado");
+            if (GameManager.Instance != null)
+                GameManager.Instance.lastExitName = "TP_PrimeraCarrasqueta";
+
             UnityEngine.SceneManagement.SceneManager.LoadScene("CarrasquetaPasado");
         }
         else if (reward == "ACT2_MARIPILI_INTRO_END")

@@ -1243,6 +1243,7 @@ GameObject:
   - component: {fileID: 647135581}
   - component: {fileID: 647135582}
   - component: {fileID: 647135583}
+  - component: {fileID: 647135584}
   m_Layer: 0
   m_Name: Cesta
   m_TagString: Cesta
@@ -1285,7 +1286,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.10796891
+  m_Radius: 0.15713845
 --- !u!4 &647135580
 Transform:
   m_ObjectHideFlags: 0
@@ -1402,6 +1403,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HideIfFlagActive
   flagName: Act1_FoundBasket
+--- !u!114 &647135584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647135578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a38706ea4c7af53c87edd3786f5e4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupLanza
+  lanceFlag: Act1_HasBasket
+  returnScene: 
 --- !u!1 &793787948
 GameObject:
   m_ObjectHideFlags: 0
