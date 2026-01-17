@@ -282,6 +282,14 @@ public class PiRecuentoManager : MonoBehaviour
     private IEnumerator ReturnToSchoolAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene("colegio");  // usa el nombre real de la escena
+
+        // 🔹 Guardamos el spawn donde queremos que aparezca el Player
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.lastExitName = "EscuM"; // nombre del Empty en la escena colegio
+        }
+
+        // Cambiamos de escena
+        SceneManager.LoadScene("colegio"); // nombre real de la escena
     }
 }

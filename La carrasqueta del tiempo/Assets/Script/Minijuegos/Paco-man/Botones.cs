@@ -1,16 +1,32 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CambiarEscena : MonoBehaviour
 {
-    // Esta funciÛn la podr·s asignar al botÛn desde el Inspector
+    [Header("Spawn (opcional)")]
+    public string nombrePuntoEntrada;
+
+    // Bot√≥n Arcade
     public void Play()
     {
         SceneManager.LoadScene("Arcade");
     }
 
+    // Bot√≥n Bar
     public void Exit()
     {
+        Debug.Log("Bot√≥n Bar pulsado. Spawn: " + nombrePuntoEntrada);
+
+        if (!string.IsNullOrEmpty(nombrePuntoEntrada) && GameManager.Instance != null)
+        {
+            GameManager.Instance.lastExitName = nombrePuntoEntrada;
+            Debug.Log("Spawn guardado en GameManager");
+        }
+        else
+        {
+            Debug.Log("GameManager NULL o nombre vac√≠o");
+        }
+
         SceneManager.LoadScene("Bar");
     }
 }

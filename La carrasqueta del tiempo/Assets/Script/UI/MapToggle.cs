@@ -79,12 +79,12 @@ public class MapToggle : MonoBehaviour
     }
 
     // ---------- Input ----------
-    void Update()
+    /*void Update()
     {
         if (Keyboard.current?.cKey.wasPressedThisFrame == true) Toggle();
         if (isOpen && Keyboard.current?.escapeKey.wasPressedThisFrame == true) Close();
         if (Gamepad.current?.selectButton.wasPressedThisFrame == true) Toggle();
-    }
+    }*/
 
     public void Toggle()
     {

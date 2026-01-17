@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -78,10 +78,19 @@ public class SolteronaGeneral : MonoBehaviour
     {
         SceneManager.LoadScene("Minijuego_solterona");
     }
-    public void FinishGame() 
+    public void FinishGame()
     {
+        // 🔹 Guardamos el spawn donde queremos que aparezca el Player
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.lastExitName = "BarM"; // Nombre del Empty en la escena Bar
+        }
+
+        // Cambiamos la misión/estado
         GameManager.Change("Act2_Q_LLANCE_WonSolterona");
         Debug.Log("Cambiando a Act2_Q_LLANCE_WonSolterona");
+
+        // Cargamos la escena
         SceneManager.LoadScene("Bar");
     }
 }

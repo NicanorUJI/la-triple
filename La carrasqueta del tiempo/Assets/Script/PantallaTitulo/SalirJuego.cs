@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SalirJuego : MonoBehaviour
 {
@@ -7,5 +8,11 @@ public class SalirJuego : MonoBehaviour
     {
         Debug.Log("Saliendo del juego...");
         Application.Quit();
+    }
+
+    public void AbrirCreditos()
+    {
+        // Cargar la escena "Creditos"
+        SceneManager.LoadScene("Creditos");
     }
 }

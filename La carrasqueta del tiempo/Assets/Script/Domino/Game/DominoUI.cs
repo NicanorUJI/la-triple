@@ -229,6 +229,13 @@ public class DominoUI : MonoBehaviour
         btnSalir.onClick.RemoveAllListeners();
         btnSalir.onClick.AddListener(() =>
         {
+            // 🔹 Guardamos el spawn donde queremos que aparezca el Player
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.lastExitName = "BarD"; // nombre del Empty en la escena Bar
+            }
+
+            // Cargamos la escena Bar
             UnityEngine.SceneManagement.SceneManager.LoadScene("Bar");
         });
     }

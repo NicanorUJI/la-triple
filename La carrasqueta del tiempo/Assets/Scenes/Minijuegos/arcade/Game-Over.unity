@@ -1126,6 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a432c208787ff444c9a552103752adc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CambiarEscena
+  nombrePuntoEntrada: BarP
 --- !u!4 &1355238723
 Transform:
   m_ObjectHideFlags: 0
