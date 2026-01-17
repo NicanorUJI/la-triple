@@ -107,6 +107,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minijuegos/arcade/Win.unity
     guid: 9a01b286eacf07d419b4b6fadc51f1f5
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: 42ee958880a021642b002ec6b7001794
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

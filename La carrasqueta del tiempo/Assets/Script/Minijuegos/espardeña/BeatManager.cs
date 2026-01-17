@@ -255,6 +255,10 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
             AudioManager.instance.ReanudarMusica();
         }
         // --- MODIFICACIÓN FIN ---
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.lastExitName = "EspM"; // nombre del Empty en la escena de destino
+        }
 
         if (!string.IsNullOrEmpty(escenaSalir))
             SceneManager.LoadScene(escenaSalir);

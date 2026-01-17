@@ -293,9 +293,17 @@ public class Button_Controller_Morra : MonoBehaviour
             );
         }
 
+        // 🔹 Guardamos el spawn donde queremos que aparezca el Player
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.lastExitName = "PlzM"; // nombre del Empty en la escena PlazaPasado
+        }
+
+        // Cambiamos de escena
         GameManager.Change("Act2_Q_MENJAR_HasMeat");
         SceneManager.LoadScene("PlazaPasado");
     }
+
 
     public void ReintentarJuego()
     {
