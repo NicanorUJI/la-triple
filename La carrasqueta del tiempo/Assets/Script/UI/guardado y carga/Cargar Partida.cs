@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using System.Collections.Generic;
 
 public class LoadManager : MonoBehaviour
 {
+    [Header("Escena con objetos DontDestroyOnLoad")]
+    public string escenaPersistente = "Plaza"; // La escena con objetos que necesitan DontDestroyOnLoad
+
     public void CargarPartida()
     {
         GameData data = SaveSystem.Load();
@@ -20,26 +22,40 @@ public class LoadManager : MonoBehaviour
 
     IEnumerator CargarEscena(GameData data)
     {
-        // 1️⃣ Cargar escena
-        AsyncOperation async = SceneManager.LoadSceneAsync(data.sceneName);
-        while (!async.isDone)
+        yield return null;
+
+        // 1️⃣ Cargar la escena persistente primero (Additive)
+        if (!string.IsNullOrEmpty(escenaPersistente))
+        {
+            AsyncOperation preload = SceneManager.LoadSceneAsync(escenaPersistente, LoadSceneMode.Additive);
+            while (!preload.isDone)
+                yield return null;
+
+            Debug.Log("✅ Escena persistente cargada: " + escenaPersistente);
+        }
+
+        // 2️⃣ Cargar la escena guardada (Single)
+        AsyncOperation mainScene = SceneManager.LoadSceneAsync(data.sceneName, LoadSceneMode.Single);
+        while (!mainScene.isDone)
             yield return null;
 
-        // 2️⃣ Colocar jugador
+        Debug.Log("✅ Escena guardada cargada: " + data.sceneName);
+
+        // 3️⃣ Colocar jugador
         ColocarJugador(data);
 
-        // 3️⃣ Restaurar audio
+        // 4️⃣ Restaurar audio
         PlayerPrefs.SetFloat("SavedAmbienteVolume", data.volumenAmbiente);
         PlayerPrefs.SetFloat("SavedSFXVolume", data.volumenEfectos);
 
-        // 4️⃣ Esperar a que managers persistentes estén listos
+        // 5️⃣ Esperar un par de frames para que los managers persistentes estén listos
         yield return null;
         yield return null;
 
-        // 5️⃣ Restaurar rewards / flags
+        // 6️⃣ Restaurar rewards / flags
         RestaurarRewards(data);
 
-        // 6️⃣ Reaplicar UI y estados visuales
+        // 7️⃣ Reaplicar UI y estados visuales
         RewardManager.Instance?.ReaplicarRecompensas();
 
         Debug.Log("✅ Partida cargada completamente");
@@ -76,15 +92,11 @@ public class LoadManager : MonoBehaviour
             return;
         }
 
-        // Limpiar estado actual
         RewardManager.Instance.rewards.Clear();
 
-        // Restaurar rewards y flags internas
         foreach (string reward in data.rewards)
         {
             RewardManager.Instance.rewards.Add(reward);
-
-            // 🔹 Restaurar flags SIN ejecutar lógica secundaria
             GameManager.Change(reward);
         }
 
