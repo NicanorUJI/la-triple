@@ -1133,6 +1133,7 @@ MonoBehaviour:
   indiceEscena: 22
   transicion: {fileID: 870739006}
   tagJugador: Player
+  teclaRequerida: 33
   retardo: 0
   nombrePuntoEntrada: Barranquet-Pozuelas
 --- !u!58 &426140232
@@ -2194,6 +2195,7 @@ MonoBehaviour:
   indiceEscena: 17
   transicion: {fileID: 870739006}
   tagJugador: Player
+  teclaRequerida: 0
   retardo: 0
   nombrePuntoEntrada: Barranquet-Cementerio
 --- !u!212 &824537776
@@ -4323,6 +4325,7 @@ MonoBehaviour:
   indiceEscena: 21
   transicion: {fileID: 870739006}
   tagJugador: Player
+  teclaRequerida: 0
   retardo: 0
   nombrePuntoEntrada: "esparde\xF1es2"
 --- !u!212 &1780217733
