@@ -596,7 +596,7 @@ public class RewardManager : MonoBehaviour
                 );
             }
 
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Carrasqueta");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("CarrasquetaPasado");
         }
         else if (reward == "ACT3_WARNED_IN_PRESENT")
         {

@@ -3394,6 +3394,7 @@ GameObject:
   - component: {fileID: 1518371708}
   - component: {fileID: 1518371707}
   - component: {fileID: 1518371706}
+  - component: {fileID: 1518371711}
   m_Layer: 8
   m_Name: npc_fantasma
   m_TagString: Untagged
@@ -3564,6 +3565,21 @@ Transform:
   - {fileID: 1782783456}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1518371711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518371705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10be584f6ed407dbfbd808984d0ea82e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetActiveByFlags
+  requiredAll:
+  - Act3_CarrasquetaPresentWarned
+  forbiddenAny: []
 --- !u!1 &1523915530
 GameObject:
   m_ObjectHideFlags: 0

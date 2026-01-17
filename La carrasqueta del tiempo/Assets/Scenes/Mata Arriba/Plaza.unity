@@ -2331,6 +2331,7 @@ GameObject:
   - component: {fileID: 1239570093}
   - component: {fileID: 1239570095}
   - component: {fileID: 1239570096}
+  - component: {fileID: 1239570097}
   m_Layer: 0
   m_Name: TutorialMovimiento
   m_TagString: Untagged
@@ -2449,6 +2450,19 @@ MonoBehaviour:
   anim: {fileID: 0}
   requiredFlags: []
   forbiddenFlags: []
+--- !u!114 &1239570097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239570092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2811ef3de56a4dedb7a3ee95c7881d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HideIfFlagActive
+  flagName: 1a_llegada_carrasqueta_DONE
 --- !u!1 &1301941506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3715,6 +3729,7 @@ MonoBehaviour:
   indiceEscena: 2
   transicion: {fileID: 6686111618337468342}
   tagJugador: Player
+  teclaRequerida: 0
   retardo: 0
   nombrePuntoEntrada: CallejonPlaza
 --- !u!212 &1846082295

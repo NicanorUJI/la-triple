@@ -333,7 +333,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: Joaquin
     lineText: "I per qu\xE8 no li preguntes lo que li agrada?"
-    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
+    expression: {fileID: 21300000, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

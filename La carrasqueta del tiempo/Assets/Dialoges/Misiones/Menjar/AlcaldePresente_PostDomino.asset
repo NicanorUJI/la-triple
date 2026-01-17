@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
-  m_Name: AlcaldePasado_Default
+  m_Name: AlcaldePresente_PostDomino
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: -3644103294100017685, guid: 9c9c6503463fa285383681e4421ab9ff, type: 3}
-  joaquinDefault: {fileID: 21300000, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
+  defaultSprite: {fileID: 1519292624816307631, guid: c8e8baf8578fc1d45ab4ee68b1c96e2a, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
   lines:
-  - speakerName: Senyor
-    lineText: "Despr\xE9s tenim un torneig de morra, esperem que la gent participe."
-    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
+  - speakerName: Alcalde
+    lineText: Blablabla por favor acordaos de cambiarme el dialogo
+    expression: {fileID: 1519292624816307631, guid: c8e8baf8578fc1d45ab4ee68b1c96e2a, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -29,4 +29,5 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  conditions: []
+  conditions:
+  - CutsceneSolterona_DONE
