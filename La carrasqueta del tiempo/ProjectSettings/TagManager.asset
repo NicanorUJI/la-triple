@@ -18,6 +18,9 @@ TagManager:
   - nota1
   - nota2
   - nota3
+  - Cesta
+  - Carrasqueta
+  - arbol
   layers:
   - Default
   - TransparentFX
