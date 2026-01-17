@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Act2_Quest_Menjar_ReturnMeat
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: -1807645480230456300, guid: 1007b9b7e18ff7125acd0c1d293d16ca, type: 3}
+  joaquinDefault: {fileID: 0}
   lines:
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: "Maripili! Ara s\xED, ja tinc la carn."
-    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
+    expression: {fileID: 21300000, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -29,8 +30,8 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: "Pues ara si que ja heu tenim. Amb aix\xF2 l\u2019os no te res del
-      que queixar-se."
+    lineText: "Ara s\xED que ja ho tenim. Amb aix\xF2 l\u2019\xF3s no t\xE9 de qu\xE8
+      queixar-se."
     expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -42,9 +43,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "D\u2019acord!"
-    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Que b\xE9!"
+    expression: {fileID: 21300000, guid: a2e5e7b38ac7db4d693b36d349cce8f8, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

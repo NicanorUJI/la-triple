@@ -662,6 +662,7 @@ MonoBehaviour:
   - "esparde\xF1esPasado"
   - PozuelasPasado
   playerMovementScript: {fileID: 0}
+  isOpen: 0
 --- !u!1 &3102532929576781979
 GameObject:
   m_ObjectHideFlags: 0

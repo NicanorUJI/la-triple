@@ -97,3 +97,12 @@ La carrasqueta del tiempo/[Aa]ssets/Unity.VisualScripting.Generated/VisualScript
 
 # Auto-generated scenes by play mode tests
 La carrasqueta del tiempo/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+.DS_Store

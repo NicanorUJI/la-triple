@@ -15,6 +15,9 @@ TagManager:
   - Door
   - Ghost
   - PowerPellet
+  - nota1
+  - nota2
+  - nota3
   layers:
   - Default
   - TransparentFX

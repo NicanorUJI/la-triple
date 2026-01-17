@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: Act2_Quest_Menjar_Morra_Intro
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
   lines:
-  - speakerName: Marc
-    lineText: Qui vullga participar que se apunte a la lista! El premi es una cistella
-      de menjar variat!
-    expression: {fileID: 0}
+  - speakerName: Alcalde
+    lineText: "Qui vulga participar que s\u2019apunte a la llista! El premi \xE9s
+      una cistella de menjar variat!"
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -29,9 +30,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: "Bon dia. Qu\xE8 est\xE0 passant?"
-    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+    expression: {fileID: 21300000, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -42,10 +43,10 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Marc
+  - speakerName: Alcalde
     lineText: "Hola xic, estem celebrant un concurs de Morra, el guanyador s\u2019endur\xE0
       una cistella de menjar variat i embotits."
-    expression: {fileID: 0}
+    expression: {fileID: -3644103294100017685, guid: 9c9c6503463fa285383681e4421ab9ff, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -56,9 +57,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: Em va perfecte. Jo vull participar! On tinc que apuntarme?
-    expression: {fileID: 6816344690905786448, guid: a2e5e7b38ac7db4d693b36d349cce8f8, type: 3}
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Em va perfecte. Jo vull participar! On he d\u2019apuntar-me?"
+    expression: {fileID: 21300000, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -69,9 +70,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Marc
+  - speakerName: Alcalde
     lineText: Saps jugar a la morra?
-    expression: {fileID: 0}
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -82,9 +83,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: El meu tio em va ensenyar quan era menut.
-    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
+    expression: {fileID: 21300000, guid: a2e5e7b38ac7db4d693b36d349cce8f8, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -95,8 +96,8 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Marc
-    lineText: "Molt b\xE9. Entonces ets benvingut. Agafa una cadira xiquet."
+  - speakerName: Alcalde
+    lineText: "Molt b\xE9. Entonces ets benvingut. Agafa una cadira, sagal."
     expression: {fileID: 0}
     isPlayerSpeaking: 0
     isChoice: 0

@@ -28,7 +28,7 @@ public class PickupLanza : MonoBehaviour
         if (!playerInside)
             return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             // 1) Marcar flag de historia
             GameManager.Change(lanceFlag);

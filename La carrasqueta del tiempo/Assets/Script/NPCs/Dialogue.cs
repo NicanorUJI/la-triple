@@ -12,6 +12,12 @@ public class NPC : MonoBehaviour, IInteractable
     public GameObject dialoguePanel;
     public TMP_Text dialogueText, nameText;
 
+    [Header("Audio Clip")]
+    public AudioSource talkingAudioSource;
+    public AudioClip npcTalk_Clip;
+    public AudioClip joaquinTalk_Clip;
+
+
     [Header("Retratos")]
     public Image portraitImage;
     public GameObject joaquinPortrait_Object;
@@ -37,7 +43,15 @@ public class NPC : MonoBehaviour, IInteractable
 
     private NPCDialogue dialogueData;
 
-    public NPCDialogue getDialogue()
+    void Start()
+    {
+            if (talkingAudioSource == null)
+            {
+            talkingAudioSource = gameObject.AddComponent<AudioSource>();
+            }
+    }
+
+        public NPCDialogue getDialogue()
     {
         foreach (NPCDialogue opcion in opciones)
         {
@@ -68,6 +82,11 @@ public class NPC : MonoBehaviour, IInteractable
                 }
                 if (opcion.name == "Act2_Quest_Llanca_Return"
                     && GameManager.Check("Act2_Q_LLANCE_Done"))
+                {
+                    continue;
+                }
+                if (opcion.name == "Act2_Quest_Menjar_ReturnHoney"
+                    && (GameManager.Check("Act2_Q_MENJAR_Done") || GameManager.Check("Act2_Q_MENJAR_NeedsMeat")))
                 {
                     continue;
                 }
@@ -178,6 +197,17 @@ public class NPC : MonoBehaviour, IInteractable
         Dialogu﻿eLine line = dialogueData.lines[dialogueIndex];
         nameText.text = line.speakerName;
 
+        if(dialogueData.defaultSprite != null)
+        {
+            portraitImage.sprite = dialogueData.defaultSprite;
+            portraitImage.gameObject.SetActive(true);
+        }
+            
+        else
+            portraitImage.gameObject.SetActive(false);
+
+        joaquinPortrait.sprite = dialogueData.joaquinDefault;
+
         SetPortraitFromLine(line);
 
         dialoguePanel.SetActive(true);
@@ -274,10 +304,17 @@ public class NPC : MonoBehaviour, IInteractable
         dialogueText.SetText("");
         nameText.text = line.speakerName;
 
+        AudioClip currentSpeakerSound;
+        if (line.isPlayerSpeaking)
+            currentSpeakerSound = joaquinTalk_Clip;
+        else
+            currentSpeakerSound = npcTalk_Clip;
+
         foreach (char letter in line.lineText)
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(.05f);
+            talkingAudioSource.PlayOneShot(currentSpeakerSound);
+            yield return new WaitForSeconds(.04f);
         }
 
         isTyping = false;

@@ -5,6 +5,7 @@ using System.Collections;
 public class CambioDeEscenaPorIndice : MonoBehaviour
 {
     public int indiceEscena; // Ej: 1, 2, 3...
+    public Animator transicion;
 
     public string tagJugador = "Player";
 
@@ -27,7 +28,9 @@ public class CambioDeEscenaPorIndice : MonoBehaviour
 
     IEnumerator CambiarEscena()
     {
-        yield return new WaitForSeconds(retardo);
+        transicion.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(indiceEscena);
     }
 }

@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Act3_Start_MaripiliPasado
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
   lines:
   - speakerName: Maripili
-    lineText: Perfecte. Ara que ja ho tenim tot, deixa'm la resta del treball a mi.
+    lineText: "Perfecte, ara que ja hou tenim tot, deixa\u2019m la resta del treball
+      a mi."
     expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -29,7 +31,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maripili
-    lineText: .
+    lineText: ...
     expression: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0

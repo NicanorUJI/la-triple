@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Act3_BarranquetPresent_Final
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: 2285674269585787274, guid: 0a55853af5bd6d731beff2c3677894c7, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: e9075545f6e90dfeea0a508e193d398c, type: 3}
   lines:
   - speakerName: Maria Pilar
     lineText: "Tranquil Joaqu\xEDn! Nosaltres ens encarreguem!"
@@ -28,9 +29,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: Iaia?!
-    expression: {fileID: 3198480329992687461, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
+    expression: {fileID: 21300000, guid: 542af1611a2dba5ea81aed2f7a0e3bfb, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -54,9 +55,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: "Iaia, com has sabut que vindria l\u2019\xF3s?"
-    expression: {fileID: -5128461551337143105, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
+    expression: {fileID: 21300000, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -68,7 +69,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Maria Pilar
-    lineText: Ai, xiquet. Deixa a la teua avia tindre alguns secrets.
+    lineText: Ai, xiquet. Deixa a la teua iaia tindre alguns secrets.
     expression: {fileID: 7005228422062525146, guid: 5e26fc60400b0e384bbede9f5b9696da, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0

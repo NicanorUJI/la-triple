@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Act2_Quest_Menjar_Panaderia_Past
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: 32948579673762220, guid: 1899d59f4b3658449b9921839c00b05c, type: 3}
+  joaquinDefault: {fileID: 0}
   lines:
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: Bon dia.
-    expression: {fileID: 8517940295573926053, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
+    expression: {fileID: 21300000, guid: c3b1402a4e92366fb8ab7e4d9cf6129b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -28,9 +29,10 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Fornera
-    lineText: "Bon dia xic! Qu\xE8 necessites? La teua mare te ha enviat a per p\xE0?"
-    expression: {fileID: 0}
+  - speakerName: Panadera
+    lineText: "Bon dia xic! Qu\xE8 necessites? La teua mare t\u2019ha enviat a comprar
+      pa?"
+    expression: {fileID: 6595177517681398194, guid: aa37ee378c2e102478a138e7b56faa38, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -41,9 +43,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "Necesite mel, no te quedar\xE0 per casualitat un pot?"
-    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Necessite mel, no et quedar\xE0 per casualitat un pot?"
+    expression: {fileID: 21300000, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -54,9 +56,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Fornera
-    lineText: "S\xED clar, serien 500 pesetes."
-    expression: {fileID: 0}
+  - speakerName: Panadera
+    lineText: "S\xED clar, serien 5 pessetes."
+    expression: {fileID: 6595177517681398194, guid: aa37ee378c2e102478a138e7b56faa38, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -67,9 +69,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "Tinc 2 euros\u2026"
-    expression: {fileID: 9125249484933913112, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Tinc 2 euros\u2026\r\n"
+    expression: {fileID: 21300000, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -80,10 +82,10 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Fornera
-    lineText: "Qu\xE8 \xE9s un euro. Xiquet si vols comprar necessites diners de
+  - speakerName: Panadera
+    lineText: "Qu\xE8 \xE9s un euro?. Xiquet si vols comprar necessites diners de
       veritat."
-    expression: {fileID: 0}
+    expression: {fileID: 5630049354067186677, guid: c25b86d5dca88d547898848a470cdfd0, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -94,9 +96,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "Pues no res, anir\xE9 al bar a preguntar. Moltes gr\xE0cies igualment!"
-    expression: {fileID: 1236392363465906612, guid: 3262f44a6fd4064a7b582db6be41871c, type: 3}
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Res, anir\xE9 al bar a preguntar. Moltes gr\xE0cies igualment!"
+    expression: {fileID: 21300000, guid: 3262f44a6fd4064a7b582db6be41871c, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -107,9 +109,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Fornera
-    lineText: "Qu\xE8 bar?"
-    expression: {fileID: 0}
+  - speakerName: Panadera
+    lineText: Quin bar?
+    expression: {fileID: -8976373207213156558, guid: fd7bfe920e138f649b0bcd1b1391e6b9, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}

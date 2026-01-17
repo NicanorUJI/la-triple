@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Act2_Quest_Menjar_Domino_After
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: -7372192891005804176, guid: cd5e1878ba1097dacb04ec7584989e1a, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 423e9c4ed331f7ba7be40b4446b71b54, type: 3}
   lines:
   - speakerName: Josefina
-    lineText: "Com \xE9s possible que ens hages guanyat!?"
+    lineText: "Com \xE9s possible que ens hages guanyat!? "
     expression: {fileID: -3690097810477892078, guid: d968a4a21ae27a311a110caff1ae189f, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -29,8 +30,8 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Josefina
-    lineText: "Si es que els xicons de hui en dia son molt espavilats. Ja ho deia
-      Maria Pilar que tu vas a ser metge o alg\xFAn treball d\u2019aquestos importants."
+    lineText: "Si \xE9s que la joventut d\u2019avui en dia sou molt espavilats. Ja
+      ho deia Maria Pilar que tu ser\xE0s metge o algun treball d\u2019aquests importants."
     expression: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -57,9 +58,9 @@ MonoBehaviour:
     reward: ACT2_Q_MENJAR_GOT_HONEY
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "Vale! Fins despr\xE9s!"
-    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+  - speakerName: "Joaqu\xEDn"
+    lineText: "Vale! Moltes gr\xE0cies! Fins despr\xE9s!"
+    expression: {fileID: 21300000, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

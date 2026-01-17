@@ -2,6 +2,9 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+using System;
+
 
 public class SceneChangePopupUI : MonoBehaviour
 {
@@ -12,6 +15,8 @@ public class SceneChangePopupUI : MonoBehaviour
     [Header("Tiempos")]
     [SerializeField] private float fadeDuration = 0.25f;
     [SerializeField] private float visibleTime = 2f;
+
+    private Dictionary<string, string> sceneNameMap;
 
     private void Reset()
     {
@@ -33,6 +38,37 @@ public class SceneChangePopupUI : MonoBehaviour
 
     private void Start()
     {
+        sceneNameMap = new Dictionary<string, string>
+{
+            { "CementerioPasado", "Cementiri" },
+            { "Cementeri", "Cementiri" },
+
+            { "Carrasqueta", "La Carrasqueta" },
+            { "CarrasquetaPasado", "La Carrasqueta"  },
+
+            { "SantaBarbara" ,  "Ermita de Santa Bàrbara" },
+            { "SantaBarbaraPasado" ,  "Ermita de Santa Bàrbara" },
+
+            { "Pozuelas" ,  "Les Calderetes" },
+            { "PozuelasPasado" ,  "Les Calderetes" },
+            //Mata Alta
+            { "CalleInterm", "Carreró"},
+            { "CalleIntermPasado", "Carreró"},
+            { "Placita", "Placeta"},
+            { "PlacitaPasado", "Placeta"},
+            { "Plaza", "Plaça"},
+            { "PlazaPasado", "Plaça"},
+            { "Bar", "Bar"},
+            //MataBaja
+            { "barranquet", "Barranquet"},
+            { "barranquetPasado", "Barranquet"},
+            { "colegio", "Col·legi"},
+            { "colegioPasado", "Col·legi"},
+            { "espardeñes", "Carrer de la tenda d'espardenyes"},
+            { "espardeñesPasado", "Carrer de la tenda d'espardenyes"}
+        };
+
+
         // Cuando la escena está lista y el UI arrancó, mostramos el popup
         StartCoroutine(ShowRoutine());
     }
@@ -77,10 +113,10 @@ public class SceneChangePopupUI : MonoBehaviour
     // Aquí puedes mapear nombres técnicos a nombres para el jugador
     private string GetDisplayName(string sceneName)
     {
-        // Ejemplos:
-        // if (sceneName == "Plaza_Pasado") return "Plaza (Pasado)";
-        // if (sceneName == "Carrasqueta") return "La Carrasqueta";
+        Debug.Log(sceneName);
+        if (sceneNameMap.TryGetValue(sceneName, out string displayName))
+            return displayName;
 
-        return sceneName; // Por ahora devolvemos el nombre tal cual
+        return sceneName; // fallback si no existe
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PiRecuentoManager : MonoBehaviour
 {
@@ -17,42 +18,22 @@ public class PiRecuentoManager : MonoBehaviour
     public TextMeshProUGUI rondaText;
     public TextMeshProUGUI mensajeText;
 
+    [Header("Paneles")]
+    public GameObject panelReglas;
+    public GameObject panelFinPartida; // Panel de fin de juego
+    public Button botonContinuar;  // Botón Continuar
+
+    [Header("Fin de partida - Imagen")]
+    public Image imagenResultado;
+    public TextMeshProUGUI textoResultado;
+    public Sprite spriteVictoria;
+    public Sprite spriteDerrota;
+
     private int currentRound = 1;
     private List<GameObject> availableChildren; // ni�os que a�n no han sido encontrados
 
-    public GameObject panelReglas;
-
     public bool inputEnabled = false;
-
-    public void Aceptar() 
-    {
-        inputEnabled = true;
-        if (panelReglas != null)
-            panelReglas.SetActive(false);
-        IniciarPartida();
-    }
-    public void FinishGame() 
-    {
-        GameManager.Change("Act2_Q_ESQUELLES_HasBracelet");
-        Debug.Log("[Esquelles/PiRecuento] Joaquín ha aconseguit la polsera.");
-
-        var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
-        if (mc != null)
-        {
-            mc.SetActiveMission(
-                4,
-                "Portar la polsera a Raúl",
-                "Has aconseguit una polsera al col·legi. Torna al passat i dóna-li-la a Raúl a les calderetes."
-            );
-        }
-
-        StartCoroutine(ReturnToSchoolAfterDelay(1.5f));
-    }
-
-    public void ResetGame()
-    {
-        SceneManager.LoadScene("PiRecuentoMinijuego");
-    }
+    private bool haGanado = false;
 
 
     void Start()
@@ -62,14 +43,31 @@ public class PiRecuentoManager : MonoBehaviour
 
         // Ocultamos mensaje al iniciar
         mensajeText.gameObject.SetActive(false);
+        rondaText.gameObject.SetActive(false);
+
+        if (panelFinPartida != null)
+            panelFinPartida.SetActive(false);
     }
 
-    public void IniciarPartida() 
+
+
+
+    public void Aceptar() 
+    {
+        inputEnabled = true;
+        if (panelReglas != null)
+            panelReglas.SetActive(false);
+        IniciarPartida();
+    }
+
+    public void IniciarPartida()
     {
         currentRound = 1;
         availableChildren = new List<GameObject>(childrenSprites);
+        rondaText.gameObject.SetActive(true);
         StartRound();
     }
+
     void StartRound()
     {
         // Reiniciamos todos los spots
@@ -80,14 +78,10 @@ public class PiRecuentoManager : MonoBehaviour
         }
 
         // Fin del juego
-        if (availableChildren.Count == 0)
+        if (availableChildren.Count == 0 || currentRound > rounds)
         {
-            FinishGame();
-            return;
-        }
-        else if (currentRound > rounds) 
-        {
-            ResetGame();
+            haGanado = availableChildren.Count == 0;
+            MostrarPanelFin();
             return;
         }
 
@@ -121,7 +115,7 @@ public class PiRecuentoManager : MonoBehaviour
             spot.childSprite = child;
 
             Niño n = child.GetComponent<Niño>();
-            
+
             if (n != null)
                 n.Ocultar(); // restauramos escala y sortingOrder
 
@@ -159,6 +153,71 @@ public class PiRecuentoManager : MonoBehaviour
         currentRound++;
         StartCoroutine(NextRoundDelay());
     }
+
+
+
+    //PANEL FIN
+    private void MostrarPanelFin()
+    {
+        inputEnabled = false;
+
+        if (panelFinPartida != null)
+            panelFinPartida.SetActive(true);
+
+        if (haGanado)
+        {
+            imagenResultado.sprite = spriteVictoria;
+            textoResultado.text = "Has trobat a tots el xiquets!";
+        }
+        else
+        {
+            imagenResultado.sprite = spriteDerrota;
+            textoResultado.text = "Els xiquets han guanyat... :(";
+        }
+
+        if (botonContinuar != null)
+            botonContinuar.interactable = haGanado;
+        rondaText.gameObject.SetActive(false);
+    }
+    public void ReintentarJuego() 
+    {
+        panelFinPartida.SetActive(false);
+        ResetGame();
+    }
+    public void ResetGame()
+    {
+        SceneManager.LoadScene("PiRecuentoMinijuego");
+    }
+    public void ContinuarJuego() 
+    {
+        if (!haGanado)
+            return;
+        panelFinPartida.SetActive(false);
+        FinishGame();
+    }
+    public void FinishGame()
+    {
+        GameManager.Change("Act2_Q_ESQUELLES_HasBracelet");
+        Debug.Log("[Esquelles/PiRecuento] Joaquín ha aconseguit la polsera.");
+
+        var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
+        if (mc != null)
+        {
+            mc.SetActiveMission(
+                4,
+                "Portar la polsera a Raúl",
+                "Has aconseguit una polsera al col·legi. Torna al passat i dóna-li-la a Raúl a les calderetes."
+            );
+        }
+
+        StartCoroutine(ReturnToSchoolAfterDelay(0.5f));
+    }
+
+
+
+
+
+
 
 
     private IEnumerator RemoverNiñoDelay(GameObject child)

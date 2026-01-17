@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Act2_Esquelles_School_PiAfter
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: 129569322397778913, guid: 113cfc7e9c70688b59a8001218ba9c0a, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 704c08af6c7afe52fb02d7b58df5574a, type: 3}
   lines:
   - speakerName: Jan
-    lineText: 'No es just! Segur que has fet trampa!
-
-'
+    lineText: "No \xE9s just! Segur que has fet trampa!"
     expression: {fileID: -2517251984187696129, guid: e6add0d1fe6b1a2598dc1771955a2649, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
@@ -30,9 +29,9 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
+  - speakerName: "Joaqu\xEDn"
     lineText: Us he guanyat i no he fet trampes!  Ara podeu donar-me la polsera?
-    expression: {fileID: 3684638748939831445, guid: 423e9c4ed331f7ba7be40b4446b71b54, type: 3}
+    expression: {fileID: 21300000, guid: 5306aceea206f7db480487b741e7cd5b, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -44,7 +43,7 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   - speakerName: Jan
-    lineText: Vaale...
+    lineText: "Vaale\u2026"
     expression: {fileID: 129569322397778913, guid: 113cfc7e9c70688b59a8001218ba9c0a, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0

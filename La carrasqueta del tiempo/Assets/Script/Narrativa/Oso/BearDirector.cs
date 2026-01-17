@@ -54,21 +54,18 @@ public class BearDirector : MonoBehaviour
 
     private void SpawnBearNearPlayer()
     {
-        // Si existe un punto de spawn en la escena, úsalo
-        var spawn = GameObject.Find("SpawnOso");
-        if (spawn != null)
-        {
-            bearInstance = Instantiate(bearPrefab, spawn.transform.position, Quaternion.identity);
-            return;
-        }
-
-        // Si no, fallback: cerca del player
         var player = GameObject.FindGameObjectWithTag("Player");
-        Vector3 pos = player != null
-            ? player.transform.position + (Vector3)(Random.insideUnitCircle.normalized * 1.5f)
-            : Vector3.zero;
+        if (player == null) return;
 
-        bearInstance = Instantiate(bearPrefab, pos, Quaternion.identity);
+        // Instanciamos SIN preocuparnos aún de la posición
+        bearInstance = Instantiate(bearPrefab);
+
+        // Inicializamos el follower
+        var follower = bearInstance.GetComponent<BearFollower2D>();
+        if (follower != null)
+        {
+            follower.InitAtPlayer(player.transform);
+        }
     }
 
     private void DestroyBear()

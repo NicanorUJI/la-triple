@@ -1,86 +1,121 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class BearFollower2D : MonoBehaviour
 {
+    [Header("Movimiento")]
     public float speed = 2.4f;
-    public float stopDistanceX = 0.8f;
 
-    [Header("Anti-atasco")]
-    public float stuckSeconds = 2.0f;
-    public float minDeltaDistanceX = 0.05f;
+    [Header("Posición relativa")]
+    public float followOffsetX = -1.2f; // distancia fija respecto al player
+    public float followOffsetY = 0f;
 
     private Rigidbody2D rb;
+    private Animator anim;
+    private SpriteRenderer sr;
     private Transform target;
 
-    private float lastAbsDx = Mathf.Infinity;
-    private float stuckTimer = 0f;
+    private bool initialized = false;
+
+    private Vector3 lastPlayerPos;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
 
-        // Top-down: sin gravedad, sin rotación, sin movimiento en Y por física
         rb.gravityScale = 0f;
-        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    public void InitAtPlayer(Transform player)
+    {
+        target = player;
+
+        // Posición correcta desde el inicio (offset)
+        Vector3 startPos = new Vector3(
+            player.position.x + followOffsetX,
+            player.position.y + followOffsetY,
+            transform.position.z
+        );
+
+        rb.position = startPos;
+        lastPlayerPos = player.position;
+
+        initialized = true;
     }
 
     private void FixedUpdate()
     {
-        // Si terminó el acto 3, fuera
+        if (!initialized)
+            return;
+        // Comprobaciones de estado
         if (GameManager.Check("Act3_End"))
         {
             Destroy(gameObject);
             return;
         }
 
-        // Solo persigue cuando está activo
         if (!GameManager.Check("Act3_BearActive"))
         {
             rb.linearVelocity = Vector2.zero;
+            anim.SetBool("walk", false);
             return;
         }
 
+        // Encontrar al jugador
         if (target == null)
         {
             var go = GameObject.FindGameObjectWithTag("Player");
             target = go != null ? go.transform : null;
             if (target == null) return;
+
+            lastPlayerPos = target.position;
         }
 
-        // Solo perseguir en X
-        float dx = target.position.x - transform.position.x;
-        float absDx = Mathf.Abs(dx);
+        // Dirección de movimiento del jugador
+        Vector3 playerMove = target.position - lastPlayerPos;
+        lastPlayerPos = target.position;
 
-        if (absDx <= stopDistanceX)
+        // Posición deseada del oso (offset relativo)
+        Vector2 desiredPos = new Vector2(
+            target.position.x + followOffsetX,
+            target.position.y + followOffsetY
+        );
+
+        // Calculamos el vector de movimiento hacia la posición deseada
+        Vector2 moveDir = desiredPos - rb.position;
+
+        // Si nos estamos moviendo, normalizamos y aplicamos velocidad
+        if (moveDir.magnitude > 0.001f)
         {
-            rb.linearVelocity = Vector2.zero;
-            stuckTimer = 0f;
-            lastAbsDx = absDx;
-            return;
+            Vector2 moveStep = moveDir.normalized * speed * Time.fixedDeltaTime;
+            if (moveStep.magnitude > moveDir.magnitude)
+                moveStep = moveDir; // no pasarse de la posición deseada
+            rb.MovePosition(rb.position + moveStep);
         }
 
-        float dirX = Mathf.Sign(dx);
-        rb.linearVelocity = new Vector2(dirX * speed, 0f);
+        // Determinar si el jugador se acerca al oso
+        bool playerApproachingBear =
+            Mathf.Sign(playerMove.x) == Mathf.Sign(rb.position.x - target.position.x) &&
+            Mathf.Abs(playerMove.x) > 0.001f;
 
-        // Anti-atasco: si no progresa en X, reposiciona cerca del jugador en X (manteniendo Y)
-        float progress = lastAbsDx - absDx;
-        if (progress < minDeltaDistanceX) stuckTimer += Time.fixedDeltaTime;
-        else stuckTimer = 0f;
+        // Animación instantánea según movimiento real
+        anim.SetBool("walk", moveDir.magnitude > 0.001f);
 
-        lastAbsDx = absDx;
-
-        if (stuckTimer >= stuckSeconds)
+        // Flip del oso
+        if (playerApproachingBear)
         {
-            float offsetX = Random.value < 0.5f ? -1.5f : 1.5f;
-            Vector3 pos = transform.position;
-            pos.x = target.position.x + offsetX;
-
-            transform.position = pos;
-            rb.linearVelocity = Vector2.zero;
-            lastAbsDx = Mathf.Infinity;
-
-            stuckTimer = 0f;
+            // Huye: mira en dirección contraria al player
+            sr.flipX = moveDir.x < 0f;
+        }
+        else
+        {
+            // Normal: mira al player
+            sr.flipX = target.position.x < rb.position.x;
         }
     }
 }

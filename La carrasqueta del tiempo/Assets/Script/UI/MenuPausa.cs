@@ -2,231 +2,231 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class MenuPausa : MonoBehaviour
 {
+    public static MenuPausa Instance;
+
     private const string SAVED_AMBIENTE_KEY = "SavedAmbienteVolume";
     private const string SAVED_SFX_KEY = "SavedSFXVolume";
+
     [SerializeField] private GameObject menuPausa;
-    // subMenuSonido corresponde a SubMenuVolumen en la imagen
     [SerializeField] private GameObject subMenuSonido;
     [SerializeField] private GameObject botonPausa;
-    // Necesitas una referencia para el botón que abre el submenú, si existe
-    [SerializeField] private GameObject botonAbrirSonido; // ASUMIMOS que necesitas una referencia para el botón que lo abre.
+
+    [Header("Scroll View")]
+    [SerializeField] private GameObject scrollView;
 
     [SerializeField] private Slider sliderAmbiente;
     [SerializeField] private Slider sliderEfectos;
     [SerializeField] private AudioMixer masterMixer;
 
-    
-    // Almacenamos el AudioSource del sonido de agua para control de pausa/reanudar
     private AudioSource sonidoAguaSource;
 
+    [Header("Escenas sin menú")]
+    [SerializeField] private List<string> escenasSinMenu = new List<string>(); // Lista de escenas donde ocultar menú
+
+    [Header("Panel de misiones")]
+    [SerializeField] private GameObject missionPanel;
+
+    private bool iniciado = false; // Para que Start solo corra una vez
+
+    void Awake()
+    {
+        // ------------------ SINGLETON ------------------
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject); // Persistir entre escenas
+        // ------------------------------------------------
+
+        // Suscribirse al evento de cambio de escena
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     void Start()
     {
+        if (iniciado) return;
+        iniciado = true;
 
-        // Asegúrate de que tanto el menú de pausa como el submenú de volumen estén ocultos al inicio.
-        if (menuPausa != null)
-            menuPausa.SetActive(false);
+        menuPausa?.SetActive(false);
+        subMenuSonido?.SetActive(false);
+        scrollView?.SetActive(false);
 
-        if (subMenuSonido != null)
-            subMenuSonido.SetActive(false);
-
-        // Opcional: Cargar volumen inicial del Mixer a los Sliders (requiere PlayerPrefs o similar)
-        // Por ahora, asumimos que el sliderAmbiente.value y sliderEfectos.value ya están en 1 (o en el valor deseado).
         CargarVolumenInicial();
 
-        // **GESTIÓN DE SONIDO AGUA**
         if (AudioManager.instance.ClipAgua != null)
         {
-            sonidoAguaSource = AudioManager.instance.CrearAudioSourceEfecto(AudioManager.instance.ClipAgua, true);
+            sonidoAguaSource = AudioManager.instance.CrearAudioSourceEfecto(
+                AudioManager.instance.ClipAgua, true);
             sonidoAguaSource.Play();
         }
-
     }
 
-    public void AbrirSubMenuVolumen()
+    // ================= ESCENA =================
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (AudioManager.instance.ClipbotonOpcion != null)
-            AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonOpcion);
-
-        // 1. Ocultar el menú principal de pausa
-        if (menuPausa != null)
-            menuPausa.SetActive(false);
-
-        // 2. Mostrar el submenú de volumen
-        if (subMenuSonido != null)
-            subMenuSonido.SetActive(true);
+        StartCoroutine(AjustarUI(scene));
     }
 
-    public void CerrarSubMenuVolumen()
+    private IEnumerator AjustarUI(Scene scene)
     {
-        if (AudioManager.instance.ClipbotonOpcion != null)
-            AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonOpcion);
+        yield return null; // esperar un frame para que otros scripts terminen de activar/desactivar
+        bool ocultarMenu = escenasSinMenu.Exists(s => s.Trim().ToLower() == scene.name.Trim().ToLower());
+        Debug.Log($"Escena cargada: {scene.name} | Ocultar menú: {ocultarMenu}");
 
-        if (subMenuSonido != null)
-            subMenuSonido.SetActive(false);
 
-        if (menuPausa != null)
-            menuPausa.SetActive(true);
+        subMenuSonido?.SetActive(false);
+        botonPausa?.SetActive(!ocultarMenu);
+        scrollView?.SetActive(false);
+        missionPanel?.SetActive(!ocultarMenu);
     }
 
-    // -------------------------------------
 
+    // ================= SCROLL =================
+    public void ToggleScroll()
+    {
+        if (scrollView == null) return;
+
+        bool nuevoEstado = !scrollView.activeSelf;
+        OcultarScroll();
+        scrollView.SetActive(nuevoEstado);
+    }
+
+    public void OcultarScroll()
+    {
+        if (scrollView != null)
+            scrollView.SetActive(false);
+    }
+
+    // ================= MENÚ =================
     public void Pausa()
     {
-        if (AudioManager.instance.ClipbotonPausa != null)
-            AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonPausa);
+        AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonPausa);
 
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
+        botonPausa?.SetActive(false);
+        menuPausa?.SetActive(true);
+        subMenuSonido?.SetActive(false);
+        OcultarScroll();
 
-        // Ocultar el botón de pausa en pantalla
-        if (botonPausa != null)
-            botonPausa.SetActive(false);
-
-        // Mostrar el menú de pausa
-        if (menuPausa != null)
-            menuPausa.SetActive(true);
-        
-        // Asegurarse de que el submenú de volumen esté oculto al entrar en la pausa
-        if (subMenuSonido != null)
-            subMenuSonido.SetActive(false); 
-
-        // PAUSAR AUDIO:
-        AudioManager.instance.PausarMusica(); 
-
-        if (sonidoAguaSource != null)
-            sonidoAguaSource.Pause(); 
-    }
-    
-    void OnDestroy()
-    {
-        if (sonidoAguaSource != null)
-        {
-            Destroy(sonidoAguaSource.gameObject);
-        }
+        AudioManager.instance.PausarMusica();
+        sonidoAguaSource?.Pause();
     }
 
     public void Reanudar()
     {
-
         Time.timeScale = 1f;
+        botonPausa?.SetActive(true);
+        menuPausa?.SetActive(false);
+        subMenuSonido?.SetActive(false);
+        OcultarScroll();
 
-        if (botonPausa != null)
-            botonPausa.SetActive(true);
-            
-        if (menuPausa != null)
-            menuPausa.SetActive(false);
-
-        // Asegurarse de ocultar el submenú por si acaso
-        if (subMenuSonido != null)
-            subMenuSonido.SetActive(false);
-
-        // REANUDAR AUDIO:
-        AudioManager.instance.ReanudarMusica(); 
-
-        if (AudioManager.instance.ClipbotonOpcion != null)
-            AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonOpcion);
-
-        if (sonidoAguaSource != null)
-            sonidoAguaSource.UnPause(); 
+        AudioManager.instance.ReanudarMusica();
+        AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonOpcion);
+        sonidoAguaSource?.UnPause();
     }
 
-private void CargarVolumenInicial()
+    public void AbrirSubMenuVolumen()
     {
-        // CARGA: Usamos las claves que usamos para GUARDAR y el valor por defecto 100 (como en tu script de ejemplo)
-        float ambienteValue = PlayerPrefs.GetFloat(SAVED_AMBIENTE_KEY, 100f);
-        float efectosValue = PlayerPrefs.GetFloat(SAVED_SFX_KEY, 100f);
+        Debug.Log(gameObject.name);
+        Debug.Log("Hola");
+        AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonOpcion);
 
-        // 1. Asignar los valores guardados a los Sliders (rango 0-100)
-        if (sliderAmbiente != null)
-        {
-            sliderAmbiente.value = ambienteValue;
-        }
-        if (sliderEfectos != null)
-        {
-            sliderEfectos.value = efectosValue;
-        }
+        menuPausa?.SetActive(false);
+        subMenuSonido?.SetActive(true);
+        OcultarScroll();
+    }
 
-        // 2. Aplicar los valores cargados al Audio Mixer inmediatamente
-        // ESTO REEMPLAZA LA FUNCIÓN RefreshSlider, ya que establece el valor del mixer.
-        CambiarVolumenAmbiente(ambienteValue);
-        CambiarVolumenEfectos(efectosValue);
+    public void CerrarSubMenuVolumen()
+    {
+        AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonOpcion);
+
+        subMenuSonido?.SetActive(false);
+        menuPausa?.SetActive(true);
+        OcultarScroll();
+    }
+
+    // ================= AUDIO =================
+    private void CargarVolumenInicial()
+    {
+        float ambiente = PlayerPrefs.GetFloat(SAVED_AMBIENTE_KEY, 100f);
+        float efectos = PlayerPrefs.GetFloat(SAVED_SFX_KEY, 100f);
+
+        sliderAmbiente.value = ambiente;
+        sliderEfectos.value = efectos;
+
+        CambiarVolumenAmbiente(ambiente);
+        CambiarVolumenEfectos(efectos);
     }
 
     public void CambiarVolumenAmbiente(float v)
     {
-        float volumenDb;
-
-        // Si el slider está en 0, aplica silencio total.
-        if (v <= 0f) 
-        {
-            volumenDb = -80f; 
-        }
-        else
-        {
-            // La fórmula de conversión logarítmica es correcta para 0-100:
-            // (Log10 de [valor entre 0 y 1]) * 20
-            volumenDb = Mathf.Log10(v / 100f) * 20f;
-        }
-
-        // Aplica el valor dB al parámetro expuesto (MusicVolume)
-        if (masterMixer != null)
-        {
-            masterMixer.SetFloat("MusicVolume", volumenDb);
-        }
-
-        // GUARDA: Usa la clave correcta.
+        float db = v <= 0 ? -80f : Mathf.Log10(v / 100f) * 20f;
+        masterMixer.SetFloat("MusicVolume", db);
         PlayerPrefs.SetFloat(SAVED_AMBIENTE_KEY, v);
-        
         AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonOpcion);
     }
 
     public void CambiarVolumenEfectos(float v)
     {
-        float volumenDb;
-
-        if (v <= 0f) 
-        {
-            volumenDb = -80f; 
-        }
-        else
-        {
-            // Fórmula Logarítmica para SFX
-            volumenDb = Mathf.Log10(v / 100f) * 20f;
-        }
-
-        // Aplica el valor dB al parámetro expuesto (SFXVolume)
-        if (masterMixer != null)
-        {
-            masterMixer.SetFloat("SFXVolume", volumenDb);
-        }
-
-        // GUARDA: Usa la clave correcta.
+        float db = v <= 0 ? -80f : Mathf.Log10(v / 100f) * 20f;
+        masterMixer.SetFloat("SFXVolume", db);
         PlayerPrefs.SetFloat(SAVED_SFX_KEY, v);
-        
         AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonOpcion);
     }
 
+    // ================= OTROS =================
     public void Cerrar()
     {
         AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonOpcion);
-        Debug.Log("Cerrando");
-
         Time.timeScale = 1f;
-        Destroy(AudioManager.instance.gameObject); 
-
-        // Aseguramos que se guarde cualquier cambio antes de cargar la siguiente escena
+        botonPausa?.SetActive(true);
+        menuPausa?.SetActive(false);
+        subMenuSonido?.SetActive(false);
+        OcultarScroll();
         PlayerPrefs.Save();
-
+        Destroy(AudioManager.instance.gameObject);
         SceneManager.LoadScene("Escena Menú");
     }
 
     public void GuardarPartida()
     {
-        AudioManager.instance.Reproducir(AudioManager.instance.ClipbotonOpcion);
-        Debug.Log("Partida guardada.");
-    }
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            Debug.LogWarning("No se encontró el jugador.");
+            return;
+        }
 
+        GameData data = new GameData();
+
+        // Posición
+        data.playerX = player.transform.position.x;
+        data.playerY = player.transform.position.y;
+        data.playerZ = player.transform.position.z;
+        data.sceneName = SceneManager.GetActiveScene().name;
+
+        // Volumen
+        data.volumenAmbiente = sliderAmbiente.value;
+        data.volumenEfectos = sliderEfectos.value;
+
+        // 🔴 GUARDAR FLAGS (REWARDS)
+        if (RewardManager.Instance != null)
+            data.rewards = new List<string>(RewardManager.Instance.rewards);
+
+        SaveSystem.Save(data);
+        Debug.Log("✅ Partida guardada con rewards");
+    }
 }

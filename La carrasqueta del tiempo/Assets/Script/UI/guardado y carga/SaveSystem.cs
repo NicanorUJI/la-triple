@@ -38,5 +38,9 @@ public static class SaveSystem
             Debug.LogWarning("No se encontró archivo de guardado para eliminar.");
         }
     }
+    public static bool ExisteGuardado()
+    {
+        return File.Exists(Application.persistentDataPath + "/save.json");
+    }
 }
 
