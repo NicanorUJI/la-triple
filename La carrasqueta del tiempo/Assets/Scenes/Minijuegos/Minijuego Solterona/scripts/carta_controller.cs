@@ -146,7 +146,8 @@ public class carta_controller : MonoBehaviour
             otherCartaObjeto.SetActive(false);
 
             minijuegoController.haGanado = false;
-            MostrarPanelFinConDelay(1.5f);
+            //MostrarPanelFinConDelay(1.5f);
+            minijuegoController.MostrarPanelFin();
         }
         jugadorEligeCarta();
 
@@ -200,10 +201,10 @@ public class carta_controller : MonoBehaviour
         Debug.Log(">>> Cartas barajadas");
     }
 
-    private IEnumerator MostrarPanelFinConDelay(float delay)
+    /*private IEnumerator MostrarPanelFinConDelay(float delay)
     {
         yield return new WaitForSeconds(delay);  // espera X segundos
         minijuegoController.MostrarPanelFin();    // luego muestra el panel
-    }
+    }*/
 
 }
