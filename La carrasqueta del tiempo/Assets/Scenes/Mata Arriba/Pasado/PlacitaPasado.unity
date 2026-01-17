@@ -2030,6 +2030,7 @@ MonoBehaviour:
   indiceEscena: 16
   transicion: {fileID: 115551855}
   tagJugador: Player
+  teclaRequerida: 0
   retardo: 0
   nombrePuntoEntrada: Ermita
 --- !u!212 &1268092419
@@ -2954,6 +2955,7 @@ MonoBehaviour:
   indiceEscena: 23
   transicion: {fileID: 115551855}
   tagJugador: Player
+  teclaRequerida: 33
   retardo: 0
   nombrePuntoEntrada: CallejonPlacita
 --- !u!1 &2067358337
