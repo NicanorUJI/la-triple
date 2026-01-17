@@ -982,6 +982,7 @@ MonoBehaviour:
   indiceEscena: 3
   transicion: {fileID: 1572503325}
   tagJugador: Player
+  teclaRequerida: 0
   retardo: 0
   nombrePuntoEntrada: Placita
 --- !u!1 &632883777
@@ -1288,6 +1289,7 @@ MonoBehaviour:
   indiceEscena: 21
   transicion: {fileID: 1572503325}
   tagJugador: Player
+  teclaRequerida: 33
   retardo: 0
   nombrePuntoEntrada: "esparde\xF1es3"
 --- !u!58 &883818724
@@ -1739,6 +1741,7 @@ MonoBehaviour:
   indiceEscena: 1
   transicion: {fileID: 1572503325}
   tagJugador: Player
+  teclaRequerida: 0
   retardo: 0
   nombrePuntoEntrada: Plaza
 --- !u!1001 &1718268489

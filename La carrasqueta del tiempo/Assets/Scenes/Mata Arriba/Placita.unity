@@ -628,6 +628,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Transicion
       objectReference: {fileID: 0}
+    - target: {fileID: 4864871581541726322, guid: 78eee873bb7dd1440b65702628c1365c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -762,6 +766,7 @@ MonoBehaviour:
   indiceEscena: 20
   transicion: {fileID: 669971449}
   tagJugador: Player
+  teclaRequerida: 0
   retardo: 0
   nombrePuntoEntrada: 
 --- !u!1 &872776488
@@ -1781,6 +1786,7 @@ MonoBehaviour:
   indiceEscena: 18
   transicion: {fileID: 669971449}
   tagJugador: Player
+  teclaRequerida: 0
   retardo: 0
   nombrePuntoEntrada: Placita-Ermita
 --- !u!212 &1605587267
@@ -2194,8 +2200,8 @@ GameObject:
   - component: {fileID: 2016254914}
   - component: {fileID: 2016254913}
   - component: {fileID: 2016254915}
-  - component: {fileID: 2016254916}
   - component: {fileID: 2016254917}
+  - component: {fileID: 2016254918}
   m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
@@ -2289,8 +2295,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteSorter
   sortingOffset: 100
---- !u!58 &2016254916
-CircleCollider2D:
+--- !u!114 &2016254917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016254912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c628f789dca553947b23130e5bbacb4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CambioDeEscenaPorIndice
+  indiceEscena: 2
+  transicion: {fileID: 669971449}
+  tagJugador: Player
+  teclaRequerida: 33
+  retardo: 0
+  nombrePuntoEntrada: CallejonPlacita
+--- !u!70 &2016254918
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2323,25 +2347,9 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.01298033, y: -0.8257528}
-  m_Radius: 0.4805295
---- !u!114 &2016254917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016254912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c628f789dca553947b23130e5bbacb4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CambioDeEscenaPorIndice
-  indiceEscena: 2
-  transicion: {fileID: 669971449}
-  tagJugador: Player
-  retardo: 0
-  nombrePuntoEntrada: CallejonPlacita
+  m_Offset: {x: 0.0052591837, y: -0.025325242}
+  m_Size: {x: 0.6863388, y: 0.89268595}
+  m_Direction: 1
 --- !u!1 &2067358337
 GameObject:
   m_ObjectHideFlags: 0
