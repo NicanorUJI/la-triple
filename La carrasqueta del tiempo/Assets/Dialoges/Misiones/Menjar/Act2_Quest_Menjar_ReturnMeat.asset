@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Act2_Quest_Menjar_ReturnMeat
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: -1807645480230456300, guid: 1007b9b7e18ff7125acd0c1d293d16ca, type: 3}
+  defaultSprite: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
   joaquinDefault: {fileID: 0}
   lines:
   - speakerName: "Joaqu\xEDn"

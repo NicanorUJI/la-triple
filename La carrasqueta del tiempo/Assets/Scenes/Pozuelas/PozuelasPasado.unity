@@ -2097,7 +2097,7 @@ EdgeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523915530}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -3095,6 +3095,7 @@ MonoBehaviour:
   indiceEscena: 9
   transicion: {fileID: 0}
   tagJugador: Player
+  teclaRequerida: 0
   retardo: 0
   nombrePuntoEntrada: Barranquet_Derecha
 --- !u!212 &2035805051

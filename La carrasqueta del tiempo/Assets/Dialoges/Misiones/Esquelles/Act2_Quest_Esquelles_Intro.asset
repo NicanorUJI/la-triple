@@ -72,7 +72,7 @@ MonoBehaviour:
     minigame: 
   - speakerName: "Joaqu\xEDn"
     lineText: "(Ra\xFAl\u2026 No ser\xE0\u2026?)"
-    expression: {fileID: -6676206179498459708, guid: b34e5b53d8d7fdfa88b6ef1da34ba083, type: 3}
+    expression: {fileID: 21300000, guid: 14c58c64c003fa97ca1c2795a3c4160a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

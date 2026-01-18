@@ -353,7 +353,6 @@ GameObject:
   - component: {fileID: 348165172}
   - component: {fileID: 348165171}
   - component: {fileID: 348165170}
-  - component: {fileID: 348165169}
   - component: {fileID: 348165168}
   m_Layer: 3
   m_Name: Josefina (2)
@@ -374,38 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7b9a0351eb68b4d94e8a9420371b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteSorter
-  sortingOffset: 100
---- !u!114 &348165169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348165167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17beb631499f6c57f882efb2e80f92f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC
-  opciones:
-  - {fileID: 11400000, guid: d41ea9f15ff5d1624b563897e035982f, type: 2}
-  - {fileID: 11400000, guid: 56d34e881d2eae0bfb0da19cadb0eff7, type: 2}
-  dialoguePanel: {fileID: 1249243117}
-  dialogueText: {fileID: 1507178850}
-  nameText: {fileID: 180285448}
-  talkingAudioSource: {fileID: 0}
-  npcTalk_Clip: {fileID: 0}
-  joaquinTalk_Clip: {fileID: 0}
-  portraitImage: {fileID: 1042239481}
-  joaquinPortrait_Object: {fileID: 752434617}
-  joaquinPortrait: {fileID: 752434614}
-  button_choice1: {fileID: 0}
-  button_choice2: {fileID: 0}
-  button_choice3: {fileID: 0}
-  button_choice4: {fileID: 0}
-  skipDialogueWhenFlagSet: 0
-  skipDialogueFlag: 
-  skipDialogueScene: 
+  sortingOffset: 101
 --- !u!61 &348165170
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -440,11 +408,11 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 3.5, y: -2.5}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.51}
+    oldSize: {x: 0.98, y: 1.39}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -499,9 +467,9 @@ SpriteRenderer:
   m_SortingLayerID: 1252618739
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1442471265199691755, guid: 8af6426dda5f203e786c83675081e0ed, type: 3}
+  m_Sprite: {fileID: 4234553523983039439, guid: 8af6426dda5f203e786c83675081e0ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -519,7 +487,7 @@ Transform:
   m_GameObject: {fileID: 348165167}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.842, y: -0.307, z: 0}
+  m_LocalPosition: {x: 1.182, y: -0.315, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1129,6 +1097,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &634922656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 634922657}
+  - component: {fileID: 634922659}
+  - component: {fileID: 634922658}
+  m_Layer: 3
+  m_Name: triggerPostSolterona
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &634922657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634922656}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2086536011}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &634922658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634922656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2970093fd36eeb80889ed209a5c9f34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoDialogueTrigger
+  npc: {fileID: 2086536008}
+  oneShot: 1
+  requiredFlags:
+  - Act2_Q_LLANCE_WonSolterona
+  forbiddenFlags:
+  - CutsceneSolterona_DONE
+--- !u!61 &634922659
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634922656}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.5, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &637724170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,7 +1279,7 @@ Transform:
   m_GameObject: {fileID: 637724170}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.02, y: -0.312, z: 0}
+  m_LocalPosition: {x: 1.017, y: -0.315, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1616,7 +1681,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.022248298}
+  m_Offset: {x: 1.148598, y: -0.022248268}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1626,7 +1691,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.4609139}
+  m_Size: {x: 3.297196, y: 1.4609139}
   m_EdgeRadius: 0
 --- !u!212 &911966373
 SpriteRenderer:
@@ -1717,6 +1782,7 @@ MonoBehaviour:
   opciones:
   - {fileID: 11400000, guid: d41ea9f15ff5d1624b563897e035982f, type: 2}
   - {fileID: 11400000, guid: 56d34e881d2eae0bfb0da19cadb0eff7, type: 2}
+  - {fileID: 11400000, guid: d44a4a78f91e81e4cb3217f1bb766750, type: 2}
   dialoguePanel: {fileID: 1249243117}
   dialogueText: {fileID: 1507178850}
   nameText: {fileID: 180285448}
@@ -1808,6 +1874,7 @@ MonoBehaviour:
   indiceEscena: 3
   transicion: {fileID: 1948193377}
   tagJugador: Player
+  teclaRequerida: 0
   retardo: 0
   nombrePuntoEntrada: Placita2
 --- !u!61 &1051241375
@@ -2424,10 +2491,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2970093fd36eeb80889ed209a5c9f34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoDialogueTrigger
-  npc: {fileID: 0}
+  npc: {fileID: 911966375}
   oneShot: 1
-  requiredFlags: []
-  forbiddenFlags: []
+  requiredFlags:
+  - Act2_Q_MENJAR_WonDomino
+  forbiddenFlags:
+  - DominoCutscene_DONE
 --- !u!61 &1879961452
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2724,6 +2793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   opciones:
+  - {fileID: 11400000, guid: ae1b0b1bb5c398f47bf6bee5266106cb, type: 2}
   - {fileID: 11400000, guid: a8062eecd32be2a9dafe08255ee9a3fc, type: 2}
   - {fileID: 11400000, guid: 18bfef8087ebbf7cda140352387b7f85, type: 2}
   - {fileID: 11400000, guid: c99c0ef0e7cbfc444a99f1f91aa8ab43, type: 2}
@@ -2859,7 +2929,8 @@ Transform:
   m_LocalPosition: {x: -0.546, y: -0.509, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 634922657}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2086536012

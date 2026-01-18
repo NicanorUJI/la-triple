@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
   defaultSprite: {fileID: -5406564271734706521, guid: ee4b25bbe12e56de0b3062bf88ba071a, type: 3}
-  joaquinDefault: {fileID: 21300000, guid: a2e5e7b38ac7db4d693b36d349cce8f8, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 704c08af6c7afe52fb02d7b58df5574a, type: 3}
   lines:
   - speakerName: Alcalde
     lineText: Jaja, la sort del principiant.
@@ -52,8 +52,8 @@ MonoBehaviour:
     choiceB: {fileID: 0}
     choiceC: {fileID: 0}
     choiceD: {fileID: 0}
-    hasReward: 0
-    reward: 
+    hasReward: 1
+    reward: CutsceneSolterona_DONE
     startsMinigame: 0
     minigame: 
   - speakerName: Joaquin

@@ -32,7 +32,7 @@ MonoBehaviour:
   - speakerName: Jan
     lineText: Hola!
     expression: {fileID: 129569322397778913, guid: 113cfc7e9c70688b59a8001218ba9c0a, type: 3}
-    isPlayerSpeaking: 1
+    isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}

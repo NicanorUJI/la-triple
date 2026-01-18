@@ -1182,7 +1182,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06842637, y: -0.1589787}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1192,7 +1192,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.026396, y: 0.47007155}
   m_EdgeRadius: 0
 --- !u!114 &464209068
 MonoBehaviour:
@@ -1209,6 +1209,7 @@ MonoBehaviour:
   indiceEscena: 15
   transicion: {fileID: 1613346573}
   tagJugador: Player
+  teclaRequerida: 0
   retardo: 2
   nombrePuntoEntrada: arbolPas
 --- !u!212 &464209069
@@ -1298,7 +1299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SetActiveByFlags
   requiredAll:
   - Act1_FirstTravelPast
-  forbiddenAny: []
+  forbiddenAny:
+  - 'Act3_PastBriefingDone '
 --- !u!114 &514896176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2049,6 +2051,7 @@ MonoBehaviour:
   indiceEscena: 21
   transicion: {fileID: 1613346573}
   tagJugador: Player
+  teclaRequerida: 0
   retardo: 0
   nombrePuntoEntrada: CallejonPlaza
 --- !u!212 &869062500
@@ -3552,6 +3555,7 @@ GameObject:
   - component: {fileID: 1453079620}
   - component: {fileID: 1453079619}
   - component: {fileID: 1453079618}
+  - component: {fileID: 1453079621}
   m_Layer: 0
   m_Name: NPC_fantasma_1ainter_Carrasqueta (1)
   m_TagString: Untagged
@@ -3651,6 +3655,19 @@ Transform:
   - {fileID: 14210937}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1453079621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453079617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2811ef3de56a4dedb7a3ee95c7881d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HideIfFlagActive
+  flagName: 1a_llegada_carrasqueta_DONE
 --- !u!1 &1473695456
 GameObject:
   m_ObjectHideFlags: 0
