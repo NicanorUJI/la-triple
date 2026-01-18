@@ -968,7 +968,7 @@ GameObject:
   - component: {fileID: 810673577}
   - component: {fileID: 810673576}
   m_Layer: 8
-  m_Name: Circle
+  m_Name: CircleEsp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2008,7 +2008,7 @@ GameObject:
   - component: {fileID: 1519931856}
   - component: {fileID: 1519931855}
   m_Layer: 0
-  m_Name: Tp (2)
+  m_Name: TpCarras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
