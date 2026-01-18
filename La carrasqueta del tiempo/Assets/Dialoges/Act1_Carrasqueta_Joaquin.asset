@@ -25,7 +25,7 @@ MonoBehaviour:
     choiceB: {fileID: 0}
     choiceC: {fileID: 0}
     choiceD: {fileID: 0}
-    hasReward: 1
+    hasReward: 0
     reward: ACT1_FIRST_TRAVEL_PAST
     startsMinigame: 0
     minigame: 

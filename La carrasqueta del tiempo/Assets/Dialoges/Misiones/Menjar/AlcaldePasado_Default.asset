@@ -17,7 +17,7 @@ MonoBehaviour:
   joaquinDefault: {fileID: 21300000, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
   lines:
   - speakerName: Senyor
-    lineText: "Despr\xE9s tenim un torneo de morra, esperem que la gent participe."
+    lineText: "Despr\xE9s tenim un torneig de morra, esperem que la gent participe."
     expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0

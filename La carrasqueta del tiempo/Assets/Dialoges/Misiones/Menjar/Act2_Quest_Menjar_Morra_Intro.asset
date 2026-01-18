@@ -98,7 +98,20 @@ MonoBehaviour:
     minigame: 
   - speakerName: Alcalde
     lineText: "Molt b\xE9. Entonces ets benvingut. Agafa una cadira, sagal."
-    expression: {fileID: 0}
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 1
+    minigame: Minijuego_Morra
+  - speakerName: Alcalde
+    lineText: ' '
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}

@@ -34,7 +34,6 @@ namespace Domino.UI
             parentRect = transform.parent as RectTransform;
         }
 
-        /// <summary>Setup completo con drag callback.</summary>
         public void Setup(
             DominoTile tile,
             Canvas canvas,

@@ -17,8 +17,34 @@ MonoBehaviour:
   joaquinDefault: {fileID: 21300000, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
   lines:
   - speakerName: Iaia
-    lineText: "On estar\xE0 Encarna ara...?"
+    lineText: Encarna, com que t'has oblidat les fitxes?
     expression: {fileID: -7372192891005804176, guid: cd5e1878ba1097dacb04ec7584989e1a, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Iaia
+    lineText: Ai, hola Joaquin. Que has vingut a visitar a la teua avia?
+    expression: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Iaia
+    lineText: Dili a Maripili que vinga a jugar amb nosaltres algun dia.
+    expression: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
