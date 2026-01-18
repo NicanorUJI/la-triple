@@ -741,7 +741,7 @@ GameObject:
   - component: {fileID: 362371460}
   - component: {fileID: 362371465}
   m_Layer: 0
-  m_Name: TP_Carrasqueta -> Presente
+  m_Name: TPCarrasquetaPresente
   m_TagString: arbol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1546,7 +1546,7 @@ GameObject:
   - component: {fileID: 950437388}
   - component: {fileID: 950437387}
   m_Layer: 8
-  m_Name: Circle (1)
+  m_Name: CircleC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1966,7 +1966,7 @@ GameObject:
   - component: {fileID: 1142843446}
   - component: {fileID: 1142843445}
   m_Layer: 0
-  m_Name: Tp
+  m_Name: TpC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3398,7 +3398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::tp2
   indiceEscena: 11
-  transicion: {fileID: 0}
+  transicion: {fileID: 1029616096}
   tagJugador: Player
   teclaRequerida: 0
   retardo: 0
@@ -3470,8 +3470,8 @@ Transform:
   m_GameObject: {fileID: 1681888657}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.642, y: -0.023, z: 0}
-  m_LocalScale: {x: 0.15888676, y: 1.081, z: 1}
+  m_LocalPosition: {x: 1.6058, y: -0.023, z: 0}
+  m_LocalScale: {x: 0.23119614, y: 1.081, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
