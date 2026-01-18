@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
-  m_Name: AlcaldePresente_PostDomino
+  m_Name: Act2_Esquelles_Jan_Post_PiRecuento_default
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 1519292624816307631, guid: c8e8baf8578fc1d45ab4ee68b1c96e2a, type: 3}
-  joaquinDefault: {fileID: 21300000, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
+  defaultSprite: {fileID: 129569322397778913, guid: 113cfc7e9c70688b59a8001218ba9c0a, type: 3}
+  joaquinDefault: {fileID: 3289418361607064246, guid: 25b6aa80d54229e4ba73157fb8bdb21a, type: 3}
   lines:
-  - speakerName: Alcalde
-    lineText: Blablabla por favor acordaos de cambiarme el dialogo
-    expression: {fileID: 1519292624816307631, guid: c8e8baf8578fc1d45ab4ee68b1c96e2a, type: 3}
+  - speakerName: Jan
+    lineText: "Cuida-la b\xE9, eh, que la pr\xF2xima polsera no ser\xE0 tan barata.
+      \n"
+    expression: {fileID: -2517251984187696129, guid: e6add0d1fe6b1a2598dc1771955a2649, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -30,4 +31,4 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   conditions:
-  - CutsceneSolterona_DONE
+  - PiRecuentoCutscene_DONE

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
+  m_Name: Josefina_Post_domino
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  originalDialogue: {fileID: 0}
+  defaultSprite: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
+  joaquinDefault: {fileID: 3289418361607064246, guid: 25b6aa80d54229e4ba73157fb8bdb21a, type: 3}
+  lines:
+  - speakerName: Josefina
+    lineText: Vine a jugar amb nosaltres quan vulgues.
+    expression: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Josefina
+    lineText: "Ens far\xE0s molt contentes, sempre \xE9s bo jugar amb cares noves,
+      sobretot si es tracta d'un jovenet tan guapo i intel\xB7ligent com tu."
+    expression: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  - speakerName: Josefina
+    lineText: "A m\xE9s, arriba a ser avorrit guanyar-li sempre a Encarna."
+    expression: {fileID: 5031953502039587451, guid: ca73ec9276f1fdc40ad7139674a1f748, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  conditions:
+  - DominoCutscene_DONE
