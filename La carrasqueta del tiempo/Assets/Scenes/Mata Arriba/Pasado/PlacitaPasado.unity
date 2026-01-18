@@ -585,6 +585,7 @@ MonoBehaviour:
   opciones:
   - {fileID: 11400000, guid: da1d2cb885c3d63fd87ebe496b150924, type: 2}
   - {fileID: 11400000, guid: dfcdee974c5185144b813ae91246b88f, type: 2}
+  - {fileID: 11400000, guid: 2a632a98dc4c2c14195e6d5799c060c7, type: 2}
   dialoguePanel: {fileID: 196821872}
   dialogueText: {fileID: 196821869}
   nameText: {fileID: 196821870}

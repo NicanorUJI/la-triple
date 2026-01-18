@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
+  m_Name: AlcaldePasado_PostMorra
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  originalDialogue: {fileID: 0}
+  defaultSprite: {fileID: -3644103294100017685, guid: 9c9c6503463fa285383681e4421ab9ff, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
+  lines:
+  - speakerName: Alcalde
+    lineText: "Xiquets com tu no es troben cada dia, vine a jugar sempre que vulgues,
+      ser\xE0 un plaer."
+    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
+    isPlayerSpeaking: 1
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  conditions:
+  - CutscenePostMorra_DONE

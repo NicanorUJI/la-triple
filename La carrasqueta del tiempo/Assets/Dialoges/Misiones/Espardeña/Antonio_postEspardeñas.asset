@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
+  m_Name: "Antonio_postEsparde\xF1as"
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  originalDialogue: {fileID: 0}
+  defaultSprite: {fileID: -7163864861592193100, guid: 39f455c862bdc2d69a9d37676480ea21, type: 3}
+  joaquinDefault: {fileID: 3289418361607064246, guid: 25b6aa80d54229e4ba73157fb8bdb21a, type: 3}
+  lines:
+  - speakerName: Antonio
+    lineText: "Tens manya per a a\xE7\xF2 xic. Vine a ajudar-me sempre que vulgues,
+      no em venen malament un parell de mans extra."
+    expression: {fileID: 2034427693296661028, guid: eb034a48146884376a653a7c523df0a9, type: 3}
+    isPlayerSpeaking: 0
+    isChoice: 0
+    choiceA: {fileID: 0}
+    choiceB: {fileID: 0}
+    choiceC: {fileID: 0}
+    choiceD: {fileID: 0}
+    hasReward: 0
+    reward: 
+    startsMinigame: 0
+    minigame: 
+  conditions:
+  - Act2_VolverMaripili
