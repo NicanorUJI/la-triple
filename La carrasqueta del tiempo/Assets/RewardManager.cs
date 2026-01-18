@@ -8,6 +8,7 @@ public class RewardManager : MonoBehaviour
 {
     public List<string> rewards = new List<string>();
 
+
     public SpriteChanger lanzaUI;
     public SpriteChanger llaveUI;
     public SpriteChanger cestaUI;

@@ -11,6 +11,7 @@ public class MenuPausa : MonoBehaviour
 
     private const string SAVED_AMBIENTE_KEY = "SavedAmbienteVolume";
     private const string SAVED_SFX_KEY = "SavedSFXVolume";
+    public bool botonDesbloqueado = false;
 
     [SerializeField] private GameObject menuPausa;
     [SerializeField] private GameObject subMenuSonido;
@@ -88,7 +89,14 @@ public class MenuPausa : MonoBehaviour
 
 
         subMenuSonido?.SetActive(false);
-        botonPausa?.SetActive(!ocultarMenu);
+        if (botonDesbloqueado)
+        {
+            botonPausa?.SetActive(!ocultarMenu);
+        }
+        else
+        {
+            botonPausa?.SetActive(false);
+        }
         scrollView?.SetActive(false);
         missionPanel?.SetActive(!ocultarMenu);
     }

@@ -816,9 +816,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8305982723496581979, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7954721116160355957, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4381938344004605606, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89f79e8c402f5af4fa9b126a3654605f, type: 3}
@@ -2938,6 +2943,7 @@ GameObject:
   - component: {fileID: 1766504448}
   - component: {fileID: 1766504450}
   - component: {fileID: 1766504451}
+  - component: {fileID: 1766504452}
   m_Layer: 0
   m_Name: tutorialMapa
   m_TagString: Untagged
@@ -3038,6 +3044,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HideIfFlagActive
   flagName: TutorialMapa_Done
+--- !u!114 &1766504452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766504446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc2a46edd79a6340b80ca6e9dec3cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hide_Show_PauseButton_OnTrigger
+  hide: 0
+  requiredFlags:
+  - Act2_MaripiliIntroDone
+  forbiddenFlags: []
 --- !u!1 &1794229068
 GameObject:
   m_ObjectHideFlags: 0
