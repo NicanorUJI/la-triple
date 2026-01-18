@@ -189,7 +189,7 @@ MonoBehaviour:
     choiceB: {fileID: 0}
     choiceC: {fileID: 0}
     choiceD: {fileID: 0}
-    hasReward: 1
+    hasReward: 0
     reward: ACT1_INTRO_END
     startsMinigame: 0
     minigame: 
