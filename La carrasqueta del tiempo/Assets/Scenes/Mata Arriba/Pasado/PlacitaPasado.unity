@@ -1543,7 +1543,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845825374}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -1551,11 +1551,11 @@ RectTransform:
   - {fileID: 1794229069}
   - {fileID: 2123070426}
   - {fileID: 788354215}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1766504449}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -2.11, y: 0.26354}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &983233783
@@ -2889,7 +2889,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1766504449}
   - component: {fileID: 1766504448}
-  - component: {fileID: 1766504447}
+  - component: {fileID: 1766504450}
+  - component: {fileID: 1766504451}
   m_Layer: 0
   m_Name: tutorialMapa
   m_TagString: Untagged
@@ -2897,22 +2898,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1766504447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766504446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10be584f6ed407dbfbd808984d0ea82e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SetActiveByFlags
-  requiredAll:
-  - 
-  forbiddenAny:
-  - TutorialMapa_Done
 --- !u!61 &1766504448
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2971,9 +2956,41 @@ Transform:
   m_LocalPosition: {x: 2.11, y: -0.26354, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 845825380}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1766504450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766504446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9c14e194e14ead409f9e14d29a0370a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Hide_Show_IfOnTrigger
+  toHide: {fileID: 845825374}
+  hide: 0
+  requiredFlags:
+  - Act2_MaripiliIntroDone
+  forbiddenFlags:
+  - TutorialMapa_Done
+--- !u!114 &1766504451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766504446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2811ef3de56a4dedb7a3ee95c7881d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HideIfFlagActive
+  flagName: TutorialMapa_Done
 --- !u!1 &1794229068
 GameObject:
   m_ObjectHideFlags: 0
@@ -4027,4 +4044,3 @@ SceneRoots:
   - {fileID: 1333522334}
   - {fileID: 1825083933}
   - {fileID: 1766504449}
-  - {fileID: 845825380}
