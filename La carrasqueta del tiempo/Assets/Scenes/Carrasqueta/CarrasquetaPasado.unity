@@ -2062,7 +2062,7 @@ MonoBehaviour:
   tagJugador: Player
   teclaRequerida: 0
   retardo: 0
-  nombrePuntoEntrada: "esparde\xF1es1"
+  nombrePuntoEntrada: "esparde\xF1es3"
 --- !u!212 &1142843448
 SpriteRenderer:
   m_ObjectHideFlags: 0
