@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 8b36d0183add7a740aef68a46d9ab64c
+guid: c38b6ff63521e5c45ac7f0cca63af0aa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7423311732279261943
-    second: Sprites_NPCsPasado_Varios 1_0
+      213: -6938677457938595763
+    second: Boton_Siguiente_0
   - first:
-      213: -8623597430473759452
-    second: Sprites_NPCsPasado_Varios 1_1
-  - first:
-      213: 9058403518976273052
-    second: Sprites_NPCsPasado_Varios 1_2
+      213: 8451494731694687178
+    second: Boton_Siguiente_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -81,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,67 +103,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprites_NPCsPasado_Varios 1_0
+      name: Boton_Siguiente_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 31
-        width: 24
-        height: 27
+        x: 3
+        y: 189
+        width: 362
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90541845f491bf890800000000000000
-      internalID: -7423311732279261943
+      spriteID: d404f8c5d9dd4bf90800000000000000
+      internalID: -6938677457938595763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites_NPCsPasado_Varios 1_1
+      name: Boton_Siguiente_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 31
-        width: 20
-        height: 25
+        x: 3
+        y: 6
+        width: 362
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 425e3a6a3d3d25880800000000000000
-      internalID: -8623597430473759452
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprites_NPCsPasado_Varios 1_2
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 31
-        width: 23
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c9aaabcc10ae5bd70800000000000000
-      internalID: 9058403518976273052
+      spriteID: ac34fb73eadb94570800000000000000
+      internalID: 8451494731694687178
       vertices: []
       indices: 
       edges: []
@@ -175,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 50c12ab90770662498819f147a7a2bba
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sprites_NPCsPasado_Varios 1_0: -7423311732279261943
-      Sprites_NPCsPasado_Varios 1_1: -8623597430473759452
-      Sprites_NPCsPasado_Varios 1_2: 9058403518976273052
+      Boton_Siguiente_0: -6938677457938595763
+      Boton_Siguiente_1: 8451494731694687178
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
