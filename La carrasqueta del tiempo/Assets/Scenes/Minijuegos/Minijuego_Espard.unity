@@ -2427,7 +2427,7 @@ MonoBehaviour:
   characterRenderer: {fileID: 407906445}
   bocadilloRenderer: {fileID: 1430558841}
   charIdle: {fileID: 9095853184155359625, guid: b6861a3d6f189264595a95bce0bebf90, type: 3}
-  textIdle: {fileID: 0}
+  textIdle: {fileID: 21300000, guid: 33527b843010e884582137890846302c, type: 3}
   charHit: {fileID: 5244329285930851619, guid: d3d05d0d92f190b44af5806b3f83346e, type: 3}
   textHit: {fileID: -8152589223829115686, guid: 2573c19b27098a449bdbc4c9bde74453, type: 3}
   charFail: {fileID: 8455429970021229448, guid: 5d0a81f9d63be0341bcfbc2e1d3dc623, type: 3}
@@ -2899,7 +2899,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

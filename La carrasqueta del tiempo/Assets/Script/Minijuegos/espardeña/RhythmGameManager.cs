@@ -12,27 +12,27 @@ public class RhythmGameManager : MonoBehaviour
     public TMP_Text scoreText;
 
     [Header("=== LOS 'MARCOS' DE LA ESCENA ===")]
-    // Arrastra aquí los objetos de la Jerarquía
     public SpriteRenderer characterRenderer; // Tu personaje
-    public SpriteRenderer bocadilloRenderer; // El NUEVO objeto "Visual_Bocadillo"
+    public SpriteRenderer bocadilloRenderer; // El objeto "Visual_Bocadillo"
 
     [Header("=== LAS 'FOTOS' (Sprites) ===")]
     
     [Header("Estado: IDLE (Normal)")]
     public Sprite charIdle; 
-    public Sprite textIdle; // DÉJALO VACÍO (None) si no quieres texto al esperar
+    // IMPORTANTE: Ahora necesitas poner una imagen aquí (ej: burbuja vacía o "...")
+    // para que no desaparezca el bocadillo.
+    public Sprite textIdle; 
 
     [Header("Estado: HIT (Acierto)")]
-    public Sprite charHit;  // Cara feliz
-    public Sprite textHit;  // Imagen "Bé"
+    public Sprite charHit;  
+    public Sprite textHit;  
 
     [Header("Estado: FAIL (Fallo)")]
-    public Sprite charFail; // Cara triste
-    public Sprite textFail; // Imagen "Mal"
+    public Sprite charFail; 
+    public Sprite textFail; 
 
     [Header("Configuración")]
     public float feedbackDuration = 0.5f;
-
 
     [Header("Panel Fin de Juego")]
     public GameObject panelFin;
@@ -62,6 +62,10 @@ public class RhythmGameManager : MonoBehaviour
     void Start()
     {
         UpdateScoreText();
+        
+        // Aseguramos que el renderer del bocadillo empiece activado
+        if(bocadilloRenderer != null) bocadilloRenderer.enabled = true;
+
         // Estado inicial: Idle
         SetVisuals(charIdle, textIdle);
     }
@@ -75,8 +79,6 @@ public class RhythmGameManager : MonoBehaviour
         hitNotes++;
         currentScore++;
         UpdateScoreText();
-        
-        // Disparamos la pareja de ACIERTO
         TriggerFeedback(charHit, textHit);
     }
 
@@ -85,8 +87,6 @@ public class RhythmGameManager : MonoBehaviour
         currentScore--;
         if (currentScore < 0) currentScore = 0;
         UpdateScoreText();
-        
-        // Disparamos la pareja de FALLO
         TriggerFeedback(charFail, textFail);
     }
 
@@ -111,7 +111,7 @@ public class RhythmGameManager : MonoBehaviour
         SetVisuals(charIdle, textIdle);
     }
 
-    // FUNCIÓN CLAVE: Cambia las dos imágenes a la vez
+    // --- AQUÍ ESTÁ EL CAMBIO PRINCIPAL ---
     private void SetVisuals(Sprite face, Sprite text)
     {
         // 1. Cambiar la cara
@@ -120,26 +120,18 @@ public class RhythmGameManager : MonoBehaviour
             characterRenderer.sprite = face;
         }
 
-        // 2. Cambiar el texto
+        // 2. Cambiar el texto (Sin apagar el objeto)
         if (bocadilloRenderer != null)
         {
-            if (text == null)
-            {
-                // TRUCO: Si no hay imagen de texto (Idle), apagamos el renderer
-                // para que no se vea un cuadrado blanco.
-                bocadilloRenderer.enabled = false;
-            }
-            else
-            {
-                // Si hay imagen, lo encendemos y la ponemos.
-                Debug.Log("INTENTANDO MOSTRAR: " + text.name); // <--- MIRA LA CONSOLA
-                bocadilloRenderer.enabled = true;
-                bocadilloRenderer.sprite = text;
-            }
+            // Nos aseguramos de que siempre esté visible
+            bocadilloRenderer.enabled = true; 
+
+            // Simplemente cambiamos la foto. 
+            // El objeto "Visual_Bocadillo" se queda quieto, solo cambia su pintura.
+            bocadilloRenderer.sprite = text;
         }
     }
 
-    // Inicia el cambio temporal
     private void TriggerFeedback(Sprite FaceSprite, Sprite TextSprite)
     {
         StopCoroutine(nameof(ResetToIdle));
@@ -147,17 +139,19 @@ public class RhythmGameManager : MonoBehaviour
         StartCoroutine(nameof(ResetToIdle));
     }
 
+    private IEnumerator ResetToIdle()
+    {
+        yield return new WaitForSeconds(feedbackDuration);
+        // Volver al estado normal (la burbuja cambiará a la imagen "textIdle")
+        SetVisuals(charIdle, textIdle);
+    }
 
+    // ... (El resto de funciones de Fin de Juego siguen igual) ...
     public void MostrarPantallaFinal()
     {
-        // Primero calculamos la victoria
         haGanado = CalcularVictoria();
+        if (panelFin != null) panelFin.SetActive(true);
 
-        // Activamos el panel final
-        if (panelFin != null)
-            panelFin.SetActive(true);
-
-        // Texto y sprite según victoria o derrota
         if (haGanado)
         {
             if (botonContinuar != null) botonContinuar.interactable = true;
@@ -174,24 +168,13 @@ public class RhythmGameManager : MonoBehaviour
 
     private bool CalcularVictoria()
     {
-        // Ejemplo: consideramos victoria si se acierta al menos el 50% de las notas
-        if (totalNotes == 0) return false; // seguridad
+        if (totalNotes == 0) return false;
         float ratio = (float)currentScore / totalNotes;
         return ratio >= 0.5f;
     }
+
     public void ResetGame()
     {
-        // Recarga la escena actual para reiniciar el minijuego
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-    
-
-
-
-    private IEnumerator ResetToIdle()
-    {
-        yield return new WaitForSeconds(feedbackDuration);
-        // Volver al estado normal
-        SetVisuals(charIdle, textIdle);
     }
 }
