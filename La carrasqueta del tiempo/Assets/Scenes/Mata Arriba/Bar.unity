@@ -1922,6 +1922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   opciones:
+  - {fileID: 11400000, guid: e3f52c8a5eb214743a0a817f7610f189, type: 2}
   - {fileID: 11400000, guid: d41ea9f15ff5d1624b563897e035982f, type: 2}
   - {fileID: 11400000, guid: 56d34e881d2eae0bfb0da19cadb0eff7, type: 2}
   - {fileID: 11400000, guid: d44a4a78f91e81e4cb3217f1bb766750, type: 2}
@@ -3454,3 +3455,4 @@ SceneRoots:
   - {fileID: 381371770}
   - {fileID: 440869328}
   - {fileID: 1543667863}
+  - {fileID: 984586575}

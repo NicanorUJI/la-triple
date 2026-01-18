@@ -3864,6 +3864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   opciones:
+  - {fileID: 11400000, guid: 44e3a57ed6922c447974408145469797, type: 2}
   - {fileID: 11400000, guid: 022074220fb89169ebad1d7336850347, type: 2}
   - {fileID: 11400000, guid: b3884896f3fea0514822bc3134856c36, type: 2}
   - {fileID: 11400000, guid: c7d8e343a6b464d48a41fe3b5d6045c1, type: 2}
