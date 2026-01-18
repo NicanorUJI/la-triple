@@ -835,6 +835,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 782b997b45ab612a9aa8114f46c1d46a, type: 2}
   - {fileID: 11400000, guid: bdae7a8d255fb1127894c25e37be6360, type: 2}
   - {fileID: 11400000, guid: d412e2533f2cac24884cfc90889b3b00, type: 2}
+  - {fileID: 11400000, guid: a872e4e2c265bde4da41b04d8538e122, type: 2}
   dialoguePanel: {fileID: 201332495}
   dialogueText: {fileID: 2079647747}
   nameText: {fileID: 198279501}
