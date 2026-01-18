@@ -603,7 +603,7 @@ public class RewardManager : MonoBehaviour
         {
             if (GameManager.Check("Act3_CarrasquetaPresentWarned"))
                 return;
-
+            SetOsoActivo(true);
             GameManager.Change("Act3_CarrasquetaPresentWarned");
             Debug.Log("Act3 -> Warned en present (flag Act3_CarrasquetaPresentWarned)");
 
@@ -620,7 +620,7 @@ public class RewardManager : MonoBehaviour
         {
             if (GameManager.Check("Act3_End"))
                 return;
-
+            SetOsoActivo(false);
             GameManager.Change("Act3_End");
 
 
