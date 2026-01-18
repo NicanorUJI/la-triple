@@ -1472,6 +1472,7 @@ MonoBehaviour:
   spriteA: {fileID: 6859748680972661078, guid: b8fdf2a00bbe95c45b3115e6aeb32b0a, type: 3}
   spriteB: {fileID: -4914416353137338016, guid: 4ef50139dac53fd4188f807d753fac18, type: 3}
   canvasToHide: {fileID: 845825374}
+  flagset: TutorialMapa_Done
 --- !u!114 &845825377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2910,7 +2911,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SetActiveByFlags
   requiredAll:
   - 
-  forbiddenAny: []
+  forbiddenAny:
+  - TutorialMapa_Done
 --- !u!61 &1766504448
 BoxCollider2D:
   m_ObjectHideFlags: 0

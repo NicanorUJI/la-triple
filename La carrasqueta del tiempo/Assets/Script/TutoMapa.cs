@@ -7,6 +7,7 @@ public class UIImageToggleHideCanvas_Inspector : MonoBehaviour
     public Sprite spriteA;
     public Sprite spriteB;
     public GameObject canvasToHide;
+    public string flagset;
 
     public void OnButtonPressed()
     {
@@ -16,6 +17,7 @@ public class UIImageToggleHideCanvas_Inspector : MonoBehaviour
         }
         else if (targetImage.sprite == spriteB)
         {
+            GameManager.Change(flagset);
             canvasToHide.SetActive(false);
         }
     }
