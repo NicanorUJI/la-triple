@@ -30,6 +30,16 @@ public class DominoUI : MonoBehaviour
     [Header("Prefabs")]
     public DominoTileView tileViewPrefab;
 
+    [Header("Audio")]
+    public AudioSource sourceMusica;      
+    public AudioSource sourceSFX;         
+    public AudioClip clipMusicaFondo;     
+    public AudioClip clipColocarFicha;    
+    // +++ NUEVO: Sonidos de Fin de Partida +++
+    public AudioClip clipVictoria; 
+    public AudioClip clipDerrota;
+    // ++++++++++++++++++++++++++++++++++++++++
+
     // cache de views para limpiar rápido
     readonly List<DominoTileView> _manoViews = new();
     readonly List<DominoTileView> _mesaViews = new();
@@ -60,6 +70,8 @@ public class DominoUI : MonoBehaviour
         });
     }
 
+    
+
     public void HookEvents()
     {
         turn.OnBoardUpdated += _ => RedrawBoard();
@@ -87,6 +99,12 @@ public class DominoUI : MonoBehaviour
 
     public void StartGame()
     {
+        if (sourceMusica != null && clipMusicaFondo != null)
+        {
+            sourceMusica.clip = clipMusicaFondo;
+            sourceMusica.loop = true; 
+            sourceMusica.Play();
+        }
         if (panelInstruccionesDomino != null)
             panelInstruccionesDomino.SetActive(false);
 
@@ -147,40 +165,69 @@ public class DominoUI : MonoBehaviour
         }
     }
 
+    void PlayTileSound()
+    {
+        if (sourceSFX != null && clipColocarFicha != null)
+        {
+            sourceSFX.PlayOneShot(clipColocarFicha);
+        }
+    }
+
     void OnTileClicked(DominoTile tile)
     {
         if (turn.CurrentPlayerIndex != PlayerIndex) return;
 
-        // ¿Puede ir a ambos lados?
         bool left = turn.Board.CanPlaceLeft(tile);
         bool right = turn.Board.CanPlaceRight(tile);
 
         if (left && right)
         {
-            // Elección simple por ahora: preguntar por consola y usar derecha.
-            // Para UI: mostramos dos botones temporales.
             ShowSideChooser(tile);
         }
-        else if (right) turn.TryPlayRight(PlayerIndex, tile);
-        else if (left)  turn.TryPlayLeft(PlayerIndex, tile);
+        else if (right) 
+        {
+            turn.TryPlayRight(PlayerIndex, tile);
+            PlayTileSound(); 
+        }
+        else if (left)  
+        {
+            turn.TryPlayLeft(PlayerIndex, tile);
+            PlayTileSound(); 
+        }
 
         RedrawHand();
     }
 
-    // Side chooser minimalista: usa dos botones emergentes temporales
     void ShowSideChooser(DominoTile tile)
     {
         txtMensaje.text = "Elegí lado: IZQ o DER";
-        // por defecto uso derecha:
         turn.TryPlayRight(PlayerIndex, tile);
+        PlayTileSound(); 
         txtMensaje.text = "";
     }
 
     void ShowEndPanel(int winnerIndex, string reason)
     {
+        sourceMusica.Stop();
+
         panelFinPartida.SetActive(true);
 
         bool playerWon = (winnerIndex == PlayerIndex);
+
+        // +++ NUEVO: LÓGICA DE SONIDO FIN DE PARTIDA +++
+        if (sourceSFX != null)
+        {
+            if (playerWon)
+            {
+                if (clipVictoria != null) sourceSFX.PlayOneShot(clipVictoria);
+            }
+            else
+            {
+                // Si pierde o empata, suena derrota
+                if (clipDerrota != null) sourceSFX.PlayOneShot(clipDerrota);
+            }
+        }
+        // ++++++++++++++++++++++++++++++++++++++++++++++
 
         btnSalir.gameObject.SetActive(playerWon);
         btnReintentar.gameObject.SetActive(!playerWon);
@@ -224,18 +271,17 @@ public class DominoUI : MonoBehaviour
             _gameStarted = true;
             turn.StartMatch(3);
             InitAndDraw();
+            sourceMusica.Play();
+
         });
 
         btnSalir.onClick.RemoveAllListeners();
         btnSalir.onClick.AddListener(() =>
         {
-            // 🔹 Guardamos el spawn donde queremos que aparezca el Player
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.lastExitName = "BarD"; // nombre del Empty en la escena Bar
+                GameManager.Instance.lastExitName = "BarD"; 
             }
-
-            // Cargamos la escena Bar
             UnityEngine.SceneManagement.SceneManager.LoadScene("Bar");
         });
     }
@@ -248,17 +294,14 @@ public class DominoUI : MonoBehaviour
             return;
         }
 
-        // Si no es tu turno, ignorar
         if (turn.CurrentPlayerIndex != PlayerIndex)
         {
-            RedrawHand(); // vuelve todo a su sitio
+            RedrawHand(); 
             return;
         }
 
-        // ¿Se soltó encima de la mesa?
         if (!RectTransformUtility.RectangleContainsScreenPoint(panelMesa, screenPos, mainCanvas.worldCamera))
         {
-            // Fuera de la mesa → no se juega
             RedrawHand();
             return;
         }
@@ -266,20 +309,18 @@ public class DominoUI : MonoBehaviour
         bool canLeft  = turn.Board.CanPlaceLeft(tile);
         bool canRight = turn.Board.CanPlaceRight(tile);
 
-        // Calcular si soltó más hacia la izquierda o derecha de la mesa
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             panelMesa,
             screenPos,
             mainCanvas.worldCamera,
             out var localPos);
 
-        bool dropLeftSide = localPos.x < 0f; // x < 0 = mitad izquierda
+        bool dropLeftSide = localPos.x < 0f; 
 
         bool toLeft;
 
         if (canLeft && canRight)
         {
-            // Puede ir a ambos lados: usamos la mitad de la mesa
             toLeft = dropLeftSide;
         }
         else if (canLeft)
@@ -292,7 +333,6 @@ public class DominoUI : MonoBehaviour
         }
         else
         {
-            // Ningún lado válido → jugada inválida
             txtMensaje.text = "Jugada inválida";
             RedrawHand();
             return;
@@ -301,7 +341,8 @@ public class DominoUI : MonoBehaviour
         if (toLeft) turn.TryPlayLeft(PlayerIndex, tile);
         else        turn.TryPlayRight(PlayerIndex, tile);
 
-        // Refrescar mesa y mano después de la jugada
+        PlayTileSound(); 
+
         RedrawBoard();
         RedrawHand();
     }

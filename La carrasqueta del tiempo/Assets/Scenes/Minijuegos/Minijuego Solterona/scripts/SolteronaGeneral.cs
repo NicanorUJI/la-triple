@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 public class SolteronaGeneral : MonoBehaviour
 {
     public GameObject panelInstrucciones;
@@ -20,7 +19,6 @@ public class SolteronaGeneral : MonoBehaviour
     public bool turnoJuaquin;
     private carta_controller minijuegoController;
 
-
     [Header("Panel Fin de Juego")]
     public GameObject panelFinSolterona;
     public Image imagenResultado;
@@ -32,31 +30,63 @@ public class SolteronaGeneral : MonoBehaviour
 
     public bool haGanado = false;
 
+    // +++ SECCIÓN DE AUDIO +++
+    [Header("Audio")]
+    public AudioSource sourceMusica;      // Arrastra aquí el AudioSource para música
+    public AudioSource sourceSFX;         // Arrastra aquí el AudioSource para efectos
+    public AudioClip clipMusicaFondo;     // Música en bucle
+    public AudioClip clipVictoria;        // Sonido ganar
+    public AudioClip clipDerrota;         // Sonido perder
+    public AudioClip clipSeleccionarCarta;// Sonido al tocar una carta
+    // ++++++++++++++++++++++++
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         panelInstrucciones.SetActive(true);
     }
+
     public void StartGame()
     {
         panelInstrucciones.SetActive(false);
 
+        // +++ INICIAR MÚSICA +++
+        if (sourceMusica != null && clipMusicaFondo != null)
+        {
+            sourceMusica.clip = clipMusicaFondo;
+            sourceMusica.loop = true; // Importante para que no pare
+            sourceMusica.Play();
+        }
+        // ++++++++++++++++++++++
+
         minijuegoController = FindObjectOfType<carta_controller>();
         minijuegoController.carta2Objeto.SetActive(false);
         minijuegoController.animator.gameObject.SetActive(false);
-        carta1.tipo = 1; //esta carta es un as 
-        carta2.tipo = 0; //esta carta esta vacia
-        carta3.tipo = 2; //esta carta es un joker
-        carta4.tipo = 1; //esta carta es un as
+        carta1.tipo = 1; 
+        carta2.tipo = 0; 
+        carta3.tipo = 2; 
+        carta4.tipo = 1; 
         minijuegoController.BarajarCartasAlcalde();
-
 
         turnoJuaquin = true;
     }
 
+    // +++ NUEVA FUNCIÓN PÚBLICA PARA SONIDO DE CARTA +++
+    // Esta función debe ser llamada desde tu script "carta.cs" o desde el botón de la carta
+    public void ReproducirSonidoCarta()
+    {
+        if (sourceSFX != null && clipSeleccionarCarta != null)
+        {
+            sourceSFX.PlayOneShot(clipSeleccionarCarta);
+        }
+    }
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++
+
     public void MostrarPanelFin()
     {
+        // +++ DETENER MÚSICA AL TERMINAR +++
+        if (sourceMusica != null) sourceMusica.Stop();
+        // +++++++++++++++++++++++++++++++++
+
         panelFinSolterona.SetActive(true);
 
         if (haGanado)
@@ -64,13 +94,20 @@ public class SolteronaGeneral : MonoBehaviour
             botonContinuar.interactable = true;
             imagenResultado.sprite = spriteVictoria;
             textoResultado.text = "Has guanyat a l'alcalde";
-  
+
+            // +++ SONIDO VICTORIA +++
+            if (sourceSFX != null && clipVictoria != null)
+                sourceSFX.PlayOneShot(clipVictoria);
         }
         else
         {
             botonContinuar.interactable = false;
             imagenResultado.sprite = spriteDerrota;
             textoResultado.text = "Has perdut contra l'alcalde :(";
+
+            // +++ SONIDO DERROTA +++
+            if (sourceSFX != null && clipDerrota != null)
+                sourceSFX.PlayOneShot(clipDerrota);
         }
     }
 
@@ -78,19 +115,17 @@ public class SolteronaGeneral : MonoBehaviour
     {
         SceneManager.LoadScene("Minijuego_solterona");
     }
+
     public void FinishGame()
     {
-        // 🔹 Guardamos el spawn donde queremos que aparezca el Player
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.lastExitName = "BarM"; // Nombre del Empty en la escena Bar
+            GameManager.Instance.lastExitName = "BarM"; 
         }
 
-        // Cambiamos la misión/estado
         GameManager.Change("Act2_Q_LLANCE_WonSolterona");
         Debug.Log("Cambiando a Act2_Q_LLANCE_WonSolterona");
 
-        // Cargamos la escena
         SceneManager.LoadScene("Bar");
     }
 }

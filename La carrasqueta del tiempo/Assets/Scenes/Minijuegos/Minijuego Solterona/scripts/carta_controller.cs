@@ -5,10 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 public class carta_controller : MonoBehaviour
 {
-
     public Animator animator;
 
     [Header("Cartas rival")]
@@ -23,20 +21,24 @@ public class carta_controller : MonoBehaviour
     public GameObject thisCartaObjeto;
     public GameObject otherCartaObjeto;
 
-
     [Header("Cartas jugador")]
     public GameObject carta1Objeto;
     public GameObject carta2Objeto;
 
-    private SolteronaGeneral minijuegoController;
+    [Header("UI y Textos")]
     public GameObject texto_victoria;
     public GameObject texto_derrota;
     public Sprite[] imagenesPorTipo;
     public GameObject continuar;
     public GameObject reset;
 
-    
+    // --- NUEVO: Variables de Audio ---
+    [Header("Audio")]
+    public AudioSource audioSource; // Arrastra aquí el componente AudioSource
+    public AudioClip sonidoClick;   // Arrastra aquí el archivo de sonido
+    // --------------------------------
 
+    private SolteronaGeneral minijuegoController;
 
     public void onClick()
     {
@@ -46,17 +48,23 @@ public class carta_controller : MonoBehaviour
 
         if (minijuegoController.turnoJuaquin)
         {
+            // --- NUEVO: Reproducir sonido ---
+            if (audioSource != null && sonidoClick != null)
+            {
+                // Usamos PlayOneShot para que no se corte si hay otros sonidos
+                audioSource.PlayOneShot(sonidoClick);
+            }
+            // --------------------------------
+
             StartCoroutine(jugadorEligeCarta());
             Debug.Log(">>> CORUTINA jugadorEligeCarta INICIADA");
-            //espera un segundo
-            //alcaldeEligeCarta();
         }        
     }
 
     IEnumerator jugadorEligeCarta()
     {
         //cambiar tipo de la carta vacia de la mano del jugador
-        if (carta1.tipo == 0) //la carta est� vacia
+        if (carta1.tipo == 0) //la carta está vacia
         {
             carta1.tipo = thisCarta.tipo;
             carta1Objeto.SetActive(true);
@@ -79,20 +87,16 @@ public class carta_controller : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
 
-        if (carta1.tipo == 1 && carta2.tipo ==1)
-        
+        if (carta1.tipo == 1 && carta2.tipo == 1)
         {
             carta1Objeto.SetActive(false);
             carta2Objeto.SetActive(false);
             thisCartaObjeto.SetActive(false);
             otherCartaObjeto.SetActive(false);
 
-
             minijuegoController.haGanado = true;
             minijuegoController.MostrarPanelFin();
         }
-
-        //thisCartaObjeto.SetActive(false);
   
         alcaldeEligeCarta();
     }
@@ -100,16 +104,11 @@ public class carta_controller : MonoBehaviour
 
     void alcaldeEligeCarta()
     {
-
-       
         Debug.Log(">>> alcaldeEligeCarta EJECUTADA");
         minijuegoController = FindObjectOfType<SolteronaGeneral>();
         Debug.Log("turnoJuaquin = " + minijuegoController.turnoJuaquin);
 
-        //carta1Objeto.SetActive(false);
-
        //Eleccion de que carta robar
-
         int numero = Random.Range(1, 3);
         Debug.Log("numero = " + numero);
 
@@ -119,7 +118,6 @@ public class carta_controller : MonoBehaviour
             thisCarta.tipo = carta1.tipo;
             carta1.tipo = 0;
         }
-
         else
         {
             carta2Objeto.SetActive(false);
@@ -127,14 +125,10 @@ public class carta_controller : MonoBehaviour
             carta2.tipo = 0;
         }
 
-
         BarajarCartasAlcalde();
-
-        //thisCarta.tipo = numero;
 
         minijuegoController.turnoJuaquin = true;
         GetComponent<Image>().enabled = true;
-
        
         Debug.Log("turnoJuaquin = " + minijuegoController.turnoJuaquin);
 
@@ -146,11 +140,13 @@ public class carta_controller : MonoBehaviour
             otherCartaObjeto.SetActive(false);
 
             minijuegoController.haGanado = false;
-            //MostrarPanelFinConDelay(1.5f);
             minijuegoController.MostrarPanelFin();
         }
-        jugadorEligeCarta();
-
+        
+        // NOTA IMPORTANTE: jugadorEligeCarta es una Corutina.
+        // Si la llamas así, no hará nada. Deberías llamarla con StartCoroutine si esa era tu intención.
+        // Pero cuidado, esto podría crear un bucle infinito si el turno es automático.
+        // jugadorEligeCarta(); 
     }
 
 
@@ -162,17 +158,14 @@ public class carta_controller : MonoBehaviour
 
     public void BarajarCartasJugador()
     {
-        // Si las dos cartas tienen un tipo asignado (no vac�as)
         if (carta1.tipo != 0 && carta2.tipo != 0)
         {
-            // 50% probabilidad de intercambiar
             if (Random.Range(0, 2) == 1)
             {
                 int tipoTemporal = carta1.tipo;
                 carta1.tipo = carta2.tipo;
                 carta2.tipo = tipoTemporal;
 
-                // Actualizar im�genes despu�s de barajar
                 ActualizarImagen(carta1Objeto, carta1);
                 ActualizarImagen(carta2Objeto, carta2);
 
@@ -183,12 +176,10 @@ public class carta_controller : MonoBehaviour
 
     public void BarajarCartasAlcalde()
     {
-        // Si las dos cartas tienen un tipo asignado (no vac�as)
         if (thisCarta.tipo != 0 && otherCarta.tipo != 0)
         {
             animator.gameObject.SetActive(false);
             animator.SetTrigger("mezclar_A");
-            // 50% probabilidad de intercambiar
             if (Random.Range(0, 2) == 1)
             {
                 int tipoTemporal = thisCarta.tipo;
@@ -200,11 +191,4 @@ public class carta_controller : MonoBehaviour
         }
         Debug.Log(">>> Cartas barajadas");
     }
-
-    /*private IEnumerator MostrarPanelFinConDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);  // espera X segundos
-        minijuegoController.MostrarPanelFin();    // luego muestra el panel
-    }*/
-
 }

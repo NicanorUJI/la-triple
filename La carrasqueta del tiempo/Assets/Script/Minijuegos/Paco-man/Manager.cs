@@ -1,21 +1,41 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement; // <- Para cambiar escenas
+using UnityEngine.SceneManagement; 
 
 public class Manager : MonoBehaviour
 {
     public static Manager Instance;
+    
     [Header("Player")]
     public int playerLives = 3;
     public float invulnerabilityTime = 1f;
     private bool playerInvulnerable = false;
+    
     [Header("UI")]
     public GameObject[] lifeIcons;
+
+    // +++ NUEVO: Variables de Audio +++
+    [Header("Audio")]
+    public AudioSource musicSource;       // Arrastra aquí el componente AudioSource
+    public AudioClip backgroundMusic;     // Arrastra aquí tu canción
+    // +++++++++++++++++++++++++++++++++
 
     private void Awake()
     {
         if (Instance != null && Instance != this) Destroy(gameObject);
         Instance = this;
     }
+
+    // +++ NUEVO: Start para iniciar la música +++
+    private void Start()
+    {
+        if (musicSource != null && backgroundMusic != null)
+        {
+            musicSource.clip = backgroundMusic;
+            musicSource.loop = true; // Asegura que la música se repita
+            musicSource.Play();
+        }
+    }
+    // +++++++++++++++++++++++++++++++++++++++++++
 
     public void DamagePlayer()
     {
@@ -33,6 +53,8 @@ public class Manager : MonoBehaviour
         if (playerLives <= 0)
         {
             Debug.Log("[DEBUG MANAGER] GAME OVER");
+            
+            // Al cambiar de escena, este objeto se destruye y la música parará sola
             SceneManager.LoadScene("Game-Over");
             return;
         }

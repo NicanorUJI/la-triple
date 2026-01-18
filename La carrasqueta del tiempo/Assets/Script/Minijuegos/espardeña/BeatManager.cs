@@ -28,6 +28,12 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     [Header("Audio")]
     public AudioSource musicSource; // Música del minijuego
 
+    // +++ NUEVO: Variables para el efecto de sonido +++
+    [Header("Efectos de Sonido")]
+    public AudioSource sfxSource;   // Arrastra aquí un AudioSource dedicado a efectos
+    public AudioClip keyPressSound; // Arrastra aquí tu sonido de 1 segundo
+    // ++++++++++++++++++++++++++++++++++++++++++++++++
+
     [Header("Prefabs y Referencias")]
     public GameObject[] notasPrefabs; 
     public string escenaSalir;
@@ -57,7 +63,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     void Start()
     {
         // --- MODIFICACIÓN INICIO ---
-        // Al entrar al minijuego, pausamos la música de fondo de la Plaza/Mundo
         if (AudioManager.instance != null)
         {
             AudioManager.instance.PausarMusica();
@@ -74,7 +79,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         if (endScreen != null) endScreen.SetActive(false);
     }
 
-    // (El resto de métodos OnStartButtonPressed, OnReturnButtonPressed, etc. siguen igual...)
     public void OnStartButtonPressed()
     {
         if (startScreen != null) startScreen.SetActive(false);
@@ -147,6 +151,14 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     {
         if (Input.GetKeyDown(tecla))
         {
+            // +++ NUEVO: Reproducir sonido al pulsar +++
+            if (sfxSource != null && keyPressSound != null)
+            {
+                // PlayOneShot permite que los sonidos se solapen si pulsas muy rápido
+                sfxSource.PlayOneShot(keyPressSound);
+            }
+            // ++++++++++++++++++++++++++++++++++++++++++
+
             GameObject[] notes = GameObject.FindGameObjectsWithTag(tagObjetivo);
             
             Note bestNote = null;
@@ -249,7 +261,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         rewardManager.giveReward("Act2_Q_ESP_AfterMinigame");
 
         // --- MODIFICACIÓN INICIO ---
-        // Al salir, reactivamos la música ambiental del juego principal
         if (AudioManager.instance != null)
         {
             AudioManager.instance.ReanudarMusica();
@@ -257,7 +268,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         // --- MODIFICACIÓN FIN ---
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.lastExitName = "EspM"; // nombre del Empty en la escena de destino
+            GameManager.Instance.lastExitName = "EspM"; 
         }
 
         if (!string.IsNullOrEmpty(escenaSalir))
