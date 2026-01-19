@@ -11,7 +11,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     private bool gameStarted = false;
     private WaitForSeconds wait1s, waitHalf, waitEndDelay;
     private float nextBeatTime = 0f;
-    
+    public AudioClip sonidoClick;
     private float spawnY = 0f; 
 
     [Header("Configuración Rítmica")]
@@ -27,11 +27,11 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource musicSource; // Música del minijuego
+    [Header("Audio")]
+    public AudioClip hitSound;
 
-    // +++ NUEVO: Variables para el efecto de sonido +++
-    [Header("Efectos de Sonido")]
-    public AudioSource sfxSource;   // Arrastra aquí un AudioSource dedicado a efectos
-    public AudioClip keyPressSound; // Arrastra aquí tu sonido de 1 segundo
+    public AudioClip click;
+
     // ++++++++++++++++++++++++++++++++++++++++++++++++
 
     [Header("Prefabs y Referencias")]
@@ -81,6 +81,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
     public void OnStartButtonPressed()
     {
+        musicSource.PlayOneShot(click); 
         if (startScreen != null) startScreen.SetActive(false);
         if (returnButton != null) returnButton.SetActive(true);
 
@@ -89,6 +90,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
     public void OnReturnButtonPressed()
     {
+        musicSource.PlayOneShot(click); 
         StopAllCoroutines();
         if (musicSource != null) musicSource.Stop();
         ClearBeats();
@@ -151,19 +153,12 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     {
         if (Input.GetKeyDown(tecla))
         {
-            // +++ NUEVO: Reproducir sonido al pulsar +++
-            if (sfxSource != null && keyPressSound != null)
-            {
-                // PlayOneShot permite que los sonidos se solapen si pulsas muy rápido
-                sfxSource.PlayOneShot(keyPressSound);
-            }
-            // ++++++++++++++++++++++++++++++++++++++++++
-
             GameObject[] notes = GameObject.FindGameObjectsWithTag(tagObjetivo);
             
             Note bestNote = null;
             float minY = float.MaxValue;
 
+            // Buscar la nota más baja (la más cercana al punto de impacto)
             foreach (GameObject noteObj in notes)
             {
                 Note noteScript = noteObj.GetComponent<Note>();
@@ -179,6 +174,15 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
             if (bestNote != null)
             {
+                // --- INICIO DEL CAMBIO ---
+                // Reproducimos el sonido si existe el clip y la fuente de audio
+                if (musicSource != null && hitSound != null)
+                {
+                    // PlayOneShot permite que el sonido suene encima de la música sin cortarla
+                    musicSource.PlayOneShot(hitSound); 
+                }
+                // --- FIN DEL CAMBIO ---
+
                 if (RhythmGameManager.instance != null)
                     RhythmGameManager.instance.NoteHit();
                 
@@ -255,6 +259,8 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
     public void OnSalirButtonPressed()
     {
+        musicSource.PlayOneShot(click); 
+
         if (rewardManager == null)
             rewardManager = FindObjectOfType<RewardManager>();
 

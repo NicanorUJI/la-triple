@@ -19,8 +19,6 @@ public class RhythmGameManager : MonoBehaviour
     
     [Header("Estado: IDLE (Normal)")]
     public Sprite charIdle; 
-    // IMPORTANTE: Ahora necesitas poner una imagen aquí (ej: burbuja vacía o "...")
-    // para que no desaparezca el bocadillo.
     public Sprite textIdle; 
 
     [Header("Estado: HIT (Acierto)")]
@@ -30,6 +28,18 @@ public class RhythmGameManager : MonoBehaviour
     [Header("Estado: FAIL (Fallo)")]
     public Sprite charFail; 
     public Sprite textFail; 
+
+    // --- BLOQUE DE AUDIO ---
+    [Header("=== AUDIO ===")]
+    public AudioSource audioSource; // Arrastra aquí el componente AudioSource
+    public AudioClip hitSound;      // Sonido de acierto (nota)
+    public AudioClip failSound;     // Sonido de error (nota)
+    [Space(10)]
+    public AudioClip winSound;      // NUEVO: Sonido al ganar la partida
+    public AudioClip loseSound;     // NUEVO: Sonido al perder la partida
+    public AudioClip click;      // NUEVO: Sonido al ganar la partida
+
+    // -----------------------------
 
     [Header("Configuración")]
     public float feedbackDuration = 0.5f;
@@ -80,6 +90,9 @@ public class RhythmGameManager : MonoBehaviour
         currentScore++;
         UpdateScoreText();
         TriggerFeedback(charHit, textHit);
+
+        // Reproducir sonido de acierto
+        PlaySound(hitSound);
     }
 
     public void MissNote()
@@ -88,11 +101,27 @@ public class RhythmGameManager : MonoBehaviour
         if (currentScore < 0) currentScore = 0;
         UpdateScoreText();
         TriggerFeedback(charFail, textFail);
+
+        // Reproducir sonido de fallo
+        PlaySound(failSound);
     }
 
     public void NoteLost()
     {
         TriggerFeedback(charFail, textFail);
+
+        // Reproducir sonido de fallo al perder nota
+        PlaySound(failSound);
+    }
+
+    // --- GESTIÓN DE SONIDO ---
+    private void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            // Usamos PlayOneShot para que los sonidos puedan solaparse 
+            audioSource.PlayOneShot(clip);
+        }
     }
 
     // --- LOGICA VISUAL ---
@@ -111,7 +140,6 @@ public class RhythmGameManager : MonoBehaviour
         SetVisuals(charIdle, textIdle);
     }
 
-    // --- AQUÍ ESTÁ EL CAMBIO PRINCIPAL ---
     private void SetVisuals(Sprite face, Sprite text)
     {
         // 1. Cambiar la cara
@@ -120,14 +148,10 @@ public class RhythmGameManager : MonoBehaviour
             characterRenderer.sprite = face;
         }
 
-        // 2. Cambiar el texto (Sin apagar el objeto)
+        // 2. Cambiar el texto
         if (bocadilloRenderer != null)
         {
-            // Nos aseguramos de que siempre esté visible
             bocadilloRenderer.enabled = true; 
-
-            // Simplemente cambiamos la foto. 
-            // El objeto "Visual_Bocadillo" se queda quieto, solo cambia su pintura.
             bocadilloRenderer.sprite = text;
         }
     }
@@ -142,11 +166,10 @@ public class RhythmGameManager : MonoBehaviour
     private IEnumerator ResetToIdle()
     {
         yield return new WaitForSeconds(feedbackDuration);
-        // Volver al estado normal (la burbuja cambiará a la imagen "textIdle")
         SetVisuals(charIdle, textIdle);
     }
 
-    // ... (El resto de funciones de Fin de Juego siguen igual) ...
+    // --- PANTALLA FINAL ---
     public void MostrarPantallaFinal()
     {
         haGanado = CalcularVictoria();
@@ -157,12 +180,18 @@ public class RhythmGameManager : MonoBehaviour
             if (botonContinuar != null) botonContinuar.interactable = true;
             if (textoResultado != null) textoResultado.text = $"Molt bé! Has aconseguit {currentScore}/{totalNotes} notes.";
             if (imagenResultado != null) imagenResultado.sprite = spriteVictoria;
+
+            // --- NUEVO: Sonido de Victoria ---
+            PlaySound(winSound);
         }
         else
         {
             if (botonContinuar != null) botonContinuar.interactable = false;
             if (textoResultado != null) textoResultado.text = $"Ho sentim, només has aconseguit {currentScore}/{totalNotes} notes.";
             if (imagenResultado != null) imagenResultado.sprite = spriteDerrota;
+
+            // --- NUEVO: Sonido de Derrota ---
+            PlaySound(loseSound);
         }
     }
 
@@ -175,6 +204,22 @@ public class RhythmGameManager : MonoBehaviour
 
     public void ResetGame()
     {
+        StartCoroutine(ResetGameSequence());
+    }
+
+    // Esta es la secuencia con espera
+    private IEnumerator ResetGameSequence()
+    {
+        // 1. Si hay sonido y audio source, lo reproducimos y esperamos
+        if (click != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(click);
+            
+            // Esperamos exactamente lo que dura el clip de audio
+            yield return new WaitForSeconds(click.length);
+        }
+
+        // 2. Una vez acabado el sonido (o si no había), recargamos la escena
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
