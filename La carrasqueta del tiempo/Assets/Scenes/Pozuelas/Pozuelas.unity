@@ -2170,7 +2170,7 @@ MonoBehaviour:
   tagJugador: Player
   teclaRequerida: 0
   retardo: 0
-  nombrePuntoEntrada: Barranquet_Derecha
+  nombrePuntoEntrada: BarranquetDerecha
 --- !u!212 &1185237088
 SpriteRenderer:
   m_ObjectHideFlags: 0
