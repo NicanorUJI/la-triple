@@ -1747,7 +1747,7 @@ MonoBehaviour:
   clipColocarFicha: {fileID: 8300000, guid: eb7f5f7d72b687747a37a46da0b7b6ae, type: 3}
   clipVictoria: {fileID: 8300000, guid: a476976c8afed724a98447aa72cac73b, type: 3}
   clipDerrota: {fileID: 8300000, guid: 0cb260ea251982543aa57a6755bab2d8, type: 3}
-  clipRobarPasar: {fileID: 0}
+  clipRobarPasar: {fileID: 8300000, guid: ae26893283712f646a3a026533267361, type: 3}
   scrollMesa: {fileID: 1697237035}
   contenidoMesa: {fileID: 1753872342}
   panelInstruccionesDomino: {fileID: 1023464588}
@@ -3291,7 +3291,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 15b87965fb14a6049ae1d96440d2cfc2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

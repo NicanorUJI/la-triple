@@ -1,39 +1,45 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections; // Necesario para IEnumerator
 
 public class CambiarEscena : MonoBehaviour
 {
     [Header("Spawn (opcional)")]
     public string nombrePuntoEntrada;
 
-    // +++ NUEVO: Variables de Audio +++
-    [Header("Audio")]
-    public AudioSource audioSource;      // Arrastra aquí el componente Audio Source
-    public AudioClip sonidoGameOver;     // Arrastra aquí el sonido de "Perdiste"
-    // +++++++++++++++++++++++++++++++++
+    [Header("Audio Config")]
+    public AudioSource audioSource;      
+    public AudioClip sonidoGameOver;     // Sonido al iniciar (ya lo tenías)
+    
+    // +++ NUEVO: Sonido de clic y tiempo de espera +++
+    public AudioClip sonidoBoton;        // Arrastra aquí el sonido del "Clic"
+    [Range(0.1f, 2.0f)]
+    public float tiempoEspera = 0.5f;    // Tiempo en segundos antes de cambiar escena
+    // ++++++++++++++++++++++++++++++++++++++++++++++++
 
-    // +++ NUEVO: Start se ejecuta al iniciar la escena +++
     private void Start()
     {
-        // Si hemos asignado el sonido y el audio source, lo reproducimos una vez
+        // Tu lógica original de Start se mantiene igual
         if (audioSource != null && sonidoGameOver != null)
         {
             audioSource.PlayOneShot(sonidoGameOver);
         }
     }
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    // Botón Arcade
+    // --- MODIFICADO: Botón Arcade ---
     public void Play()
     {
-        SceneManager.LoadScene("Arcade");
+        // Iniciamos la rutina de espera enviando el nombre de la escena
+        
+        StartCoroutine(CambiarEscenaConRetraso("Arcade"));
     }
 
-    // Botón Bar
+    // --- MODIFICADO: Botón Bar ---
     public void Exit()
     {
         Debug.Log("Botón Bar pulsado. Spawn: " + nombrePuntoEntrada);
 
+        // Guardamos los datos PRIMERO (antes de esperar)
         if (!string.IsNullOrEmpty(nombrePuntoEntrada) && GameManager.Instance != null)
         {
             GameManager.Instance.lastExitName = nombrePuntoEntrada;
@@ -44,6 +50,24 @@ public class CambiarEscena : MonoBehaviour
             Debug.Log("GameManager NULL o nombre vacío");
         }
 
-        SceneManager.LoadScene("Bar");
+        // Luego iniciamos la rutina de espera
+        StartCoroutine(CambiarEscenaConRetraso("Bar"));
+    }
+
+    // +++ NUEVO: La Corrutina que hace la magia +++
+    IEnumerator CambiarEscenaConRetraso(string nombreEscena)
+    {
+        // 1. Reproducir sonido si existe
+        if (audioSource != null && sonidoBoton != null)
+        {
+            audioSource.PlayOneShot(sonidoBoton);
+        }
+
+        // 2. Esperar el tiempo definido (puedes ajustar 'tiempoEspera' en el inspector)
+        // Nota: WaitForSeconds usa tiempo real, no microsegundos, para que sea perceptible.
+        yield return new WaitForSeconds(tiempoEspera);
+
+        // 3. Cargar la escena
+        SceneManager.LoadScene(nombreEscena);
     }
 }
