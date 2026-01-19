@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-
 public class Button_Controller_Morra : MonoBehaviour
 {
     [Header("Fase Eleccion")]
@@ -17,6 +16,17 @@ public class Button_Controller_Morra : MonoBehaviour
     public GameObject[] puntos;
     public Sprite sprite_noPoint;
     public Sprite sprite_Point;
+
+    [Header("Audio")]
+    public AudioSource audioSource; 
+    public AudioClip sonidoSacarMano; 
+    public AudioClip sonidoCuentaAtras; 
+    // --- NUEVO: Sonidos de fin de juego ---
+    public AudioClip sonidoVictoria; 
+    public AudioClip sonidoDerrota;
+    public AudioClip sonidoClick;
+
+    // --------------------------------------
 
     [Header("Cuenta atras")]
     public GameObject countdownObject;
@@ -34,24 +44,21 @@ public class Button_Controller_Morra : MonoBehaviour
     public TMP_Text text_joaquinCantar;
     public TMP_Text text_rivalCantar;
 
-
-
     [Header("Texto y Boton")]
     public TMP_Text valueText;
-    public TMP_Text debug_Text; //no hace falta
+    public TMP_Text debug_Text; 
     public TMP_Text winner_Text;
     public GameObject winner_Object;
-    public TMP_Text player_points_Text; //no hace falta
-    public TMP_Text NPC_points_Text; //no hace falta
+    public TMP_Text player_points_Text; 
+    public TMP_Text NPC_points_Text; 
     public GameObject boton_Confirmar;
-
 
     [Header("Sliders")]
     public Slider slider_NumSacar;
-    public GameObject object_NumSacar; //no hace falta
+    public GameObject object_NumSacar; 
 
     public Slider slider_NumCantar;
-    public GameObject object_NumCantar; //no hace falta
+    public GameObject object_NumCantar; 
 
     [Header("Scripts")]
     public Morra_Controller morraController;
@@ -67,8 +74,6 @@ public class Button_Controller_Morra : MonoBehaviour
     public Sprite spriteDerrota;
 
     private bool haGanado = false;
-
-
     private bool endGame_nextClick = false;
     private bool startNewRound_nextClick = false;
     private float value_Sacar = 0;
@@ -80,26 +85,23 @@ public class Button_Controller_Morra : MonoBehaviour
     private int puntos_jugador = 0;
     private int puntos_NPC = 0;
 
-    ////////////////////////////////////////////////////
-
     public void onClick()
     {
+        audioSource.PlayOneShot(sonidoClick);
+
         if (startNewRound_nextClick)
         {
             startNewRound_nextClick = false;
             startNewRound();
         }
-
         else if (!endGame_nextClick && !startNewRound_nextClick)
         {
-            //PRIMER CLICK: Se retira la UI de la primera fase
+            //PRIMER CLICK
             fase_eleccionSacar.SetActive(false);
             fase_eleccionCantar.SetActive(true);
 
-            //Se guarda el valor que ha sacado el jugador
             value_Sacar = slider_NumSacar.value;
 
-            //Se retira la barra SACAR y se cambia por la de CANTAR
             object_NumSacar.SetActive(false);
             object_NumCantar.SetActive(true);
             valueText.SetText("2");
@@ -107,18 +109,14 @@ public class Button_Controller_Morra : MonoBehaviour
         }
         else
         {
-            //SEGUNDO CLICK: Se guarda el valor que ha sacado el jugador
+            //SEGUNDO CLICK
             value_Cantar = slider_NumCantar.value;
 
-
-            //Se retira la UI de la segunda fase
             fase_eleccionCantar.SetActive(false);
             burbuja_pensar.SetActive(false);
             object_NumCantar.SetActive(false);
             valueText.SetText("");
 
-
-            //Eleccion numeros del NPC
             value_NPC_Sacar = morraController.sacar_NPC();
             value_NPC_Cantar = morraController.cantar_NPC(value_NPC_Sacar);
 
@@ -127,38 +125,29 @@ public class Button_Controller_Morra : MonoBehaviour
                 "\nEl NPC saca: " + value_NPC_Sacar +
                 "\nEl NPC canta: " + value_NPC_Cantar);
 
-
-            //INICIAR FASE DE FINAL DE RONDA
             StartCoroutine(fase_finalDeRonda());
-
-
         }
     }
 
     private void setPoints(bool player_win)
     {
-        //Si gana el jugador; mirar puntos del 1 al 3
         if (player_win)
         {
             for (int i = 0; i < 3; i++)
             {
                 SpriteRenderer img = puntos[i].GetComponent<SpriteRenderer>();
-
                 if (img.sprite == sprite_noPoint)
                 {
                     img.sprite = sprite_Point;
                     return;
                 }
-
             }
         }
-        //si gana el rival; mirar puntos el 4 al 6
         else
         {
             for (int i = 3; i < 6; i++)
             {
                 SpriteRenderer img = puntos[i].GetComponent<SpriteRenderer>();
-
                 if (img.sprite == sprite_noPoint)
                 {
                     img.sprite = sprite_Point;
@@ -172,31 +161,24 @@ public class Button_Controller_Morra : MonoBehaviour
     {
         endGame_nextClick = false;
         winner_Object.SetActive(false);
-
         debug_Text.SetText(" ");
-
         object_NumCantar.SetActive(false);
         object_NumSacar.SetActive(true);
-
-        //Quitar UI fase final de ronda
         fase_finalRonda.SetActive(false);
         textos_cantar.SetActive(false);
-
-
-        //UI de fase eleccion
         burbuja_pensar.SetActive(true);
         fase_eleccionSacar.SetActive(true);
-
         slider_NumSacar.value = 1;
         slider_NumCantar.value = 2;
-
         valueText.SetText("1");
     }
 
-
     private void MostrarPanelFin()
     {
-        // Desactivar fases de ronda
+        if (morraController != null)
+        {
+            morraController.StopGame();
+        }
         fase_eleccionSacar.SetActive(false);
         fase_eleccionCantar.SetActive(false);
         burbuja_pensar.SetActive(false);
@@ -207,36 +189,40 @@ public class Button_Controller_Morra : MonoBehaviour
         winner_Object.SetActive(false);
         countdownObject.SetActive(false);
 
-        // Activar panel de fin
         panelFinMorra.SetActive(true);
 
-        // Cambiar sprite y texto según gane o pierda
         if (haGanado)
         {
             imagenResultado.sprite = spriteVictoria;
             textoResultado.text = "Has guanyat contra l'alcalde";
+            
+            // --- NUEVO: SONIDO VICTORIA ---
+            if(audioSource != null && sonidoVictoria != null)
+            {
+                audioSource.PlayOneShot(sonidoVictoria);
+            }
         }
         else
         {
             imagenResultado.sprite = spriteDerrota;
             textoResultado.text = "Has perdut :(";
+
+            // --- NUEVO: SONIDO DERROTA ---
+            if (audioSource != null && sonidoDerrota != null)
+            {
+                audioSource.PlayOneShot(sonidoDerrota);
+            }
         }
 
-        // Botón continuar solo activo si ha ganado
         if (botonContinuar != null)
             botonContinuar.interactable = haGanado;
     }
-
-
-
-
 
     private void setWinnerOfRound()
     {
         Button btnConfirmar = boton_Confirmar.GetComponent<Button>();
         btnConfirmar.interactable = true;
 
-        //Eleccion ganador
         int jugadorHaGanado = morraController.jugadorGanador(value_NPC_Sacar + value_Sacar, value_Cantar, value_NPC_Cantar);
         winner_Object.SetActive(true);
 
@@ -244,45 +230,38 @@ public class Button_Controller_Morra : MonoBehaviour
         {
             winner_Text.SetText("Empate");
         }
-
         else if (jugadorHaGanado > 0)
         {
             winner_Text.SetText("Punt per a Joaquín");
             puntos_jugador = morraController.givePoint(true);
             setPoints(true);
         }
-
         else
         {
             winner_Text.SetText("Punt per a l'alcalde");
             puntos_NPC = morraController.givePoint(false);
             setPoints(false);
-
         }
 
-
-        // END GAME
         if (puntos_jugador >= 3 || puntos_NPC >= 3)
         {
             haGanado = puntos_jugador > puntos_NPC;
             btnConfirmar.interactable = false;
-
             StartCoroutine(MostrarPanelFinConDelay(2.5f));
         }
         else
         {
             startNewRound_nextClick = true;
         }
-
     }
 
     public void ContinuarJuego()
     {
+        audioSource.PlayOneShot(sonidoClick);
+
         if (!haGanado) return;
 
         panelFinMorra.SetActive(false);
-
-        // Mantener misión y cambio de escena
         var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
         if (mc != null)
         {
@@ -293,23 +272,37 @@ public class Button_Controller_Morra : MonoBehaviour
             );
         }
 
-        // 🔹 Guardamos el spawn donde queremos que aparezca el Player
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.lastExitName = "PlzM"; // nombre del Empty en la escena PlazaPasado
+            GameManager.Instance.lastExitName = "PlzM"; 
         }
 
-        // Cambiamos de escena
         GameManager.Change("Act2_Q_MENJAR_HasMeat");
         SceneManager.LoadScene("PlazaPasado");
     }
 
-
     public void ReintentarJuego()
     {
-        SceneManager.LoadScene("Minijuego_Morra");
+        // 1. Reproducir sonido
+        if (audioSource != null && sonidoClick != null)
+        {
+            audioSource.PlayOneShot(sonidoClick);
+        }
+
+        // 2. Iniciar la corrutina de espera (asegúrate de que el botón solo se pulse una vez)
+        botonReintentar.interactable = false; // Opcional: evita doble click
+        StartCoroutine(CargarEscenaConDelay());
     }
 
+    // Esta es la corrutina que maneja el tiempo de espera
+    private IEnumerator CargarEscenaConDelay()
+    {
+        // Espera 0.5 segundos (o el tiempo que dure tu clip de audio aproximadamente)
+        yield return new WaitForSeconds(0.5f);
+
+        // Carga la escena
+        SceneManager.LoadScene("Minijuego_Morra");
+    }
 
     private IEnumerator fase_finalDeRonda()
     {
@@ -318,18 +311,27 @@ public class Button_Controller_Morra : MonoBehaviour
 
         countdownObject.SetActive(true);
 
+        // Sonido cuenta atras (una vez)
+        if (audioSource != null && sonidoCuentaAtras != null)
+        {
+            audioSource.PlayOneShot(sonidoCuentaAtras);
+        }
+
         for (int i = 0; i < 3; i++)
         {
             SpriteRenderer countdownImage = countdownObject.GetComponent<SpriteRenderer>();
             countdownImage.sprite = countdownSprites[i];
-
-
             yield return new WaitForSeconds(0.8f);
         }
 
         countdownObject.SetActive(false);
 
-        //Ense�ar las manos y los bocadillos
+        // Sonido al sacar la mano
+        if (audioSource != null && sonidoSacarMano != null)
+        {
+            audioSource.PlayOneShot(sonidoSacarMano);
+        }
+
         fase_finalRonda.SetActive(true);
 
         SpriteRenderer joaquinMano_spriteR = manoJoaquin.GetComponent<SpriteRenderer>();
@@ -340,22 +342,16 @@ public class Button_Controller_Morra : MonoBehaviour
         joaquinMano_spriteR.sprite = manos_sprites[value_sacarINT - 1];
         rivalMano_spriteR.sprite = manos_sprites[value_NPC_Sacar - 1];
 
-        //Ense�ar y poner texto del numero que cantan
         textos_cantar.SetActive(true);
         text_joaquinCantar.SetText(value_Cantar + " !");
         text_rivalCantar.SetText(value_NPC_Cantar + " !");
 
-
         setWinnerOfRound();
-
     }
+
     private IEnumerator MostrarPanelFinConDelay(float delay)
     {
-        yield return new WaitForSeconds(delay);  // espera X segundos
-        MostrarPanelFin();                       // luego muestra el panel
+        yield return new WaitForSeconds(delay); 
+        MostrarPanelFin(); 
     }
-
-
 }
-
-

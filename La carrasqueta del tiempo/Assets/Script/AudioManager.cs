@@ -7,9 +7,9 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     
     [Header("Audio Mixer")]
-    public AudioMixer mainMixer; // Referencia al Audio Mixer
-    public string musicParam = "MusicVolume"; // Nombre del parámetro expuesto (MusicVolume)
-    public string sfxParam = "SFXVolume"; // Nombre del parámetro expuesto (SFXVolume)
+    public AudioMixer mainMixer;
+    public string musicParam = "MusicVolume";
+    public string sfxParam = "SFXVolume";
 
     [Header("Clips de sonido UI/Efectos")]
     public AudioClip ClipbotonPausa;
@@ -20,9 +20,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("Música de Ambiente")]
     public AudioClip ClipMusicaAmbiente;
-    private AudioSource musicaSource; // Fuente dedicada a la música
+    private AudioSource musicaSource;
 
-    // Fuente para la reproducción puntual de efectos (PlayOneShot)
     private AudioSource efectoOneShotSource;
 
     void Awake()
@@ -42,8 +41,12 @@ public class AudioManager : MonoBehaviour
         musicaSource = gameObject.AddComponent<AudioSource>();
         musicaSource.playOnAwake = false;
         musicaSource.loop = true;
-        // ¡ASIGNAMOS EL GRUPO DEL MIXER!
         musicaSource.outputAudioMixerGroup = GetMixerGroup("Musica"); 
+        
+        // --- CAMBIO AQUÍ ---
+        // Establecemos el volumen inicial al 50% (0.5f)
+        musicaSource.volume = 0.5f; 
+        // -------------------
 
         if (ClipMusicaAmbiente != null)
         {
@@ -55,11 +58,9 @@ public class AudioManager : MonoBehaviour
         efectoOneShotSource = gameObject.AddComponent<AudioSource>();
         efectoOneShotSource.playOnAwake = false;
         efectoOneShotSource.loop = false;
-        // ¡ASIGNAMOS EL GRUPO DEL MIXER!
         efectoOneShotSource.outputAudioMixerGroup = GetMixerGroup("SFX"); 
     }
 
-    // Método de ayuda para obtener grupos del mixer
     private AudioMixerGroup GetMixerGroup(string groupName)
     {
         if (mainMixer == null) return null;
@@ -73,8 +74,6 @@ public class AudioManager : MonoBehaviour
         return null;
     }
 
-
-
     public AudioSource CrearAudioSourceEfecto(AudioClip clip, bool loop = false)
     {
         GameObject go = new GameObject($"Efecto_{clip.name}");
@@ -84,20 +83,16 @@ public class AudioManager : MonoBehaviour
         newSource.clip = clip;
         newSource.loop = loop;
         newSource.playOnAwake = false;
-        newSource.outputAudioMixerGroup = GetMixerGroup("SFX"); // ¡ASIGNAMOS EL GRUPO SFX!
-
-        // Nota: No necesitamos establecer newSource.volume aquí, ya que el volumen
-        // final será controlado por el volumen del grupo SFX del Mixer.
+        newSource.outputAudioMixerGroup = GetMixerGroup("SFX");
 
         return newSource;
     }
 
-    // Reproduce clips puntuales (botones, llaves, disparos, etc.)
     public void Reproducir(AudioClip clip)
     {
         if (clip != null && efectoOneShotSource != null)
         {
-            efectoOneShotSource.PlayOneShot(clip, 1f); // Usamos volumen 1f, el mixer lo gestiona
+            efectoOneShotSource.PlayOneShot(clip, 1f); 
         }
     }
 
@@ -110,12 +105,14 @@ public class AudioManager : MonoBehaviour
 
     public void ReanudarMusica()
     {
-        musicaSource.volume = 1f; // fuerza el volumen del AudioSource
-
+        // --- CAMBIO IMPORTANTE AQUÍ ---
+        // Antes tenías puesto 1f. Si lo dejas en 1f, al despausar
+        // volverá a sonar al 100%. Lo cambiamos a 0.5f también.
         if (musicaSource != null)
+        {
+            musicaSource.volume = 0.5f; 
             musicaSource.UnPause();
+        }
         Debug.Log("Música reanudada");
-
     }
-
 }

@@ -18,6 +18,12 @@ public class GhostyMovement : MonoBehaviour
     public string turnTag = "Turn";
     public string doorTag = "Door";
 
+    // +++ NUEVO: Variables de Audio +++
+    [Header("Audio")]
+    public AudioSource sfxSource;       // Arrastra el AudioSource del fantasma
+    public AudioClip eatenSound;        // Arrastra el sonido de "fantasma comido"
+    // +++++++++++++++++++++++++++++++++
+
     private enum GhostState { Waiting, Normal }
     private GhostState state = GhostState.Waiting;
 
@@ -40,11 +46,11 @@ public class GhostyMovement : MonoBehaviour
 
     private int originalLayer;
 
-    // COOLDOWNS SEPARADOS: uno para daño, otro para ser comido
+    // COOLDOWNS SEPARADOS
     private float lastDamageTime = -10f;
     private float lastEatTime = -10f;
-    public float damageCooldown = 0.15f;   // muy corto → daño responde al instante
-    public float eatCooldown = 0.4f;       // un poco más largo para que se vea bien el sprite comido
+    public float damageCooldown = 0.15f;   
+    public float eatCooldown = 0.4f;       
 
     private void Awake()
     {
@@ -231,12 +237,11 @@ public class GhostyMovement : MonoBehaviour
         gameObject.layer = originalLayer;
         col.enabled = true;
 
-        // Reseteamos los cooldowns para que pueda colisionar al instante
         lastDamageTime = -10f;
         lastEatTime = -10f;
     }
 
-    // ==================== COLISIÓN CON PACMAN (LA CLAVE) ====================
+    // ==================== COLISIÓN CON PACMAN ====================
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player")) return;
@@ -248,6 +253,13 @@ public class GhostyMovement : MonoBehaviour
         {
             if (Time.time - lastEatTime < eatCooldown) return;
             lastEatTime = Time.time;
+
+            // +++ NUEVO: Reproducir sonido de comido +++
+            if (sfxSource != null && eatenSound != null)
+            {
+                sfxSource.PlayOneShot(eatenSound);
+            }
+            // ++++++++++++++++++++++++++++++++++++++++++
 
             isEaten = true;
             mode = GhostMode.Eaten;

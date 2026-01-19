@@ -11,7 +11,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     private bool gameStarted = false;
     private WaitForSeconds wait1s, waitHalf, waitEndDelay;
     private float nextBeatTime = 0f;
-    
+    public AudioClip sonidoClick;
     private float spawnY = 0f; 
 
     [Header("Configuración Rítmica")]
@@ -27,6 +27,12 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource musicSource; // Música del minijuego
+    [Header("Audio")]
+    public AudioClip hitSound;
+
+    public AudioClip click;
+
+    // ++++++++++++++++++++++++++++++++++++++++++++++++
 
     [Header("Prefabs y Referencias")]
     public GameObject[] notasPrefabs; 
@@ -57,7 +63,6 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
     void Start()
     {
         // --- MODIFICACIÓN INICIO ---
-        // Al entrar al minijuego, pausamos la música de fondo de la Plaza/Mundo
         if (AudioManager.instance != null)
         {
             AudioManager.instance.PausarMusica();
@@ -74,9 +79,9 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         if (endScreen != null) endScreen.SetActive(false);
     }
 
-    // (El resto de métodos OnStartButtonPressed, OnReturnButtonPressed, etc. siguen igual...)
     public void OnStartButtonPressed()
     {
+        musicSource.PlayOneShot(click); 
         if (startScreen != null) startScreen.SetActive(false);
         if (returnButton != null) returnButton.SetActive(true);
 
@@ -85,6 +90,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
     public void OnReturnButtonPressed()
     {
+        musicSource.PlayOneShot(click); 
         StopAllCoroutines();
         if (musicSource != null) musicSource.Stop();
         ClearBeats();
@@ -152,6 +158,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
             Note bestNote = null;
             float minY = float.MaxValue;
 
+            // Buscar la nota más baja (la más cercana al punto de impacto)
             foreach (GameObject noteObj in notes)
             {
                 Note noteScript = noteObj.GetComponent<Note>();
@@ -167,6 +174,15 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
             if (bestNote != null)
             {
+                // --- INICIO DEL CAMBIO ---
+                // Reproducimos el sonido si existe el clip y la fuente de audio
+                if (musicSource != null && hitSound != null)
+                {
+                    // PlayOneShot permite que el sonido suene encima de la música sin cortarla
+                    musicSource.PlayOneShot(hitSound); 
+                }
+                // --- FIN DEL CAMBIO ---
+
                 if (RhythmGameManager.instance != null)
                     RhythmGameManager.instance.NoteHit();
                 
@@ -243,13 +259,14 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
 
     public void OnSalirButtonPressed()
     {
+        musicSource.PlayOneShot(click); 
+
         if (rewardManager == null)
             rewardManager = FindObjectOfType<RewardManager>();
 
         rewardManager.giveReward("Act2_Q_ESP_AfterMinigame");
 
         // --- MODIFICACIÓN INICIO ---
-        // Al salir, reactivamos la música ambiental del juego principal
         if (AudioManager.instance != null)
         {
             AudioManager.instance.ReanudarMusica();
@@ -257,7 +274,7 @@ public class AutoBeatDetectorTop50 : MonoBehaviour
         // --- MODIFICACIÓN FIN ---
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.lastExitName = "EspM"; // nombre del Empty en la escena de destino
+            GameManager.Instance.lastExitName = "EspM"; 
         }
 
         if (!string.IsNullOrEmpty(escenaSalir))

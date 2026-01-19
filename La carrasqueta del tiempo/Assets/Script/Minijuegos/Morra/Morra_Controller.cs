@@ -11,17 +11,36 @@ public class Morra_Controller : MonoBehaviour
     private int player_points;
     private int NPC_points;
 
+    [Header("Audio")]
+    public AudioSource musicaFondo;
+    // +++ NUEVO: Variables para el sonido del botón +++
+    public AudioSource sfxSource;   // Arrastra aquí el mismo AudioSource que usas para efectos (o crea uno nuevo)
+    public AudioClip sonidoBoton;   // Arrastra aquí el sonido "Click"
+    // +++++++++++++++++++++++++++++++++++++++++++++++++
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (panelInstrucciones != null)
             panelInstrucciones.SetActive(true);
 
         gameStarted = false;
+
+        if (musicaFondo != null)
+        {
+            musicaFondo.Stop();
+        }
     }
+
     public void StartGame()
     {
+        // +++ NUEVO: Reproducir el sonido corregido +++
+        if (sfxSource != null && sonidoBoton != null)
+        {
+            sfxSource.PlayOneShot(sonidoBoton);
+        }
+        // (He borrado la línea vieja de Button_Controller_Morra porque daba error al no tener la variable)
+        // +++++++++++++++++++++++++++++++++++++++++++++
+
         if (panelInstrucciones != null)
             panelInstrucciones.SetActive(false);
 
@@ -30,18 +49,24 @@ public class Morra_Controller : MonoBehaviour
         NPC_points = 0;
 
         gameStarted = true;
+
+        if (musicaFondo != null)
+        {
+            musicaFondo.Play();
+        }
     }
+
     public int sacar_NPC()
     {
         System.Random rnd = new System.Random();
-        NPC_sacar = rnd.Next(1, 6);  // creates a number between 1 and 12
+        NPC_sacar = rnd.Next(1, 6);  
         return NPC_sacar;
     }
 
     public int cantar_NPC(int numSacado)
     {
         System.Random rnd = new System.Random();
-        NPC_cantar = rnd.Next(numSacado+1, 11);  // creates a number between 1 and 12
+        NPC_cantar = rnd.Next(numSacado + 1, 11); 
         return NPC_cantar;
     }
 
@@ -49,10 +74,7 @@ public class Morra_Controller : MonoBehaviour
     {
         float diferenciaJugador = Mathf.Abs(jugador_cantar - total);
         Debug.Log("Num jugador: " + jugador_cantar);
-
         Debug.Log("Diferencia con el total: " + diferenciaJugador);
-
-
 
         float diferenciaNPC = Mathf.Abs(NPC_cantar - total);
 
@@ -63,7 +85,7 @@ public class Morra_Controller : MonoBehaviour
 
     public int givePoint(bool jugadorGanador)
     {
-        if(jugadorGanador)
+        if (jugadorGanador)
         {
             return ++player_points;
         }
@@ -73,5 +95,13 @@ public class Morra_Controller : MonoBehaviour
         }
     }
 
-    
+    public void StopGame()
+    {
+        gameStarted = false;
+        // Esto detendrá la música cuando el ButtonController lo llame
+        if (musicaFondo != null)
+        {
+            musicaFondo.Stop();
+        }
+    }
 }

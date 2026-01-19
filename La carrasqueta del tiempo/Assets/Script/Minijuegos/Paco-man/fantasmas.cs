@@ -13,6 +13,13 @@ public class GhostMovement : MonoBehaviour
     public float startDelay = 3f;
     public Transform inicioFantasma;
 
+    // +++ NUEVO: Variables de Audio y Estado +++
+    [Header("Audio & Estado")]
+    public AudioSource sfxSource;
+    public AudioClip dieSound;
+    public bool isScared = false; // Indica si el fantasma puede ser comido
+    // ++++++++++++++++++++++++++++++++++++++++++
+
     private enum GhostState { Waiting, GoingToStartPoint, MovingUp, Normal }
     private GhostState state = GhostState.Waiting;
 
@@ -30,7 +37,7 @@ public class GhostMovement : MonoBehaviour
 
     // Para detectar patrones repetidos
     private Queue<Vector2> lastMoves = new Queue<Vector2>();
-    private int patternRepeatLimit = 4; // Si se repite un patrón de 4 movimientos, se fuerza cambio
+    private int patternRepeatLimit = 4;
 
     // ================= Primeros movimientos obligatorios =================
     private Queue<Vector2> initialPattern = new Queue<Vector2>();
@@ -54,7 +61,6 @@ public class GhostMovement : MonoBehaviour
         initialPattern.Clear();
         if (chooseFirstPattern)
         {
-            // Patrón: Derecha → Arriba → Derecha → Abajo → Derecha
             initialPattern.Enqueue(Vector2.right);
             initialPattern.Enqueue(Vector2.up);
             initialPattern.Enqueue(Vector2.right);
@@ -63,7 +69,6 @@ public class GhostMovement : MonoBehaviour
         }
         else
         {
-            // Patrón: Izquierda → Arriba → Izquierda → Abajo → Izquierda
             initialPattern.Enqueue(Vector2.left);
             initialPattern.Enqueue(Vector2.up);
             initialPattern.Enqueue(Vector2.left);
@@ -80,6 +85,14 @@ public class GhostMovement : MonoBehaviour
     {
         state = GhostState.GoingToStartPoint;
     }
+
+    // +++ NUEVO: Método para cambiar estado (llamado por PlayerScore2D) +++
+    public void SetScaredState(bool scared)
+    {
+        isScared = scared;
+        // Opcional: Aquí podrías cambiar el sprite/color del fantasma a azul
+    }
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     private void FixedUpdate()
     {
@@ -136,7 +149,6 @@ public class GhostMovement : MonoBehaviour
     {
         bool touchingTurnCollider = IsTouchingTurnCollider();
 
-        // ===== Ejecutar primeros movimientos obligatorios =====
         if (executingInitialPattern && initialPattern.Count > 0)
         {
             moveDirection = initialPattern.Dequeue();
@@ -149,10 +161,8 @@ public class GhostMovement : MonoBehaviour
             return;
         }
 
-        // ===== Lógica normal de giros aleatorios =====
         if (touchingTurnCollider && !wasTouchingTurn)
         {
-            // Centrar al fantasma antes de decidir dirección
             SnapToTurnCollider();
             TryChooseNewDirection();
         }
@@ -168,7 +178,9 @@ public class GhostMovement : MonoBehaviour
 
         wasTouchingTurn = touchingTurnCollider;
 
-        rb.linearVelocity = CanMoveFully(moveDirection) ? moveDirection * speed : Vector2.zero;
+        // +++ OPCIONAL: Si está asustado, podrías reducir la velocidad aquí +++
+        float currentSpeed = isScared ? speed * 0.5f : speed; 
+        rb.linearVelocity = CanMoveFully(moveDirection) ? moveDirection * currentSpeed : Vector2.zero;
     }
 
     private void ForceChangeDirection()
@@ -203,7 +215,6 @@ public class GhostMovement : MonoBehaviour
 
         AddMoveToHistory(moveDirection);
 
-        // Si se repite patrón, forzar una nueva dirección distinta
         if (IsRepeatingPattern())
         {
             moveDirection = GetRandomDirectionExceptCurrent(moveDirection, allowPatternOverride: true);
@@ -224,7 +235,6 @@ public class GhostMovement : MonoBehaviour
     {
         if (lastMoves.Count < patternRepeatLimit) return false;
         Vector2[] arr = lastMoves.ToArray();
-        // Detecta patrones L-R-L-R o U-D-U-D etc.
         for (int i = 0; i <= arr.Length - 4; i++)
         {
             if (arr[i] == arr[i + 2] && arr[i + 1] == arr[i + 3])
@@ -291,19 +301,45 @@ public class GhostMovement : MonoBehaviour
         lastMoves.Clear();
         initialPattern.Clear();
         executingInitialPattern = true;
+        
+        isScared = false; // +++ Reiniciar estado de miedo +++
+        
         state = GhostState.Waiting;
         Invoke(nameof(StartMovingToPoint), startDelay);
     }
 
+    // +++ MODIFICADO: Lógica de Colisión con sonido +++
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !hasDamaged)
+        if (collision.CompareTag("Player"))
         {
-            hasDamaged = true;
-            Manager.Instance.DamagePlayer();
-            Invoke(nameof(ResetDamageFlag), 0.5f);
+            if (isScared)
+            {
+                // EL FANTASMA ES DERROTADO
+                Debug.Log("¡Fantasma comido!");
+                
+                // Reproducir sonido
+                if (sfxSource != null && dieSound != null)
+                {
+                    sfxSource.PlayOneShot(dieSound);
+                }
+
+                // Otorgar puntos extra si quieres:
+                // FindObjectOfType<PlayerScore2D>().score += 200;
+
+                // Reiniciar fantasma
+                RespawnGhost();
+            }
+            else if (!hasDamaged)
+            {
+                // EL JUGADOR ES DERROTADO
+                hasDamaged = true;
+                Manager.Instance.DamagePlayer();
+                Invoke(nameof(ResetDamageFlag), 0.5f);
+            }
         }
     }
+    // +++++++++++++++++++++++++++++++++++++++++++++++++
 
     private void ResetDamageFlag() => hasDamaged = false;
 }

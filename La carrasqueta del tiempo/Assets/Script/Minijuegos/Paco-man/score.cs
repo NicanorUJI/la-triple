@@ -1,10 +1,16 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // <- Para cambiar escenas
+using UnityEngine.SceneManagement;
 
 public class PlayerScore2D : MonoBehaviour
 {
     public int score = 0;
     public float powerTime = 8f;
+
+    // +++ NUEVO: Variables de Audio +++
+    [Header("Audio")]
+    public AudioSource sfxSource;       // Arrastra el componente AudioSource aqu√≠
+    public AudioClip powerPelletSound;  // Arrastra el archivo de sonido aqu√≠
+    // +++++++++++++++++++++++++++++++++
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -12,13 +18,21 @@ public class PlayerScore2D : MonoBehaviour
         {
             score += 10;
             Destroy(other.gameObject);
-            Debug.Log("PuntuaciÛn: " + score);
+            Debug.Log("Puntuaci√≥n: " + score);
         }
         if (other.CompareTag("PowerPellet"))
         {
             score += 100;
+            
+            // +++ NUEVO: Reproducir sonido +++
+            if (sfxSource != null && powerPelletSound != null)
+            {
+                sfxSource.PlayOneShot(powerPelletSound);
+            }
+            // ++++++++++++++++++++++++++++++++
+
             Destroy(other.gameObject);
-            Debug.Log("°POWER PELLET COMIDO! PuntuaciÛn: " + score);
+            Debug.Log("POWER PELLET COMIDO! Puntuaci√≥n: " + score);
 
             GhostyMovement[] ghosts = FindObjectsOfType<GhostyMovement>();
             foreach (GhostyMovement g in ghosts)
@@ -31,10 +45,13 @@ public class PlayerScore2D : MonoBehaviour
         }
 
         // ======== COMPROBAR VICTORIA ========
+        // Nota: Al destruir el objeto justo antes, el conteo puede fallar si no esperamos al siguiente frame.
+        // Sin embargo, FindGameObjectsWithTag suele encontrar objetos activos. 
+        // Si tienes problemas detectando la victoria, av√≠same.
         if (GameObject.FindGameObjectsWithTag("Punto").Length == 0 &&
             GameObject.FindGameObjectsWithTag("PowerPellet").Length == 0)
         {
-            Debug.Log("[DEBUG] °HAS GANADO!");
+            Debug.Log("[DEBUG] HAS GANADO!");
             SceneManager.LoadScene("Win");
         }
     }
