@@ -267,6 +267,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c19ce0e61f1e3d34599de5618d245a08, type: 2}
   - {fileID: 11400000, guid: cbc3434aef2972139b635d3619b57011, type: 2}
   - {fileID: 11400000, guid: 17bf41c31af7a12ad962663754d9b23e, type: 2}
+  - {fileID: 11400000, guid: c8e679d2f30b89c4684186ee2cc65bba, type: 2}
   - {fileID: 11400000, guid: 77c9e5356e97b8717a1b3460dd712140, type: 2}
   - {fileID: 11400000, guid: 9246f7bb095ecaeb08a0d42f3772f89b, type: 2}
   - {fileID: 11400000, guid: d07bc650a262cc9219296d3e91c03ae7, type: 2}
@@ -614,9 +615,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   opciones:
+  - {fileID: 11400000, guid: 1cbcd64e7b46e844c80a0cbbcc8f266c, type: 2}
   - {fileID: 11400000, guid: da1d2cb885c3d63fd87ebe496b150924, type: 2}
   - {fileID: 11400000, guid: dfcdee974c5185144b813ae91246b88f, type: 2}
-  - {fileID: 11400000, guid: 2a632a98dc4c2c14195e6d5799c060c7, type: 2}
   dialoguePanel: {fileID: 196821872}
   dialogueText: {fileID: 196821869}
   nameText: {fileID: 196821870}
@@ -2114,6 +2115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   opciones:
+  - {fileID: 11400000, guid: bd8d00e10429aae4682c0be6234f81e2, type: 2}
   - {fileID: 11400000, guid: 9af76cc98f27d10d98b167bab1c3bc79, type: 2}
   - {fileID: 11400000, guid: 708c546749045d247afbda7fd7302ba9, type: 2}
   dialoguePanel: {fileID: 196821872}

@@ -4249,16 +4249,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17beb631499f6c57f882efb2e80f92f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
-  opciones: []
-  dialoguePanel: {fileID: 0}
-  dialogueText: {fileID: 0}
-  nameText: {fileID: 0}
+  opciones:
+  - {fileID: 11400000, guid: 97f1293398a73b64aa98a2cb990098cc, type: 2}
+  dialoguePanel: {fileID: 243095253}
+  dialogueText: {fileID: 243095252}
+  nameText: {fileID: 243095251}
   talkingAudioSource: {fileID: 0}
   npcTalk_Clip: {fileID: 0}
-  joaquinTalk_Clip: {fileID: 0}
-  portraitImage: {fileID: 0}
-  joaquinPortrait_Object: {fileID: 0}
-  joaquinPortrait: {fileID: 0}
+  joaquinTalk_Clip: {fileID: 8300000, guid: 0dcd1c7eb069ca343994719791964c88, type: 3}
+  portraitImage: {fileID: 243095250}
+  joaquinPortrait_Object: {fileID: 1523699103}
+  joaquinPortrait: {fileID: 1523699104}
   button_choice1: {fileID: 0}
   button_choice2: {fileID: 0}
   button_choice3: {fileID: 0}

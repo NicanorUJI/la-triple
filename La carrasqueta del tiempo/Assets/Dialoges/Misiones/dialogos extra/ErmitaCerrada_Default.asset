@@ -29,17 +29,4 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  - speakerName: Joaquin
-    lineText: "La porta est\xE0 tancada, quina mala sort."
-    expression: {fileID: 21300000, guid: d9b9db733e855fc538182399fa6cb6fc, type: 3}
-    isPlayerSpeaking: 1
-    isChoice: 0
-    choiceA: {fileID: 0}
-    choiceB: {fileID: 0}
-    choiceC: {fileID: 0}
-    choiceD: {fileID: 0}
-    hasReward: 0
-    reward: 
-    startsMinigame: 0
-    minigame: 
   conditions: []

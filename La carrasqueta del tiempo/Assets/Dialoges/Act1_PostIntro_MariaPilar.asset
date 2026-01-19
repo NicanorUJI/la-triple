@@ -33,7 +33,7 @@ MonoBehaviour:
   - speakerName: Joaquin
     lineText: "Ja hi anava, iaia. Nom\xE9s havia tornat un moment, ara me\u2019n
       vaig cap all\xE0."
-    expression: {fileID: 167803326818533104, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
+    expression: {fileID: 21300000, guid: 704c08af6c7afe52fb02d7b58df5574a, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   - speakerName: Joaquin
     lineText: "Tranquil\xB7la, me\u2019n recorde perfectament. Estar\xE9 ac\xED abans
       del dinar."
-    expression: {fileID: -6552298411299982458, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
+    expression: {fileID: 21300000, guid: cadc1d4159db512ed80002fe8fdffee7, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}

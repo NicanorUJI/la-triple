@@ -58,4 +58,5 @@ MonoBehaviour:
     reward: 
     startsMinigame: 0
     minigame: 
-  conditions: []
+  conditions:
+  - Act2_Q_MENJAR_NeedsMeat
