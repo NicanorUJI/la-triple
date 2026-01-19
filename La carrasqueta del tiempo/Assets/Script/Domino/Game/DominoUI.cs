@@ -280,7 +280,7 @@ public class DominoUI : MonoBehaviour
 
         if (playerWon)
         {
-            if (txtResultado != null) txtResultado.text = "Has guanyat a l'alcalde";
+            if (txtResultado != null) txtResultado.text = "Has guanyat! Has obtingut el pot de mel.";
 
             RewardSystemHook.Grant("TarroDeMiel");
             GameManager.Change("Act2_Q_MENJAR_WonDomino");
@@ -301,7 +301,7 @@ public class DominoUI : MonoBehaviour
         }
         else
         {
-            if (txtResultado != null) txtResultado.text = "Has perdut contra l'alcalde :(";
+            if (txtResultado != null) txtResultado.text = "Has perdut. Torna-ho a intentar!";
         }
 
         if (btnReintentar != null)
