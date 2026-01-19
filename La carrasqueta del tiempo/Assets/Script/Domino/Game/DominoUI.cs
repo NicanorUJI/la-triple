@@ -4,8 +4,7 @@ using Domino.Core;
 using Domino.Game;
 using Domino.UI;
 using System.Collections.Generic;
-using System.Linq;
-using System.Collections; 
+using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -28,30 +27,35 @@ public class DominoUI : MonoBehaviour
     public Button btnReintentar;
     public Button btnSalir;
 
+    [Header("Fin de partida - Visual")]
+    public Image imgPortrait;
+    public Sprite portraitWin;
+    public Sprite portraitLose;
+
     [Header("Prefabs")]
     public DominoTileView tileViewPrefab;
 
     [Header("Audio")]
-    public AudioSource sourceMusica;      
-    public AudioSource sourceSFX;         
-    public AudioClip clipMusicaFondo;     
-    public AudioClip clipColocarFicha;    
-    public AudioClip clipVictoria; 
+    public AudioSource sourceMusica;
+    public AudioSource sourceSFX;
+    public AudioClip clipMusicaFondo;
+    public AudioClip clipColocarFicha;
+    public AudioClip clipVictoria;
     public AudioClip clipDerrota;
-    public AudioClip clipRobarPasar; // Usaremos este como sonido de interacción general
+    public AudioClip clipRobarPasar;
 
     readonly List<DominoTileView> _manoViews = new();
     readonly List<DominoTileView> _mesaViews = new();
 
-    int PlayerIndex => 0; 
+    int onPlayerIndex => 0;
 
     [Header("Scroll Mesa")]
-    public UnityEngine.UI.ScrollRect scrollMesa;
+    public ScrollRect scrollMesa;
     public RectTransform contenidoMesa;
 
     [Header("Intro Reglas")]
     public GameObject panelInstruccionesDomino;
-    public Button btnAcceptar; 
+    public Button btnAcceptar;
     private bool _gameStarted = false;
 
     void Awake()
@@ -59,20 +63,20 @@ public class DominoUI : MonoBehaviour
         btnRobar.onClick.AddListener(() =>
         {
             if (!_gameStarted) return;
-            PlayDrawSound(); 
-            turn.DrawOrPass(PlayerIndex);
+            PlayDrawSound();
+            turn.DrawOrPass(onPlayerIndex);
         });
 
         btnPasar.onClick.AddListener(() =>
         {
             if (!_gameStarted) return;
             PlayDrawSound();
-            turn.DrawOrPass(PlayerIndex);
+            turn.DrawOrPass(onPlayerIndex);
         });
 
         if (btnAcceptar != null)
         {
-            btnAcceptar.onClick.AddListener(() => 
+            btnAcceptar.onClick.AddListener(() =>
             {
                 StartCoroutine(StartGameSequence());
             });
@@ -117,7 +121,7 @@ public class DominoUI : MonoBehaviour
     public void InitAndDraw()
     {
         RedrawBoard();
-        RedrawHand(); 
+        RedrawHand();
         OnTurnChanged(turn.CurrentPlayerIndex);
     }
 
@@ -126,8 +130,8 @@ public class DominoUI : MonoBehaviour
         _gameStarted = false;
         if (panelInstruccionesDomino != null)
             panelInstruccionesDomino.SetActive(true);
-        
-        if(btnAcceptar != null) btnAcceptar.interactable = true;
+
+        if (btnAcceptar != null) btnAcceptar.interactable = true;
     }
 
     public void StartGame()
@@ -135,9 +139,10 @@ public class DominoUI : MonoBehaviour
         if (sourceMusica != null && clipMusicaFondo != null)
         {
             sourceMusica.clip = clipMusicaFondo;
-            sourceMusica.loop = true; 
+            sourceMusica.loop = true;
             sourceMusica.Play();
         }
+
         if (panelInstruccionesDomino != null)
             panelInstruccionesDomino.SetActive(false);
 
@@ -157,7 +162,7 @@ public class DominoUI : MonoBehaviour
 
         txtTurno.text = $"És el torn de: {jugadorActual} !";
         txtMensaje.text = "";
-        RedrawHand(); 
+        RedrawHand();
     }
 
     void RedrawBoard()
@@ -181,8 +186,8 @@ public class DominoUI : MonoBehaviour
         foreach (var v in _manoViews) Destroy(v.gameObject);
         _manoViews.Clear();
 
-        var hand = turn.Players[PlayerIndex].Hand;
-        bool isMyTurn = turn.CurrentPlayerIndex == PlayerIndex;
+        var hand = turn.Players[onPlayerIndex].Hand;
+        bool isMyTurn = turn.CurrentPlayerIndex == onPlayerIndex;
 
         foreach (var t in hand)
         {
@@ -208,7 +213,7 @@ public class DominoUI : MonoBehaviour
 
     void OnTileClicked(DominoTile tile)
     {
-        if (turn.CurrentPlayerIndex != PlayerIndex) return;
+        if (turn.CurrentPlayerIndex != onPlayerIndex) return;
 
         bool left = turn.Board.CanPlaceLeft(tile);
         bool right = turn.Board.CanPlaceRight(tile);
@@ -217,15 +222,15 @@ public class DominoUI : MonoBehaviour
         {
             ShowSideChooser(tile);
         }
-        else if (right) 
+        else if (right)
         {
-            turn.TryPlayRight(PlayerIndex, tile);
-            PlayTileSound(); 
+            turn.TryPlayRight(onPlayerIndex, tile);
+            PlayTileSound();
         }
-        else if (left)  
+        else if (left)
         {
-            turn.TryPlayLeft(PlayerIndex, tile);
-            PlayTileSound(); 
+            turn.TryPlayLeft(onPlayerIndex, tile);
+            PlayTileSound();
         }
 
         RedrawHand();
@@ -234,17 +239,18 @@ public class DominoUI : MonoBehaviour
     void ShowSideChooser(DominoTile tile)
     {
         txtMensaje.text = "Elegí lado: IZQ o DER";
-        turn.TryPlayRight(PlayerIndex, tile);
-        PlayTileSound(); 
+        turn.TryPlayRight(onPlayerIndex, tile);
+        PlayTileSound();
         txtMensaje.text = "";
     }
 
     void ShowEndPanel(int winnerIndex, string reason)
     {
-        sourceMusica.Stop();
-        panelFinPartida.SetActive(true);
+        if (sourceMusica != null) sourceMusica.Stop();
+        if (panelFinPartida != null) panelFinPartida.SetActive(true);
 
-        bool playerWon = (winnerIndex == PlayerIndex);
+        bool playerWon = (winnerIndex == onPlayerIndex);
+        bool isDraw = (winnerIndex == -1);
 
         if (sourceSFX != null)
         {
@@ -258,20 +264,27 @@ public class DominoUI : MonoBehaviour
             }
         }
 
-        btnSalir.gameObject.SetActive(playerWon);
-        btnReintentar.gameObject.SetActive(!playerWon);
-        
-        btnSalir.interactable = playerWon;
-        btnReintentar.interactable = true;
+        if (btnSalir != null) btnSalir.gameObject.SetActive(true);
+        if (btnReintentar != null) btnReintentar.gameObject.SetActive(true);
 
-        if (winnerIndex == PlayerIndex)
+        if (btnReintentar != null) btnReintentar.interactable = true;
+        if (btnSalir != null) btnSalir.interactable = playerWon;
+
+        if (imgPortrait != null)
         {
-            txtResultado.text = "¡Ganaste!";
-            txtRecompensa.text = "Has obtenido el tarro de miel";
-            RewardSystemHook.Grant("TarroDeMiel");
+            if (playerWon && portraitWin != null) imgPortrait.sprite = portraitWin;
+            else if (!playerWon && portraitLose != null) imgPortrait.sprite = portraitLose;
+        }
 
+        if (txtRecompensa != null) txtRecompensa.text = "";
+
+        if (playerWon)
+        {
+            if (txtResultado != null) txtResultado.text = "Has guanyat a l'alcalde";
+
+            RewardSystemHook.Grant("TarroDeMiel");
             GameManager.Change("Act2_Q_MENJAR_WonDomino");
-            
+
             var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
             if (mc != null)
             {
@@ -282,37 +295,37 @@ public class DominoUI : MonoBehaviour
                 );
             }
         }
-        else if (winnerIndex == -1)
+        else if (isDraw)
         {
-            txtResultado.text = "Empate";
-            txtRecompensa.text = "No hay recompensa.";
+            if (txtResultado != null) txtResultado.text = "Empat";
         }
         else
         {
-            txtResultado.text = "Perdiste";
-            txtRecompensa.text = "Intenta de nuevo.";
+            if (txtResultado != null) txtResultado.text = "Has perdut contra l'alcalde :(";
         }
 
-        // Listener Reintentar
-        btnReintentar.onClick.RemoveAllListeners();
-        btnReintentar.onClick.AddListener(() =>
+        if (btnReintentar != null)
         {
-            StartCoroutine(RetryGameSequence());
-        });
+            btnReintentar.onClick.RemoveAllListeners();
+            btnReintentar.onClick.AddListener(() =>
+            {
+                StartCoroutine(RetryGameSequence());
+            });
+        }
 
-        // Listener Salir
-        btnSalir.onClick.RemoveAllListeners();
-        // +++ MODIFICADO: Llamamos a la Corrutina de Salir +++
-        btnSalir.onClick.AddListener(() =>
+        if (btnSalir != null)
         {
-            StartCoroutine(ExitGameSequence());
-        });
-        // ++++++++++++++++++++++++++++++++++++++++++++++++++++
+            btnSalir.onClick.RemoveAllListeners();
+            btnSalir.onClick.AddListener(() =>
+            {
+                StartCoroutine(ExitGameSequence());
+            });
+        }
     }
 
     IEnumerator RetryGameSequence()
     {
-        btnReintentar.interactable = false;
+        if (btnReintentar != null) btnReintentar.interactable = false;
 
         if (sourceSFX != null && clipRobarPasar != null)
         {
@@ -324,20 +337,17 @@ public class DominoUI : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
 
-        panelFinPartida.SetActive(false);
+        if (panelFinPartida != null) panelFinPartida.SetActive(false);
         _gameStarted = true;
         turn.StartMatch(3);
         InitAndDraw();
-        sourceMusica.Play();
+        if (sourceMusica != null) sourceMusica.Play();
     }
 
-    // +++ NUEVO: Corrutina para Salir esperando el audio +++
     IEnumerator ExitGameSequence()
     {
-        // Desactivamos para que no le den click varias veces
-        btnSalir.interactable = false;
+        if (btnSalir != null) btnSalir.interactable = false;
 
-        // Reproducimos el sonido y esperamos
         if (sourceSFX != null && clipRobarPasar != null)
         {
             sourceSFX.PlayOneShot(clipRobarPasar);
@@ -348,14 +358,13 @@ public class DominoUI : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
 
-        // Ahora sí cambiamos de escena
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.lastExitName = "BarD"; 
+            GameManager.Instance.lastExitName = "BarD";
         }
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Bar");
+
+        SceneManager.LoadScene("Bar");
     }
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     void OnTileDropped(DominoTile tile, Vector2 screenPos)
     {
@@ -365,9 +374,9 @@ public class DominoUI : MonoBehaviour
             return;
         }
 
-        if (turn.CurrentPlayerIndex != PlayerIndex)
+        if (turn.CurrentPlayerIndex != onPlayerIndex)
         {
-            RedrawHand(); 
+            RedrawHand();
             return;
         }
 
@@ -377,16 +386,17 @@ public class DominoUI : MonoBehaviour
             return;
         }
 
-        bool canLeft  = turn.Board.CanPlaceLeft(tile);
+        bool canLeft = turn.Board.CanPlaceLeft(tile);
         bool canRight = turn.Board.CanPlaceRight(tile);
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             panelMesa,
             screenPos,
             mainCanvas.worldCamera,
-            out var localPos);
+            out var localPos
+        );
 
-        bool dropLeftSide = localPos.x < 0f; 
+        bool dropLeftSide = localPos.x < 0f;
 
         bool toLeft;
 
@@ -409,10 +419,10 @@ public class DominoUI : MonoBehaviour
             return;
         }
 
-        if (toLeft) turn.TryPlayLeft(PlayerIndex, tile);
-        else        turn.TryPlayRight(PlayerIndex, tile);
+        if (toLeft) turn.TryPlayLeft(onPlayerIndex, tile);
+        else turn.TryPlayRight(onPlayerIndex, tile);
 
-        PlayTileSound(); 
+        PlayTileSound();
 
         RedrawBoard();
         RedrawHand();
