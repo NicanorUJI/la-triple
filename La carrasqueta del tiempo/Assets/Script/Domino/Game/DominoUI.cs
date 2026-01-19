@@ -38,6 +38,7 @@ public class DominoUI : MonoBehaviour
     // +++ NUEVO: Sonidos de Fin de Partida +++
     public AudioClip clipVictoria; 
     public AudioClip clipDerrota;
+    public AudioClip clipRobarPasar;
     // ++++++++++++++++++++++++++++++++++++++++
 
     // cache de views para limpiar rápido
@@ -60,17 +61,33 @@ public class DominoUI : MonoBehaviour
         btnRobar.onClick.AddListener(() =>
         {
             if (!_gameStarted) return;
+
+            // +++ NUEVO: Reproducir sonido +++
+            PlayDrawSound(); 
+            // ++++++++++++++++++++++++++++++++
+
             turn.DrawOrPass(PlayerIndex);
         });
 
         btnPasar.onClick.AddListener(() =>
         {
             if (!_gameStarted) return;
+
+            // +++ NUEVO: Reproducir sonido +++
+            PlayDrawSound();
+            // ++++++++++++++++++++++++++++++++
+
             turn.DrawOrPass(PlayerIndex);
         });
     }
 
-    
+    void PlayDrawSound()
+    {
+        if (sourceSFX != null && clipRobarPasar != null)
+        {
+            sourceSFX.PlayOneShot(clipRobarPasar);
+        }
+    }
 
     public void HookEvents()
     {
