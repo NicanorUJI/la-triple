@@ -726,6 +726,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78eee873bb7dd1440b65702628c1365c, type: 3}
+--- !u!95 &456392485 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3487534786070636435, guid: 78eee873bb7dd1440b65702628c1365c, type: 3}
+  m_PrefabInstance: {fileID: 456392484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &493006442
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,7 +3240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::tp2
   indiceEscena: 9
-  transicion: {fileID: 0}
+  transicion: {fileID: 456392485}
   tagJugador: Player
   teclaRequerida: 0
   retardo: 0
