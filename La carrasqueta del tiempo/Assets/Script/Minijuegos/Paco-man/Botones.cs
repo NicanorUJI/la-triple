@@ -6,6 +6,23 @@ public class CambiarEscena : MonoBehaviour
     [Header("Spawn (opcional)")]
     public string nombrePuntoEntrada;
 
+    // +++ NUEVO: Variables de Audio +++
+    [Header("Audio")]
+    public AudioSource audioSource;      // Arrastra aquí el componente Audio Source
+    public AudioClip sonidoGameOver;     // Arrastra aquí el sonido de "Perdiste"
+    // +++++++++++++++++++++++++++++++++
+
+    // +++ NUEVO: Start se ejecuta al iniciar la escena +++
+    private void Start()
+    {
+        // Si hemos asignado el sonido y el audio source, lo reproducimos una vez
+        if (audioSource != null && sonidoGameOver != null)
+        {
+            audioSource.PlayOneShot(sonidoGameOver);
+        }
+    }
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++
+
     // Botón Arcade
     public void Play()
     {

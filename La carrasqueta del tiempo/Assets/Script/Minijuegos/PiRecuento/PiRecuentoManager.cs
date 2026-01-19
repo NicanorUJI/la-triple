@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class PiRecuentoManager : MonoBehaviour
 {
     [Header("Niños y Spots")]
-    public List<GameObject> childrenSprites; // 3 ni�os �nicos
-    public List<HidingSpot> spots;           // 5 spots
+    public List<GameObject> childrenSprites; 
+    public List<HidingSpot> spots;           
 
     [Header("Rondas")]
     public int rounds = 5;
@@ -20,8 +20,8 @@ public class PiRecuentoManager : MonoBehaviour
 
     [Header("Paneles")]
     public GameObject panelReglas;
-    public GameObject panelFinPartida; // Panel de fin de juego
-    public Button botonContinuar;  // Botón Continuar
+    public GameObject panelFinPartida; 
+    public Button botonContinuar;  
 
     [Header("Fin de partida - Imagen")]
     public Image imagenResultado;
@@ -29,31 +29,48 @@ public class PiRecuentoManager : MonoBehaviour
     public Sprite spriteVictoria;
     public Sprite spriteDerrota;
 
+    [Header("Audio SFX")]
+    public AudioSource sfxSource;          
+    public AudioClip sonidoNinoEncontrado; 
+    public AudioClip sonidoFallo;          
+    public AudioClip sonidoVictoria;
+    public AudioClip sonidoDerrota;
+
+    [Header("Audio Música")]
+    public AudioSource musicSource;        
+    public AudioClip backgroundMusic;      
+
     private int currentRound = 1;
-    private List<GameObject> availableChildren; // ni�os que a�n no han sido encontrados
+    private List<GameObject> availableChildren; 
 
     public bool inputEnabled = false;
     private bool haGanado = false;
 
-
     void Start()
     {
-        // Inicializar lista de ni�os disponibles
         availableChildren = new List<GameObject>(childrenSprites);
 
-        // Ocultamos mensaje al iniciar
         mensajeText.gameObject.SetActive(false);
         rondaText.gameObject.SetActive(false);
 
         if (panelFinPartida != null)
             panelFinPartida.SetActive(false);
+
+        // --- CAMBIO: AQUÍ YA NO INICIAMOS LA MÚSICA ---
+        // La música esperará a que el jugador pulse el botón.
     }
-
-
-
 
     public void Aceptar() 
     {
+        // --- CAMBIO: INICIAMOS LA MÚSICA AQUÍ ---
+        if (musicSource != null && backgroundMusic != null)
+        {
+            musicSource.clip = backgroundMusic;
+            musicSource.loop = true;  
+            musicSource.Play();
+        }
+        // ----------------------------------------
+
         inputEnabled = true;
         if (panelReglas != null)
             panelReglas.SetActive(false);
@@ -70,14 +87,13 @@ public class PiRecuentoManager : MonoBehaviour
 
     void StartRound()
     {
-        // Reiniciamos todos los spots
+        // ... (El código de StartRound es idéntico al anterior) ...
         foreach (var s in spots)
         {
             s.ResetSpot();
             s.childSprite = null;
         }
 
-        // Fin del juego
         if (availableChildren.Count == 0 || currentRound > rounds)
         {
             haGanado = availableChildren.Count == 0;
@@ -85,7 +101,6 @@ public class PiRecuentoManager : MonoBehaviour
             return;
         }
 
-        // Mezclar spots
         List<HidingSpot> shuffledSpots = new List<HidingSpot>(spots);
         for (int i = 0; i < shuffledSpots.Count; i++)
         {
@@ -95,7 +110,6 @@ public class PiRecuentoManager : MonoBehaviour
             shuffledSpots[rand] = temp;
         }
 
-        // Mezclar ni�os disponibles
         List<GameObject> shuffledChildren = new List<GameObject>(availableChildren);
         for (int i = 0; i < shuffledChildren.Count; i++)
         {
@@ -105,7 +119,6 @@ public class PiRecuentoManager : MonoBehaviour
             shuffledChildren[rand] = temp;
         }
 
-        // Asignar cada ni�o disponible a un spot diferente cada ronda
         for (int i = 0; i < shuffledChildren.Count; i++)
         {
             HidingSpot spot = shuffledSpots[i];
@@ -115,11 +128,8 @@ public class PiRecuentoManager : MonoBehaviour
             spot.childSprite = child;
 
             Niño n = child.GetComponent<Niño>();
+            if (n != null) n.Ocultar(); 
 
-            if (n != null)
-                n.Ocultar(); // restauramos escala y sortingOrder
-
-            // Ahora s� ponemos al ni�o en el spot
             child.transform.SetParent(spot.transform);
             child.transform.localPosition = Vector3.zero;
         }
@@ -129,24 +139,24 @@ public class PiRecuentoManager : MonoBehaviour
 
     public void OnSpotClicked(HidingSpot spot)
     {
+        // ... (Idéntico al anterior) ...
         if (!spot.hasChild)
         {
+            if (sfxSource != null && sonidoFallo != null)
+                sfxSource.PlayOneShot(sonidoFallo);
+
             StartCoroutine(MostrarMensaje());
         }
         else
         {
+            if (sfxSource != null && sonidoNinoEncontrado != null)
+                sfxSource.PlayOneShot(sonidoNinoEncontrado);
+
             Niño n = spot.childSprite.GetComponent<Niño>();
-            if (n != null)
-            {
-                n.Mostrar(); // mostrar en primer plano
-            }
+            if (n != null) n.Mostrar(); 
 
             StartCoroutine(MostrarMensaje(n.nombre));
-
-            // Quitar ni�o de la lista de disponibles
             availableChildren.Remove(spot.childSprite);
-
-            // Esperar un momento antes de moverlo fuera
             StartCoroutine(RemoverNiñoDelay(spot.childSprite));
         }
 
@@ -154,12 +164,16 @@ public class PiRecuentoManager : MonoBehaviour
         StartCoroutine(NextRoundDelay());
     }
 
-
-
-    //PANEL FIN
+    // PANEL FIN
     private void MostrarPanelFin()
     {
         inputEnabled = false;
+
+        // PARAR MÚSICA AL TERMINAR
+        if (musicSource != null)
+        {
+            musicSource.Stop();
+        }
 
         if (panelFinPartida != null)
             panelFinPartida.SetActive(true);
@@ -168,17 +182,25 @@ public class PiRecuentoManager : MonoBehaviour
         {
             imagenResultado.sprite = spriteVictoria;
             textoResultado.text = "Has trobat a tots el xiquets!";
+            
+            if (sfxSource != null && sonidoVictoria != null)
+                sfxSource.PlayOneShot(sonidoVictoria);
         }
         else
         {
             imagenResultado.sprite = spriteDerrota;
             textoResultado.text = "Els xiquets han guanyat... :(";
+
+            if (sfxSource != null && sonidoDerrota != null)
+                sfxSource.PlayOneShot(sonidoDerrota);
         }
 
         if (botonContinuar != null)
             botonContinuar.interactable = haGanado;
         rondaText.gameObject.SetActive(false);
     }
+
+    // ... (El resto de funciones: ReintentarJuego, FinishGame, corrutinas... siguen igual) ...
     public void ReintentarJuego() 
     {
         panelFinPartida.SetActive(false);
@@ -190,16 +212,14 @@ public class PiRecuentoManager : MonoBehaviour
     }
     public void ContinuarJuego() 
     {
-        if (!haGanado)
-            return;
+        if (!haGanado) return;
         panelFinPartida.SetActive(false);
         FinishGame();
     }
     public void FinishGame()
     {
         GameManager.Change("Act2_Q_ESQUELLES_HasBracelet");
-        Debug.Log("[Esquelles/PiRecuento] Joaquín ha aconseguit la polsera.");
-
+        
         var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
         if (mc != null)
         {
@@ -209,25 +229,16 @@ public class PiRecuentoManager : MonoBehaviour
                 "Has aconseguit una polsera al col·legi. Torna al passat i dóna-li-la a Raúl a les calderetes."
             );
         }
-
         StartCoroutine(ReturnToSchoolAfterDelay(0.5f));
     }
 
-
-
-
-
-
-
-
     private IEnumerator RemoverNiñoDelay(GameObject child)
     {
-        float showTime = 3f;          // tiempo que el niño se muestra
-        float swayAngle = 15f;        // ángulo máximo de balanceo
-        float swaySpeed = 2f;         // velocidad del balanceo
+        float showTime = 3f;          
+        float swayAngle = 15f;        
+        float swaySpeed = 2f;         
 
         Niño n = child.GetComponent<Niño>();
-
         child.transform.localScale = n.originalScale * 2;
 
         float elapsedTime = 0f;
@@ -235,16 +246,13 @@ public class PiRecuentoManager : MonoBehaviour
         {
             if (child != null)
             {
-                // Balanceo lateral
                 float angle = Mathf.Sin(Time.time * swaySpeed) * swayAngle;
                 child.transform.rotation = Quaternion.Euler(0, 0, angle);
             }
-
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        // Restaurar valores y remover
         if (child != null)
         {
             child.transform.rotation = Quaternion.identity;
@@ -256,9 +264,7 @@ public class PiRecuentoManager : MonoBehaviour
     private IEnumerator NextRoundDelay()
     {
         inputEnabled = false;
-
         yield return new WaitForSeconds(3f);
-
         inputEnabled = true;
         StartRound();
     }
@@ -282,14 +288,10 @@ public class PiRecuentoManager : MonoBehaviour
     private IEnumerator ReturnToSchoolAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        // 🔹 Guardamos el spawn donde queremos que aparezca el Player
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.lastExitName = "EscuM"; // nombre del Empty en la escena colegio
+            GameManager.Instance.lastExitName = "EscuM"; 
         }
-
-        // Cambiamos de escena
-        SceneManager.LoadScene("colegio"); // nombre real de la escena
+        SceneManager.LoadScene("colegio"); 
     }
 }
