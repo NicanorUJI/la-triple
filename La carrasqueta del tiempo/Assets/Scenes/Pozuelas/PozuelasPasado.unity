@@ -867,7 +867,7 @@ Transform:
   m_GameObject: {fileID: 493006442}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.193, y: -0.35, z: 0}
+  m_LocalPosition: {x: -2.193, y: -0.154, z: 0}
   m_LocalScale: {x: 0.6380135, y: 0.35569593, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2997,6 +2997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   opciones:
   - {fileID: 11400000, guid: fa27a1a4d517a0bdca049c8fc11d3c34, type: 2}
+  - {fileID: 11400000, guid: 797770abe1668c641bf512fe57411024, type: 2}
   - {fileID: 11400000, guid: 83b6bf46a67bc4b13a09a6c3ff0fb48a, type: 2}
   - {fileID: 11400000, guid: 6da1840b958f80348b49faa74ec3f7ef, type: 2}
   dialoguePanel: {fileID: 1789153240}

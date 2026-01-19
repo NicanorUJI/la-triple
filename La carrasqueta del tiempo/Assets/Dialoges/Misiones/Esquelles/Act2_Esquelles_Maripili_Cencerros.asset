@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Act2_Esquelles_Maripili_Cencerros
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: 0}
+  defaultSprite: {fileID: 6949391057282013784, guid: 454cc8c7cf2a9ff0ca7d944f6706c27e, type: 3}
   joaquinDefault: {fileID: 2575970253454553181, guid: 4b415fae88a3f16e985155be15f2c9d3, type: 3}
   lines:
   - speakerName: Maripili
