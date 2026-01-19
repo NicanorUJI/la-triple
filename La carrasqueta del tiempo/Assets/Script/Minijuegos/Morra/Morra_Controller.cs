@@ -11,10 +11,12 @@ public class Morra_Controller : MonoBehaviour
     private int player_points;
     private int NPC_points;
 
-    // +++ NUEVO: Variable para la música +++
     [Header("Audio")]
     public AudioSource musicaFondo;
-    // ++++++++++++++++++++++++++++++++++++++
+    // +++ NUEVO: Variables para el sonido del botón +++
+    public AudioSource sfxSource;   // Arrastra aquí el mismo AudioSource que usas para efectos (o crea uno nuevo)
+    public AudioClip sonidoBoton;   // Arrastra aquí el sonido "Click"
+    // +++++++++++++++++++++++++++++++++++++++++++++++++
 
     void Start()
     {
@@ -23,7 +25,6 @@ public class Morra_Controller : MonoBehaviour
 
         gameStarted = false;
 
-        // +++ NUEVO: Asegurarnos de que no suene al principio +++
         if (musicaFondo != null)
         {
             musicaFondo.Stop();
@@ -32,6 +33,14 @@ public class Morra_Controller : MonoBehaviour
 
     public void StartGame()
     {
+        // +++ NUEVO: Reproducir el sonido corregido +++
+        if (sfxSource != null && sonidoBoton != null)
+        {
+            sfxSource.PlayOneShot(sonidoBoton);
+        }
+        // (He borrado la línea vieja de Button_Controller_Morra porque daba error al no tener la variable)
+        // +++++++++++++++++++++++++++++++++++++++++++++
+
         if (panelInstrucciones != null)
             panelInstrucciones.SetActive(false);
 
@@ -41,7 +50,6 @@ public class Morra_Controller : MonoBehaviour
 
         gameStarted = true;
 
-        // +++ NUEVO: Iniciar la música al empezar el juego +++
         if (musicaFondo != null)
         {
             musicaFondo.Play();
@@ -51,15 +59,13 @@ public class Morra_Controller : MonoBehaviour
     public int sacar_NPC()
     {
         System.Random rnd = new System.Random();
-        NPC_sacar = rnd.Next(1, 6);  // creates a number between 1 and 6 (excluye el limite superior en Next integer)
+        NPC_sacar = rnd.Next(1, 6);  
         return NPC_sacar;
     }
 
     public int cantar_NPC(int numSacado)
     {
         System.Random rnd = new System.Random();
-        // Nota: En System.Random.Next(min, max), max es exclusivo.
-        // Si quieres hasta 10, pon 11.
         NPC_cantar = rnd.Next(numSacado + 1, 11); 
         return NPC_cantar;
     }
@@ -79,9 +85,6 @@ public class Morra_Controller : MonoBehaviour
 
     public int givePoint(bool jugadorGanador)
     {
-        // Nota: Aquí se suman puntos, pero no veo la condición de fin de juego.
-        // He añadido la lógica de parar música si quisieras detenerla manualmente.
-        
         if (jugadorGanador)
         {
             return ++player_points;
@@ -92,11 +95,10 @@ public class Morra_Controller : MonoBehaviour
         }
     }
 
-    // +++ NUEVO: Método para detener el juego y la música +++
-    // Llama a este método cuando alguien llegue a X puntos (Game Over)
     public void StopGame()
     {
         gameStarted = false;
+        // Esto detendrá la música cuando el ButtonController lo llame
         if (musicaFondo != null)
         {
             musicaFondo.Stop();

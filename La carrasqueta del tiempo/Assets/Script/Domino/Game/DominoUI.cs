@@ -5,6 +5,7 @@ using Domino.Game;
 using Domino.UI;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections; 
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -35,16 +36,14 @@ public class DominoUI : MonoBehaviour
     public AudioSource sourceSFX;         
     public AudioClip clipMusicaFondo;     
     public AudioClip clipColocarFicha;    
-    // +++ NUEVO: Sonidos de Fin de Partida +++
     public AudioClip clipVictoria; 
     public AudioClip clipDerrota;
-    // ++++++++++++++++++++++++++++++++++++++++
+    public AudioClip clipRobarPasar; // Usaremos este como sonido de interacción general
 
-    // cache de views para limpiar rápido
     readonly List<DominoTileView> _manoViews = new();
     readonly List<DominoTileView> _mesaViews = new();
 
-    int PlayerIndex => 0; // jugador humano = P0
+    int PlayerIndex => 0; 
 
     [Header("Scroll Mesa")]
     public UnityEngine.UI.ScrollRect scrollMesa;
@@ -52,7 +51,7 @@ public class DominoUI : MonoBehaviour
 
     [Header("Intro Reglas")]
     public GameObject panelInstruccionesDomino;
-    public Button btnAcceptar;
+    public Button btnAcceptar; 
     private bool _gameStarted = false;
 
     void Awake()
@@ -60,17 +59,50 @@ public class DominoUI : MonoBehaviour
         btnRobar.onClick.AddListener(() =>
         {
             if (!_gameStarted) return;
+            PlayDrawSound(); 
             turn.DrawOrPass(PlayerIndex);
         });
 
         btnPasar.onClick.AddListener(() =>
         {
             if (!_gameStarted) return;
+            PlayDrawSound();
             turn.DrawOrPass(PlayerIndex);
         });
+
+        if (btnAcceptar != null)
+        {
+            btnAcceptar.onClick.AddListener(() => 
+            {
+                StartCoroutine(StartGameSequence());
+            });
+        }
     }
 
-    
+    IEnumerator StartGameSequence()
+    {
+        if (btnAcceptar != null) btnAcceptar.interactable = false;
+
+        if (sourceSFX != null && clipRobarPasar != null)
+        {
+            sourceSFX.PlayOneShot(clipRobarPasar);
+            yield return new WaitForSeconds(clipRobarPasar.length);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        StartGame();
+    }
+
+    void PlayDrawSound()
+    {
+        if (sourceSFX != null && clipRobarPasar != null)
+        {
+            sourceSFX.PlayOneShot(clipRobarPasar);
+        }
+    }
 
     public void HookEvents()
     {
@@ -85,16 +117,17 @@ public class DominoUI : MonoBehaviour
     public void InitAndDraw()
     {
         RedrawBoard();
-        RedrawHand(); // mano inicial
+        RedrawHand(); 
         OnTurnChanged(turn.CurrentPlayerIndex);
     }
 
     public void ShowIntro()
     {
         _gameStarted = false;
-
         if (panelInstruccionesDomino != null)
             panelInstruccionesDomino.SetActive(true);
+        
+        if(btnAcceptar != null) btnAcceptar.interactable = true;
     }
 
     public void StartGame()
@@ -124,7 +157,7 @@ public class DominoUI : MonoBehaviour
 
         txtTurno.text = $"És el torn de: {jugadorActual} !";
         txtMensaje.text = "";
-        RedrawHand(); // re-evalúa interactuabilidad de fichas
+        RedrawHand(); 
     }
 
     void RedrawBoard()
@@ -209,12 +242,10 @@ public class DominoUI : MonoBehaviour
     void ShowEndPanel(int winnerIndex, string reason)
     {
         sourceMusica.Stop();
-
         panelFinPartida.SetActive(true);
 
         bool playerWon = (winnerIndex == PlayerIndex);
 
-        // +++ NUEVO: LÓGICA DE SONIDO FIN DE PARTIDA +++
         if (sourceSFX != null)
         {
             if (playerWon)
@@ -223,16 +254,15 @@ public class DominoUI : MonoBehaviour
             }
             else
             {
-                // Si pierde o empata, suena derrota
                 if (clipDerrota != null) sourceSFX.PlayOneShot(clipDerrota);
             }
         }
-        // ++++++++++++++++++++++++++++++++++++++++++++++
 
         btnSalir.gameObject.SetActive(playerWon);
         btnReintentar.gameObject.SetActive(!playerWon);
-
+        
         btnSalir.interactable = playerWon;
+        btnReintentar.interactable = true;
 
         if (winnerIndex == PlayerIndex)
         {
@@ -241,8 +271,7 @@ public class DominoUI : MonoBehaviour
             RewardSystemHook.Grant("TarroDeMiel");
 
             GameManager.Change("Act2_Q_MENJAR_WonDomino");
-            Debug.Log("[Menjar/Dominó] Joaquín ha guanyat el dominó.");
-
+            
             var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
             if (mc != null)
             {
@@ -264,27 +293,69 @@ public class DominoUI : MonoBehaviour
             txtRecompensa.text = "Intenta de nuevo.";
         }
 
-        btnSalir.onClick.RemoveAllListeners();
+        // Listener Reintentar
+        btnReintentar.onClick.RemoveAllListeners();
         btnReintentar.onClick.AddListener(() =>
         {
-            panelFinPartida.SetActive(false);
-            _gameStarted = true;
-            turn.StartMatch(3);
-            InitAndDraw();
-            sourceMusica.Play();
-
+            StartCoroutine(RetryGameSequence());
         });
 
+        // Listener Salir
         btnSalir.onClick.RemoveAllListeners();
+        // +++ MODIFICADO: Llamamos a la Corrutina de Salir +++
         btnSalir.onClick.AddListener(() =>
         {
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.lastExitName = "BarD"; 
-            }
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Bar");
+            StartCoroutine(ExitGameSequence());
         });
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++
     }
+
+    IEnumerator RetryGameSequence()
+    {
+        btnReintentar.interactable = false;
+
+        if (sourceSFX != null && clipRobarPasar != null)
+        {
+            sourceSFX.PlayOneShot(clipRobarPasar);
+            yield return new WaitForSeconds(clipRobarPasar.length);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        panelFinPartida.SetActive(false);
+        _gameStarted = true;
+        turn.StartMatch(3);
+        InitAndDraw();
+        sourceMusica.Play();
+    }
+
+    // +++ NUEVO: Corrutina para Salir esperando el audio +++
+    IEnumerator ExitGameSequence()
+    {
+        // Desactivamos para que no le den click varias veces
+        btnSalir.interactable = false;
+
+        // Reproducimos el sonido y esperamos
+        if (sourceSFX != null && clipRobarPasar != null)
+        {
+            sourceSFX.PlayOneShot(clipRobarPasar);
+            yield return new WaitForSeconds(clipRobarPasar.length);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        // Ahora sí cambiamos de escena
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.lastExitName = "BarD"; 
+        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Bar");
+    }
+    // ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     void OnTileDropped(DominoTile tile, Vector2 screenPos)
     {

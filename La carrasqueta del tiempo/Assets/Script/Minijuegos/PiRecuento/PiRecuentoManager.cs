@@ -30,11 +30,14 @@ public class PiRecuentoManager : MonoBehaviour
     public Sprite spriteDerrota;
 
     [Header("Audio SFX")]
-    public AudioSource sfxSource;          
+    public AudioSource sfxSource;           
     public AudioClip sonidoNinoEncontrado; 
-    public AudioClip sonidoFallo;          
+    public AudioClip sonidoFallo;           
     public AudioClip sonidoVictoria;
     public AudioClip sonidoDerrota;
+    // +++ NUEVO: Sonido genérico de botón +++
+    public AudioClip sonidoBoton;
+    // +++++++++++++++++++++++++++++++++++++++
 
     [Header("Audio Música")]
     public AudioSource musicSource;        
@@ -56,20 +59,36 @@ public class PiRecuentoManager : MonoBehaviour
         if (panelFinPartida != null)
             panelFinPartida.SetActive(false);
 
-        // --- CAMBIO: AQUÍ YA NO INICIAMOS LA MÚSICA ---
-        // La música esperará a que el jugador pulse el botón.
+        // +++ NUEVO: Asegurar que el botón Continuar suene al pulsarse +++
+        if (botonContinuar != null)
+        {
+            botonContinuar.onClick.AddListener(PlayButtonSound);
+        }
+        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     }
+
+    // +++ NUEVO: Función auxiliar para reproducir el sonido +++
+    public void PlayButtonSound()
+    {
+        if (sfxSource != null && sonidoBoton != null)
+        {
+            sfxSource.PlayOneShot(sonidoBoton);
+        }
+    }
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
     public void Aceptar() 
     {
-        // --- CAMBIO: INICIAMOS LA MÚSICA AQUÍ ---
+        // +++ NUEVO: Sonido al aceptar reglas +++
+        PlayButtonSound();
+        // +++++++++++++++++++++++++++++++++++++++
+
         if (musicSource != null && backgroundMusic != null)
         {
             musicSource.clip = backgroundMusic;
             musicSource.loop = true;  
             musicSource.Play();
         }
-        // ----------------------------------------
 
         inputEnabled = true;
         if (panelReglas != null)
@@ -87,7 +106,6 @@ public class PiRecuentoManager : MonoBehaviour
 
     void StartRound()
     {
-        // ... (El código de StartRound es idéntico al anterior) ...
         foreach (var s in spots)
         {
             s.ResetSpot();
@@ -139,7 +157,8 @@ public class PiRecuentoManager : MonoBehaviour
 
     public void OnSpotClicked(HidingSpot spot)
     {
-        // ... (Idéntico al anterior) ...
+        if (!inputEnabled) return; // Seguridad extra
+
         if (!spot.hasChild)
         {
             if (sfxSource != null && sonidoFallo != null)
@@ -164,12 +183,10 @@ public class PiRecuentoManager : MonoBehaviour
         StartCoroutine(NextRoundDelay());
     }
 
-    // PANEL FIN
     private void MostrarPanelFin()
     {
         inputEnabled = false;
 
-        // PARAR MÚSICA AL TERMINAR
         if (musicSource != null)
         {
             musicSource.Stop();
@@ -200,22 +217,43 @@ public class PiRecuentoManager : MonoBehaviour
         rondaText.gameObject.SetActive(false);
     }
 
-    // ... (El resto de funciones: ReintentarJuego, FinishGame, corrutinas... siguen igual) ...
     public void ReintentarJuego() 
     {
-        panelFinPartida.SetActive(false);
-        ResetGame();
+        // 1. Reproducir sonido
+        PlayButtonSound();
+
+        // 2. Ocultar el panel para dar feedback visual inmediato
+        if (panelFinPartida != null) 
+            panelFinPartida.SetActive(false);
+
+        // 3. Iniciar la espera antes de recargar
+        StartCoroutine(EsperarYRecargar());
     }
-    public void ResetGame()
+
+    // Corrutina para dar tiempo al sonido a reproducirse
+    private IEnumerator EsperarYRecargar()
     {
+        // Esperamos 0.4 segundos (ajusta según la duración de tu clip)
+        yield return new WaitForSeconds(0.4f);
+        
+        // Ahora sí, recargamos
         SceneManager.LoadScene("PiRecuentoMinijuego");
     }
+
+    // (Opcional) Puedes borrar el antiguo 'public void ResetGame()' si ya no lo usas fuera,
+    // o dejarlo así por si lo llamas desde otro sitio sin querer sonido:
+
     public void ContinuarJuego() 
     {
+        // Nota: Como botonContinuar.onClick ya tiene el listener añadido en Start,
+        // no es estrictamente necesario poner PlayButtonSound() aquí, 
+        // pero si este método se llama desde otro sitio, es seguro dejarlo.
+        
         if (!haGanado) return;
         panelFinPartida.SetActive(false);
         FinishGame();
     }
+
     public void FinishGame()
     {
         GameManager.Change("Act2_Q_ESQUELLES_HasBracelet");
@@ -232,9 +270,10 @@ public class PiRecuentoManager : MonoBehaviour
         StartCoroutine(ReturnToSchoolAfterDelay(0.5f));
     }
 
+    // ... (El resto de corrutinas se mantienen igual) ...
     private IEnumerator RemoverNiñoDelay(GameObject child)
     {
-        float showTime = 3f;          
+        float showTime = 3f;           
         float swayAngle = 15f;        
         float swaySpeed = 2f;         
 

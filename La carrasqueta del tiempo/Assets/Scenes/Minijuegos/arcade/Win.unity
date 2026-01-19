@@ -1129,6 +1129,8 @@ MonoBehaviour:
   nombrePuntoEntrada: BarP
   audioSource: {fileID: 2019234068}
   sonidoGameOver: {fileID: 8300000, guid: a092b4b92b2ab2c4bb0963bb7ffa4af5, type: 3}
+  sonidoBoton: {fileID: 8300000, guid: ae26893283712f646a3a026533267361, type: 3}
+  tiempoEspera: 0.3
 --- !u!4 &1355238723
 Transform:
   m_ObjectHideFlags: 0

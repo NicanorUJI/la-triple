@@ -24,6 +24,8 @@ public class Button_Controller_Morra : MonoBehaviour
     // --- NUEVO: Sonidos de fin de juego ---
     public AudioClip sonidoVictoria; 
     public AudioClip sonidoDerrota;
+    public AudioClip sonidoClick;
+
     // --------------------------------------
 
     [Header("Cuenta atras")]
@@ -85,6 +87,8 @@ public class Button_Controller_Morra : MonoBehaviour
 
     public void onClick()
     {
+        audioSource.PlayOneShot(sonidoClick);
+
         if (startNewRound_nextClick)
         {
             startNewRound_nextClick = false;
@@ -171,6 +175,10 @@ public class Button_Controller_Morra : MonoBehaviour
 
     private void MostrarPanelFin()
     {
+        if (morraController != null)
+        {
+            morraController.StopGame();
+        }
         fase_eleccionSacar.SetActive(false);
         fase_eleccionCantar.SetActive(false);
         burbuja_pensar.SetActive(false);
@@ -249,6 +257,8 @@ public class Button_Controller_Morra : MonoBehaviour
 
     public void ContinuarJuego()
     {
+        audioSource.PlayOneShot(sonidoClick);
+
         if (!haGanado) return;
 
         panelFinMorra.SetActive(false);
@@ -273,6 +283,24 @@ public class Button_Controller_Morra : MonoBehaviour
 
     public void ReintentarJuego()
     {
+        // 1. Reproducir sonido
+        if (audioSource != null && sonidoClick != null)
+        {
+            audioSource.PlayOneShot(sonidoClick);
+        }
+
+        // 2. Iniciar la corrutina de espera (asegúrate de que el botón solo se pulse una vez)
+        botonReintentar.interactable = false; // Opcional: evita doble click
+        StartCoroutine(CargarEscenaConDelay());
+    }
+
+    // Esta es la corrutina que maneja el tiempo de espera
+    private IEnumerator CargarEscenaConDelay()
+    {
+        // Espera 0.5 segundos (o el tiempo que dure tu clip de audio aproximadamente)
+        yield return new WaitForSeconds(0.5f);
+
+        // Carga la escena
         SceneManager.LoadScene("Minijuego_Morra");
     }
 

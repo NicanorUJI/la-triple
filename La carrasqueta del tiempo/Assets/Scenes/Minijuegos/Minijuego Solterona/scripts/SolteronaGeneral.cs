@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,12 +33,12 @@ public class SolteronaGeneral : MonoBehaviour
 
     // +++ SECCIÓN DE AUDIO +++
     [Header("Audio")]
-    public AudioSource sourceMusica;      // Arrastra aquí el AudioSource para música
-    public AudioSource sourceSFX;         // Arrastra aquí el AudioSource para efectos
-    public AudioClip clipMusicaFondo;     // Música en bucle
-    public AudioClip clipVictoria;        // Sonido ganar
-    public AudioClip clipDerrota;         // Sonido perder
-    public AudioClip clipSeleccionarCarta;// Sonido al tocar una carta
+    public AudioSource sourceMusica;      
+    public AudioSource sourceSFX;         
+    public AudioClip clipMusicaFondo;     
+    public AudioClip clipVictoria;        
+    public AudioClip clipDerrota;         
+    public AudioClip clipSeleccionarCarta;
     // ++++++++++++++++++++++++
 
     void Start()
@@ -47,16 +48,15 @@ public class SolteronaGeneral : MonoBehaviour
 
     public void StartGame()
     {
+        sourceSFX.PlayOneShot(clipSeleccionarCarta);
         panelInstrucciones.SetActive(false);
 
-        // +++ INICIAR MÚSICA +++
         if (sourceMusica != null && clipMusicaFondo != null)
         {
             sourceMusica.clip = clipMusicaFondo;
-            sourceMusica.loop = true; // Importante para que no pare
+            sourceMusica.loop = true; 
             sourceMusica.Play();
         }
-        // ++++++++++++++++++++++
 
         minijuegoController = FindObjectOfType<carta_controller>();
         minijuegoController.carta2Objeto.SetActive(false);
@@ -70,8 +70,6 @@ public class SolteronaGeneral : MonoBehaviour
         turnoJuaquin = true;
     }
 
-    // +++ NUEVA FUNCIÓN PÚBLICA PARA SONIDO DE CARTA +++
-    // Esta función debe ser llamada desde tu script "carta.cs" o desde el botón de la carta
     public void ReproducirSonidoCarta()
     {
         if (sourceSFX != null && clipSeleccionarCarta != null)
@@ -79,13 +77,10 @@ public class SolteronaGeneral : MonoBehaviour
             sourceSFX.PlayOneShot(clipSeleccionarCarta);
         }
     }
-    // ++++++++++++++++++++++++++++++++++++++++++++++++++
 
     public void MostrarPanelFin()
     {
-        // +++ DETENER MÚSICA AL TERMINAR +++
         if (sourceMusica != null) sourceMusica.Stop();
-        // +++++++++++++++++++++++++++++++++
 
         panelFinSolterona.SetActive(true);
 
@@ -95,7 +90,6 @@ public class SolteronaGeneral : MonoBehaviour
             imagenResultado.sprite = spriteVictoria;
             textoResultado.text = "Has guanyat a l'alcalde";
 
-            // +++ SONIDO VICTORIA +++
             if (sourceSFX != null && clipVictoria != null)
                 sourceSFX.PlayOneShot(clipVictoria);
         }
@@ -105,19 +99,57 @@ public class SolteronaGeneral : MonoBehaviour
             imagenResultado.sprite = spriteDerrota;
             textoResultado.text = "Has perdut contra l'alcalde :(";
 
-            // +++ SONIDO DERROTA +++
             if (sourceSFX != null && clipDerrota != null)
                 sourceSFX.PlayOneShot(clipDerrota);
         }
     }
 
+    // =========================================================
+    // BOTÓN REINTENTAR (RESET)
+    // =========================================================
     public void ResetGame()
     {
+        StartCoroutine(ResetGameSequence());
+    }
+
+    private IEnumerator ResetGameSequence()
+    {
+        if (sourceSFX != null && clipSeleccionarCarta != null)
+        {
+            sourceSFX.PlayOneShot(clipSeleccionarCarta);
+            yield return new WaitForSeconds(clipSeleccionarCarta.length);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+
         SceneManager.LoadScene("Minijuego_solterona");
     }
 
+    // =========================================================
+    // BOTÓN CONTINUAR (FINISH) - MODIFICADO
+    // =========================================================
     public void FinishGame()
     {
+        // Iniciamos la secuencia de finalización
+        StartCoroutine(FinishGameSequence());
+    }
+
+    private IEnumerator FinishGameSequence()
+    {
+        // 1. Sonido y Espera
+        if (sourceSFX != null && clipSeleccionarCarta != null)
+        {
+            sourceSFX.PlayOneShot(clipSeleccionarCarta);
+            yield return new WaitForSeconds(clipSeleccionarCarta.length);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        // 2. Lógica del GameManager y Cambio de Escena
         if (GameManager.Instance != null)
         {
             GameManager.Instance.lastExitName = "BarM"; 
