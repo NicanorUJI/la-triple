@@ -50,6 +50,15 @@ public class BearDirector : MonoBehaviour
         {
             SpawnBearNearPlayer();
         }
+
+        if (GameManager.Check("Act3_PastCelebrationDone"))
+        {
+            bearInstance.SetActive(false);
+        }
+        if (GameManager.Check("Act3_CarrasquetaPresentWarned"))
+        {
+            bearInstance.SetActive(true);
+        }
     }
 
     private void SpawnBearNearPlayer()
