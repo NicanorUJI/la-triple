@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 978a5531ed9fd1152ad197b83c124cb9, type: 3}
-  m_Name: AlcaldePasado_PostMorra
+  m_Name: MariaPilar_Cementeterio_postChapa
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   originalDialogue: {fileID: 0}
-  defaultSprite: {fileID: -3644103294100017685, guid: 9c9c6503463fa285383681e4421ab9ff, type: 3}
-  joaquinDefault: {fileID: 21300000, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
+  defaultSprite: {fileID: 2609695413090427051, guid: 7beecc0da340a265083fa00c5be08c62, type: 3}
+  joaquinDefault: {fileID: 21300000, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
   lines:
-  - speakerName: Alcalde
-    lineText: "Xiquets com tu no es troben cada dia, vine a jugar sempre que vulgues,
-      ser\xE0 un plaer."
-    expression: {fileID: -7665737787790890581, guid: a7980c56f80509aed975c94fdd11cb15, type: 3}
+  - speakerName: Maria Pilar
+    lineText: "Mira Ra\xFAl, has vist que guapo est\xE0 el teu n\xE9t, \xE9s igualet
+      a tu de jove."
+    expression: {fileID: -2893953108195195402, guid: d85e6c19b582bc7919d58c00b9643166, type: 3}
     isPlayerSpeaking: 0
     isChoice: 0
     choiceA: {fileID: 0}
@@ -31,4 +31,4 @@ MonoBehaviour:
     startsMinigame: 0
     minigame: 
   conditions:
-  - CutscenePostMorra_DONE
+  - ACT2_Q_ESQUELLES_TALKED_IAIA

@@ -19,7 +19,7 @@ MonoBehaviour:
   - speakerName: Maripili
     lineText: "Ah! Joaqu\xEDn. Has tornat? Hola, Ra\xFAl."
     expression: {fileID: 4596036885856121514, guid: 2ecce8f71e27a506eb8d2e324fd98dff, type: 3}
-    isPlayerSpeaking: 0
+    isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   - speakerName: Maripili
     lineText: Les esquelles?
     expression: {fileID: 8833923459880237216, guid: e3685ac615ce7f0809ecf83758807687, type: 3}
-    isPlayerSpeaking: 0
+    isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
@@ -87,7 +87,7 @@ MonoBehaviour:
     lineText: "Aiii, per\xF2 si \xE9s preciosa! M\u2019encanta Ra\xFAl! No era necessari.
       T\u2019ho puc pagar d\u2019alguna manera?"
     expression: {fileID: -2354228602472572489, guid: 137b836fd6e1645439f1250705b1e5b4, type: 3}
-    isPlayerSpeaking: 0
+    isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
     choiceB: {fileID: 0}
