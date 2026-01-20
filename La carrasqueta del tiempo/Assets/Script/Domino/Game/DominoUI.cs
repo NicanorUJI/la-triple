@@ -83,6 +83,16 @@ public class DominoUI : MonoBehaviour
         }
     }
 
+    // +++ NUEVO: Pausar música externa al iniciar la escena +++
+    void Start()
+    {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PausarMusica();
+        }
+    }
+    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
     IEnumerator StartGameSequence()
     {
         if (btnAcceptar != null) btnAcceptar.interactable = false;
@@ -357,6 +367,13 @@ public class DominoUI : MonoBehaviour
         {
             yield return new WaitForSeconds(0.2f);
         }
+
+        // +++ NUEVO: Reanudar música externa antes de salir +++
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.ReanudarMusica();
+        }
+        // +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         if (GameManager.Instance != null)
         {

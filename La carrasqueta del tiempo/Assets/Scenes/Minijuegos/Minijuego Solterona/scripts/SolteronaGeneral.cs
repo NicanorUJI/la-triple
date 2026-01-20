@@ -33,16 +33,24 @@ public class SolteronaGeneral : MonoBehaviour
 
     // +++ SECCIÓN DE AUDIO +++
     [Header("Audio")]
-    public AudioSource sourceMusica;      
-    public AudioSource sourceSFX;         
-    public AudioClip clipMusicaFondo;     
-    public AudioClip clipVictoria;        
-    public AudioClip clipDerrota;         
+    public AudioSource sourceMusica;
+    public AudioSource sourceSFX;
+    public AudioClip clipMusicaFondo;
+    public AudioClip clipVictoria;
+    public AudioClip clipDerrota;
     public AudioClip clipSeleccionarCarta;
     // ++++++++++++++++++++++++
 
     void Start()
     {
+        // --- MODIFICACIÓN INICIO ---
+        // Pausar la música global al entrar en la escena del minijuego
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PausarMusica();
+        }
+        // --- MODIFICACIÓN FIN ---
+
         panelInstrucciones.SetActive(true);
     }
 
@@ -54,17 +62,17 @@ public class SolteronaGeneral : MonoBehaviour
         if (sourceMusica != null && clipMusicaFondo != null)
         {
             sourceMusica.clip = clipMusicaFondo;
-            sourceMusica.loop = true; 
+            sourceMusica.loop = true;
             sourceMusica.Play();
         }
 
         minijuegoController = FindObjectOfType<carta_controller>();
         minijuegoController.carta2Objeto.SetActive(false);
         minijuegoController.animator.gameObject.SetActive(false);
-        carta1.tipo = 1; 
-        carta2.tipo = 0; 
-        carta3.tipo = 2; 
-        carta4.tipo = 1; 
+        carta1.tipo = 1;
+        carta2.tipo = 0;
+        carta3.tipo = 2;
+        carta4.tipo = 1;
         minijuegoController.BarajarCartasAlcalde();
 
         turnoJuaquin = true;
@@ -149,10 +157,18 @@ public class SolteronaGeneral : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
+        // --- MODIFICACIÓN INICIO ---
+        // Reanudar música justo antes de cambiar de escena
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.ReanudarMusica();
+        }
+        // --- MODIFICACIÓN FIN ---
+
         // 2. Lógica del GameManager y Cambio de Escena
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.lastExitName = "BarM"; 
+            GameManager.Instance.lastExitName = "BarM";
         }
 
         GameManager.Change("Act2_Q_LLANCE_WonSolterona");

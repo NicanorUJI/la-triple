@@ -8,7 +8,7 @@ public class CambiarEscena : MonoBehaviour
     public string nombrePuntoEntrada;
 
     [Header("Audio Config")]
-    public AudioSource audioSource;      
+    public AudioSource audioSource;
     public AudioClip sonidoGameOver;     // Sonido al iniciar (ya lo tenías)
     
     // +++ NUEVO: Sonido de clic y tiempo de espera +++
@@ -19,6 +19,15 @@ public class CambiarEscena : MonoBehaviour
 
     private void Start()
     {
+        // --- MODIFICACIÓN INICIO ---
+        // Al entrar a esta pantalla (ej. Fin de juego), pausamos la música global
+        // para que el "sonidoGameOver" tenga protagonismo.
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PausarMusica();
+        }
+        // --- MODIFICACIÓN FIN ---
+
         // Tu lógica original de Start se mantiene igual
         if (audioSource != null && sonidoGameOver != null)
         {
@@ -30,7 +39,7 @@ public class CambiarEscena : MonoBehaviour
     public void Play()
     {
         // Iniciamos la rutina de espera enviando el nombre de la escena
-        
+        // Nota: Como vamos a "Arcade" (reintentar), NO reanudamos la música aquí.
         StartCoroutine(CambiarEscenaConRetraso("Arcade"));
     }
 
@@ -50,7 +59,7 @@ public class CambiarEscena : MonoBehaviour
             Debug.Log("GameManager NULL o nombre vacío");
         }
 
-        // Luego iniciamos la rutina de espera
+        // Luego iniciamos la rutina de espera hacia el Bar
         StartCoroutine(CambiarEscenaConRetraso("Bar"));
     }
 
@@ -63,9 +72,17 @@ public class CambiarEscena : MonoBehaviour
             audioSource.PlayOneShot(sonidoBoton);
         }
 
-        // 2. Esperar el tiempo definido (puedes ajustar 'tiempoEspera' en el inspector)
-        // Nota: WaitForSeconds usa tiempo real, no microsegundos, para que sea perceptible.
+        // 2. Esperar el tiempo definido
         yield return new WaitForSeconds(tiempoEspera);
+
+        // --- MODIFICACIÓN INICIO ---
+        // Si la escena destino es "Bar", significa que salimos del minijuego,
+        // por lo que debemos reactivar la música ambiental.
+        if (nombreEscena == "Bar" && AudioManager.instance != null)
+        {
+            AudioManager.instance.ReanudarMusica();
+        }
+        // --- MODIFICACIÓN FIN ---
 
         // 3. Cargar la escena
         SceneManager.LoadScene(nombreEscena);
