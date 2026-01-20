@@ -4235,16 +4235,16 @@ MonoBehaviour:
   mielUI: {fileID: 3073723351891419986}
   pulseraUI: {fileID: 1387255295}
   botonPausa: {fileID: 27036593}
-  flecha: {fileID: 2090036730}
-  nombreFlecha: Flecha
-  nombreOsoSceneObject: TpOso
+  flecha: {fileID: 0}
+  nombreFlecha: 
+  nombreOsoSceneObject: 
   osoSceneObject: {fileID: 0}
   nombresObjetosADesactivar:
-  - CircleC
-  - TpC
   - TPCarrasquetaPresente
   - CircleEsp
   - TpCarras
+  - Circle (1)
+  - Tp
 --- !u!114 &1830003508
 MonoBehaviour:
   m_ObjectHideFlags: 0

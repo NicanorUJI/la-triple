@@ -1994,7 +1994,7 @@ GameObject:
   - component: {fileID: 704800914}
   - component: {fileID: 704800913}
   m_Layer: 8
-  m_Name: Circle (2)
+  m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -50,6 +50,25 @@ public class BearDirector : MonoBehaviour
         {
             SpawnBearNearPlayer();
         }
+
+        if (GameManager.Check("Act3_PastCelebrationDone"))
+        {
+            var sr = bearInstance.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0f);
+            }
+        }
+
+        if (GameManager.Check("Act3_CarrasquetaPresentWarned"))
+        {
+            var sr = bearInstance.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
+            }
+        }
+
     }
 
     private void SpawnBearNearPlayer()
@@ -57,13 +76,24 @@ public class BearDirector : MonoBehaviour
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
 
-        // Instanciamos SIN preocuparnos aún de la posición
         bearInstance = Instantiate(bearPrefab);
 
-        // Inicializamos el follower
         var follower = bearInstance.GetComponent<BearFollower2D>();
         if (follower != null)
         {
+            string sceneName = SceneManager.GetActiveScene().name;
+
+            // Escenas donde el oso va a la derecha
+            if (sceneName == "Carrasqueta" || sceneName == "CarrasquetaPasado")
+            {
+                follower.followOffsetX = Mathf.Abs(follower.followOffsetX);
+            }
+            else
+            {
+                // Por seguridad, forzamos izquierda en el resto
+                follower.followOffsetX = -Mathf.Abs(follower.followOffsetX);
+            }
+
             follower.InitAtPlayer(player.transform);
         }
     }
