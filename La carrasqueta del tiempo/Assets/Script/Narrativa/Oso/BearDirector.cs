@@ -53,12 +53,22 @@ public class BearDirector : MonoBehaviour
 
         if (GameManager.Check("Act3_PastCelebrationDone"))
         {
-            bearInstance.SetActive(false);
+            var sr = bearInstance.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 0f);
+            }
         }
+
         if (GameManager.Check("Act3_CarrasquetaPresentWarned"))
         {
-            bearInstance.SetActive(true);
+            var sr = bearInstance.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
+            }
         }
+
     }
 
     private void SpawnBearNearPlayer()
