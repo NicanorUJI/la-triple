@@ -361,7 +361,7 @@ MonoBehaviour:
   - speakerName: Joaquin
     lineText: "Crec que tinc una idea. (A lo millor si li pregunte a la meua iaia
       em pot ajudar\u2026)"
-    expression: {fileID: 21300000, guid: 2b246f36b00eb679ca770ee62b85ed11, type: 3}
+    expression: {fileID: 21300000, guid: 9dc4bdc194db27abd8c66754407f8a44, type: 3}
     isPlayerSpeaking: 1
     isChoice: 0
     choiceA: {fileID: 0}
