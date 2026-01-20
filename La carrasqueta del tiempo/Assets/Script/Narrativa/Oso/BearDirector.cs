@@ -57,13 +57,24 @@ public class BearDirector : MonoBehaviour
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
 
-        // Instanciamos SIN preocuparnos aún de la posición
         bearInstance = Instantiate(bearPrefab);
 
-        // Inicializamos el follower
         var follower = bearInstance.GetComponent<BearFollower2D>();
         if (follower != null)
         {
+            string sceneName = SceneManager.GetActiveScene().name;
+
+            // Escenas donde el oso va a la derecha
+            if (sceneName == "Carrasqueta" || sceneName == "CarrasquetaPasado")
+            {
+                follower.followOffsetX = Mathf.Abs(follower.followOffsetX);
+            }
+            else
+            {
+                // Por seguridad, forzamos izquierda en el resto
+                follower.followOffsetX = -Mathf.Abs(follower.followOffsetX);
+            }
+
             follower.InitAtPlayer(player.transform);
         }
     }
