@@ -1,4 +1,5 @@
 using UnityEngine;
+// No necesitamos listas ni SceneManagement para este enfoque, el código queda más limpio.
 
 public class Morra_Controller : MonoBehaviour
 {
@@ -12,11 +13,9 @@ public class Morra_Controller : MonoBehaviour
     private int NPC_points;
 
     [Header("Audio")]
-    public AudioSource musicaFondo;
-    // +++ NUEVO: Variables para el sonido del botón +++
-    public AudioSource sfxSource;   // Arrastra aquí el mismo AudioSource que usas para efectos (o crea uno nuevo)
-    public AudioClip sonidoBoton;   // Arrastra aquí el sonido "Click"
-    // +++++++++++++++++++++++++++++++++++++++++++++++++
+    public AudioSource musicaFondo; // La música propia del minijuego
+    public AudioSource sfxSource;   
+    public AudioClip sonidoBoton;   
 
     void Start()
     {
@@ -33,13 +32,19 @@ public class Morra_Controller : MonoBehaviour
 
     public void StartGame()
     {
-        // +++ NUEVO: Reproducir el sonido corregido +++
+        // 1. Sonido del botón
         if (sfxSource != null && sonidoBoton != null)
         {
             sfxSource.PlayOneShot(sonidoBoton);
         }
-        // (He borrado la línea vieja de Button_Controller_Morra porque daba error al no tener la variable)
-        // +++++++++++++++++++++++++++++++++++++++++++++
+
+        // --- MODIFICACIÓN INICIO ---
+        // Al empezar el juego, pausamos la música global (igual que en AutoBeatDetector)
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PausarMusica();
+        }
+        // --- MODIFICACIÓN FIN ---
 
         if (panelInstrucciones != null)
             panelInstrucciones.SetActive(false);
@@ -50,6 +55,7 @@ public class Morra_Controller : MonoBehaviour
 
         gameStarted = true;
 
+        // Iniciamos la música propia del minijuego
         if (musicaFondo != null)
         {
             musicaFondo.Play();
@@ -98,10 +104,19 @@ public class Morra_Controller : MonoBehaviour
     public void StopGame()
     {
         gameStarted = false;
-        // Esto detendrá la música cuando el ButtonController lo llame
+
+        // Detenemos la música específica de la Morra
         if (musicaFondo != null)
         {
             musicaFondo.Stop();
         }
+
+        // --- MODIFICACIÓN INICIO ---
+        // Al terminar el minijuego, reanudamos la música global
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.ReanudarMusica();
+        }
+        // --- MODIFICACIÓN FIN ---
     }
 }

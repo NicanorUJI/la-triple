@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class PiRecuentoManager : MonoBehaviour
 {
     [Header("Niños y Spots")]
-    public List<GameObject> childrenSprites; 
-    public List<HidingSpot> spots;           
+    public List<GameObject> childrenSprites;
+    public List<HidingSpot> spots;
 
     [Header("Rondas")]
     public int rounds = 5;
@@ -20,8 +20,8 @@ public class PiRecuentoManager : MonoBehaviour
 
     [Header("Paneles")]
     public GameObject panelReglas;
-    public GameObject panelFinPartida; 
-    public Button botonContinuar;  
+    public GameObject panelFinPartida;
+    public Button botonContinuar;
 
     [Header("Fin de partida - Imagen")]
     public Image imagenResultado;
@@ -30,27 +30,33 @@ public class PiRecuentoManager : MonoBehaviour
     public Sprite spriteDerrota;
 
     [Header("Audio SFX")]
-    public AudioSource sfxSource;           
-    public AudioClip sonidoNinoEncontrado; 
-    public AudioClip sonidoFallo;           
+    public AudioSource sfxSource;
+    public AudioClip sonidoNinoEncontrado;
+    public AudioClip sonidoFallo;
     public AudioClip sonidoVictoria;
     public AudioClip sonidoDerrota;
-    // +++ NUEVO: Sonido genérico de botón +++
     public AudioClip sonidoBoton;
-    // +++++++++++++++++++++++++++++++++++++++
 
     [Header("Audio Música")]
-    public AudioSource musicSource;        
-    public AudioClip backgroundMusic;      
+    public AudioSource musicSource;
+    public AudioClip backgroundMusic;
 
     private int currentRound = 1;
-    private List<GameObject> availableChildren; 
+    private List<GameObject> availableChildren;
 
     public bool inputEnabled = false;
     private bool haGanado = false;
 
     void Start()
     {
+        // --- MODIFICACIÓN INICIO ---
+        // Pausar la música global al entrar en la escena del minijuego
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PausarMusica();
+        }
+        // --- MODIFICACIÓN FIN ---
+
         availableChildren = new List<GameObject>(childrenSprites);
 
         mensajeText.gameObject.SetActive(false);
@@ -59,15 +65,12 @@ public class PiRecuentoManager : MonoBehaviour
         if (panelFinPartida != null)
             panelFinPartida.SetActive(false);
 
-        // +++ NUEVO: Asegurar que el botón Continuar suene al pulsarse +++
         if (botonContinuar != null)
         {
             botonContinuar.onClick.AddListener(PlayButtonSound);
         }
-        // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     }
 
-    // +++ NUEVO: Función auxiliar para reproducir el sonido +++
     public void PlayButtonSound()
     {
         if (sfxSource != null && sonidoBoton != null)
@@ -75,18 +78,15 @@ public class PiRecuentoManager : MonoBehaviour
             sfxSource.PlayOneShot(sonidoBoton);
         }
     }
-    // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-    public void Aceptar() 
+    public void Aceptar()
     {
-        // +++ NUEVO: Sonido al aceptar reglas +++
         PlayButtonSound();
-        // +++++++++++++++++++++++++++++++++++++++
 
         if (musicSource != null && backgroundMusic != null)
         {
             musicSource.clip = backgroundMusic;
-            musicSource.loop = true;  
+            musicSource.loop = true;
             musicSource.Play();
         }
 
@@ -146,7 +146,7 @@ public class PiRecuentoManager : MonoBehaviour
             spot.childSprite = child;
 
             Niño n = child.GetComponent<Niño>();
-            if (n != null) n.Ocultar(); 
+            if (n != null) n.Ocultar();
 
             child.transform.SetParent(spot.transform);
             child.transform.localPosition = Vector3.zero;
@@ -157,7 +157,7 @@ public class PiRecuentoManager : MonoBehaviour
 
     public void OnSpotClicked(HidingSpot spot)
     {
-        if (!inputEnabled) return; // Seguridad extra
+        if (!inputEnabled) return;
 
         if (!spot.hasChild)
         {
@@ -172,7 +172,7 @@ public class PiRecuentoManager : MonoBehaviour
                 sfxSource.PlayOneShot(sonidoNinoEncontrado);
 
             Niño n = spot.childSprite.GetComponent<Niño>();
-            if (n != null) n.Mostrar(); 
+            if (n != null) n.Mostrar();
 
             StartCoroutine(MostrarMensaje(n.nombre));
             availableChildren.Remove(spot.childSprite);
@@ -199,7 +199,7 @@ public class PiRecuentoManager : MonoBehaviour
         {
             imagenResultado.sprite = spriteVictoria;
             textoResultado.text = "Has trobat a tots el xiquets!";
-            
+
             if (sfxSource != null && sonidoVictoria != null)
                 sfxSource.PlayOneShot(sonidoVictoria);
         }
@@ -217,38 +217,24 @@ public class PiRecuentoManager : MonoBehaviour
         rondaText.gameObject.SetActive(false);
     }
 
-    public void ReintentarJuego() 
+    public void ReintentarJuego()
     {
-        // 1. Reproducir sonido
         PlayButtonSound();
 
-        // 2. Ocultar el panel para dar feedback visual inmediato
-        if (panelFinPartida != null) 
+        if (panelFinPartida != null)
             panelFinPartida.SetActive(false);
 
-        // 3. Iniciar la espera antes de recargar
         StartCoroutine(EsperarYRecargar());
     }
 
-    // Corrutina para dar tiempo al sonido a reproducirse
     private IEnumerator EsperarYRecargar()
     {
-        // Esperamos 0.4 segundos (ajusta según la duración de tu clip)
         yield return new WaitForSeconds(0.4f);
-        
-        // Ahora sí, recargamos
         SceneManager.LoadScene("PiRecuentoMinijuego");
     }
 
-    // (Opcional) Puedes borrar el antiguo 'public void ResetGame()' si ya no lo usas fuera,
-    // o dejarlo así por si lo llamas desde otro sitio sin querer sonido:
-
-    public void ContinuarJuego() 
+    public void ContinuarJuego()
     {
-        // Nota: Como botonContinuar.onClick ya tiene el listener añadido en Start,
-        // no es estrictamente necesario poner PlayButtonSound() aquí, 
-        // pero si este método se llama desde otro sitio, es seguro dejarlo.
-        
         if (!haGanado) return;
         panelFinPartida.SetActive(false);
         FinishGame();
@@ -257,7 +243,7 @@ public class PiRecuentoManager : MonoBehaviour
     public void FinishGame()
     {
         GameManager.Change("Act2_Q_ESQUELLES_HasBracelet");
-        
+
         var mc = MissionController.Instance ?? FindObjectOfType<MissionController>();
         if (mc != null)
         {
@@ -270,12 +256,11 @@ public class PiRecuentoManager : MonoBehaviour
         StartCoroutine(ReturnToSchoolAfterDelay(0.5f));
     }
 
-    // ... (El resto de corrutinas se mantienen igual) ...
     private IEnumerator RemoverNiñoDelay(GameObject child)
     {
-        float showTime = 3f;           
-        float swayAngle = 15f;        
-        float swaySpeed = 2f;         
+        float showTime = 3f;
+        float swayAngle = 15f;
+        float swaySpeed = 2f;
 
         Niño n = child.GetComponent<Niño>();
         child.transform.localScale = n.originalScale * 2;
@@ -327,10 +312,19 @@ public class PiRecuentoManager : MonoBehaviour
     private IEnumerator ReturnToSchoolAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+
+        // --- MODIFICACIÓN INICIO ---
+        // Reanudar música justo antes de cambiar de escena
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.ReanudarMusica();
+        }
+        // --- MODIFICACIÓN FIN ---
+
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.lastExitName = "EscuM"; 
+            GameManager.Instance.lastExitName = "EscuM";
         }
-        SceneManager.LoadScene("colegio"); 
+        SceneManager.LoadScene("colegio");
     }
 }
