@@ -7,15 +7,12 @@ public class MapUIController : MonoBehaviour
     [SerializeField] private MapToggle mapToggle;
 
     [Header("Objetos a ocultar/activar al teletransportarse")]
-    [SerializeField] private GameObject objetoAOcultar; // ej: panel del mapa
-    [SerializeField] private GameObject objetoAActivar;  // ej: HUD
+    [SerializeField] private GameObject objetoAOcultar; 
+    [SerializeField] private GameObject objetoAActivar;  
 
     void Awake()
     {
-        // Opcional: que persista entre escenas si quieres
         DontDestroyOnLoad(gameObject);
-
-        // Suscribirse al evento de cambio de escena
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -31,7 +28,9 @@ public class MapUIController : MonoBehaviour
         if (mapToggle != null)
             mapToggle.Close();
 
-        Time.timeScale = 1f; // reanuda el juego por si estaba en pausa
+        Time.timeScale = 1f; 
+
+        // Aquí NO reanudamos la música todavía.
 
         switch (zoneName.ToLower())
         {
@@ -55,32 +54,44 @@ public class MapUIController : MonoBehaviour
         }
     }
 
+    // Corrutina 1: Solo se encarga de la transición visual y cargar la escena
     IEnumerator CambiarEscenaMapa(string escena)
     {
         if (fadeToBlack.Instance != null)
         {
             fadeToBlack.Instance.GetComponent<Animator>().SetTrigger("Start");
         }
-        else
-        {
-            Debug.LogWarning("No SceneTransition instance found in scene!");
-        }
-
+        
+        // Esperamos 1 segundo para que la pantalla se ponga en negro
         yield return new WaitForSeconds(1f);
+        
+        // Cargamos la escena (esto pausará el juego brevemente mientras carga)
         SceneManager.LoadScene(escena);
     }
 
-    // ===================== ACTIVAR/DESACTIVAR OBJETOS =====================
+    // Este evento se dispara AUTOMÁTICAMENTE cuando la escena termina de cargar
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Desactiva el objeto (ej: panel del mapa)
-        if (objetoAOcultar != null)
-            objetoAOcultar.SetActive(false);
+        // 1. Gestionar objetos visuales (UI, HUD, etc.)
+        if (objetoAOcultar != null) objetoAOcultar.SetActive(false);
+        if (objetoAActivar != null) objetoAActivar.SetActive(true);
 
-        // Activa el objeto (ej: HUD)
-        if (objetoAActivar != null)
-            objetoAActivar.SetActive(true);
+        Debug.Log("[MAP] Escena cargada. Iniciando espera para música...");
 
-        Debug.Log("[MAP] Objetos activados/desactivados tras teletransporte");
+        // 2. Iniciamos la espera para la música en una nueva corrutina
+        StartCoroutine(ReanudarMusicaConRetraso());
+    }
+
+    // Corrutina 2: Espera y activa el audio
+    IEnumerator ReanudarMusicaConRetraso()
+    {
+        // Esperamos los 0.2 segundos que pediste DESPUÉS de cargar
+        yield return new WaitForSeconds(0.2f);
+
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.ReanudarMusica();
+            Debug.Log("[MAP] Música reanudada.");
+        }
     }
 }
