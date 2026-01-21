@@ -30,8 +30,6 @@ public class MapUIController : MonoBehaviour
 
         Time.timeScale = 1f; 
 
-        // Aquí NO reanudamos la música todavía.
-
         switch (zoneName.ToLower())
         {
             case "carrasqueta": StartCoroutine(CambiarEscenaMapa("Carrasqueta")); break;
@@ -54,7 +52,7 @@ public class MapUIController : MonoBehaviour
         }
     }
 
-    // Corrutina 1: Solo se encarga de la transición visual y cargar la escena
+    // Corrutina: Solo se encarga de la transición visual y cargar la escena
     IEnumerator CambiarEscenaMapa(string escena)
     {
         if (fadeToBlack.Instance != null)
@@ -65,33 +63,23 @@ public class MapUIController : MonoBehaviour
         // Esperamos 1 segundo para que la pantalla se ponga en negro
         yield return new WaitForSeconds(1f);
         
-        // Cargamos la escena (esto pausará el juego brevemente mientras carga)
+        // Cargamos la escena
         SceneManager.LoadScene(escena);
     }
 
     // Este evento se dispara AUTOMÁTICAMENTE cuando la escena termina de cargar
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 1. Gestionar objetos visuales (UI, HUD, etc.)
+        // 1. Gestionar objetos visuales
         if (objetoAOcultar != null) objetoAOcultar.SetActive(false);
         if (objetoAActivar != null) objetoAActivar.SetActive(true);
 
-        Debug.Log("[MAP] Escena cargada. Iniciando espera para música...");
+        Debug.Log("[MAP] Escena cargada. Reanudando música inmediatamente.");
 
-        // 2. Iniciamos la espera para la música en una nueva corrutina
-        StartCoroutine(ReanudarMusicaConRetraso());
-    }
-
-    // Corrutina 2: Espera y activa el audio
-    IEnumerator ReanudarMusicaConRetraso()
-    {
-        // Esperamos los 0.2 segundos que pediste DESPUÉS de cargar
-        yield return new WaitForSeconds(0.2f);
-
+        // 2. Reanudar música directamente (sin espera)
         if (AudioManager.instance != null)
         {
             AudioManager.instance.ReanudarMusica();
-            Debug.Log("[MAP] Música reanudada.");
         }
     }
 }
