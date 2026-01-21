@@ -851,7 +851,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.4216709, y: 0.0117816925}
+  m_Offset: {x: 0.4216709, y: -3.4428706}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -861,7 +861,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.8740747, y: 1.0692303}
+  m_Size: {x: 1.8740747, y: 0.24669266}
   m_EdgeRadius: 0
 --- !u!212 &200109389
 SpriteRenderer:
@@ -1375,7 +1375,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.06842637, y: -0.1589787}
+  m_Offset: {x: -0.04718566, y: -0.40337703}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1385,7 +1385,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.026396, y: 0.47007155}
+  m_Size: {x: 2.7485814, y: 0.9588681}
   m_EdgeRadius: 0
 --- !u!114 &464209068
 MonoBehaviour:
@@ -1402,7 +1402,7 @@ MonoBehaviour:
   indiceEscena: 15
   transicion: {fileID: 1613346573}
   tagJugador: Player
-  teclaRequerida: 0
+  teclaRequerida: 37
   retardo: 2
   nombrePuntoEntrada: arbolPas
 --- !u!212 &464209069
@@ -4402,6 +4402,7 @@ GameObject:
   - component: {fileID: 1708513812}
   - component: {fileID: 1708513811}
   - component: {fileID: 1708513810}
+  - component: {fileID: 1708513813}
   m_Layer: 0
   m_Name: npcFantasma_BuscarBar
   m_TagString: Untagged
@@ -4473,7 +4474,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.6374124, y: -0.14658764}
+  m_Offset: {x: 0.6374124, y: -0.18811333}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4483,7 +4484,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0260851, y: 0.22479898}
+  m_Size: {x: 1.0260851, y: 0.1417476}
   m_EdgeRadius: 0
 --- !u!4 &1708513812
 Transform:
@@ -4501,6 +4502,19 @@ Transform:
   - {fileID: 91958197}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1708513813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708513809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2811ef3de56a4dedb7a3ee95c7881d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HideIfFlagActive
+  flagName: cutsceneFindBar_DONE
 --- !u!1001 &1846157616
 PrefabInstance:
   m_ObjectHideFlags: 0
