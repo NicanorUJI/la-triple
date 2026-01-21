@@ -67,12 +67,7 @@ public class DominoUI : MonoBehaviour
             turn.DrawOrPass(onPlayerIndex);
         });
 
-        btnPasar.onClick.AddListener(() =>
-        {
-            if (!_gameStarted) return;
-            PlayDrawSound();
-            turn.DrawOrPass(onPlayerIndex);
-        });
+
 
         if (btnAcceptar != null)
         {
